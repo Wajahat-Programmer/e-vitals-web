@@ -1,6 +1,60 @@
+// src/components/home/AchievementsSection.tsx
 import React from 'react';
-import Image from 'next/image';
+import { FaHeartbeat, FaUserMd, FaRegSmileBeam, FaLaptopMedical, FaUserFriends, FaRegCommentDots, FaShieldAlt, FaClock } from 'react-icons/fa';
 import Button from './Button';
+
+const stats = [
+  {
+    id: 1,
+    title: '#1',
+    description: 'Most recognized virtual care brand.*',
+    icon: <FaRegSmileBeam className="text-green-600 text-4xl" />,
+    more: 'See reviews'
+  },
+  {
+    id: 2,
+    title: '88%',
+    description: 'Maintain or improve their blood pressure.*',
+    icon: <FaHeartbeat className="text-fuchsia-600 text-4xl" />,
+    more: 'Learn more'
+  },
+  {
+    id: 3,
+    title: '20+',
+    description: 'Years of virtual care expertise.',
+    icon: <FaLaptopMedical className="text-blue-600 text-4xl" />
+  },
+  {
+    id: 4,
+    title: '100M',
+    description: 'Members in the U.S.',
+    icon: <FaUserFriends className="text-indigo-600 text-4xl" />
+  },
+  {
+    id: 5,
+    title: '76%',
+    description: 'People with depression feel better after 3rd visit.',
+    icon: <FaRegCommentDots className="text-yellow-600 text-4xl" />
+  },
+  {
+    id: 6,
+    title: '40k+',
+    description: 'Providers, therapists & coaches.',
+    icon: <FaUserMd className="text-pink-600 text-4xl" />
+  },
+  {
+    id: 7,
+    title: 'Founder',
+    description: 'Of first virtual care patient safety org.',
+    icon: <FaShieldAlt className="text-red-600 text-4xl" />
+  },
+  {
+    id: 8,
+    title: '24/7',
+    description: 'Round-the-clock access to care.',
+    icon: <FaClock className="text-sky-600 text-4xl" />
+  },
+];
 
 const AchievementsSection = () => {
   return (
@@ -13,6 +67,7 @@ const AchievementsSection = () => {
         <p className="text-[#4B5563] max-w-3xl mx-auto mt-4 text-base md:text-lg">
           It started with a simple yet revolutionary idea. That everyone should have access to the best healthcare anywhere in the world or the terms. That includes you.
         </p>
+
         <div className="mt-6">
           <Button 
             text="About Us" 
@@ -21,110 +76,23 @@ const AchievementsSection = () => {
           />
         </div>
 
-        {/* Grid */}
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* Card 1 */}
-          <div className="bg-white rounded-xl shadow p-6 flex flex-col items-start text-left">
-            <span className="text-green-600 font-bold text-lg">#1</span>
-            <p className="text-sm text-gray-600 mt-1">Most recognized virtual care brand.*<br /> See reviews.</p>
-            <div className="mt-4 w-full relative h-36">
-              <Image 
-                src="/images/trustpilot-phone.png" 
-                alt="Trustpilot Phone" 
-                fill 
-                className="object-contain rounded"
-              />
-            </div>
-          </div>
-
-          {/* Card 2 */}
-          <div className="bg-white rounded-xl shadow p-6 flex flex-col items-start text-left">
-            <span className="text-fuchsia-600 font-bold text-lg">88%</span>
-            <p className="text-sm text-gray-600 mt-1">Maintain or improve their blood pressure.*<br /> Learn more.</p>
-          </div>
-
-          {/* Card 3 */}
-          <div className="bg-white rounded-xl shadow p-6 flex flex-col items-start text-left">
-            <span className="text-blue-600 font-bold text-lg">20+</span>
-            <p className="text-sm text-gray-600 mt-1">Years of virtual care expertise.</p>
-            <div className="mt-4 w-full h-36 relative">
-              <Image 
-                src="/images/care-video-thumb.jpg"
-                alt="Video Thumb"
-                fill 
-                className="object-cover rounded"
-              />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <button className="bg-white p-2 rounded-full shadow-md">
-                  <svg className="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M6 4l12 6-12 6V4z" />
-                  </svg>
-                </button>
+        {/* Stats Grid */}
+        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {stats.map(({ id, title, description, icon, more }) => (
+            <div
+              key={id}
+              className="bg-white rounded-xl shadow p-6 text-left hover:shadow-xl transition-transform hover:-translate-y-1 group cursor-pointer"
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <div className="p-3 bg-gray-100 rounded-full group-hover:scale-110 transition">{icon}</div>
+                <div className="text-xl font-bold text-[#4B0082]">{title}</div>
               </div>
+              <p className="text-sm text-gray-600">{description}</p>
+              {more && (
+                <p className="mt-1 text-xs text-indigo-600 underline hover:text-indigo-800">{more}</p>
+              )}
             </div>
-          </div>
-
-          {/* Card 4 */}
-          <div className="bg-white rounded-xl shadow p-6 flex flex-col items-start text-left">
-            <span className="text-indigo-600 font-bold text-lg">100 Million</span>
-            <p className="text-sm text-gray-600 mt-1">Members in the U.S.</p>
-            <div className="mt-4 w-full relative h-32">
-              <Image 
-                src="/assets/doctors-on-laptop.jpg"
-                alt="Doctors on Laptop"
-                fill 
-                className="object-contain rounded"
-              />
-            </div>
-          </div>
-
-          {/* Card 5 */}
-          <div className="bg-white rounded-xl shadow p-6 flex flex-col items-start text-left">
-            <p className="text-sm text-gray-600">
-              76% of people with depression feel better after their third visit with their therapist.*<br /> See reviews.
-            </p>
-          </div>
-
-          {/* Card 6 */}
-          <div className="bg-white rounded-xl shadow p-6 flex flex-col items-start text-left">
-            <div className="w-full relative h-36">
-              <Image 
-                src="/assets/video-call.jpg" 
-                alt="Video Call" 
-                fill 
-                className="object-contain rounded"
-              />
-            </div>
-          </div>
-
-          {/* Card 7 */}
-          <div className="bg-white rounded-xl shadow p-6 flex flex-col items-start text-left">
-            <div className="w-full relative h-36">
-              <Image 
-                src="/assets/doctor-talking.jpg" 
-                alt="Doctor" 
-                fill 
-                className="object-contain rounded"
-              />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <button className="bg-white p-2 rounded-full shadow-md">
-                  <svg className="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M6 4l12 6-12 6V4z" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <p className="mt-3 text-sm text-gray-600">
-              Founder of the first virtual care <br />
-              <span className="text-blue-700 font-semibold">patient safety organization</span>
-            </p>
-          </div>
-
-          {/* Card 8 */}
-          <div className="bg-white rounded-xl shadow p-6 flex flex-col items-start text-left">
-            <span className="text-pink-600 font-bold text-lg">40k+</span>
-            <p className="text-sm text-gray-600 mt-1">Providers, therapists & coaches.</p>
-          </div>
+          ))}
         </div>
       </div>
     </section>

@@ -3,13 +3,13 @@ import Image from 'next/image';
 
 const FeatureSection = () => {
   return (
-    <div className="section-padding bg-white">
+    <section className="section-padding bg-gradient-to-b from-white to-[#f6f3fa]">
       <div className="container-lg">
         {/* Heading Section */}
         <div className="text-center mb-16">
           <p
             className="font-semibold text-slate-900 mb-6 leading-snug"
-            style={{ fontSize: '30px' }}
+            style={{ fontSize: '2.1rem', lineHeight: 1.3 }}
           >
             <span className="text-[#401b62]">For your </span>
             <span className="text-[#a18adb]">patients' vitals</span>
@@ -32,7 +32,7 @@ const FeatureSection = () => {
               image: "/assets/kit.jpg",
               title: "No-Cost Welcome Kit",
               description:
-                "Your patients receive pre-configured, easy-to-use medical devices delivered to their doorstep—no setup required, no cost to them. All devices are there to keep and begin monitoring right away.",
+                "Patients receive pre-configured, easy-to-use medical devices delivered to their doorstep—no setup required, no cost to them. All devices are theirs to keep and start monitoring right away.",
             },
             {
               image: "/assets/support.jpg",
@@ -49,10 +49,10 @@ const FeatureSection = () => {
           ].map((feature, index) => (
             <div
               key={index}
-              className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 text-center"
+              className="bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 text-center hover:-translate-y-2 group"
             >
               <div className="mb-6 flex justify-center">
-                <div className="w-28 h-28 rounded-full overflow-hidden shadow-md border-4 border-white flex items-center justify-center bg-white">
+                <div className="w-28 h-28 rounded-full overflow-hidden shadow-md border-4 border-white flex items-center justify-center bg-gradient-to-tr from-[#a18adb] to-[#401b62] group-hover:scale-105 transition-transform">
                   <Image
                     src={feature.image}
                     alt={feature.title}
@@ -62,27 +62,13 @@ const FeatureSection = () => {
                   />
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">{feature.title}</h3>
-              <p className="text-slate-600 text-sm">{feature.description}</p>
+              <h3 className="text-2xl font-extrabold text-[#401b62] mb-3">{feature.title}</h3>
+              <p className="text-slate-600 text-base">{feature.description}</p>
             </div>
           ))}
         </div>
-
-        {/* Bottom CTA Section */}
-        <div className="bg-gradient-to-r from-[rgb(var(--primary-rgb))] to-[rgba(var(--primary-rgb),0.8)] rounded-2xl p-12 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
-            A high-quality care experience—anywhere, anytime
-          </h2>
-          <p className="text-blue-100 max-w-3xl mx-auto mb-8 text-lg">
-            It started with a simple yet revolutionary idea. That everyone should have access to the best healthcare
-            anywhere in the world on their terms. That includes you.
-          </p>
-          <button className="btn-primary inline-flex items-center">
-            About Us <span className="ml-2">→</span>
-          </button>
-        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
