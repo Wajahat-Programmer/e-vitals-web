@@ -3,8 +3,8 @@ import Image from 'next/image';
 
 const FeatureSection = () => {
   return (
-    <section className="section-padding bg-gradient-to-b from-white to-[#f6f3fa]">
-      <div className="container-lg">
+    <section className="section-padding bg-white">
+      <div className="container-lg mx-auto px-4">
         {/* Heading Section */}
         <div className="text-center mb-16">
           <p
@@ -49,10 +49,10 @@ const FeatureSection = () => {
           ].map((feature, index) => (
             <div
               key={index}
-              className="bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 text-center hover:-translate-y-2 group"
+              className="bg-white p-8 rounded-3xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 text-center hover:-translate-y-2 group"
             >
               <div className="mb-6 flex justify-center">
-                <div className="w-28 h-28 rounded-full overflow-hidden shadow-md border-4 border-white flex items-center justify-center bg-gradient-to-tr from-[#a18adb] to-[#401b62] group-hover:scale-105 transition-transform">
+                <div className="w-28 h-28 rounded-full overflow-hidden border border-gray-200 flex items-center justify-center group-hover:scale-105 transition-transform bg-white">
                   <Image
                     src={feature.image}
                     alt={feature.title}

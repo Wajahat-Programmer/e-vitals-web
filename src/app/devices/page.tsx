@@ -1,6 +1,7 @@
-import SubPageLayout from '@/components/home/SubPageLayout';
-import Image from 'next/image';
-import Button from '@/components/home/Button';
+"use client";
+import SubPageLayout from "@/components/home/SubPageLayout";
+import Image from "next/image";
+import Button from "@/components/home/Button";
 
 const DevicesPage = () => {
   return (
@@ -12,7 +13,7 @@ const DevicesPage = () => {
       <section className="mb-20">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl font-bold text-[#2E1065] mb-6">Precision Monitoring Devices</h2>
+            <h2 className="text-3xl font-bold text-[#4B0082] mb-6">Precision Monitoring Devices</h2>
             <p className="text-lg text-gray-600 mb-6">
               Our FDA-cleared devices provide accurate, reliable health data with seamless integration to our RPM platform. 
               Each device is designed for ease of use and clinical accuracy.
@@ -35,7 +36,7 @@ const DevicesPage = () => {
 
       {/* Device Categories */}
       <section className="mb-20">
-        <h2 className="text-3xl font-bold text-[#2E1065] mb-12 text-center">Device Categories</h2>
+        <h2 className="text-3xl font-bold text-[#4B0082] mb-12 text-center">Device Categories</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {[
             {
@@ -68,7 +69,7 @@ const DevicesPage = () => {
               </div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-xl font-bold text-[#2E1065]">{category.title}</h3>
+                  <h3 className="text-xl font-bold text-[#4B0082]">{category.title}</h3>
                   <span className="bg-[#F3E8FF] text-[#6B21A8] text-sm px-3 py-1 rounded-full">{category.count}</span>
                 </div>
                 <p className="text-gray-600 mb-4">{category.description}</p>
@@ -85,7 +86,7 @@ const DevicesPage = () => {
 
       {/* Featured Devices */}
       <section className="mb-20">
-        <h2 className="text-3xl font-bold text-[#2E1065] mb-12 text-center">Featured Devices</h2>
+        <h2 className="text-3xl font-bold text-[#4B0082] mb-12 text-center">Featured Devices</h2>
         <div className="space-y-12">
           {[
             {
@@ -132,7 +133,7 @@ const DevicesPage = () => {
                     {device.award}
                   </span>
                 )}
-                <h3 className="text-2xl font-bold text-[#2E1065] mb-3">{device.name}</h3>
+                <h3 className="text-2xl font-bold text-[#4B0082] mb-3">{device.name}</h3>
                 <p className="text-gray-600 mb-6">{device.description}</p>
                 <ul className="space-y-3 mb-8">
                   {device.features.map((feature, i) => (
@@ -162,52 +163,11 @@ const DevicesPage = () => {
         </div>
       </section>
 
-      {/* Device Setup */}
-      <section className="bg-[#FAFAFB] rounded-2xl p-12 mb-20">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#2E1065] mb-6 text-center">Simple Device Setup</h2>
-          <p className="text-lg text-gray-600 mb-12 text-center">
-            Our devices are designed for easy patient use with minimal setup required.
-          </p>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                step: "1",
-                title: "Unbox",
-                description: "Pre-configured devices arrive ready to use",
-                icon: "📦"
-              },
-              {
-                step: "2",
-                title: "Power On",
-                description: "Devices automatically connect to our network",
-                icon: "🔌"
-              },
-              {
-                step: "3",
-                title: "Start Monitoring",
-                description: "Data flows directly to your dashboard",
-                icon: "📱"
-              }
-            ].map((step, index) => (
-              <div key={index} className="bg-white p-8 rounded-xl shadow-md text-center">
-                <div className="text-4xl mb-4">{step.icon}</div>
-                <span className="inline-block bg-[#B187E8] text-white text-sm font-bold rounded-full px-3 py-1 mb-4">
-                  STEP {step.step}
-                </span>
-                <h3 className="text-xl font-bold text-[#2E1065] mb-2">{step.title}</h3>
-                <p className="text-gray-600">{step.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Support Section */}
       <section className="mb-20">
         <div className="grid md:grid-cols-2 gap-12 items-center bg-white rounded-xl shadow-md overflow-hidden">
           <div className="p-12">
-            <h2 className="text-3xl font-bold text-[#2E1065] mb-6">Comprehensive Device Support</h2>
+            <h2 className="text-3xl font-bold text-[#4B0082] mb-6">Comprehensive Device Support</h2>
             <p className="text-gray-600 mb-6">
               Our dedicated support team ensures your devices are always functioning optimally, with 24/7 technical assistance and rapid replacement if needed.
             </p>
@@ -240,7 +200,7 @@ const DevicesPage = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Final CTA */}
       <section className="bg-gradient-to-r from-[#4B0082] to-[#6A0DAD] rounded-2xl p-12 text-center text-white">
         <h2 className="text-3xl font-bold mb-6">Ready to Equip Your Practice?</h2>
         <p className="text-xl mb-8 max-w-3xl mx-auto">
@@ -259,17 +219,6 @@ const DevicesPage = () => {
           />
         </div>
       </section>
-
-            <section className="text-center px-4 mb-20">
-              <h2 className="text-3xl font-bold text-[#2E1065] mb-6">Ready to Equip Your Practice?</h2>
-              <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-                Our team can help you select the right devices for your patient population and clinical needs.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button text="Talk to Specialist" variant="primary" />
-                <Button text="Get Device Demo" variant="outline" />
-              </div>
-            </section>
     </SubPageLayout>
   );
 };
