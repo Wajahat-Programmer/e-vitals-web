@@ -9,7 +9,7 @@ const FeatureSection = () => {
         <div className="text-center mb-16">
           <p
             className="font-semibold text-slate-900 mb-6 leading-snug"
-            style={{ fontSize: '2.1rem', lineHeight: 1.3 }}
+            style={{ fontSize: '2.2rem', lineHeight: 1.4 }}
           >
             <span className="text-[#401b62]">For your </span>
             <span className="text-[#a18adb]">patients' vitals</span>
@@ -49,21 +49,21 @@ const FeatureSection = () => {
           ].map((feature, index) => (
             <div
               key={index}
-              className="bg-white p-8 rounded-3xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 text-center hover:-translate-y-2 group"
+              className="bg-white p-10 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 text-center hover:-translate-y-2 group"
             >
               <div className="mb-6 flex justify-center">
-                <div className="w-28 h-28 rounded-full overflow-hidden border border-gray-200 flex items-center justify-center group-hover:scale-105 transition-transform bg-white">
+                <div className="w-40 h-40 overflow-hidden border border-gray-200 flex items-center justify-center group-hover:scale-105 transition-transform bg-white rounded-2xl">
                   <Image
                     src={feature.image}
                     alt={feature.title}
-                    width={100}
-                    height={100}
-                    className="object-contain"
+                    width={150}
+                    height={150}
+                    className="object-cover"
                   />
                 </div>
               </div>
-              <h3 className="text-2xl font-extrabold text-[#401b62] mb-3">{feature.title}</h3>
-              <p className="text-slate-600 text-base">{feature.description}</p>
+              <h3 className="text-2xl font-bold text-[#401b62] mb-4">{feature.title}</h3>
+              <p className="text-slate-600 text-[1.05rem] leading-relaxed">{feature.description}</p>
             </div>
           ))}
         </div>

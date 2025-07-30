@@ -1,16 +1,69 @@
-"use client";
-import SubPageLayout from "@/components/home/SubPageLayout";
-import Image from "next/image";
-import Button from "@/components/home/Button";
+'use client';
+import Image from 'next/image';
+import SubPageLayout from '@/components/home/SubPageLayout';
+import Button from '@/components/home/Button';
 
 const DevicesPage = () => {
+  const featuredDevices = [
+    {
+      name: 'Blood Pressure Monitor',
+      description: 'Track both blood glucose and pressure in one device — designed for ease and accuracy.',
+      award: 'Popular',
+      features: [
+        'Smart Averaging Technology',
+        'Built-in Cellular SIM',
+        'Spoken results in English/Spanish',
+        'Compact and lightweight',
+      ],
+      image: '/assets/bp-glucose-device.jpg',
+    },
+    {
+      name: 'Bluetooth Weight Scale',
+      description: 'A medical-grade scale with wide platform, high capacity, and automatic data transmission.',
+      award: 'New',
+      features: [
+        'Supports up to 550 lbs',
+        'Large backlit LCD',
+        'Low profile design',
+        'Multilingual support',
+      ],
+      image: '/assets/pro-scale.jpg',
+    },
+  ];
+
   return (
     <SubPageLayout 
       title="Our Devices" 
       description="Clinically validated monitoring devices for comprehensive remote care."
     >
+      {/* Hero Section */}
+      <section className="relative w-full h-screen overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/assets/devices-hero.jpg"
+            alt="Our RPM Devices"
+            fill
+            className="object-cover"
+            quality={90}
+            priority
+          />
+          <div className="absolute inset-0 bg-black/50" />
+        </div>
+
+        <div className="relative z-10 h-full flex items-center justify-center text-center">
+          <div className="max-w-3xl px-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Our Remote Monitoring Devices
+            </h1>
+            <p className="text-lg md:text-xl text-gray-200">
+              Clinically validated RPM tools that enable better care — anytime, anywhere.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Devices Intro */}
-      <section className="mb-20">
+      <section className="mb-20 px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-3xl font-bold text-[#4B0082] mb-6">Precision Monitoring Devices</h2>
@@ -25,7 +78,7 @@ const DevicesPage = () => {
           </div>
           <div className="relative h-80 md:h-96">
             <Image 
-              src="/assets/all-devices.png" 
+              src="/assets/devices pic 1.jpg" 
               alt="e-Vitals Devices" 
               fill
               className="object-contain"
@@ -35,7 +88,7 @@ const DevicesPage = () => {
       </section>
 
       {/* Device Categories */}
-      <section className="mb-20">
+      <section className="mb-20 px-4">
         <h2 className="text-3xl font-bold text-[#4B0082] mb-12 text-center">Device Categories</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {[
@@ -85,47 +138,10 @@ const DevicesPage = () => {
       </section>
 
       {/* Featured Devices */}
-      <section className="mb-20">
+      <section className="mb-20 px-4">
         <h2 className="text-3xl font-bold text-[#4B0082] mb-12 text-center">Featured Devices</h2>
         <div className="space-y-12">
-          {[
-            {
-              name: "BP+Glucose 2-in-1 Monitor",
-              description: "The only device that measures both blood pressure and glucose with clinical accuracy in one compact unit.",
-              features: [
-                "FDA-cleared for accuracy",
-                "Built-in cellular connectivity",
-                "Voice-guided operation",
-                "Smart averaging technology"
-              ],
-              image: "/assets/bp-glucose-device.jpg",
-              award: "Best RPM Device 2023"
-            },
-            {
-              name: "Pro Weight Scale",
-              description: "High-capacity scale with body composition analysis and seamless data transmission.",
-              features: [
-                "Supports up to 550 lbs (250 kg)",
-                "Measures BMI and body fat %",
-                "Bluetooth and cellular options",
-                "Large backlit display"
-              ],
-              image: "/assets/pro-scale.jpg",
-              award: "Editors' Choice"
-            },
-            {
-              name: "Pulse Oximeter Pro",
-              description: "Hospital-grade SpO2 monitoring with perfusion index and plethysmograph.",
-              features: [
-                "FDA 510(k) cleared",
-                "Continuous or spot check modes",
-                "Low perfusion performance",
-                "Multi-directional display"
-              ],
-              image: "/assets/oximeter.jpg",
-              award: "Innovation Award"
-            }
-          ].map((device, index) => (
+          {featuredDevices.map((device, index) => (
             <div key={index} className="grid md:grid-cols-2 gap-8 bg-white rounded-xl shadow-md overflow-hidden">
               <div className="p-8">
                 {device.award && (
@@ -164,7 +180,7 @@ const DevicesPage = () => {
       </section>
 
       {/* Support Section */}
-      <section className="mb-20">
+      <section className="mb-20 px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center bg-white rounded-xl shadow-md overflow-hidden">
           <div className="p-12">
             <h2 className="text-3xl font-bold text-[#4B0082] mb-6">Comprehensive Device Support</h2>
@@ -201,22 +217,26 @@ const DevicesPage = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="bg-gradient-to-r from-[#4B0082] to-[#6A0DAD] rounded-2xl p-12 text-center text-white">
-        <h2 className="text-3xl font-bold mb-6">Ready to Equip Your Practice?</h2>
-        <p className="text-xl mb-8 max-w-3xl mx-auto">
-          Our team can help you select the right devices for your patient population and clinical needs.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button 
-            text="Get Device Demo" 
-            variant="primary" 
-            className="bg-white text-[#4B0082] hover:bg-gray-100 px-8 py-3 text-lg"
-          />
-          <Button 
-            text="Talk to Specialist" 
-            variant="outline" 
-            className="border-white text-white hover:bg-white hover:text-[#4B0082] px-8 py-3 text-lg"
-          />
+      <section className="relative text-center px-4 mb-20 py-16 bg-gradient-to-br from-purple-100 via-purple-200 to-purple-100 rounded-3xl shadow-xl overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <svg width="100%" height="100%" viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full opacity-10">
+            <circle cx="100" cy="100" r="80" fill="#a78bfa" />
+            <circle cx="500" cy="80" r="60" fill="#7c3aed" />
+            <circle cx="300" cy="180" r="40" fill="#c4b5fd" />
+          </svg>
+        </div>
+        <div className="relative z-10">
+          <h2 className="text-3xl font-bold text-purple-900 mb-6">Let’s Make Care Easier — Together</h2>
+          <p className="text-xl text-gray-800 mb-8 max-w-3xl mx-auto">
+            Want to see how E-Vitals can simplify patient monitoring, reduce staff load, and grow your practice?
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              text="Schedule Consultation"
+              variant="primary"
+              className="bg-gradient-to-r from-purple-700 to-purple-900 text-white px-6 py-3 rounded-full hover:opacity-90 transition font-semibold shadow-lg"
+            />
+          </div>
         </div>
       </section>
     </SubPageLayout>

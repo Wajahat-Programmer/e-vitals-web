@@ -1,70 +1,8 @@
 // src/components/home/AchievementsSection.tsx
 import React from 'react';
 import Link from 'next/link';
-import {
-  FaHeartbeat,
-  FaUserMd,
-  FaRegSmileBeam,
-  FaLaptopMedical,
-  FaUserFriends,
-  FaRegCommentDots,
-  FaShieldAlt,
-  FaClock,
-} from 'react-icons/fa';
+import Image from 'next/image';
 import Button from './Button';
-
-const stats = [
-  {
-    id: 1,
-    title: '#1',
-    description: 'Most recognized virtual care brand.*',
-    icon: <FaRegSmileBeam className="text-green-600 text-4xl" />,
-    more: 'See reviews',
-  },
-  {
-    id: 2,
-    title: '88%',
-    description: 'Maintain or improve their blood pressure.*',
-    icon: <FaHeartbeat className="text-fuchsia-600 text-4xl" />,
-    more: 'Learn more',
-  },
-  {
-    id: 3,
-    title: '20+',
-    description: 'Years of virtual care expertise.',
-    icon: <FaLaptopMedical className="text-blue-600 text-4xl" />,
-  },
-  {
-    id: 4,
-    title: '100M',
-    description: 'Members in the U.S.',
-    icon: <FaUserFriends className="text-indigo-600 text-4xl" />,
-  },
-  {
-    id: 5,
-    title: '76%',
-    description: 'People with depression feel better after 3rd visit.',
-    icon: <FaRegCommentDots className="text-yellow-600 text-4xl" />,
-  },
-  {
-    id: 6,
-    title: '40k+',
-    description: 'Providers, therapists & coaches.',
-    icon: <FaUserMd className="text-pink-600 text-4xl" />,
-  },
-  {
-    id: 7,
-    title: 'Founder',
-    description: 'Of first virtual care patient safety org.',
-    icon: <FaShieldAlt className="text-red-600 text-4xl" />,
-  },
-  {
-    id: 8,
-    title: '24/7',
-    description: 'Round-the-clock access to care.',
-    icon: <FaClock className="text-sky-600 text-4xl" />,
-  },
-];
 
 const AchievementsSection = () => {
   return (
@@ -98,23 +36,15 @@ const AchievementsSection = () => {
             </Link>
           </div>
 
-          {/* Stats Grid */}
-          <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {stats.map(({ id, title, description, icon, more }) => (
-              <div
-                key={id}
-                className="bg-white rounded-xl shadow p-6 text-left hover:shadow-xl transition-transform hover:-translate-y-1 group cursor-pointer"
-              >
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="p-3 bg-gray-100 rounded-full group-hover:scale-110 transition">{icon}</div>
-                  <div className="text-xl font-bold text-[#4B0082]">{title}</div>
-                </div>
-                <p className="text-sm text-gray-600">{description}</p>
-                {more && (
-                  <p className="mt-1 text-xs text-indigo-600 underline hover:text-indigo-800">{more}</p>
-                )}
-              </div>
-            ))}
+          {/* PNG Image */}
+          <div className="mt-16 flex justify-center">
+            <Image
+              src="/assets/Inudstrial-Automation.png"
+              alt="Achievements Overview"
+              width={1200}
+              height={800}
+              className="rounded-xl shadow-md"
+            />
           </div>
         </div>
       </section>

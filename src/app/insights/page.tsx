@@ -113,26 +113,21 @@ const InsightsPage = () => {
         </div>
       </section>
 
-      {/* Feature Grid */}
-      <section className="mb-20">
-        <h2 className="text-3xl font-bold text-[#2E1065] mb-12 text-center">Powerful Analytics Features</h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          {[
-            { title: "Real-time Dashboards", icon: "📊", description: "Customizable views of patient data with drill-down capabilities." },
-            { title: "Trend Analysis", icon: "📈", description: "Visualize patient progress over time with intuitive charts." },
-            { title: "Risk Stratification", icon: "⚠️", description: "Identify high-risk patients with predictive algorithms." },
-            { title: "Quality Metrics", icon: "🏆", description: "Track performance on key clinical quality measures." },
-            { title: "Billing Reports", icon: "💰", description: "Generate RPM and CCM billing documentation automatically." },
-            { title: "Custom Exports", icon: "📤", description: "Export data for further analysis in your preferred format." },
-          ].map((feature, index) => (
-            <div key={index} className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg hover:bg-[#F9F5FF] transition">
-              <div className="text-4xl mb-4">{feature.icon}</div>
-              <h3 className="text-xl font-bold text-[#2E1065] mb-3">{feature.title}</h3>
-              <p className="text-gray-600">{feature.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* Feature Grid (Replaced by Image) */}
+<section className="mb-20">
+  <h2 className="text-3xl font-bold text-[#2E1065] mb-12 text-center">Powerful Analytics Features</h2>
+  <div className="flex justify-center">
+    <Image
+      src="/assets/insights.png"
+      alt="Analytics visual"
+      width={1000}
+      height={600}
+      className="rounded-xl shadow-lg hover:scale-105 transition duration-300"
+      priority
+    />
+  </div>
+</section>
+
 
       {/* Data Sources */}
       <section className="mb-20 max-w-3xl mx-auto">
@@ -147,25 +142,30 @@ const InsightsPage = () => {
         </details>
       </section>
 
-      {/* What's Next */}
-      <section className="text-center mb-20">
-        <h2 className="text-2xl font-bold text-[#2E1065] mb-4">What’s Next in Insights?</h2>
-        <p className="text-gray-600 max-w-xl mx-auto">
-          Soon you’ll be able to track real-time vitals, generate predictive alerts, and benchmark care quality against national standards.
-        </p>
-      </section>
 
-      {/* CTA */}
-      <section className="text-center">
-        <h2 className="text-3xl font-bold text-[#2E1065] mb-6">Ready to Unlock Your Data's Potential?</h2>
-        <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-          Discover how our analytics can transform your practice's approach to patient care.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button text="Request Demo" variant="primary" />
-          <Button text="Browse Resources" variant="outline" />
-        </div>
-      </section>
+      {/* Final CTA */}
+            <section className="relative text-center px-4 mb-20 py-16 bg-gradient-to-br from-purple-100 via-purple-200 to-purple-100 rounded-3xl shadow-xl overflow-hidden">
+              <div className="absolute inset-0 pointer-events-none">
+                <svg width="100%" height="100%" viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full opacity-10">
+                  <circle cx="100" cy="100" r="80" fill="#a78bfa" />
+                  <circle cx="500" cy="80" r="60" fill="#7c3aed" />
+                  <circle cx="300" cy="180" r="40" fill="#c4b5fd" />
+                </svg>
+              </div>
+              <div className="relative z-10">
+                <h2 className="text-3xl font-bold text-purple-900 mb-6">Let’s Make Care Easier — Together</h2>
+                <p className="text-xl text-gray-800 mb-8 max-w-3xl mx-auto">
+                  Want to see how E-Vitals can simplify patient monitoring, reduce staff load, and grow your practice?
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button
+                    text="Schedule Consultation"
+                    variant="primary"
+                    className="bg-gradient-to-r from-purple-700 to-purple-900 text-white px-6 py-3 rounded-full hover:opacity-90 transition font-semibold shadow-lg"
+                  />
+                </div>
+              </div>
+            </section>
     </SubPageLayout>
   );
 };
