@@ -1,22 +1,18 @@
-import SubPageLayout from '@/components/home/SubPageLayout';
 import Image from 'next/image';
 import Button from '@/components/home/Button';
 
 const BloodPressureMonitoring = () => {
   return (
-    <SubPageLayout 
-      title="Smart BP Monitoring" 
-      description="Advanced hypertension management with AI-powered insights and real-time tracking."
-    >
+    <main className="bg-white text-black">
       {/* Hero Section */}
-      <section className="mb-20">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+      <section className="px-6 py-20 bg-gradient-to-br from-purple-100 via-purple-200 to-purple-100 rounded-b-3xl shadow-md">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl font-bold text-[#2E1065] mb-6">Revolutionary Blood Pressure Care</h2>
-            <p className="text-lg text-gray-600 mb-6">
-              e-Vitals' SmartBP system combines medical-grade monitoring with predictive analytics to 
-              prevent hypertensive crises before they occur. Our solution detects subtle patterns 
-              that often precede dangerous spikes.
+            <h1 className="text-4xl font-bold text-[#2E1065] mb-6">
+              Smart BP Monitoring
+            </h1>
+            <p className="text-lg text-gray-700 mb-6">
+              Advanced hypertension management with AI-powered insights and real-time tracking.
             </p>
             <div className="flex gap-4">
               <Button text="See How It Works" variant="primary" />
@@ -27,33 +23,33 @@ const BloodPressureMonitoring = () => {
             <Image 
               src="/assets/smart-bp-hero.jpg" 
               alt="AI Blood Pressure Monitoring" 
-              fill
-              className="object-cover"
-              priority
+              fill 
+              className="object-cover" 
+              priority 
             />
           </div>
         </div>
       </section>
 
       {/* Unique Value Proposition */}
-      <section className="mb-20 bg-[#F9F5FF] p-12 rounded-2xl">
+      <section className="mb-20 bg-[#F9F5FF] p-12 rounded-2xl mt-12">
         <h2 className="text-3xl font-bold text-[#2E1065] mb-12 text-center">The e-Vitals Difference</h2>
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {[
             {
               title: "Predictive Alerts",
-              description: "Our AI identifies at-risk patients 48-72 hours before critical events",
-              icon: "🔮"
+              description: "AI identifies at-risk patients 48-72 hours before crises.",
+              icon: "🧠"
             },
             {
               title: "Circadian Analytics",
-              description: "Tracks morning surge and nocturnal dipping patterns automatically",
-              icon: "⏰"
+              description: "Monitors morning surges and nocturnal dips in blood pressure.",
+              icon: "🕒"
             },
             {
               title: "Medication Impact",
-              description: "Visualizes how each medication affects individual BP trends",
-              icon: "💊"
+              description: "Shows how medications influence blood pressure over time.",
+              icon: "💉"
             }
           ].map((item, index) => (
             <div key={index} className="bg-white p-8 rounded-xl shadow-sm text-center">
@@ -66,26 +62,26 @@ const BloodPressureMonitoring = () => {
       </section>
 
       {/* Clinical Workflow */}
-      <section className="mb-20">
+      <section className="mb-20 px-6">
         <h2 className="text-3xl font-bold text-[#2E1065] mb-12 text-center">Seamless Clinical Integration</h2>
-        <div className="space-y-12">
+        <div className="space-y-12 max-w-6xl mx-auto">
           {[
             {
-              step: "1",
+              step: "",
               title: "Smart Device Pairing",
-              description: "Patients receive pre-configured BP cuffs that auto-pair with our secure platform",
+              description: "Pre-configured BP cuffs auto-connect with our secure system.",
               image: "/assets/bp-pairing.jpg"
             },
             {
-              step: "2",
+              step: "",
               title: "Intelligent Data Capture",
-              description: "Devices validate proper technique and flag irregular readings in real-time",
+              description: "Validates technique and flags irregular readings instantly.",
               image: "/assets/bp-data-capture.jpg"
             },
             {
-              step: "3",
+              step: "",
               title: "Clinician Dashboard",
-              description: "Color-coded patient matrix prioritizes those needing immediate attention",
+              description: "Color-coded patient views for urgent attention.",
               image: "/assets/bp-dashboard.jpg"
             }
           ].map((item, index) => (
@@ -101,8 +97,8 @@ const BloodPressureMonitoring = () => {
                 <Image 
                   src={item.image} 
                   alt={item.title} 
-                  fill
-                  className="object-cover"
+                  fill 
+                  className="object-cover" 
                 />
               </div>
             </div>
@@ -111,25 +107,29 @@ const BloodPressureMonitoring = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-br from-[#3A0072] to-[#7B2CBF] rounded-2xl p-12 text-center text-white">
-        <h2 className="text-3xl font-bold mb-6">Transform Your Hypertension Management</h2>
-        <p className="text-xl mb-8 max-w-3xl mx-auto">
-          Reduce preventable hospitalizations and improve quality of life with our next-gen BP monitoring.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button 
-            text="Schedule Demo" 
-            variant="primary" 
-            className="bg-white text-[#4B0082] hover:bg-gray-100 px-8 py-3 text-lg"
-          />
-          <Button 
-            text="Download White Paper" 
-            variant="outline" 
-            className="border-white text-white hover:bg-white hover:text-[#4B0082] px-8 py-3 text-lg"
-          />
+      <section className="relative text-center px-6 py-16 bg-gradient-to-br from-purple-100 via-purple-200 to-purple-100 rounded-3xl shadow-xl overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <svg width="100%" height="100%" viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full opacity-10">
+            <circle cx="100" cy="100" r="80" fill="#a78bfa" />
+            <circle cx="500" cy="80" r="60" fill="#7c3aed" />
+            <circle cx="300" cy="180" r="40" fill="#c4b5fd" />
+          </svg>
+        </div>
+        <div className="relative z-10">
+          <h2 className="text-3xl font-bold text-purple-900 mb-6">Let’s Make Care Easier — Together</h2>
+          <p className="text-xl text-gray-800 mb-8 max-w-3xl mx-auto">
+            Want to see how E-Vitals can simplify patient monitoring, reduce staff load, and grow your practice?
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              text="Schedule Consultation"
+              variant="primary"
+              className="bg-gradient-to-r from-purple-700 to-purple-900 text-white px-6 py-3 rounded-full hover:opacity-90 transition font-semibold shadow-lg"
+            />
+          </div>
         </div>
       </section>
-    </SubPageLayout>
+    </main>
   );
 };
 

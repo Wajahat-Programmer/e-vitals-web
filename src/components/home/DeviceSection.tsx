@@ -30,7 +30,7 @@ const DeviceSection = () => {
           <div className="flex-1">
             <h3 className="text-2xl md:text-3xl font-bold text-[#29003C] mb-4 flex items-center gap-2">
               <span className="inline-block bg-[#e0f2f7] rounded-full px-4 py-1 text-sm font-semibold text-[#1e1e2f] shadow-sm">
-              
+               
               </span>
               Blood Pressure & Glucose Monitoring System
             </h3>
