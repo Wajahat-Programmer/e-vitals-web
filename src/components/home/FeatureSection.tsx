@@ -12,7 +12,7 @@ const FeatureSection = () => {
             style={{ fontSize: '2.2rem', lineHeight: 1.4 }}
           >
             <span className="text-[#401b62]">For your </span>
-            <span className="text-[#a18adb]">patients' vitals</span>
+            <span className="text-[#a18adb]">patients&rsquo; vitals</span>
             <span className="text-[#401b62]">. For your </span>
             <span className="text-[#a18adb]">clinical decisions</span>
             <span className="text-[#401b62]">. For </span>

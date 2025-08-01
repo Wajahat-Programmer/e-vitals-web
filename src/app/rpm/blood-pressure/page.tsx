@@ -35,13 +35,6 @@ const BloodPressureMonitoring = () => {
               Combat hypertension with our AI-powered monitoring system that
               detects risks before they become emergencies.
             </p>
-            {/* <div className="flex flex-wrap justify-center gap-4">
-              <Button
-                text="See How It Works"
-                variant="primary"
-                className="px-8 py-3 text-lg"
-              />
-            </div> */}
           </div>
         </div>
       </section>
