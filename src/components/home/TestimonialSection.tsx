@@ -74,12 +74,12 @@ const TestimonialSection = () => {
             <h3 className="text-xl md:text-3xl font-bold text-white mb-6 drop-shadow-md">
               You'll find us in more than 600 U.S hospitals too
             </h3>
-            <button
+            {/* <button
               aria-label="Learn more about hospital partners"
               className="px-6 py-3 bg-[#411C6B] text-white font-medium rounded-lg hover:bg-[#592085] transition-colors shadow-md"
             >
               Learn More
-            </button>
+            </button> */}
           </div>
         </div>
 

@@ -1,7 +1,8 @@
-'use client';
-import React from 'react';
-import Image from 'next/image';
-import Button from './Button';
+"use client";
+import React from "react";
+import Image from "next/image";
+import Button from "./Button";
+import Link from "next/link";
 
 const DeviceSection = () => {
   return (
@@ -30,14 +31,16 @@ const DeviceSection = () => {
           <div className="flex-1">
             <h3 className="text-2xl md:text-3xl font-bold text-[#29003C] mb-4 flex items-center gap-2">
               <span className="inline-block bg-[#e0f2f7] rounded-full px-4 py-1 text-sm font-semibold text-[#1e1e2f] shadow-sm">
-               
+                New
               </span>
               Blood Pressure & Glucose Monitoring System
             </h3>
             <p className="text-gray-700 mb-6 leading-relaxed text-lg">
-              Remotely monitor and adjust treatment plans to keep chronic diseases under control.
-              Patients can easily monitor their blood glucose and pressure themselves or with a caregiver — anytime, anywhere.
-              Device data is automatically transmitted to the eVitals RPM Telehealth System via built-in cellular connectivity.
+              Remotely monitor and adjust treatment plans to keep chronic
+              diseases under control. Patients can easily monitor their blood
+              glucose and pressure themselves or with a caregiver — anytime,
+              anywhere. Device data is automatically transmitted to the eVitals
+              RPM Telehealth System via built-in cellular connectivity.
             </p>
 
             <ul className="list-disc pl-6 text-gray-700 space-y-2 text-base">
@@ -84,10 +87,12 @@ const DeviceSection = () => {
 
         {/* CTA Button */}
         <div className="mt-20 flex justify-center">
+          <Link href="/for-organizations">
           <Button
             text="Become our Technology Partner"
             className="text-lg px-8 py-4 rounded-full shadow-lg bg-gradient-to-r from-[#29003C] to-[#6d28d9] hover:from-[#6d28d9] hover:to-[#29003C] transition-colors duration-300"
           />
+          </Link>
         </div>
       </div>
     </section>

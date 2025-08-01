@@ -33,7 +33,7 @@ const Hero: React.FC = () => {
 
           {/* CTA Button */}
           <Link
-            href="#"
+            href="/for-organizations"
             className="bg-[#36036B] hover:bg-[#4b0d8d] text-white text-base font-semibold px-6 py-3 rounded-md shadow-md transition duration-300 inline-block"
           >
             Get Started →

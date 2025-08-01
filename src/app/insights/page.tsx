@@ -5,6 +5,7 @@ import {
   LineChart, Line, BarChart, Bar, PieChart, Pie, Cell,
   XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Legend
 } from 'recharts';
+import Link from 'next/link';
 
 // Dummy data
 const riskTrendData = [
@@ -36,20 +37,22 @@ const InsightsPage = () => {
     <main className="bg-white text-black">
 
       {/* Hero Section */}
-      <section className="relative w-full h-[500px] overflow-hidden rounded-b-3xl">
+      <section className="relative w-full h-screen overflow-hidden rounded-b-3xl">
         <Image
-          src="/assets/insights.png"
+          src="/assets/data_insights_hero.jpg"
           alt="Insights Background"
           fill
           className="object-cover opacity-80"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-white/40 z-10"></div>
+        
+        <div className="absolute inset-0 bg-black/50" />
+        {/* <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-white/40 z-10"></div> */}
         <div className="absolute z-20 inset-0 flex flex-col items-center justify-center text-center px-6">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#2E1065] mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Data Insights
           </h1>
-          <p className="text-lg md:text-xl text-gray-700 max-w-2xl">
+          <p className="text-lg text-white md:text-xl text-gray-700 max-w-2xl">
             Actionable analytics for better patient outcomes and practice growth.
           </p>
         </div>
@@ -58,10 +61,10 @@ const InsightsPage = () => {
       {/* Summary Metrics */}
       <section className="max-w-7xl mx-auto px-4 py-16 grid md:grid-cols-4 gap-6">
         {[
-          { label: "Active Patients", value: "—", unit: "" },
-          { label: "Avg. Risk Score", value: "—", unit: "" },
-          { label: "30-Day Readmissions", value: "—", unit: "%" },
-          { label: "Last Month Billing", value: "—", unit: "PKR" },
+          { label: "Active Patients", value: "187", unit: "" },
+          { label: "Avg. Risk Score", value: "3.8/5", unit: "" },
+          { label: "30-Day Readmissions", value: "4.2", unit: "%" },
+          { label: "Last Month Billing", value: "7,580", unit: "$" },
         ].map((item, index) => (
           <div key={index} className="bg-white shadow rounded-xl p-6 text-center hover:shadow-md transition">
             <p className="text-sm text-gray-500 mb-1">{item.label}</p>
@@ -131,7 +134,7 @@ const InsightsPage = () => {
       </section>
 
       {/* Data Sources */}
-      <section className="max-w-3xl mx-auto px-4 mb-20">
+      {/* <section className="max-w-3xl mx-auto px-4 mb-20">
         <details className="bg-white rounded-xl p-6 shadow">
           <summary className="font-semibold text-[#2E1065] cursor-pointer">
             Data Sources & Methodology
@@ -141,7 +144,7 @@ const InsightsPage = () => {
             Predictive risk models are updated monthly based on clinical performance trends.
           </p>
         </details>
-      </section>
+      </section> */}
 
       {/* CTA */}
       <section className="relative text-center px-4 mb-20 py-16 bg-gradient-to-br from-purple-100 via-purple-200 to-purple-100 rounded-3xl shadow-xl overflow-hidden">
@@ -158,11 +161,13 @@ const InsightsPage = () => {
             Want to see how E-Vitals can simplify patient monitoring, reduce staff load, and grow your practice?
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              text="Schedule Consultation"
-              variant="primary"
-              className="bg-gradient-to-r from-purple-700 to-purple-900 text-white px-6 py-3 rounded-full hover:opacity-90 transition font-semibold shadow-lg"
-            />
+            <Link href="/demo">
+              <Button
+                text="Schedule Consultation"
+                variant="primary"
+                className="bg-gradient-to-r from-purple-700 to-purple-900 text-white px-6 py-3 rounded-full hover:opacity-90 transition font-semibold shadow-lg"
+              />
+            </Link>
           </div>
         </div>
       </section>
