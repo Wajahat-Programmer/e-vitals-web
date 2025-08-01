@@ -87,12 +87,12 @@ const DeviceSection = () => {
 
         {/* CTA Button */}
         <div className="mt-20 flex justify-center">
-          <Link href="/for-organizations">
-          <Button
-            text="Become our Technology Partner"
-            className="text-lg px-8 py-4 rounded-full shadow-lg bg-gradient-to-r from-[#29003C] to-[#6d28d9] hover:from-[#6d28d9] hover:to-[#29003C] transition-colors duration-300"
-          />
-          </Link>
+          <Link
+        href="/for-organizations"
+        className="bg-gradient-to-r from-purple-700 to-purple-900 text-white px-6 py-3 rounded-full hover:opacity-90 transition font-semibold shadow-lg"
+      >
+        Become our Technology Partner
+      </Link>
         </div>
       </div>
     </section>

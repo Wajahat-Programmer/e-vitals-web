@@ -24,7 +24,8 @@ const WeightMonitoring = () => {
               4G Devices
             </h1>
             <p className="text-lg md:text-xl text-gray-200">
-              Stay connected with high-speed 4G-enabled devices for seamless data transmission and remote monitoring.
+              Stay connected with high-speed 4G-enabled devices for seamless
+              data transmission and remote monitoring.
             </p>
           </div>
         </div>
@@ -190,12 +191,11 @@ const WeightMonitoring = () => {
             staff load, and grow your practice?
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/demo">
-              <Button
-                text="Schedule Consultation"
-                variant="primary"
-                className="bg-gradient-to-r from-purple-700 to-purple-900 text-white px-6 py-3 rounded-full hover:opacity-90 transition font-semibold shadow-lg"
-              />
+            <Link
+              href="/demo"
+              className="bg-gradient-to-r from-purple-700 to-purple-900 text-white px-6 py-3 rounded-full hover:opacity-90 transition font-semibold shadow-lg"
+            >
+              Schedule Consultation
             </Link>
           </div>
         </div>

@@ -177,13 +177,12 @@ const ServicesPage = () => {
               staff load, and grow your practice?
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/demo">
-                <Button
-                  text="Schedule Consultation"
-                  variant="primary"
-                  className="bg-gradient-to-r from-purple-700 to-purple-900 text-white px-6 py-3 rounded-full hover:opacity-90 transition font-semibold shadow-lg"
-                />
-              </Link>
+              <Link
+              href="/demo"
+              className="bg-gradient-to-r from-purple-700 to-purple-900 text-white px-6 py-3 rounded-full hover:opacity-90 transition font-semibold shadow-lg"
+            >
+              Schedule Consultation
+            </Link>
             </div>
           </div>
         </section>
