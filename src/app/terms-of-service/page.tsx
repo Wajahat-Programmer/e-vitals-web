@@ -66,7 +66,7 @@ const TermsOfService = () => {
                       <li>Violate any applicable laws or regulations</li>
                       <li>Infringe intellectual property rights</li>
                       <li>Transmit harmful or malicious content</li>
-                      <li>Interfere with the Services' operation</li>
+                      <li>Interfere with the Services&rsquo; operation</li>
                     </ul>
                   </>
                 )
