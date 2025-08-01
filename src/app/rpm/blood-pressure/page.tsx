@@ -62,7 +62,7 @@ const BloodPressureMonitoring = () => {
                 </h3>
                 <p className="text-gray-700">
                   High blood pressure quietly damages blood vessels and leads to
-                  serious health problems. Fortunately, it's both preventable
+                  serious health problems. Fortunately, it&rsquo;s both preventable
                   and treatable with proper monitoring.
                 </p>
               </div>

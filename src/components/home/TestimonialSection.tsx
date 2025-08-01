@@ -72,7 +72,7 @@ const TestimonialSection = () => {
           {/* Banner Content */}
           <div className="absolute inset-0 flex flex-col items-center justify-center z-10 p-6 md:p-12 text-center">
             <h3 className="text-xl md:text-3xl font-bold text-white mb-6 drop-shadow-md">
-              You'll find us in more than 600 U.S hospitals too
+              You&rsquo;ll find us in more than 600 U.S hospitals too
             </h3>
             {/* <button
               aria-label="Learn more about hospital partners"

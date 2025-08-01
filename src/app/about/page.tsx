@@ -130,34 +130,11 @@ const AboutPage = () => {
               Through Innovation
             </h1>
             <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
-              We're revolutionizing remote patient monitoring with cutting-edge
-              technology and compassionate care.
+              We&rsquo;re revolutionizing remote patient monitoring with
+              cutting-edge technology and compassionate care.
             </p>
-            {/* <button className="bg-white text-purple-900 hover:bg-purple-100 px-8 py-3 rounded-full font-semibold shadow-lg transition-all duration-300">
-              Learn Our Story
-            </button> */}
           </motion.div>
         </div>
-
-        {/* Scroll indicator
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-          <motion.div
-            animate={{ 
-              y: [0, 10, 0],
-              opacity: [0.6, 1, 0.6]
-            }}
-            transition={{ 
-              duration: 1.5,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="text-white"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-          </motion.div>
-        </div> */}
       </section>
 
       {/* Mission Section */}

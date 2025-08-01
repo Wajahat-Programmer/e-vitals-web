@@ -36,7 +36,7 @@ const TermsOfService = () => {
           <div className="mb-16">
             <h2 className="text-3xl font-bold text-purple-900 mb-6">Effective Date: January 1, 2023</h2>
             <p className="text-lg text-gray-700 mb-6">
-              These Terms of Service ("Terms") govern your access to and use of e-Vitals' website, products, and services ("Services"). By accessing or using our Services, you agree to be bound by these Terms.
+              These Terms of Service (&rsquo;Terms&rsquo;) govern your access to and use of e-Vitals&rsquo; website, products, and services (&rsquo;Services&rsquo;). By accessing or using our Services, you agree to be bound by these Terms.
             </p>
           </div>
 
