@@ -11,7 +11,7 @@ const StatsGrid = () => {
           <div className="bg-gray-50 p-6 rounded-2xl shadow text-center">
             <h3 className="text-[#270949] text-3xl font-bold">#1</h3>
             <p className="text-sm text-gray-800">
-              Most recognized virtual care brand.*
+              Most recognized remote patient monitoring platform.
             </p>
             {/* <p className="text-sm text-[#270949] underline cursor-pointer mt-1">
               See reviews
@@ -34,7 +34,7 @@ const StatsGrid = () => {
             <div className="bg-gray-50 p-6 rounded-2xl shadow text-center flex flex-col justify-center">
               <h3 className="text-[#270949] text-3xl font-bold">88%</h3>
               <p className="text-sm text-gray-700">
-                Maintain or improve their blood pressure.*
+                Patients adhere better to care plans with continuous monitoring.
               </p>
               {/* <p className="text-xs text-[#270949] underline cursor-pointer mt-1">
                 Learn more
@@ -43,7 +43,7 @@ const StatsGrid = () => {
             <div className="bg-gray-50 p-6 rounded-2xl shadow text-center flex flex-col justify-center">
               <h3 className="text-[#270949] text-3xl font-bold">20+</h3>
               <p className="text-sm text-gray-700">
-                Years of virtual care expertise
+                Years of digital health innovation.
               </p>
             </div>
           </div>
@@ -69,10 +69,10 @@ const StatsGrid = () => {
           <div className="grid grid-cols-2 gap-4 min-h-[220px]">
             <div className="bg-gray-50 p-6 rounded-2xl shadow flex items-center justify-center text-center">
               <p className="text-sm text-gray-700 leading-tight">
-                Founder of the first virtual care
+                Founder of the first virtual RPM-centered
                 <br />
                 <span className="text-[#270949] font-bold">
-                  patient safety organization
+                  patient safety initiative
                 </span>
               </p>
             </div>
@@ -98,16 +98,16 @@ const StatsGrid = () => {
 
           <div className="bg-gray-50 p-6 rounded-2xl shadow text-center flex flex-col justify-center min-h-[150px]">
             <p className="text-sm text-gray-700 leading-tight mb-1">
-              76% of people with depression{" "}
-              <span className="text-[#270949] font-semibold">feel better</span>{" "}
-              after their third therapy visit.*
+              Remote Monitoring{" "}
+              <span className="text-[#270949] font-semibold">Vital signs </span>{" "}
+              tracked from home, in real-time.
             </p>
             {/* <p className="text-xs text-[#270949] underline cursor-pointer">
               See reviews
             </p> */}
           </div>
 
-          <div className="bg-gray-50 rounded-2xl shadow flex flex-col items-center justify-center text-center p-6 min-h-[250px]">
+          <div className="bg-gray-50 rounded-2xl shadow flex flex-col items-center justify-center text-center p-6 min-h-[265px]">
             <Image
               src="/assets/video-call1.png"
               alt="Remote provider call"
