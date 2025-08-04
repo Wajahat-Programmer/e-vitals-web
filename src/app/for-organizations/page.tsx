@@ -267,42 +267,42 @@ const ForOrganizations = () => {
       </section>
 
       {/* CTA */}
-<section className="relative text-center px-4 mb-20 py-16 bg-gradient-to-br from-purple-100 via-purple-200 to-purple-100 rounded-3xl shadow-xl overflow-hidden">
-  {/* Decorative Background */}
-  <div className="absolute inset-0 pointer-events-none">
-    <svg
-      width="100%"
-      height="100%"
-      viewBox="0 0 600 200"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-full h-full opacity-10"
-    >
-      <circle cx="100" cy="100" r="80" fill="#a78bfa" />
-      <circle cx="500" cy="80" r="60" fill="#7c3aed" />
-      <circle cx="300" cy="180" r="40" fill="#c4b5fd" />
-    </svg>
-  </div>
+      <section className="relative text-center px-4 mb-20 py-16 bg-gradient-to-br from-purple-100 via-purple-200 to-purple-100 rounded-3xl shadow-xl overflow-hidden">
+        {/* Decorative Background */}
+        <div className="absolute inset-0 pointer-events-none">
+          <svg
+            width="100%"
+            height="100%"
+            viewBox="0 0 600 200"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-full h-full opacity-10"
+          >
+            <circle cx="100" cy="100" r="80" fill="#a78bfa" />
+            <circle cx="500" cy="80" r="60" fill="#7c3aed" />
+            <circle cx="300" cy="180" r="40" fill="#c4b5fd" />
+          </svg>
+        </div>
 
-  {/* CTA Content */}
-  <div className="relative z-10">
-    <h2 className="text-3xl md:text-4xl font-bold text-purple-900 mb-6">
-      Let’s Make Care Easier — Together
-    </h2>
-    <p className="text-xl text-gray-800 mb-8 max-w-3xl mx-auto">
-      Want to see how E-Vitals can simplify patient monitoring, reduce
-      staff load, and grow your practice?
-    </p>
-    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-      <Link
-        href="/demo"
-        className="bg-[#270949] hover:bg-[#1e0635] text-white px-6 py-3 rounded-full hover:opacity-90 transition font-semibold shadow-lg"
-      >
-       contact
-      </Link>
-    </div>
-  </div>
-</section>
+        {/* CTA Content */}
+        <div className="relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-purple-900 mb-6">
+            Let’s Make Care Easier — Together
+          </h2>
+          <p className="text-xl text-gray-800 mb-8 max-w-3xl mx-auto">
+            Want to see how E-Vitals can simplify patient monitoring, reduce
+            staff load, and grow your practice?
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/demo"
+              className="bg-[#270949] hover:bg-[#1e0635] text-white px-6 py-3 rounded-full hover:opacity-90 transition font-semibold shadow-lg"
+            >
+              Contact
+            </Link>
+          </div>
+        </div>
+      </section>
     </main>
   );
 };

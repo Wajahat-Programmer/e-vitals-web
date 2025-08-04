@@ -1,6 +1,6 @@
-'use client';
-import React from 'react';
-import Image from 'next/image';
+"use client";
+import React from "react";
+import Image from "next/image";
 
 const StatsGrid = () => {
   return (
@@ -9,14 +9,18 @@ const StatsGrid = () => {
         {/* COLUMN 1 */}
         <div className="flex flex-col space-y-6 h-full">
           <div className="bg-gray-50 p-6 rounded-2xl shadow text-center">
-            <h3 className="text-purple-700 text-3xl font-bold">#1</h3>
-            <p className="text-sm text-gray-800">Most recognized virtual care brand.*</p>
-            <p className="text-sm text-purple-700 underline cursor-pointer mt-1">See reviews</p>
+            <h3 className="text-[#270949] text-3xl font-bold">#1</h3>
+            <p className="text-sm text-gray-800">
+              Most recognized virtual care brand.*
+            </p>
+            {/* <p className="text-sm text-[#270949] underline cursor-pointer mt-1">
+              See reviews
+            </p> */}
           </div>
 
           <div className="relative flex-grow rounded-2xl overflow-hidden shadow group min-h-[300px]">
             <Image
-              src="/assets/combined-stats-img.png"
+              src="/assets/medical-stats.jpg"
               alt="Trustpilot and Speaker"
               fill
               className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -28,13 +32,19 @@ const StatsGrid = () => {
         <div className="flex flex-col space-y-6 h-full">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 min-h-[150px]">
             <div className="bg-gray-50 p-6 rounded-2xl shadow text-center flex flex-col justify-center">
-              <h3 className="text-purple-600 text-3xl font-bold">88%</h3>
-              <p className="text-sm text-gray-700">Maintain or improve their blood pressure.*</p>
-              <p className="text-xs text-purple-700 underline cursor-pointer mt-1">Learn more</p>
+              <h3 className="text-[#270949] text-3xl font-bold">88%</h3>
+              <p className="text-sm text-gray-700">
+                Maintain or improve their blood pressure.*
+              </p>
+              {/* <p className="text-xs text-[#270949] underline cursor-pointer mt-1">
+                Learn more
+              </p> */}
             </div>
             <div className="bg-gray-50 p-6 rounded-2xl shadow text-center flex flex-col justify-center">
-              <h3 className="text-purple-600 text-3xl font-bold">20+</h3>
-              <p className="text-sm text-gray-700">Years of virtual care expertise</p>
+              <h3 className="text-[#270949] text-3xl font-bold">20+</h3>
+              <p className="text-sm text-gray-700">
+                Years of virtual care expertise
+              </p>
             </div>
           </div>
 
@@ -42,12 +52,14 @@ const StatsGrid = () => {
             <Image
               src="/assets/doctors-laptop1.png"
               alt="Doctors using eVitals app"
-              width={250}
+              width={200}
               height={160}
               className="rounded-lg"
             />
             <div className="text-center md:text-left">
-              <h3 className="text-purple-700 text-2xl font-bold mb-2">100 million+</h3>
+              <h3 className="text-[#270949] text-2xl font-bold mb-2">
+                100 million+
+              </h3>
               <p className="text-sm text-gray-700">
                 Members served across the U.S. through connected care.
               </p>
@@ -57,13 +69,18 @@ const StatsGrid = () => {
           <div className="grid grid-cols-2 gap-4 min-h-[220px]">
             <div className="bg-gray-50 p-6 rounded-2xl shadow flex items-center justify-center text-center">
               <p className="text-sm text-gray-700 leading-tight">
-                Founder of the first virtual care<br />
-                <span className="text-purple-700 font-bold">patient safety organization</span>
+                Founder of the first virtual care
+                <br />
+                <span className="text-[#270949] font-bold">
+                  patient safety organization
+                </span>
               </p>
             </div>
             <div className="bg-gray-50 p-6 rounded-2xl shadow flex flex-col justify-center items-center text-center">
-              <h3 className="text-purple-700 text-3xl font-bold">40k+</h3>
-              <p className="text-sm text-gray-700">Providers, therapists & coaches</p>
+              <h3 className="text-[#270949] text-3xl font-bold">40k+</h3>
+              <p className="text-sm text-gray-700">
+                Providers, therapists & coaches
+              </p>
             </div>
           </div>
         </div>
@@ -81,13 +98,16 @@ const StatsGrid = () => {
 
           <div className="bg-gray-50 p-6 rounded-2xl shadow text-center flex flex-col justify-center min-h-[150px]">
             <p className="text-sm text-gray-700 leading-tight mb-1">
-              76% of people with depression{' '}
-              <span className="text-green-600 font-semibold">feel better</span> after their third therapy visit.*
+              76% of people with depression{" "}
+              <span className="text-[#270949] font-semibold">feel better</span>{" "}
+              after their third therapy visit.*
             </p>
-            <p className="text-xs text-purple-700 underline cursor-pointer">See reviews</p>
+            {/* <p className="text-xs text-[#270949] underline cursor-pointer">
+              See reviews
+            </p> */}
           </div>
 
-          <div className="bg-gray-50 rounded-2xl shadow flex flex-col items-center justify-center text-center p-6 min-h-[200px]">
+          <div className="bg-gray-50 rounded-2xl shadow flex flex-col items-center justify-center text-center p-6 min-h-[250px]">
             <Image
               src="/assets/video-call1.png"
               alt="Remote provider call"
@@ -95,7 +115,7 @@ const StatsGrid = () => {
               height={150}
               className="mb-3"
             />
-            <h3 className="text-purple-700 text-3xl font-bold">Remote Care</h3>
+            <h3 className="text-[#270949] text-3xl font-bold">Remote Care</h3>
             <p className="text-sm text-gray-700">Anywhere, anytime</p>
           </div>
         </div>
