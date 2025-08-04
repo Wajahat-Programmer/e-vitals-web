@@ -43,7 +43,7 @@ const StatsGrid = () => {
 
           <div className="bg-gray-50 p-6 rounded-2xl shadow flex flex-col md:flex-row items-center justify-between gap-4 min-h-[200px]">
             <Image
-              src="/assets/doctors-laptop.png"
+              src="/assets/doctors-laptop1.png"
               alt="Doctors using eVitals app"
               width={250}
               height={160}
