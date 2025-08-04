@@ -1,13 +1,11 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
-import { PlayCircle } from 'lucide-react';
 
 const StatsGrid = () => {
   return (
     <section className="bg-white py-5 px-4 md:px-8">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-
         {/* COLUMN 1 */}
         <div className="flex flex-col space-y-6 h-full">
           <div className="bg-gray-50 p-6 rounded-2xl shadow text-center">
@@ -23,7 +21,6 @@ const StatsGrid = () => {
               fill
               className="object-cover transition-transform duration-300 group-hover:scale-105"
             />
-            <PlayCircle className="absolute text-white w-12 h-12 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
           </div>
         </div>
 
@@ -80,7 +77,6 @@ const StatsGrid = () => {
               fill
               className="object-cover transition-transform duration-300 group-hover:scale-105"
             />
-            <PlayCircle className="absolute text-white w-12 h-12 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
           </div>
 
           <div className="bg-gray-50 p-6 rounded-2xl shadow text-center flex flex-col justify-center min-h-[150px]">
