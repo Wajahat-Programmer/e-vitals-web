@@ -6,10 +6,10 @@ import Link from "next/link";
 
 const DeviceSection = () => {
   return (
-    <section className="bg-gradient-to-b from-[#f0f9fb] to-[#e0f2f7] py-24">
+    <section className="bg-[#f0f9fb] py-24">
       <div className="container mx-auto px-4">
         {/* Section Heading */}
-        <h2 className="text-center text-[#29003C] text-4xl md:text-5xl font-extrabold mb-16 tracking-tight drop-shadow-sm">
+        <h2 className="text-center text-[#270949] text-4xl md:text-5xl font-extrabold mb-16 tracking-tight drop-shadow-sm">
           Discover Our Advanced RPM Devices
         </h2>
 
@@ -29,7 +29,7 @@ const DeviceSection = () => {
 
           {/* Text */}
           <div className="flex-1">
-            <h3 className="text-2xl md:text-3xl font-bold text-[#29003C] mb-4 flex items-center gap-2">
+            <h3 className="text-2xl md:text-3xl font-bold text-[#270949] mb-4 flex items-center gap-2">
               <span className="inline-block bg-[#e0f2f7] rounded-full px-4 py-1 text-sm font-semibold text-[#1e1e2f] shadow-sm">
                 New
               </span>
@@ -70,7 +70,7 @@ const DeviceSection = () => {
 
           {/* Text */}
           <div className="flex-1">
-            <h4 className="text-2xl md:text-3xl font-bold text-[#29003C] mb-4 flex items-center gap-2">
+            <h4 className="text-2xl md:text-3xl font-bold text-[#270949] mb-4 flex items-center gap-2">
               <span className="inline-block bg-[#e0f2f7] rounded-full px-4 py-1 text-sm font-semibold text-[#1e1e2f] shadow-sm">
                 New
               </span>
@@ -88,11 +88,11 @@ const DeviceSection = () => {
         {/* CTA Button */}
         <div className="mt-20 flex justify-center">
           <Link
-        href="/for-organizations"
-        className="bg-gradient-to-r from-purple-700 to-purple-900 text-white px-6 py-3 rounded-full hover:opacity-90 transition font-semibold shadow-lg"
-      >
-        Become our Technology Partner
-      </Link>
+            href="/for-organizations"
+            className="bg-[#270949] text-white px-6 py-3 rounded-full hover:opacity-90 transition font-semibold shadow-lg"
+          >
+            Become our Technology Partner
+          </Link>
         </div>
       </div>
     </section>

@@ -45,7 +45,7 @@ const Header: React.FC = () => {
       </div>
 
       {/* Main Navbar */}
-      <header className="bg-[#29003C] text-white shadow-sm sticky top-0 z-40">
+      <header className="bg-[#270949] text-white shadow-sm sticky top-0 z-40">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <nav className="hidden md:flex space-x-8">
             <div className="relative group" ref={dropdownRef}>
