@@ -11,7 +11,7 @@ const Home: React.FC = () => {
       <Hero />
       {/* Add other sections/components here as needed */}
       <FeatureSection />
-      <AchievementsSection/>
+       {/* <AchievementsSection /> */}
       <DeviceSection />
       <TestimonialSection />
        {/* <FooterSection /> */}
