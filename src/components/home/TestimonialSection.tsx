@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { InfiniteMovingCards } from "./ui/InfiniteMovingCards";
 
 const testimonials = [
@@ -46,7 +45,7 @@ const TestimonialSection = () => {
   return (
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
-        {/* Section Heading */}
+        {/* 
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Trusted by Healthcare Leaders
@@ -56,34 +55,23 @@ const TestimonialSection = () => {
           </p>
         </div>
 
-        {/* Banner Section */}
         <div className="relative rounded-2xl overflow-hidden mb-20 max-w-6xl mx-auto h-[300px] md:h-[400px]">
-          {/* Background Image */}
           <Image
             src="/assets/testimonial.jpg"
             alt="Hospital corridor"
             fill
             className="object-cover"
           />
-
-          {/* Blur Overlay */}
           <div className="absolute inset-0 backdrop-blur-[2px] bg-black/10 z-0"></div>
-
-          {/* Banner Content */}
           <div className="absolute inset-0 flex flex-col items-center justify-center z-10 p-6 md:p-12 text-center">
             <h3 className="text-xl md:text-3xl font-bold text-white mb-6 drop-shadow-md">
               You&rsquo;ll find us in more than 600 U.S hospitals too
             </h3>
-            {/* <button
-              aria-label="Learn more about hospital partners"
-              className="px-6 py-3 bg-[#411C6B] text-white font-medium rounded-lg hover:bg-[#592085] transition-colors shadow-md"
-            >
-              Learn More
-            </button> */}
           </div>
         </div>
+        */}
 
-        {/* Testimonials Carousel */}
+        {/* ✅ Testimonials Carousel */}
         <div className="relative">
           <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-gray-50 to-transparent z-20 pointer-events-none"></div>
           <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-gray-50 to-transparent z-20 pointer-events-none"></div>
@@ -96,7 +84,7 @@ const TestimonialSection = () => {
           />
         </div>
 
-        {/* Stats Section */}
+        {/*
         <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {[
             { value: "98%", label: "Satisfaction Rate" },
@@ -110,6 +98,7 @@ const TestimonialSection = () => {
             </div>
           ))}
         </div>
+        */}
       </div>
     </section>
   );

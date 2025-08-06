@@ -26,14 +26,8 @@ const FeatureSection = () => {
         </div>
 
         {/* Features Grid */}
-        <div className="grid md:grid-cols-3 gap-10 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20 justify-items-center">
           {[
-            {
-              image: "/assets/kit.jpg",
-              title: "No-Cost Welcome Kit",
-              description:
-                "Patients receive pre-configured, easy-to-use medical devices delivered to their doorstep—no setup required, no cost to them. All devices are theirs to keep and start monitoring right away.",
-            },
             {
               image: "/assets/support.jpg",
               title: "Clinical Support",
@@ -49,7 +43,7 @@ const FeatureSection = () => {
           ].map((feature, index) => (
             <div
               key={index}
-              className="bg-white p-10 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 text-center hover:-translate-y-2 group"
+              className="bg-white p-10 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 text-center hover:-translate-y-2 group w-full max-w-sm"
             >
               <div className="mb-6 flex justify-center">
                 <div className="w-40 h-40 overflow-hidden border border-gray-200 flex items-center justify-center group-hover:scale-105 transition-transform bg-white rounded-2xl">
