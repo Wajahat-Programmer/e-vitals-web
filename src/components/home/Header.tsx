@@ -50,7 +50,7 @@ const Header: React.FC = () => {
           <nav className="hidden md:flex space-x-8">
             <div className="relative group" ref={dropdownRef}>
               <button 
-                className="text-sm font-medium tracking-wider hover:underline flex items-center"
+                className="text-m font-medium tracking-wider hover:underline flex items-center"
                 onClick={() => setIsRpmOpen(!isRpmOpen)}
               >
                 Remote Patient Monitoring
@@ -92,13 +92,13 @@ const Header: React.FC = () => {
                 </div>
               )}
             </div>
-            <Link href="/services" className="text-sm font-medium tracking-wider hover:underline">
+            <Link href="/services" className="text-m font-medium tracking-wider hover:underline">
               Services
             </Link>
-            <Link href="/devices" className="text-sm font-medium tracking-wider hover:underline">
+            <Link href="/devices" className="text-m font-medium tracking-wider hover:underline">
               Devices
             </Link>
-            <Link href="/insights" className="text-sm font-medium tracking-wider hover:underline">
+            <Link href="/insights" className="text-m font-medium tracking-wider hover:underline">
               Insights
             </Link>
           </nav>

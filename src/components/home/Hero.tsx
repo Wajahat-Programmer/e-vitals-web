@@ -1,19 +1,60 @@
+"use client";
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Inter } from 'next/font/google';
+
+// Load Inter
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '600', '700'], // adjust weights as needed
+});
+
+const features = [
+  "HIPAA Compliance",
+  "FDA-Approved Devices",
+  "Reimbursement Support",
+];
 
 const Hero: React.FC = () => {
+  const [text, setText] = useState("");
+  const [index, setIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = features[index % features.length];
+    const speed = isDeleting ? 20 : 50; // speed in ms
+
+    const handler = setTimeout(() => {
+      if (!isDeleting) {
+        setText(current.substring(0, text.length + 1));
+        if (text === current) {
+          setTimeout(() => setIsDeleting(true), 1000); // pause before deleting
+        }
+      } else {
+        setText(current.substring(0, text.length - 1));
+        if (text === "") {
+          setIsDeleting(false);
+          setIndex((prev) => prev + 1);
+        }
+      }
+    }, speed);
+
+    return () => clearTimeout(handler);
+  }, [text, isDeleting, index]);
+
   return (
     <section className="relative h-[90vh] flex items-center overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/assets/background.jpg"
+       <Image
+          src="/assets/eVitals-bg.png"
           alt="eVitals Hero Background"
           fill
-          className="object-cover"
+          className="object-cover kenburns"
           priority
         />
+
 
         {/* Left-side black gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
@@ -21,13 +62,20 @@ const Hero: React.FC = () => {
 
       {/* Content */}
       <div className="relative z-10 w-full">
-        <div className="text-left pl-6 md:pl-12 lg:pl-20 max-w-2xl"> 
+        <div className="text-left pl-6 md:pl-12 lg:pl-20 max-w-3xl"> 
           <h1 className="text-white text-4xl md:text-6xl font-bold leading-tight mb-6">
-            Care beyond clinic,<br />always connected.
+            Care beyond clinic,<br />
+            always <span className="text-[#B187E8]"> connected</span>
           </h1>
+
           <p className="text-white text-base md:text-lg mb-8">
-            eVitals is a remote patient monitoring solution designed to help clinicians deliver proactive,
-            personalized care—right from a distance. Because better insights lead to better outcomes.
+            eVitals is a remote patient monitoring solution designed to help clinicians deliver proactive & personalized care—right from a distance.
+          </p>
+
+          {/* Typewriter Effect */}
+          <p className="text-[#B187E8] text-base md:text-4xl mb-8 font-bold">
+            {text}
+            <span className="border-r-2 border-white animate-pulse ml-1"></span>
           </p>
 
           {/* CTA Button */}
@@ -35,7 +83,7 @@ const Hero: React.FC = () => {
             href="/for-organizations"
             className="bg-[#36036B] hover:bg-[#4b0d8d] text-white text-base font-semibold px-6 py-3 rounded-md shadow-md transition duration-300 inline-block"
           >
-            Get Started →
+            Schedule a FREE demo →
           </Link>
         </div>
       </div>

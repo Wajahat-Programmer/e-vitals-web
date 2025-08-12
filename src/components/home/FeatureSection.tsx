@@ -26,32 +26,38 @@ const FeatureSection = () => {
         </div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20 justify-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-6 justify-items-center">
           {[
             {
-              image: "/assets/support.jpg",
-              title: "Clinical Support",
+              image: "/assets/eVitals-RPMDashboard.png",
+              title: "Smart RPM Dashboard",
               description:
-                "Our care team provides personalized support for each patient, including guidance around vitals tracking, medication adherence, lifestyle habits, and tech setup—so your patients feel supported every step of the way.",
+                "Our platform delivers real-time monitoring, automated alerts, and an intuitive interface that’s designed for both clinicians and patients. With a dedicated patient portal, everyone stays engaged and informed—making remote care seamless, efficient, and effective.",
             },
             {
-              image: "/assets/plan.jpg",
-              title: "Tailored Monitoring Plan",
+              image: "/assets/eVitals-devices.png",
+              title: "FDA-Approved Devices",
               description:
-                "Every patient gets a plan built around their unique health profile and clinical goals. Small, consistent improvements—guided by real-time data—lead to better outcomes and fewer surprises.",
+                "We provide top-tier, FDA-approved devices for accurate and reliable vitals tracking. From blood pressure monitors to pulse oximeters, every tool is chosen for clinical precision—so you can trust the data that drives your care decisions.",
+            },
+            {
+              image: "/assets/eVitals-reimbusement.png",
+              title: "Reimbursement Support",
+              description:
+                "We handle the complexity of RPM billing so your team can focus on care. Our process covers Medicare and most private payers, including 99453, 99454, 99457/99458",
             },
           ].map((feature, index) => (
             <div
               key={index}
-              className="bg-white p-10 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 text-center hover:-translate-y-2 group w-full max-w-sm"
+              className="bg-white p-10 rounded-3xl hover:shadow-xl transition-all duration-300 text-center hover:-translate-y-2 group w-full max-w-sm"
             >
               <div className="mb-6 flex justify-center">
-                <div className="w-40 h-40 overflow-hidden border border-gray-200 flex items-center justify-center group-hover:scale-105 transition-transform bg-white rounded-2xl">
+                <div className="w-80 h-40 overflow-hidden  flex items-center justify-center group-hover:scale-105 transition-transform bg-white rounded-2xl">
                   <Image
                     src={feature.image}
                     alt={feature.title}
-                    width={150}
-                    height={150}
+                    width={1000}
+                    height={1000}
                     className="object-cover"
                   />
                 </div>
@@ -59,6 +65,7 @@ const FeatureSection = () => {
               <h3 className="text-2xl font-bold text-[#401b62] mb-4">{feature.title}</h3>
               <p className="text-slate-600 text-[1.05rem] leading-relaxed">{feature.description}</p>
             </div>
+
           ))}
         </div>
       </div>
