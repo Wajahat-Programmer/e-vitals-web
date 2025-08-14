@@ -212,7 +212,7 @@ const ServicesPage = () => {
           viewport={{ once: true }}
           className="text-3xl font-bold text-purple-900 mb-6"
         >
-          Let’s Make Care Easier — Together
+          Lets Make Care Easier — Together
         </motion.h2>
         <p className="text-lg text-gray-800 mb-8 max-w-3xl mx-auto">
           Want to see how e-Vitals can simplify patient monitoring, reduce staff

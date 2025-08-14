@@ -31,13 +31,13 @@ const RPMSoftware = () => {
         <div className="relative z-10 h-full flex items-center justify-center text-center px-6">
           <div className={`max-w-4xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <p className="inline-block bg-[#B187E8]/70 text-white text-sm font-semibold px-4 py-1 rounded-full mb-4 shadow-lg animate-pulse">
-              Remote Patient Monitoring (RPM) Software – eVitals Platform
+              Remote Patient Monitoring (RPM) Software - eVitals Platform
             </p>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-white text-shadow-lg">
               Smart, Secure, and Clinician-Friendly <span className="text-[#B187E8] animate-pulse">RPM Software</span>
             </h1>
             <p className="text-xl md:text-1xl mb-8 text-white/90 max-w-3xl mx-auto text-shadow-lg">
-              Our eVitals RPM platform empowers healthcare providers to remotely track patients’ vitals in real time, detect early warning signs, and intervene before conditions worsen—all while meeting Medicare and private payer requirements for reimbursement.
+              Our eVitals RPM platform empowers healthcare providers to remotely track patients vitals in real time, detect early warning signs, and intervene before conditions worsen—all while meeting Medicare and private payer requirements for reimbursement.
             </p>
           </div>
         </div>
@@ -49,7 +49,7 @@ const RPMSoftware = () => {
             <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
               <h2 className="text-3xl font-bold text-[#2E1065] mb-4">What is RPM Software?</h2>
               <p className="text-gray-700 mb-6">
-                Remote Patient Monitoring (RPM) software collects, transmits, and displays patients’ physiologic data from FDA-cleared devices, giving providers continuous visibility between office visits.
+                Remote Patient Monitoring (RPM) software collects, transmits, and displays patients physiologic data from FDA-cleared devices, giving providers continuous visibility between office visits.
               </p>
               <div className="bg-[#F9F5FF] p-6 rounded-xl border-l-4 border-[#B187E8]">
                 <h3 className="text-xl font-semibold text-[#2E1065] mb-3">With eVitals, you can:</h3>
