@@ -38,7 +38,10 @@ const ReimbursementBilling = () => {
               Maximizing Your Revenue, <span className="text-[#B187E8] animate-pulse">Minimizing Your Hassle</span>
             </h1>
             <p className="text-xl md:text-1xl mb-8 text-white/90 max-w-4xl mx-auto text-shadow-lg">
-              In today's healthcare landscape, accurate and efficient reimbursement is critical for sustaining care quality and business growth. Our Reimbursement & Billing solutions are designed to help providers, clinics, and hospitals seamlessly navigate complex payer requirements while ensuring maximum reimbursement for RPM, CCM, and other eligible care programs.
+              In todays healthcare landscape, accurate and efficient reimbursement is critical for sustaining 
+              care quality and business growth. Our Reimbursement & Billing solutions are designed to help providers, 
+              clinics, and hospitals seamlessly navigate complex payer requirements while ensuring maximum reimbursement 
+              for RPM, CCM, and other eligible care programs.
             </p>
           </div>
         </div>
