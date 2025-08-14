@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const RPMReimbursement = () => {
   return (
-    <section className="bg-[#f8f9fa] py-24">
+    <section className="bg-[#f9f5ff] py-24">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           {/* Main Heading */}
@@ -20,25 +20,25 @@ const RPMReimbursement = () => {
           {/* CPT Codes Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             {/* CPT 99453 */}
-            <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00b6c6]">
+            <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#c092e8]">
               <h3 className="text-xl font-bold text-[#270949] mb-2">CPT 99453</h3>
               <p className="text-gray-700">Patient Setup & Education</p>
             </div>
 
             {/* CPT 99454 */}
-            <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00b6c6]">
+            <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#c092e8]">
               <h3 className="text-xl font-bold text-[#270949] mb-2">CPT 99454</h3>
               <p className="text-gray-700">Device Supply & Data Transmission</p>
             </div>
 
             {/* CPT 99457 */}
-            <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00b6c6]">
+            <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#c092e8]">
               <h3 className="text-xl font-bold text-[#270949] mb-2">CPT 99457</h3>
               <p className="text-gray-700">First 20 Minutes of Care Management</p>
             </div>
 
             {/* CPT 99458 */}
-            <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#00b6c6]">
+            <div className="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#c092e8]">
               <h3 className="text-xl font-bold text-[#270949] mb-2">CPT 99458</h3>
               <p className="text-gray-700">Additional 20 Minutes of Care</p>
             </div>
@@ -58,9 +58,9 @@ const RPMReimbursement = () => {
               <h3 className="text-2xl font-bold text-gray-700">
                 Potential Monthly Reimbursement:
               </h3>
-              <div className="bg-[#f0f8ff] p-4 rounded-xl border-2 border-[#00b6c6] sm:flex-row">
+              <div className="bg-[#f9f5ff] p-4 rounded-xl border-2 border-[#c092e8] sm:flex-row">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-[#013550]">$120-150+</div>
+                  <div className="text-3xl font-bold text-[#270949]">$120-150+</div>
                   <div className="text-sm text-gray-600">per patient/month</div>
                 </div>
               </div>

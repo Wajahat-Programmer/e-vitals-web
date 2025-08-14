@@ -15,47 +15,27 @@ const StatsGrid = () => {
         </p>
       </div>
 
-      <div className="flex flex-col items-center md:flex-row md:justify-between md:items-start max-w-5xl mx-auto py-8 px-4 mb-16">
-        {/* Step 1 */}
-        <div className="flex-1 flex flex-col items-center relative">
-          <div className="flex items-center">
-            <div className="w-14 h-14 rounded-full bg-[#B187E8] text-white flex items-center justify-center text-2xl font-bold z-10">
-              1
-            </div>
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#2E1065]">How It Works</h2>
           </div>
-          <h1 className="text-2xl font-semibold mt-4">Enroll Patient</h1>
-          <p className="text-gray-600 text-center mt-2">
-            Quick onboarding for providers and patients.
-          </p>
-        </div>
-
-        {/* Step 2 */}
-        <div className="flex-1 flex flex-col items-center relative">
-          <div className="flex items-center">
-            <div className="w-14 h-14 rounded-full bg-[#B187E8] text-white flex items-center justify-center text-2xl font-bold z-10">
-              2
-            </div>
-            
+          <div className="grid md:grid-cols-4 gap-6">
+            {[
+              { step: "Step 1", title: "Enroll Patients", desc: "Our team assists with onboarding and obtaining patient consent." },
+              { step: "Step 2", title: "Monitor in Real-Time", desc: "Vitals automatically upload to the eVitals dashboard without patient intervention." },
+              { step: "Step 3", title: "Intervene Early", desc: "Clinicians receive alerts for readings outside set thresholds." },
+              { step: "Step 4", title: "Get Reimbursed", desc: "Automated reports help you bill CPT 99453, 99454, 99457, and 99458 accurately." },
+            ].map((item, index) => (
+              <div key={index} className="bg-[#F9F5FF] p-6 rounded-xl border border-purple-100">
+                <div className="text-[#B187E8] font-semibold mb-2">{item.step}</div>
+                <h3 className="text-lg font-bold text-[#2E1065] mb-2">{item.title}</h3>
+                <p className="text-gray-700">{item.desc}</p>
+              </div>
+            ))}
           </div>
-          <h1 className="text-2xl font-semibold mt-4">Monitor Remotely</h1>
-          <p className="text-gray-600 text-center mt-2">
-            Track vitals in real time with our intuitive dashboard.
-          </p>
         </div>
-
-        {/* Step 3 */}
-        <div className="flex-1 flex flex-col items-center relative">
-          <div className="flex items-center">
-            <div className="w-14 h-14 rounded-full bg-[#B187E8] text-white flex items-center justify-center text-2xl font-bold z-10">
-              3
-            </div>
-          </div>
-          <h1 className="text-2xl font-semibold mt-4">Get Paid</h1>
-          <p className="text-gray-600 text-center mt-2">
-            Optimize billing with accurate CPT coding and claims support.
-          </p>
-        </div>
-      </div>
+      </section>
 
 
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">

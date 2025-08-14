@@ -8,26 +8,27 @@ const RPMSoftware = () => {
     <main className="bg-white text-black">
       <section className="relative h-screen w-full overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <Image
-            src="/assets/eVitals-RPMDashboard.png"
-            alt="RPM Software"
-            fill
-            className="object-cover"
-            priority
-            quality={100}
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
+                      <Image
+              src="/assets/eVitals-bgrpmsw.png"
+              alt="RPM Software"
+              fill
+              className="object-cover blur-sm"
+              priority
+              quality={100}
+            />
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-[#2E1065]/70" />
+
         </div>
 
         <div className="relative z-10 h-full flex items-center justify-center text-center px-6">
           <div className="max-w-4xl">
-            <p className="inline-block bg-white/10 text-white text-sm font-semibold px-4 py-1 rounded-full mb-4">
+            <p className="inline-block bg-[#B187E8]/70 text-white text-sm font-semibold px-4 py-1 rounded-full mb-4 shadow-lg">
               Remote Patient Monitoring (RPM) Software – eVitals Platform
             </p>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-white">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-white text-shadow-lg">
               Smart, Secure, and Clinician-Friendly <span className="text-[#B187E8]">RPM Software</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto">
+            <p className="text-xl md:text-1xl mb-8 text-white/90 max-w-3xl mx-auto text-shadow-lg">
               Our eVitals RPM platform empowers healthcare providers to remotely track patients’ vitals in real time, detect early warning signs, and intervene before conditions worsen—all while meeting Medicare and private payer requirements for reimbursement.
             </p>
           </div>

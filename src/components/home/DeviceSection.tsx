@@ -7,10 +7,10 @@ import Link from "next/link";
 const DeviceSection = () => {
   return (
     <section className="bg-[#fff] py-24">
-      <div className="bg-[#e4f5fb] container mx-auto px-4 py-24"
+      <div className="bg-[#f9f5ff] container mx-auto px-4 py-24"
       style={{ borderRadius: "45px" }}>
         {/* Section Heading */}
-        <h2 className="text-center text-[#00b6c6] text-3xl md:text-5xl font-extrabold mb-16 tracking-tight ">
+        <h2 className="text-center text-[#c092e8] text-3xl md:text-5xl font-extrabold mb-16 tracking-tight ">
           Learn about our RPM Devices
         </h2>
 
@@ -18,10 +18,10 @@ const DeviceSection = () => {
         <div className="w-full relative rounded-3xl overflow-hidden p-8 md:p-16 mb-20 duration-300 min-h-[350px] flex">
           {/* Text on the left */}
           <div className="relative z-10 max-w-xl flex-1">
-            <span className="inline-block bg-[#00b6c6] rounded-full px-4 py-1 text-sm font-semibold text-[#fff] shadow-sm mb-2">
+            <span className="inline-block bg-[#c092e8] rounded-full px-4 py-1 text-sm font-semibold text-[#fff] shadow-sm mb-2">
                 New
               </span>
-            <h3 className="text-2xl md:text-3xl font-bold text-[#013550] mb-4 flex items-center gap-2">
+            <h3 className="text-2xl md:text-3xl font-bold text-[#2f1266] mb-4 flex items-center gap-2">
               Blood Pressure & Glucose Monitoring System
             </h3>
             <p className="text-black mb-6 leading-relaxed text-lg">
@@ -62,10 +62,10 @@ const DeviceSection = () => {
         <div className="w-full relative rounded-3xl overflow-hidden p-8 md:p-16 mb-20 duration-300 min-h-[700px] flex">
           {/* Text on the left */}
           <div className="relative z-10 max-w-xl flex-1">
-            <span className="inline-block bg-[#00b6c6] rounded-full px-4 py-1 text-sm font-semibold text-[#fff] shadow-sm mb-2">
+            <span className="inline-block bg-[#c092e8] rounded-full px-4 py-1 text-sm font-semibold text-[#fff] shadow-sm mb-2">
                 New
               </span>
-            <h3 className="text-2xl md:text-3xl font-bold text-[#013550] mb-4 flex items-center gap-2">
+            <h3 className="text-2xl md:text-3xl font-bold text-[#2f1266] mb-4 flex items-center gap-2">
               Weight Scale
             </h3>
             
