@@ -53,7 +53,7 @@ const Header: React.FC = () => {
                 className="text-m font-medium tracking-wider hover:underline flex items-center"
                 onClick={() => setIsRpmOpen(!isRpmOpen)}
               >
-                Remote Patient Monitoring
+                RPM Solution
                 <svg 
                   className={`ml-1 w-4 h-4 transition-transform ${isRpmOpen ? 'rotate-180' : ''}`} 
                   fill="none" 
@@ -87,6 +87,13 @@ const Header: React.FC = () => {
                       onClick={() => setIsRpmOpen(false)}
                     >
                       Weight Monitoring
+                    </Link>
+                    <Link 
+                      href="/rpm/RPMSoftware" 
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900"
+                      onClick={() => setIsRpmOpen(false)}
+                    >
+                      RPM Software
                     </Link>
                   </div>
                 </div>
