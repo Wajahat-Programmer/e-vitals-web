@@ -17,6 +17,9 @@ const inter = Inter({
 export const metadata = {
   title: 'e-Vitals - Remote Patient Monitoring',
   description: 'Care beyond clinic, always connected.',
+  icons: {
+    icon: 'assets/eVitals-favicon.png', // Path relative to public/
+  },
 };
 
 const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
