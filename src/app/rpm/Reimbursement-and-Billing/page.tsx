@@ -55,7 +55,7 @@ const ReimbursementBilling = () => {
               Why It Matters
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Understanding the critical importance of proper reimbursement and billing in today's healthcare landscape
+              Understanding the critical importance of proper reimbursement and billing in todays healthcare landscape
             </p>
           </div>
           
@@ -339,7 +339,7 @@ const ReimbursementBilling = () => {
               <div className="text-4xl mb-4">💡</div>
               <h3 className="text-2xl font-bold text-[#2E1065] mb-4">Pro Tip for Providers:</h3>
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                If you're already offering RPM but not capturing all eligible codes, you could be leaving thousands in annual revenue per patient on the table. Our billing service ensures you get every dollar you deserve.
+                If you are already offering RPM but not capturing all eligible codes, you could be leaving thousands in annual revenue per patient on the table. Our billing service ensures you get every dollar you deserve.
               </p>
             </div>
           </div>
