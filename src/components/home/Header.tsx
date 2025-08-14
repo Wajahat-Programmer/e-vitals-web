@@ -8,18 +8,13 @@ const Header: React.FC = () => {
   const [isRpmOpen, setIsRpmOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsRpmOpen(false);
-      }
-    };
+  const handleMouseEnter = () => {
+    setIsRpmOpen(true);
+  };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
+  const handleMouseLeave = () => {
+    setIsRpmOpen(false);
+  };
 
   return (
     <div className="w-full">
@@ -48,10 +43,14 @@ const Header: React.FC = () => {
       <header className="bg-[#270949] text-white shadow-sm sticky top-0 z-40">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <nav className="hidden md:flex space-x-8">
-            <div className="relative group" ref={dropdownRef}>
+            <div 
+              className="relative group" 
+              ref={dropdownRef}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
               <button 
                 className="text-m font-medium tracking-wider hover:underline flex items-center"
-                onClick={() => setIsRpmOpen(!isRpmOpen)}
               >
                 RPM Solution
                 <svg 
@@ -65,35 +64,25 @@ const Header: React.FC = () => {
               </button>
               
               {isRpmOpen && (
-                <div className="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg z-50">
+                <div className="absolute left-0 top-full w-56 bg-white rounded-md shadow-lg z-50">
                   <div className="py-1">
-                    <Link 
-                      href="/rpm/blood-pressure" 
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900"
-                      onClick={() => setIsRpmOpen(false)}
-                    >
-                      Blood Pressure Monitoring
-                    </Link>
-                    <Link 
-                      href="/rpm/blood-glucose" 
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900"
-                      onClick={() => setIsRpmOpen(false)}
-                    >
-                      Blood Glucose Monitoring
-                    </Link>
-                    <Link 
-                      href="/rpm/weight" 
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900"
-                      onClick={() => setIsRpmOpen(false)}
-                    >
-                      Weight Monitoring
-                    </Link>
                     <Link 
                       href="/rpm/RPMSoftware" 
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900"
-                      onClick={() => setIsRpmOpen(false)}
                     >
                       RPM Software
+                    </Link>
+                    <Link 
+                      href="/rpm/RPMDevices" 
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900"
+                    >
+                      RPM Devices
+                    </Link>
+                    <Link 
+                      href="/rpm/Reimbursement-and-Billing" 
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900"
+                    >
+                      Reimbursement and Billing
                     </Link>
                   </div>
                 </div>
@@ -102,18 +91,21 @@ const Header: React.FC = () => {
             <Link href="/services" className="text-m font-medium tracking-wider hover:underline">
               Services
             </Link>
-            <Link href="/devices" className="text-m font-medium tracking-wider hover:underline">
-              Devices
+            <Link href="/#" className="text-m font-medium tracking-wider hover:underline">
+              Support & Compliance
             </Link>
             <Link href="/insights" className="text-m font-medium tracking-wider hover:underline">
               Insights
             </Link>
+            <Link href="/about" className="text-m font-medium tracking-wider hover:underline">
+              Company
+            </Link>
           </nav>
           <Link
-            href="/demo"
+            href="/contact"
             className="bg-[#B187E8] hover:bg-[#9d6dd6] text-white text-sm font-semibold px-5 py-2 rounded-full transition"
           >
-            Schedule Demo
+            Contact Us
           </Link>
         </div>
       </header>

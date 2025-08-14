@@ -3,8 +3,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import CTASection from '../../../components/home/CTASection';
+import { useEffect, useState } from 'react';
 
 const RPMSoftware = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
   return (
     <main className="bg-white text-black">
       <section className="relative h-screen w-full overflow-hidden">
@@ -22,12 +29,12 @@ const RPMSoftware = () => {
         </div>
 
         <div className="relative z-10 h-full flex items-center justify-center text-center px-6">
-          <div className="max-w-4xl">
-            <p className="inline-block bg-[#B187E8]/70 text-white text-sm font-semibold px-4 py-1 rounded-full mb-4 shadow-lg">
+          <div className={`max-w-4xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <p className="inline-block bg-[#B187E8]/70 text-white text-sm font-semibold px-4 py-1 rounded-full mb-4 shadow-lg animate-pulse">
               Remote Patient Monitoring (RPM) Software – eVitals Platform
             </p>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-white text-shadow-lg">
-              Smart, Secure, and Clinician-Friendly <span className="text-[#B187E8]">RPM Software</span>
+              Smart, Secure, and Clinician-Friendly <span className="text-[#B187E8] animate-pulse">RPM Software</span>
             </h1>
             <p className="text-xl md:text-1xl mb-8 text-white/90 max-w-3xl mx-auto text-shadow-lg">
               Our eVitals RPM platform empowers healthcare providers to remotely track patients’ vitals in real time, detect early warning signs, and intervene before conditions worsen—all while meeting Medicare and private payer requirements for reimbursement.
@@ -39,7 +46,7 @@ const RPMSoftware = () => {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-start">
-            <div>
+            <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
               <h2 className="text-3xl font-bold text-[#2E1065] mb-4">What is RPM Software?</h2>
               <p className="text-gray-700 mb-6">
                 Remote Patient Monitoring (RPM) software collects, transmits, and displays patients’ physiologic data from FDA-cleared devices, giving providers continuous visibility between office visits.
@@ -68,7 +75,7 @@ const RPMSoftware = () => {
                 </ul>
               </div>
             </div>
-            <div className="relative min-h-[320px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+            <div className={`relative min-h-[320px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
               <Image
                 src="/assets/eVitals-RPMDashboard.png"
                 alt="eVitals RPM Dashboard"
@@ -130,7 +137,7 @@ const RPMSoftware = () => {
                 ],
               },
             ].map((feature, index) => (
-              <div key={index} className="bg-white p-6 rounded-xl shadow-md">
+              <div key={index} className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-purple-100">
                 <h3 className="text-xl font-bold text-[#2E1065] mb-3">{feature.title}</h3>
                 <ul className="space-y-2 text-gray-700">
                   {feature.points.map((p, i) => (
@@ -160,7 +167,7 @@ const RPMSoftware = () => {
               { step: "Step 3", title: "Intervene Early", desc: "Clinicians receive alerts for readings outside set thresholds." },
               { step: "Step 4", title: "Get Reimbursed", desc: "Automated reports help you bill CPT 99453, 99454, 99457, and 99458 accurately." },
             ].map((item, index) => (
-              <div key={index} className="bg-[#F9F5FF] p-6 rounded-xl border border-purple-100">
+              <div key={index} className="bg-[#F9F5FF] p-6 rounded-xl border border-purple-100 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
                 <div className="text-[#B187E8] font-semibold mb-2">{item.step}</div>
                 <h3 className="text-lg font-bold text-[#2E1065] mb-2">{item.title}</h3>
                 <p className="text-gray-700">{item.desc}</p>
@@ -182,7 +189,7 @@ const RPMSoftware = () => {
               { title: "Save Time", desc: "Automated alerts and reports reduce manual workload." },
               { title: "Boost Patient Engagement", desc: "Give patients real-time feedback and support." },
             ].map((b, i) => (
-              <div key={i} className="bg-white p-6 rounded-xl shadow-md">
+              <div key={i} className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-purple-100">
                 <h3 className="text-xl font-bold text-[#2E1065] mb-2">{b.title}</h3>
                 <p className="text-gray-700">{b.desc}</p>
               </div>
@@ -204,7 +211,7 @@ const RPMSoftware = () => {
               "Endocrinology – Improve diabetes control with continuous glucose tracking.",
               "Rural Health Clinics – Provide care to patients without frequent in-person visits.",
             ].map((item, idx) => (
-              <div key={idx} className="border border-gray-200 rounded-lg p-4 flex items-start gap-3">
+              <div key={idx} className="border border-gray-200 rounded-lg p-4 flex items-start gap-3 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:bg-purple-50">
                 <svg className="w-5 h-5 text-[#B187E8] mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
                 <span className="text-gray-700">{item}</span>
               </div>
@@ -218,7 +225,7 @@ const RPMSoftware = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#2E1065]">Compliance-Ready by Design</h2>
           </div>
-          <div className="max-w-3xl mx-auto bg-white p-6 rounded-xl shadow-md">
+          <div className="max-w-3xl mx-auto bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-purple-100">
             <ul className="space-y-3 text-gray-700">
               {[
                 "Devices are FDA-cleared medical devices.",
@@ -226,7 +233,7 @@ const RPMSoftware = () => {
                 "All transmissions are encrypted and securely stored.",
                 "Patient consent is documented and stored for audit readiness.",
               ].map((line, i) => (
-                <li key={i} className="flex items-start gap-3">
+                <li key={i} className="flex items-start gap-3 group hover:bg-purple-50 p-2 rounded-lg transition-all duration-300">
                   <span className="mt-1">
                     <svg className="w-5 h-5 text-[#B187E8]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
                   </span>
