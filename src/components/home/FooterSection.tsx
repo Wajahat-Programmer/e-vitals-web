@@ -27,9 +27,10 @@ const FooterSection = () => {
               />
             </div>
             <p className="text-slate-600 leading-relaxed">
-              eVitals is a remote patient monitoring solution designed to help
-              clinicians deliver proactive, personalized care—right from a
-              distance.
+            eVitals is a cutting-edge Remote Patient Monitoring (RPM) platform that empowers healthcare 
+            providers with real-time, secure patient insights. Boost efficiency, ensure compliance, and 
+            elevate care quality effortlessly with eVitals.
+
             </p>
             <div className="flex space-x-4">
               {[
@@ -69,24 +70,24 @@ const FooterSection = () => {
             <ul className="space-y-3">
               {[
                 "Home",
-                "About Us",
-                "RPM",
-                "BGM",
-                "Weight Monitoring",
+                "RPM Software",
+                "RPM Devices",
+                "Reimbursement & Billing",
+                "Reimbursement Estimator",
               ].map((link) => {
                 let href = "#";
 
                 if (link === "Home") href = "/";
-                else if (link === "About Us") href = "/about";
-                else if (link === "RPM") href = "/rpm/blood-pressure";
-                else if (link === "BGM") href = "/rpm/blood-glucose";
-                else if (link === "Weight Monitoring") href = "/rpm/weight";
+                else if (link === "RPM Software") href = "/rpm/RPMSoftware";
+                else if (link === "RPM Devices") href = "/rpm/RPMDevices";
+                else if (link === "Reimbursement & Billing") href = "/rpm/Reimbursement-and-Billing";
+                else if (link === "Reimbursement Estimator") href = "/rpm/Reimbursement-and-Billing";
 
                 return (
                   <li key={link}>
                     <Link
                       href={href}
-                      className="text-slate-600 hover:text-slate-900 transition-colors"
+                      className="text-slate-600 hover:text-slate-900 hover:underline transition-colors"
                     >
                       {link}
                     </Link>
@@ -96,60 +97,77 @@ const FooterSection = () => {
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Support */}
           <div>
             <h3 className="text-lg font-semibold text-slate-900 mb-6">
-              Our Services
+              Support
             </h3>
             <ul className="space-y-3">
               {[
-                "Remote Monitoring",
-                "Chronic Care",
-                "Virtual Consultations",
-                "Health Analytics",
-                "Device Integration",
-              ].map((service) => (
-                <li key={service}>
-                  <a
-                    href="/services"
-                    className="text-slate-600 hover:text-slate-900 transition-colors"
-                  >
-                    {service}
-                  </a>
-                </li>
-              ))}
+                "Services",
+                "Compliance & Security",
+                "Downloads",
+                "Reimbursement & Billing",
+                "Insights",
+              ].map((link) => {
+                let href = "#";
+
+                if (link === "Services") href = "/services";
+                else if (link === "Compliance & Security") href = "/support/compliance-and-security";
+                else if (link === "Downloads") href = "/support/resources";
+                else if (link === "FAQs") href = "/";
+                else if (link === "Insights") href = "/insights/overview";
+                
+
+                return (
+                  <li key={link}>
+                    <Link
+                      href={href}
+                      className="text-slate-600 hover:text-slate-900 transition-colors hover:underline"
+                    >
+                      {link}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
-          {/* Contact/Info */}
+          {/* Contact */}
           <div>
             <h3 className="text-lg font-semibold text-slate-900 mb-6">
-              Contact
+              Support
             </h3>
             <ul className="space-y-3">
               {[
-                "Contact Us"
-              ].map((item) => (
-                <li key={item}>
-                  {item === "Contact Us" ? (
+                "Book Demo",
+                "General Inquiry",
+                "Technical Support",
+                "Explore Partnership",
+              ].map((link) => {
+                let href = "#";
+
+                if (link === "Book Demo") href = "/contact?booking=demo";
+                else if (link === "General Inquiry") href = "/contact?booking=inquiry";
+                else if (link === "Technical Support") href = "/contact?booking=technical-support";
+                else if (link === "Explore Partnership") href = "/contact?booking=partnership";
+
+                return (
+                  <li key={link}>
                     <Link
-                      href="/contact"
-                      className="text-slate-600 hover:text-slate-900 transition-colors"
+                      href={href}
+                      className="text-slate-600 hover:text-slate-900 transition-colors hover:underline"
                     >
-                      {item}
+                      {link}
                     </Link>
-                  ) : (
-                    <a
-                      href="#"
-                      className="text-slate-600 hover:text-slate-900 transition-colors"
-                    >
-                      {item}
-                    </a>
-                  )}
-                </li>
-              ))}
+                  </li>
+                );
+              })}
             </ul>
           </div>
+
+
+
         </div>
 
         {/* Divider */}
