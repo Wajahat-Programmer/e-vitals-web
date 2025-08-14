@@ -9,12 +9,12 @@ const RPMReimbursement = () => {
         <div className="max-w-4xl mx-auto text-center">
           {/* Main Heading */}
           <h2 className="text-3xl md:text-4xl font-bold text-[#270949] mb-8">
-            Maximize Your RPM Reimbursements
+          Turn Better Care into Revenue
           </h2>
           
           {/* Subtitle */}
           <p className="text-lg text-gray-700 mb-12 leading-relaxed">
-            We'll guide you through RPM billing and help you take full advantage of:
+          Our RPM program is fully aligned with Medicare and private payer reimbursement policies, helping providers maximize earnings
           </p>
 
           {/* CPT Codes Grid */}
@@ -43,6 +43,30 @@ const RPMReimbursement = () => {
               <p className="text-gray-700">Additional 20 Minutes of Care</p>
             </div>
           </div>
+
+          {/* Reimbursement Info */}
+          <div className="p-8 rounded-2xl mb-2 border border-gray-100">
+            {/* Fist Row - Text */}
+            <div className="flex items-center justify-center">
+               <p className="text-gray-700 text-lg text-center">
+                 With our streamlined workflow, you can increase practice revenue with minimal staff time.
+               </p>
+             </div>
+          </div>
+            {/* Second Row - Horizontal Flex */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+              <h3 className="text-2xl font-bold text-gray-700">
+                Potential Monthly Reimbursement:
+              </h3>
+              <div className="bg-[#f0f8ff] p-4 rounded-xl border-2 border-[#00b6c6] sm:flex-row">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-[#013550]">$120-150+</div>
+                  <div className="text-sm text-gray-600">per patient/month</div>
+                </div>
+              </div>
+            </div>
+            
+            
 
           {/* CTA Button */}
           <div className="flex justify-center">

@@ -1,5 +1,7 @@
+"use client";
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const FeatureSection = () => {
   return (
@@ -67,6 +69,84 @@ const FeatureSection = () => {
             </div>
 
           ))}
+        </div>
+      </div>
+
+      <div className="container-lg mx-auto px-4 py-16">
+        {/* Specialties We Serve */}
+        <div className="text-center mb-8">
+          <h1 className="text-3xl md:text-4xl font-bold text-[#270949] mb-3">Specialties We Serve</h1>
+          <p className="text-slate-600 max-w-3xl mx-auto">
+            We work with healthcare providers across multiple specialties, delivering condition-specific monitoring and actionable insights:
+          </p>
+          <Link
+            href="/for-organizations"
+            className="inline-flex items-center text-gray-500 underline hover:text-[#36036B] font-bold px-6 py-1 rounded-md transition">
+            Learn More →
+          </Link>
+        </div>
+
+        <div className="relative overflow-hidden">
+          {/* Left fade overlay */}
+          <div className="absolute left-0 top-0 w-40 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+          
+          {/* Right fade overlay */}
+          <div className="absolute right-0 top-0 w-40 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+          
+          <div className="marquee">
+            <ul className="shrink-0 flex gap-4 md:gap-6 py-2 pr-4">
+              {[
+                "Family & Internal Medicine",
+                "Cardiology",
+                "Nephrology",
+                "Endocrinology",
+                "Pulmonology",
+                "Geriatrics",
+                "Rural Health Clinics",
+              ].map((item) => (
+                <li
+                  key={item}
+                  className="shrink-0 rounded-2xl px-5 py-3 bg-white font-semibold"
+                >
+                  <span className="text-[#B187E8]">
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <ul className="shrink-0 flex gap-4 md:gap-6 py-2 pr-4" aria-hidden="true">
+              {[
+                "Family & Internal Medicine",
+                "Cardiology",
+                "Nephrology",
+                "Endocrinology",
+                "Pulmonology",
+                "Geriatrics",
+                "Rural Health Clinics",
+              ].map((item, idx) => (
+                <li
+                  key={`${item}-${idx}`}
+                  className="shrink-0 rounded-2xl px-5 py-3 bg-white font-semibold"
+                >
+                  <span className="text-[#B187E8]">
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <style jsx>{`
+            .marquee { 
+              display: flex; 
+              width: max-content; 
+              animation: scrollLeft 28s linear infinite; 
+            }
+            
+            @keyframes scrollLeft { 
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+          `}</style>
         </div>
       </div>
     </section>

@@ -6,6 +6,8 @@ import TestimonialSection from '../components/home/TestimonialSection';
 import DeviceSection from '../components/home/DeviceSection';
 import Compliance from '../components/home/Compliance';
 import RPMReimbursement from '../components/home/RPMReimbursement';
+import WhyChooseUs from '../components/home/WhyChooseUs';
+import CTASection from '../components/home/CTASection';
 
 const Home: React.FC = () => {
   return (
@@ -17,7 +19,9 @@ const Home: React.FC = () => {
       <DeviceSection />
       <Compliance />
       <RPMReimbursement />
+      <WhyChooseUs />
       <TestimonialSection />
+      <CTASection />
       
        {/* <FooterSection /> */}
       
