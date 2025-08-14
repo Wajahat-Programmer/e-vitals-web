@@ -39,7 +39,7 @@ export default function ComplianceSecurity() {
               Compliance & Security
             </h1>
             <p className="text-lg text-gray-200 leading-relaxed">
-              At eVitals, compliance and security aren’t just features — they’re the foundation of everything we do.
+              At eVitals, compliance and security are not just features — they are the foundation of everything we do.
             </p>
           </div>
         </div>
@@ -49,7 +49,7 @@ export default function ComplianceSecurity() {
       <section className="container mx-auto px-4 max-w-5xl text-center py-24">
         <p className="text-2xl text-gray-600 leading-relaxed">
           Patient data is one of the most valuable and sensitive assets in healthcare. 
-          That’s why we ensure our Remote Patient Monitoring (RPM) ecosystem — from devices to software — meets 
+          Therfore we ensure our Remote Patient Monitoring (RPM) ecosystem — from devices to software — meets 
           the highest standards of protection, privacy, and regulatory compliance.
         </p>
       </section>
