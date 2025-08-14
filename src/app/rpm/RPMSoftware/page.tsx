@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import CTASection from '../../../components/home/CTASection';
 
 const RPMSoftware = () => {
   return (
@@ -237,40 +238,7 @@ const RPMSoftware = () => {
         </div>
       </section>
 
-      <section className="relative text-center px-4 mb-20 py-16 bg-gradient-to-br from-purple-100 via-purple-200 to-purple-100 rounded-3xl shadow-xl overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <svg
-            width="100%"
-            height="100%"
-            viewBox="0 0 600 200"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-full h-full opacity-10"
-          >
-            <circle cx="100" cy="100" r="80" fill="#a78bfa" />
-            <circle cx="500" cy="80" r="60" fill="#7c3aed" />
-            <circle cx="300" cy="180" r="40" fill="#c4b5fd" />
-          </svg>
-        </div>
-        <div className="relative z-10 max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-purple-900 mb-6">Ready to See It in Action?</h2>
-          <p className="text-lg text-gray-800 mb-6">
-            Experience how eVitals can simplify RPM for your clinic and improve patient care.
-          </p>
-          <div className="space-y-2 text-gray-900 mb-8">
-            <p>📞 Call us at (XXX) XXX-XXXX</p>
-            <p>📧 Email <a href="mailto:info@yourcompany.com" className="underline">info@yourcompany.com</a></p>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/demo"
-              className="bg-[#270949] hover:bg-[#1f0636] text-white px-6 py-3 rounded-full transition font-semibold shadow-lg"
-            >
-              Schedule Your Free Demo →
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CTASection />
     </main>
   );
 };

@@ -9,12 +9,14 @@ const CTASection = () => {
         <div className="max-w-4xl mx-auto text-center">
           {/* Main Heading */}
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8 leading-tight">
-            Start Improving Outcomes and Growing Your Practice Today
+            Ready to see it in action?
           </h2>
           
           {/* Description */}
-          <p className="text-lg md:text-xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto">
-            With our eVitals RPM platform, FDA-cleared devices, and dedicated support team, you can deliver higher-quality care while generating new revenue streams.
+          <p className="text-lg md:text-xl text-white/90 mb-12 leading-relaxed max-w-4xl mx-auto">
+          Start improving outcomes and growing your practice today with our eVitals RPM platform, 
+          FDA-cleared devices, and dedicated support team, you can deliver higher-quality care while 
+          generating new revenue streams.
           </p>
 
                      {/* Contact Information */}
