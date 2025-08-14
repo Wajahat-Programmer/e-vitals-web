@@ -31,7 +31,7 @@ const BlogPage = () => {
         <p className="text-lg leading-relaxed">
           Remote Patient Monitoring (RPM) programs have revolutionized the way healthcare providers
           manage patient care. By leveraging connected devices, clinicians can track vital signs,
-          medication adherence, and overall health trends from the comfort of the patient’s home.
+          medication adherence, and overall health trends from the comfort of the patients home.
         </p>
 
         <h2 className="text-2xl font-bold text-purple-800">Key Benefits of RPM Programs</h2>
