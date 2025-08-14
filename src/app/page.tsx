@@ -4,6 +4,8 @@ import FeatureSection from '../components/home/FeatureSection';
 import AchievementsSection from '@/components/home/AchievementsSection';
 import TestimonialSection from '../components/home/TestimonialSection';
 import DeviceSection from '../components/home/DeviceSection';
+import Compliance from '../components/home/Compliance';
+import RPMReimbursement from '../components/home/RPMReimbursement';
 
 const Home: React.FC = () => {
   return (
@@ -11,9 +13,12 @@ const Home: React.FC = () => {
       <Hero />
       {/* Add other sections/components here as needed */}
       <FeatureSection />
-       <AchievementsSection />
+      <AchievementsSection />
       <DeviceSection />
+      <Compliance />
+      <RPMReimbursement />
       <TestimonialSection />
+      
        {/* <FooterSection /> */}
       
     </main>

@@ -54,37 +54,39 @@ const DeviceSection = () => {
           </div>
         </div>
 
+        {/* Dashed Line */}
+        <div className="w-full flex justify-center my-8">
+          <span className="w-full border-t-3 border-dashed border-gray-300"></span>
+        </div>
 
-
-
-        {/* Weight Scale */}
-        <div className="flex flex-col lg:flex-row items-center gap-12 bg-white rounded-3xl p-8 md:p-16 shadow-2xl hover:shadow-purple-200 transition-shadow duration-300">
-          {/* Image */}
-          <div className="flex-1 flex justify-center">
-            <Image
-              src="/assets/weight.jpg"
-              alt="Weight Scale"
-              width={340}
-              height={240}
-              className="object-contain rounded-2xl shadow-md border-4 border-[#f0f9fb] hover:scale-105 transition-transform duration-300"
-              priority
-            />
-          </div>
-
-          {/* Text */}
-          <div className="flex-1">
-            <h4 className="text-2xl md:text-3xl font-bold text-[#270949] mb-4 flex items-center gap-2">
-              <span className="inline-block bg-[#e0f2f7] rounded-full px-4 py-1 text-sm font-semibold text-[#1e1e2f] shadow-sm">
+        <div className="w-full relative rounded-3xl overflow-hidden p-8 md:p-16 mb-20 duration-300 min-h-[700px] flex">
+          {/* Text on the left */}
+          <div className="relative z-10 max-w-xl flex-1">
+            <span className="inline-block bg-[#00b6c6] rounded-full px-4 py-1 text-sm font-semibold text-[#fff] shadow-sm mb-2">
                 New
               </span>
+            <h3 className="text-2xl md:text-3xl font-bold text-[#013550] mb-4 flex items-center gap-2">
               Weight Scale
-            </h4>
-            <ul className="list-disc pl-6 text-gray-700 space-y-2 text-base">
+            </h3>
+            
+            <ul className="list-disc pl-6 text-black space-y-2 text-base">
               <li>Supports up to 550 lbs</li>
               <li>Low profile, wide platform</li>
               <li>Large backlit LCD display</li>
               <li>Audible results in English, Spanish & French</li>
             </ul>
+          </div>
+
+          {/* Image on the right */}
+          <div className="relative flex-1 flex justify-end items-center">
+            <Image
+              src="/assets/weight.png"
+              alt="Weight Scale"
+              width={500}
+              height={500}
+              className="h-full w-auto object-contain"
+              priority
+            />
           </div>
         </div>
 
@@ -92,7 +94,7 @@ const DeviceSection = () => {
         <div className="mt-20 flex justify-center">
           <Link
             href="/for-organizations"
-            className="bg-[#270949] text-white px-6 py-3 rounded-full hover:opacity-90 transition font-semibold shadow-lg"
+            className="bg-[#270949] text-white px-6 py-3 rounded-full hover:opacity-90 transition font-semibold shadow-lg animate-pulse"
           >
             Become our Technology Partner
           </Link>
