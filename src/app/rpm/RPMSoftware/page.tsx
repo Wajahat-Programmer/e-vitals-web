@@ -36,7 +36,7 @@ const RPMSoftware = () => {
 
     useEffect(() => {
       const currentText = features[index];
-      let typingSpeed = isDeleting ? 20 : 50;
+      const typingSpeed = isDeleting ? 20 : 50;
 
       const handleTyping = () => {
         if (!isDeleting && displayedText.length < currentText.length) {

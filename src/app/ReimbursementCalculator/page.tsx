@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -25,8 +25,8 @@ const RPMReimbursementCalculator: React.FC = () => {
     cpt99458: 42, // Additional 20 minutes of monitoring
   };
 
-  // Calculate reimbursement
-  const calculateReimbursement = () => {
+  // Memoized calculateReimbursement function
+  const calculateReimbursement = useCallback(() => {
     if (patients <= 0 || monitoringDays <= 0 || monitoringDays > 31) {
       setError(
         "Please enter valid numbers (patients > 0, monitoring days between 1 and 31)."
@@ -50,12 +50,12 @@ const RPMReimbursementCalculator: React.FC = () => {
       monthly: Math.round(totalMonthly),
       annual: Math.round(totalAnnual),
     });
-  };
+  }, [patients, monitoringDays, cptRates]); // Dependencies for useCallback
 
   // Run calculation when patients or monitoringDays change
   useEffect(() => {
     calculateReimbursement();
-  }, [patients, monitoringDays]);
+  }, [calculateReimbursement]); // Include memoized function in dependency array
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-white via-white to-purple-50 py-16">
