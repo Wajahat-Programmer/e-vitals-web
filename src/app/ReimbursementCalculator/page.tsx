@@ -1,6 +1,7 @@
+
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -18,19 +19,20 @@ const RPMReimbursementCalculator: React.FC = () => {
   });
 
   // CPT code reimbursement rates (approximate, based on Medicare 2025 rates)
-  const cptRates = {
-    cpt99453: 19, // Device setup, one-time per patient
-    cpt99454: 50, // Monthly device supply
-    cpt99457: 51, // First 20 minutes of monitoring
-    cpt99458: 42, // Additional 20 minutes of monitoring
-  };
+  const cptRates = useMemo(
+    () => ({
+      cpt99453: 19, // Device setup, one-time per patient
+      cpt99454: 50, // Monthly device supply
+      cpt99457: 51, // First 20 minutes of monitoring
+      cpt99458: 42, // Additional 20 minutes of monitoring
+    }),
+    []
+  );
 
   // Memoized calculateReimbursement function
   const calculateReimbursement = useCallback(() => {
     if (patients <= 0 || monitoringDays <= 0 || monitoringDays > 31) {
-      setError(
-        "Please enter valid numbers (patients > 0, monitoring days between 1 and 31)."
-      );
+      setError("Please enter valid numbers (patients > 0, monitoring days between 1 and 31).");
       setResults({ monthly: 0, annual: 0 });
       return;
     }
@@ -50,12 +52,12 @@ const RPMReimbursementCalculator: React.FC = () => {
       monthly: Math.round(totalMonthly),
       annual: Math.round(totalAnnual),
     });
-  }, [patients, monitoringDays, cptRates]); // Dependencies for useCallback
+  }, [patients, monitoringDays, cptRates]);
 
   // Run calculation when patients or monitoringDays change
   useEffect(() => {
     calculateReimbursement();
-  }, [calculateReimbursement]); // Include memoized function in dependency array
+  }, [calculateReimbursement]);
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-white via-white to-purple-50 py-16">
@@ -72,10 +74,7 @@ const RPMReimbursementCalculator: React.FC = () => {
         />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link
-          rel="canonical"
-          href="https://www.evitals.com/rpm-reimbursement-calculator"
-        />
+        <link rel="canonical" href="https://www.evitals.com/rpm-reimbursement-calculator" />
         <script type="application/ld+json">
           {`
             {
@@ -114,14 +113,10 @@ const RPMReimbursementCalculator: React.FC = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-white text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
-              RPM <span className="text-[#B187E8]">Reimbursement</span>{" "}
-              Calculator
+              RPM <span className="text-[#B187E8]">Reimbursement</span> Calculator
             </h1>
             <p className="text-white text-base md:text-lg mb-8 max-w-3xl">
-              Discover the revenue potential of Remote Patient Monitoring (RPM)
-              with eVitals’ calculator. Input your practice’s patient numbers
-              and monitoring days to estimate earnings from CPT codes 99453,
-              99454, 99457, and 99458.
+              Discover the revenue potential of Remote Patient Monitoring (RPM) with eVitals’ calculator. Input your practice’s patient numbers and monitoring days to estimate earnings from CPT codes 99453, 99454, 99457, and 99458.
             </p>
           </motion.div>
         </div>
@@ -134,9 +129,7 @@ const RPMReimbursementCalculator: React.FC = () => {
             Calculate Your RPM Revenue
           </h2>
           <p className="text-lg text-gray-800 mb-8 max-w-3xl mx-auto text-center">
-            Use our interactive tool to estimate monthly and annual revenue from
-            RPM services. Adjust the number of patients and monitoring days to
-            see how eVitals can boost your practice’s financial performance.
+            Use our interactive tool to estimate monthly and annual revenue from RPM services. Adjust the number of patients and monitoring days to see how eVitals can boost your practice’s financial performance.
           </p>
           <motion.div
             className="bg-white rounded-xl p-8 shadow-lg max-w-2xl mx-auto"
@@ -180,12 +173,10 @@ const RPMReimbursementCalculator: React.FC = () => {
                 <DollarSign className="w-6 h-6" /> Estimated Revenue
               </h3>
               <p className="text-lg text-gray-800 mb-2">
-                <span className="font-bold">Monthly Revenue:</span> $
-                {results.monthly.toLocaleString()}
+                <span className="font-bold">Monthly Revenue:</span> ${results.monthly.toLocaleString()}
               </p>
               <p className="text-lg text-gray-800">
-                <span className="font-bold">Annual Revenue:</span> $
-                {results.annual.toLocaleString()}
+                <span className="font-bold">Annual Revenue:</span> ${results.annual.toLocaleString()}
               </p>
             </div>
           </motion.div>
@@ -206,8 +197,7 @@ const RPMReimbursementCalculator: React.FC = () => {
             How the Calculator Works
           </h2>
           <p className="text-lg text-gray-800 mb-8 max-w-3xl mx-auto text-center">
-            Our calculator uses standard Medicare CPT code rates to estimate RPM
-            revenue based on your input. Here’s how it breaks down:
+            Our calculator uses standard Medicare CPT code rates to estimate RPM revenue based on your input. Here’s how it breaks down:
           </p>
           <div className="grid md:grid-cols-3 gap-8">
             <motion.div
@@ -218,13 +208,9 @@ const RPMReimbursementCalculator: React.FC = () => {
               transition={{ delay: 0.1 }}
             >
               <Calculator className="w-8 h-8 text-purple-900 mb-4 mx-auto" />
-              <h3 className="text-xl font-semibold text-purple-900 mb-2">
-                CPT Code Breakdown
-              </h3>
+              <h3 className="text-xl font-semibold text-purple-900 mb-2">CPT Code Breakdown</h3>
               <p className="text-gray-700">
-                Includes CPT 99453 ($19, one-time setup), CPT 99454 ($50/month,
-                device supply), CPT 99457 ($51/month, first 20 minutes), and CPT
-                99458 ($42/month, additional 20 minutes).
+                Includes CPT 99453 ($19, one-time setup), CPT 99454 ($50/month, device supply), CPT 99457 ($51/month, first 20 minutes), and CPT 99458 ($42/month, additional 20 minutes).
               </p>
             </motion.div>
             <motion.div
@@ -235,12 +221,9 @@ const RPMReimbursementCalculator: React.FC = () => {
               transition={{ delay: 0.2 }}
             >
               <Users className="w-8 h-8 text-purple-900 mb-4 mx-auto" />
-              <h3 className="text-xl font-semibold text-purple-900 mb-2">
-                Patient Input
-              </h3>
+              <h3 className="text-xl font-semibold text-purple-900 mb-2">Patient Input</h3>
               <p className="text-gray-700">
-                Enter the number of patients enrolled in your RPM program. The
-                calculator scales revenue based on patient volume.
+                Enter the number of patients enrolled in your RPM program. The calculator scales revenue based on patient volume.
               </p>
             </motion.div>
             <motion.div
@@ -251,12 +234,9 @@ const RPMReimbursementCalculator: React.FC = () => {
               transition={{ delay: 0.3 }}
             >
               <Calendar className="w-8 h-8 text-purple-900 mb-4 mx-auto" />
-              <h3 className="text-xl font-semibold text-purple-900 mb-2">
-                Monitoring Days
-              </h3>
+              <h3 className="text-xl font-semibold text-purple-900 mb-2">Monitoring Days</h3>
               <p className="text-gray-700">
-                Input the average number of days per month each patient is
-                monitored. A minimum of 20 days unlocks additional CPT codes.
+                Input the average number of days per month each patient is monitored. A minimum of 20 days unlocks additional CPT codes.
               </p>
             </motion.div>
           </div>
@@ -270,8 +250,7 @@ const RPMReimbursementCalculator: React.FC = () => {
             Why Use eVitals for RPM Reimbursement
           </h2>
           <p className="text-lg text-gray-800 mb-8 max-w-3xl mx-auto text-center">
-            eVitals’ RPM platform maximizes your practice’s revenue while
-            improving patient outcomes. Here’s how we help:
+            eVitals’ RPM platform maximizes your practice’s revenue while improving patient outcomes. Here’s how we help:
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
@@ -311,9 +290,7 @@ const RPMReimbursementCalculator: React.FC = () => {
                   height={100}
                   className="mx-auto mb-4 rounded-md"
                 />
-                <h3 className="text-lg font-semibold text-purple-900 mb-2">
-                  {benefit.title}
-                </h3>
+                <h3 className="text-lg font-semibold text-purple-900 mb-2">{benefit.title}</h3>
                 <p className="text-gray-700">{benefit.description}</p>
               </motion.div>
             ))}
@@ -328,14 +305,10 @@ const RPMReimbursementCalculator: React.FC = () => {
             Maximize Your RPM Revenue with eVitals
           </h2>
           <p className="text-lg text-gray-800 mb-4 max-w-3xl mx-auto">
-            Unlock the full financial potential of Remote Patient Monitoring
-            with eVitals’ comprehensive platform. Our team customizes solutions
-            to your practice’s needs, ensuring seamless integration and maximum
-            reimbursement.
+            Unlock the full financial potential of Remote Patient Monitoring with eVitals’ comprehensive platform. Our team customizes solutions to your practice’s needs, ensuring seamless integration and maximum reimbursement.
           </p>
           <p className="text-lg text-gray-800 mb-8 max-w-3xl mx-auto">
-            Schedule a personalized demo today to see how eVitals can transform
-            your practice’s revenue and patient care.
+            Schedule a personalized demo today to see how eVitals can transform your practice’s revenue and patient care.
           </p>
           <Link
             href="/contact"
