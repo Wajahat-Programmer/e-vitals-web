@@ -242,10 +242,14 @@ const Header: React.FC = () => {
                 </div>
               )}
             </div>
+            <Link
+              href="/ReimbursementCalculator"
+              className="text-m font-medium tracking-wider hover:underline"
+            >
+              RPM Reimbursement Calculator
+            </Link>
           </nav>
-          <Link href="/ReimbursementCalculator">
-            RPM Reimbursement Calculator
-          </Link>
+
           <Link
             href="/contact"
             className="bg-[#B187E8] hover:bg-[#9d6dd6] text-white text-lg text-shadow-lg font-semibold px-5 py-2 rounded-full transition"
