@@ -15,53 +15,61 @@ const EndocrinologyPage: React.FC = () => {
     setIsVisible(true);
   }, []);
 
-  const features: Array<{ icon: JSX.Element; title: string; description: string }> = [
+  const features: Array<{ icon: JSX.Element; title: string; description: string; image: string }> = [
     {
       icon: <Stethoscope className="w-8 h-8 text-purple-900" />,
       title: "Accurate Glucose Monitoring",
       description:
         "Track blood glucose levels with our FDA-cleared 2-in-1 Blood Pressure & Glucose Monitor, featuring Smart Averaging Technology for precise diabetes management. Supports alternative site testing and multilingual voice guidance. Integration with CGM devices reduces clinic visits by 40%.",
+      image: "/assets/glucose.jpg",
     },
     {
       icon: <Bell className="w-8 h-8 text-purple-900" />,
       title: "Real-Time Glucose Alerts",
       description:
         "Automated alerts for hypo- or hyperglycemic events enable immediate intervention. Custom thresholds based on patient history reduce severe incidents by 45%. Alerts can notify caregivers and endocrinologists simultaneously for comprehensive care.",
+      image: "/assets/Alert.png",
     },
     {
       icon: <UserPlus className="w-8 h-8 text-purple-900" />,
       title: "Patient and Caregiver Engagement",
       description:
         "User-friendly devices with voice guidance and reminders ensure compliance. The patient portal offers educational resources on diabetes management, achieving 85% adherence rates. Caregivers access real-time data, improving family support and outcomes.",
+      image: "/assets/CareGiver.jpg",
     },
     {
       icon: <FileText className="w-8 h-8 text-purple-900" />,
       title: "Reimbursement Optimization",
       description:
         "Automate billing for CPT codes 99453, 99454, 99457, and 99458 with endocrinology-specific documentation. Supports Medicare and private payers with audit-ready reports. Practices see a 25% increase in reimbursable services, saving 10 hours weekly.",
+      image: "/assets/RemOptimization.jpg",
     },
   ];
 
-  const benefits: Array<{ title: string; description: string }> = [
+  const benefits: Array<{ title: string; description: string; image: string }> = [
     {
       title: "Enhanced Glycemic Control",
       description:
         "Real-time monitoring reduces A1C levels by 1.2% on average, minimizing complications. Patients achieve better long-term outcomes with fewer hypoglycemic events, improving quality of life by 50%.",
+      image: "/assets/gluStats.jpg",
     },
     {
       title: "Time Efficiency for Providers",
       description:
         "Automated data collection and EHR integration reduce routine check-ups by 35%. Endocrinologists save up to 15 hours per week, focusing on complex cases and patient education.",
+      image: "/assets/Calendar.jpg",
     },
     {
       title: "Improved Patient Compliance",
       description:
         "Patient-centric features and multilingual support achieve 80% adherence rates. Educational content and reminders enhance long-term diabetes management, reducing complications by 30%.",
+      image: "/assets/patient-W-Watch.jpg",
     },
     {
       title: "Maximized Revenue",
       description:
         "Accurate coding captures all reimbursable services, increasing revenue by $5,000 per physician monthly. Billing support reduces claim denials by 20%, boosting practice profitability.",
+      image: "/assets/FinancialGraph.jpg",
     },
   ];
 
@@ -108,7 +116,7 @@ const EndocrinologyPage: React.FC = () => {
       <section className="relative h-[90vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/assets/endocrinology-hero-bg.png"
+            src="/assets/EndocrinologyHero.jpg"
             alt="Endocrinology Hero Background"
             fill
             className="object-cover kenburns"
@@ -159,7 +167,7 @@ const EndocrinologyPage: React.FC = () => {
             </p>
           </div>
           <Image
-            src="/assets/endocrinology-rpm-image.png"
+            src="/assets/SugarChecking.jpg"
             alt="RPM in Endocrinology Illustration"
             width={800}
             height={400}
@@ -196,13 +204,15 @@ const EndocrinologyPage: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
               >
-                <Image
-                  src="/assets/endocrinology-feature-image.png"
-                  alt={feature.title}
-                  width={200}
-                  height={100}
-                  className="mx-auto mb-4 rounded-md"
-                />
+                <div className="relative w-full h-48 mb-4">
+                  <Image
+                    src={feature.image}
+                    alt={feature.title}
+                    fill
+                    className="rounded-md object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  />
+                </div>
                 <div className="mb-4">{feature.icon}</div>
                 <h3 className="text-xl font-bold text-purple-900 mb-2">{feature.title}</h3>
                 <p className="text-gray-700">{feature.description}</p>
@@ -240,13 +250,15 @@ const EndocrinologyPage: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
               >
-                <Image
-                  src="/assets/endocrinology-benefit-image.png"
-                  alt={benefit.title}
-                  width={200}
-                  height={100}
-                  className="mx-auto mb-4 rounded-md"
-                />
+                <div className="relative w-full h-48 mb-4">
+                  <Image
+                    src={benefit.image}
+                    alt={benefit.title}
+                    fill
+                    className="rounded-md object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  />
+                </div>
                 <h3 className="text-lg font-semibold text-purple-900 mb-2">{benefit.title}</h3>
                 <p className="text-gray-700">{benefit.description}</p>
               </motion.div>
@@ -261,7 +273,7 @@ const EndocrinologyPage: React.FC = () => {
               For endocrinologists, the platform optimizes workflows, freeing up time for research and complex cases. With a 95% satisfaction rate, eVitals is a trusted partner in endocrine care.
             </p>
             <Image
-              src="/assets/endocrinology-benefit-overview.png"
+              src="/assets/DrpatientTrust.jpg"
               alt="Benefits Overview"
               width={800}
               height={400}
@@ -283,10 +295,10 @@ const EndocrinologyPage: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-white p-6 rounded-xl shadow-md">
               <Image
-                src="/assets/endocrinology-case-study1.png"
+                src="/assets/diabetieMonitoring.jpg"
                 alt="Diabetes Case Study"
-                width={400}
-                height={200}
+                width={700}
+                height={100}
                 className="mx-auto mb-4 rounded-md"
               />
               <h3 className="text-xl font-semibold text-purple-900 mb-2">Diabetes Management</h3>
@@ -299,9 +311,9 @@ const EndocrinologyPage: React.FC = () => {
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md">
               <Image
-                src="/assets/endocrinology-case-study2.png"
+                src="/assets/throid.jpg"
                 alt="Thyroid Case Study"
-                width={400}
+                width={700}
                 height={200}
                 className="mx-auto mb-4 rounded-md"
               />
@@ -350,7 +362,7 @@ const EndocrinologyPage: React.FC = () => {
             </div>
           </div>
           <Image
-            src="/assets/endocrinology-implementation-image.png"
+            src="/assets/DR.jpg"
             alt="Implementation Process"
             width={800}
             height={400}
