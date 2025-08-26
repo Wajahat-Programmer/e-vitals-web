@@ -15,53 +15,61 @@ const NeurologyPage: React.FC = () => {
     setIsVisible(true);
   }, []);
 
-  const features: Array<{ icon: JSX.Element; title: string; description: string }> = [
+  const features: Array<{ icon: JSX.Element; title: string; description: string; image: string }> = [
     {
-      icon: <Stethoscope className="w-8 h-8 text-purple-900" />,
+      icon: <Stethoscope className="w-8  text-purple-900" />,
       title: "Advanced Neurological Monitoring",
       description:
         "Track critical neurological indicators such as blood pressure, heart rate, and oxygen saturation for epilepsy, stroke recovery, and neurodegenerative conditions using FDA-approved devices with cellular connectivity. Our platform integrates with wearable EEG devices for real-time seizure detection, enabling neurologists to monitor patients remotely with unparalleled precision. This reduces clinic visits by 40% and provides continuous data for accurate assessments.",
+      image: "/assets/advance.jpg",
     },
     {
       icon: <Bell className="w-8 h-8 text-purple-900" />,
       title: "Immediate Alert System",
       description:
         "Receive automated, customizable alerts for abnormal readings, such as irregular heart rates or seizure indicators, allowing rapid response to potential neurological events. Alerts can be configured for multiple recipients, including caregivers and emergency services, ensuring comprehensive coverage. This feature has reduced emergency response times by 50% in clinical studies, minimizing complications for epilepsy and stroke patients.",
+      image: "/assets/Alert.png",
     },
     {
       icon: <UserPlus className="w-8 h-8 text-purple-900" />,
       title: "Patient and Caregiver Engagement",
       description:
         "User-friendly devices with voice guidance in multiple languages (English, Spanish, and more) ensure compliance, even for patients with cognitive impairments. Caregivers access a dedicated portal for real-time data and trend analysis, fostering collaborative care. Educational resources, including video tutorials and medication guides, enhance patient and family involvement, improving adherence rates to 85%.",
+      image: "/assets/CareGiver.jpg",
     },
     {
       icon: <FileText className="w-8 h-8 text-purple-900" />,
       title: "Reimbursement Optimization",
       description:
         "Automate billing for CPT codes 99453, 99454, 99457, and 99458 with neurology-specific documentation. Our system supports Medicare and private payers, generating audit-ready reports to ensure compliance. Practices report a 20-30% increase in reimbursable services, with dedicated support for navigating complex billing requirements, saving up to 15 hours weekly on administrative tasks.",
+      image: "/assets/RemOptimization.jpg",
     },
   ];
 
-  const benefits: Array<{ title: string; description: string }> = [
+  const benefits: Array<{ title: string; description: string; image: string }> = [
     {
       title: "Enhanced Patient Safety",
       description:
         "Continuous monitoring detects neurological events early, preventing complications and reducing hospital admissions by 35% for epilepsy patients. Real-time data allows for timely interventions, improving outcomes for stroke and Parkinson’s patients. Patients report greater peace of mind knowing their condition is monitored 24/7.",
+      image: "/assets/safety.jpg",
     },
     {
       title: "Time Efficiency for Providers",
       description:
         "Automated data collection and EHR integration streamline workflows, allowing neurologists to focus on complex cases. Routine check-ups are reduced by 30%, saving up to 25 hours per week. Our platform’s intuitive dashboard provides actionable insights, enabling faster decision-making and treatment adjustments.",
+      image: "/assets/Calendar.jpg",
     },
     {
       title: "Improved Patient Compliance",
       description:
         "Patient-centric devices with reminders and multilingual support achieve 80% adherence rates. Personalized education plans and caregiver involvement enhance long-term management. Studies show a 40% improvement in medication adherence, critical for managing neurological conditions like epilepsy and migraines.",
+      image: "/assets/patient-W-Watch.jpg",
     },
     {
       title: "Maximized Revenue",
       description:
         "Accurate coding and documentation capture all reimbursable services, increasing revenue by an average of $4,000 per physician monthly. Our billing support team ensures compliance with Medicare and private payer requirements, reducing claim denials by 25% and boosting practice profitability.",
+      image: "/assets/FinancialGraph.jpg",
     },
   ];
 
@@ -108,7 +116,7 @@ const NeurologyPage: React.FC = () => {
       <section className="relative h-[90vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/assets/neurology-hero-bg.png"
+            src="/assets/n.jpg"
             alt="Neurology Hero Background"
             fill
             className="object-cover kenburns"
@@ -159,7 +167,7 @@ const NeurologyPage: React.FC = () => {
             </p>
           </div>
           <Image
-            src="/assets/neurology-rpm-image.png"
+            src="/assets/neurologyhero.jpg"
             alt="RPM in Neurology Illustration"
             width={800}
             height={400}
@@ -196,13 +204,15 @@ const NeurologyPage: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
               >
-                <Image
-                  src="/assets/neurology-feature-image.png"
-                  alt={feature.title}
-                  width={200}
-                  height={100}
-                  className="mx-auto mb-4 rounded-md"
-                />
+                <div className="relative w-full h-48   mb-4">
+                  <Image
+                    src={feature.image}
+                    alt={feature.title}
+                    fill
+                    className="rounded-md object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  />
+                </div>
                 <div className="mb-4">{feature.icon}</div>
                 <h3 className="text-xl font-bold text-purple-900 mb-2">{feature.title}</h3>
                 <p className="text-gray-700">{feature.description}</p>
@@ -240,13 +250,15 @@ const NeurologyPage: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
               >
-                <Image
-                  src="/assets/neurology-benefit-image.png"
-                  alt={benefit.title}
-                  width={200}
-                  height={100}
-                  className="mx-auto mb-4 rounded-md"
-                />
+                <div className="relative w-full h-48 mb-4">
+                  <Image
+                    src={benefit.image}
+                    alt={benefit.title}
+                    fill
+                    className="rounded-md object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  />
+                </div>
                 <h3 className="text-lg font-semibold text-purple-900 mb-2">{benefit.title}</h3>
                 <p className="text-gray-700">{benefit.description}</p>
               </motion.div>
@@ -261,7 +273,7 @@ const NeurologyPage: React.FC = () => {
               Our reimbursement support ensures practices can sustainably implement RPM without financial strain. With a 98% satisfaction rate among users, eVitals is a trusted partner in transforming neurological care delivery.
             </p>
             <Image
-              src="/assets/neurology-benefit-overview.png"
+              src="/assets/NeuroSafety.jpg"
               alt="Benefits Overview"
               width={800}
               height={400}
@@ -283,9 +295,9 @@ const NeurologyPage: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-white p-6 rounded-xl shadow-md">
               <Image
-                src="/assets/neurology-case-study1.png"
+                src="/assets/ecg.jpg"
                 alt="Epilepsy Case Study"
-                width={400}
+                width={700}
                 height={200}
                 className="mx-auto mb-4 rounded-md"
               />
@@ -299,9 +311,9 @@ const NeurologyPage: React.FC = () => {
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md">
               <Image
-                src="/assets/neurology-case-study2.png"
+                src="/assets/EcgCS2.jpg"
                 alt="Stroke Recovery Case Study"
-                width={400}
+                width={700}
                 height={200}
                 className="mx-auto mb-4 rounded-md"
               />
@@ -380,7 +392,7 @@ const NeurologyPage: React.FC = () => {
             </div>
           </div>
           <Image
-            src="/assets/neurology-implementation-image.png"
+            src="/assets/DR.jpg"
             alt="Implementation Process"
             width={800}
             height={400}
