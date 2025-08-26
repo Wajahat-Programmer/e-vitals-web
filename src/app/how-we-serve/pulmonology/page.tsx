@@ -15,53 +15,61 @@ const PulmonologyPage: React.FC = () => {
     setIsVisible(true);
   }, []);
 
-  const features: Array<{ icon: JSX.Element; title: string; description: string }> = [
+  const features: Array<{ icon: JSX.Element; title: string; description: string; image: string }> = [
     {
       icon: <Stethoscope className="w-8 h-8 text-purple-900" />,
       title: "Pulse Oximetry Monitoring",
       description:
         "Track oxygen saturation and pulse rate for COPD, asthma, and pulmonary fibrosis using FDA-approved cellular-enabled pulse oximeters. Integration with spirometry devices provides comprehensive respiratory data, reducing clinic visits by 40%.",
+      image: "/assets/monito.jpg",
     },
     {
       icon: <Bell className="w-8 h-8 text-purple-900" />,
       title: "Real-Time Respiratory Alerts",
       description:
         "Automated alerts for low oxygen levels or abnormal pulse rates enable immediate intervention. Custom thresholds reduce emergency visits by 30%. Alerts can notify multiple caregivers for comprehensive support.",
+      image: "/assets/Alert.png",
     },
     {
       icon: <UserPlus className="w-8 h-8 text-purple-900" />,
       title: "Patient and Caregiver Engagement",
       description:
         "User-friendly devices with voice guidance ensure compliance. The patient portal offers educational resources on respiratory health, achieving 85% adherence rates. Caregivers access real-time data, improving family support.",
+      image: "/assets/CareGiver.jpg",
     },
     {
       icon: <FileText className="w-8 h-8 text-purple-900" />,
       title: "Reimbursement Optimization",
       description:
         "Automate billing for CPT codes 99453, 99454, 99457, and 99458 with pulmonology-specific documentation. Supports Medicare and private payers with audit-ready reports. Practices see a 20% increase in reimbursable services.",
+      image: "/assets/RemOptimization.jpg",
     },
   ];
 
-  const benefits: Array<{ title: string; description: string }> = [
+  const benefits: Array<{ title: string; description: string; image: string }> = [
     {
       title: "Improved Respiratory Outcomes",
       description:
         "Continuous monitoring reduces exacerbations by 35% for COPD and asthma patients. Early detection of respiratory distress improves outcomes and quality of life by 50%.",
+      image: "/assets/improvedResp.jpg",
     },
     {
       title: "Time Efficiency for Providers",
       description:
         "Automated data collection and EHR integration reduce routine check-ups by 30%. Pulmonologists save up to 18 hours per week, focusing on high-risk cases.",
+      image: "/assets/Calendar.jpg",
     },
     {
       title: "Enhanced Patient Compliance",
       description:
         "Patient-centric features and multilingual support achieve 80% adherence rates. Educational content reduces complications by 25%, supporting long-term management.",
+      image: "/assets/patient-W-Watch.jpg",
     },
     {
       title: "Maximized Revenue",
       description:
         "Accurate coding captures all reimbursable services, increasing revenue by $3,500 per physician monthly. Billing support reduces claim denials by 15%.",
+      image: "/assets/FinancialGraph.jpg",
     },
   ];
 
@@ -108,7 +116,7 @@ const PulmonologyPage: React.FC = () => {
       <section className="relative h-[90vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/assets/pulmonology-hero-bg.png"
+            src="/assets/pulmonology.jpg"
             alt="Pulmonology Hero Background"
             fill
             className="object-cover kenburns"
@@ -159,7 +167,7 @@ const PulmonologyPage: React.FC = () => {
             </p>
           </div>
           <Image
-            src="/assets/pulmonology-rpm-image.png"
+            src="/assets/device.jpg"
             alt="RPM in Pulmonology Illustration"
             width={800}
             height={400}
@@ -196,13 +204,15 @@ const PulmonologyPage: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
               >
-                <Image
-                  src="/assets/pulmonology-feature-image.png"
-                  alt={feature.title}
-                  width={200}
-                  height={100}
-                  className="mx-auto mb-4 rounded-md"
-                />
+                <div className="relative w-full h-48 mb-4">
+                  <Image
+                    src={feature.image}
+                    alt={feature.title}
+                    fill
+                    className="rounded-md object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  />
+                </div>
                 <div className="mb-4">{feature.icon}</div>
                 <h3 className="text-xl font-bold text-purple-900 mb-2">{feature.title}</h3>
                 <p className="text-gray-700">{feature.description}</p>
@@ -240,13 +250,15 @@ const PulmonologyPage: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
               >
-                <Image
-                  src="/assets/pulmonology-benefit-image.png"
-                  alt={benefit.title}
-                  width={200}
-                  height={100}
-                  className="mx-auto mb-4 rounded-md"
-                />
+                <div className="relative w-full h-48 mb-4">
+                  <Image
+                    src={benefit.image}
+                    alt={benefit.title}
+                    fill
+                    className="rounded-md object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  />
+                </div>
                 <h3 className="text-lg font-semibold text-purple-900 mb-2">{benefit.title}</h3>
                 <p className="text-gray-700">{benefit.description}</p>
               </motion.div>
@@ -261,7 +273,7 @@ const PulmonologyPage: React.FC = () => {
               For pulmonologists, the platform optimizes workflows, freeing up time for research and complex cases. With a 95% satisfaction rate, eVitals is a trusted partner in respiratory care.
             </p>
             <Image
-              src="/assets/pulmonology-benefit-overview.png"
+              src="/assets/improvedR.jpg"
               alt="Benefits Overview"
               width={800}
               height={400}
@@ -283,9 +295,9 @@ const PulmonologyPage: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-white p-6 rounded-xl shadow-md">
               <Image
-                src="/assets/pulmonology-case-study1.png"
+                src="/assets/PUlCS1.jpg"
                 alt="COPD Case Study"
-                width={400}
+                width={700}
                 height={200}
                 className="mx-auto mb-4 rounded-md"
               />
@@ -299,9 +311,9 @@ const PulmonologyPage: React.FC = () => {
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md">
               <Image
-                src="/assets/pulmonology-case-study2.png"
+                src="/assets/As.jpg"
                 alt="Asthma Case Study"
-                width={400}
+                width={700}
                 height={200}
                 className="mx-auto mb-4 rounded-md"
               />
@@ -350,7 +362,7 @@ const PulmonologyPage: React.FC = () => {
             </div>
           </div>
           <Image
-            src="/assets/pulmonology-implementation-image.png"
+            src="/assets/pump.jpg"
             alt="Implementation Process"
             width={800}
             height={400}
