@@ -15,53 +15,61 @@ const CardiologyPage: React.FC = () => {
     setIsVisible(true);
   }, []);
 
-  const features: Array<{ icon: JSX.Element; title: string; description: string }> = [
+  const features: Array<{ icon: JSX.Element; title: string; description: string; image: string }> = [
     {
       icon: <Stethoscope className="w-8 h-8 text-purple-900" />,
       title: "Real-Time Cardiac Monitoring",
       description:
         "Track blood pressure, heart rate, and ECG data for hypertension, heart failure, and arrhythmias using FDA-cleared 2-in-1 devices with cellular connectivity. Our platform integrates with wearable ECG monitors for continuous data collection, reducing clinic visits by 45% and enabling precise treatment adjustments.",
+      image: "/assets/realMonit.jpg",
     },
     {
       icon: <Bell className="w-8 h-8 text-purple-900" />,
       title: "Early Intervention Alerts",
       description:
         "Automated alerts for abnormal cardiac readings, such as irregular heartbeats or hypertensive episodes, enable rapid response. Customizable thresholds ensure patient-specific notifications. This feature has reduced hospital readmissions by 30% for heart failure patients.",
+      image: "/assets/Alert.png",
     },
     {
       icon: <UserPlus className="w-8 h-8 text-purple-900" />,
       title: "Patient and Caregiver Engagement",
       description:
         "User-friendly devices with voice guidance in English and Spanish ensure compliance. Caregivers access a dedicated portal for real-time data, enhancing collaborative care. Educational resources and reminders improve adherence rates to 88%, critical for cardiac health.",
+      image: "/assets/CareGiver.jpg",
     },
     {
       icon: <FileText className="w-8 h-8 text-purple-900" />,
       title: "Reimbursement Optimization",
       description:
         "Automate billing for CPT codes 99453, 99454, 99457, and 99458 with cardiology-specific documentation. Supports Medicare and private payers with audit-ready reports. Practices see a 25% increase in reimbursable services, saving 12 hours weekly on billing tasks.",
+      image: "/assets/RemOptimization.jpg",
     },
   ];
 
-  const benefits: Array<{ title: string; description: string }> = [
+  const benefits: Array<{ title: string; description: string; image: string }> = [
     {
       title: "Improved Cardiac Outcomes",
       description:
         "Continuous monitoring reduces complications and hospital readmissions by 35% for heart failure patients. Real-time data supports timely interventions, improving patient survival rates and quality of life.",
+      image: "/assets/ImprovedOutcomes.jpg",
     },
     {
       title: "Time Efficiency for Providers",
       description:
         "Automated data collection and EHR integration streamline workflows, reducing routine check-ups by 40%. Cardiologists save up to 20 hours per week, focusing on complex cases and patient consultations.",
+      image: "/assets/Calendar.jpg",
     },
     {
       title: "Enhanced Patient Compliance",
       description:
         "Patient-centric devices and reminders achieve 85% adherence rates. Multilingual support and educational content improve long-term management of cardiac conditions, reducing adverse events by 30%.",
+      image: "/assets/patient-W-Watch.jpg",
     },
     {
       title: "Maximized Revenue",
       description:
         "Accurate coding captures all reimbursable services, increasing revenue by $5,000 per physician monthly. Comprehensive billing support reduces claim denials by 20%, boosting practice profitability.",
+      image: "/assets/FinancialGraph.jpg",
     },
   ];
 
@@ -108,7 +116,7 @@ const CardiologyPage: React.FC = () => {
       <section className="relative h-[90vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/assets/cardiology-hero-bg.png"
+            src="/assets/CardiologyHero.jpg"
             alt="Cardiology Hero Background"
             fill
             className="object-cover kenburns"
@@ -196,13 +204,15 @@ const CardiologyPage: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
               >
-                <Image
-                  src="/assets/cardiology-feature-image.png"
-                  alt={feature.title}
-                  width={200}
-                  height={100}
-                  className="mx-auto mb-4 rounded-md"
-                />
+                <div className="relative w-full h-48 mb-4">
+                  <Image
+                    src={feature.image}
+                    alt={feature.title}
+                    fill
+                    className="rounded-md object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  />
+                </div>
                 <div className="mb-4">{feature.icon}</div>
                 <h3 className="text-xl font-bold text-purple-900 mb-2">{feature.title}</h3>
                 <p className="text-gray-700">{feature.description}</p>
@@ -240,13 +250,15 @@ const CardiologyPage: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
               >
-                <Image
-                  src="/assets/cardiology-benefit-image.png"
-                  alt={benefit.title}
-                  width={200}
-                  height={100}
-                  className="mx-auto mb-4 rounded-md"
-                />
+                <div className="relative w-full h-48 mb-4">
+                  <Image
+                    src={benefit.image}
+                    alt={benefit.title}
+                    fill
+                    className="rounded-md object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  />
+                </div>
                 <h3 className="text-lg font-semibold text-purple-900 mb-2">{benefit.title}</h3>
                 <p className="text-gray-700">{benefit.description}</p>
               </motion.div>
@@ -261,7 +273,7 @@ const CardiologyPage: React.FC = () => {
               For cardiologists, the platform optimizes workflows, freeing up time for complex cases and research. With a 95% satisfaction rate among users, eVitals is a trusted partner in transforming cardiology care.
             </p>
             <Image
-              src="/assets/cardiology-benefit-overview.png"
+              src="/assets/DrCheckingReport.jpg"
               alt="Benefits Overview"
               width={800}
               height={400}
@@ -282,13 +294,15 @@ const CardiologyPage: React.FC = () => {
           </p>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-white p-6 rounded-xl shadow-md">
-              <Image
-                src="/assets/cardiology-case-study1.png"
-                alt="Heart Failure Case Study"
-                width={400}
-                height={200}
-                className="mx-auto mb-4 rounded-md"
-              />
+              <div className="relative w-full h-100 mb-4">
+                <Image
+                  src="/assets/heartMonitor.jpg"
+                  alt="Heart Failure Case Study"
+                  fill
+                  className="rounded-md object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
               <h3 className="text-xl font-semibold text-purple-900 mb-2">Heart Failure Management</h3>
               <p className="text-gray-700 mb-4">
                 A Texas cardiology practice implemented eVitals for 300 heart failure patients. Continuous monitoring reduced hospital readmissions by 35%, with alerts enabling early intervention for decompensation. Patients reported a 50% improvement in quality of life.
@@ -298,13 +312,15 @@ const CardiologyPage: React.FC = () => {
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md">
-              <Image
-                src="/assets/cardiology-case-study2.png"
-                alt="Hypertension Case Study"
-                width={400}
-                height={200}
-                className="mx-auto mb-4 rounded-md"
-              />
+              <div className="relative w-full h-100 mb-4">
+                <Image
+                  src="/assets/BP.jpg"
+                  alt="Hypertension Case Study"
+                  fill
+                  className="rounded-md object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
               <h3 className="text-xl font-semibold text-purple-900 mb-2">Hypertension Control</h3>
               <p className="text-gray-700 mb-4">
                 A New York clinic used eVitals to monitor 200 patients with hypertension. Real-time blood pressure tracking reduced emergency visits by 25%. Caregivers accessed data via the portal, improving family support.
@@ -350,7 +366,7 @@ const CardiologyPage: React.FC = () => {
             </div>
           </div>
           <Image
-            src="/assets/cardiology-implementation-image.png"
+            src="/assets/DR.jpg"
             alt="Implementation Process"
             width={800}
             height={400}
