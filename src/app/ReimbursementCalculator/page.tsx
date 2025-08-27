@@ -1,63 +1,196 @@
 
 "use client";
 
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Calculator, DollarSign, Users, Calendar } from "lucide-react";
+import { Download, Printer } from "lucide-react";
 import Head from "next/head";
 
 const RPMReimbursementCalculator: React.FC = () => {
   // State for input fields and results
-  const [patients, setPatients] = useState<number>(100);
-  const [monitoringDays, setMonitoringDays] = useState<number>(20);
+  const [enrolled, setEnrolled] = useState<number>(100);
+  const [newMonthly, setNewMonthly] = useState<number>(10);
+  const [pct54, setPct54] = useState<number>(85);
+  const [pct57, setPct57] = useState<number>(65);
+  const [avg58, setAvg58] = useState<number>(0.4);
+  const [rate53, setRate53] = useState<number>(19);
+  const [rate54, setRate54] = useState<number>(50);
+  const [rate57, setRate57] = useState<number>(51);
+  const [rate58, setRate58] = useState<number>(42);
+  const [patients99091, setPatients99091] = useState<number>(0);
+  const [rate99091, setRate99091] = useState<number>(0);
+  const [roundClaims, setRoundClaims] = useState<boolean>(true);
   const [error, setError] = useState<string>("");
-  const [results, setResults] = useState<{ monthly: number; annual: number }>({
+  const [results, setResults] = useState<{
+    monthly: number;
+    annual: number;
+    arpu: number;
+    breakdown: Array<{
+      code: string;
+      label: string;
+      claims: number;
+      rate: number;
+      subtotal: number;
+    }>;
+  }>({
     monthly: 0,
     annual: 0,
+    arpu: 0,
+    breakdown: [],
   });
 
-  // CPT code reimbursement rates (approximate, based on Medicare 2025 rates)
-  const cptRates = useMemo(
-    () => ({
-      cpt99453: 19, // Device setup, one-time per patient
-      cpt99454: 50, // Monthly device supply
-      cpt99457: 51, // First 20 minutes of monitoring
-      cpt99458: 42, // Additional 20 minutes of monitoring
-    }),
-    []
-  );
-
-  // Memoized calculateReimbursement function
+  // Memoized calculateReimbursement function based on HTML logic
   const calculateReimbursement = useCallback(() => {
-    if (patients <= 0 || monitoringDays <= 0 || monitoringDays > 31) {
-      setError("Please enter valid numbers (patients > 0, monitoring days between 1 and 31).");
-      setResults({ monthly: 0, annual: 0 });
+    if (enrolled < 0 || newMonthly < 0 || pct54 < 0 || pct54 > 100 || pct57 < 0 || pct57 > 100 || avg58 < 0 || patients99091 < 0) {
+      setError("Please enter valid numbers (percentages between 0-100, positive numbers for others).");
+      setResults({ monthly: 0, annual: 0, arpu: 0, breakdown: [] });
       return;
     }
 
     setError("");
 
-    // Monthly reimbursement calculation
-    const monthlyPerPatient =
-      cptRates.cpt99454 + // Device supply
-      (monitoringDays >= 20 ? cptRates.cpt99457 : 0) + // First 20 minutes if monitored 20+ days
-      (monitoringDays >= 40 ? cptRates.cpt99458 : 0); // Additional 20 minutes (simplified assumption)
+    // Calculate percentages
+    const pct54Decimal = Math.max(0, Math.min(100, pct54)) / 100;
+    const pct57Decimal = Math.max(0, Math.min(100, pct57)) / 100;
 
-    const totalMonthly = patients * monthlyPerPatient;
-    const totalAnnual = totalMonthly * 12;
+    // Claims calculation (can be decimals if not rounding)
+    const c53 = Math.max(0, Math.floor(newMonthly));
+    let c54 = enrolled * pct54Decimal;
+    let c57 = enrolled * pct57Decimal;
+    let c58 = c57 * avg58; // total additional 20-min units across those patients
+    const c99091 = Math.max(0, Math.floor(patients99091));
+
+    if (roundClaims) {
+      c54 = Math.round(c54);
+      c57 = Math.round(c57);
+      c58 = Math.round(c58);
+    }
+
+    // Revenue calculation
+    const rev53 = c53 * rate53;
+    const rev54 = c54 * rate54;
+    const rev57 = c57 * rate57;
+    const rev58 = c58 * rate58;
+    const rev99091 = c99091 * rate99091;
+    const monthly = rev53 + rev54 + rev57 + rev58 + rev99091;
+    const annual = monthly * 12;
+    const arpu = enrolled > 0 ? monthly / enrolled : 0;
+
+    // Breakdown for display
+    const breakdown = [
+      {
+        code: '99453',
+        label: 'Setup/education (one-time per new patient)',
+        claims: c53,
+        rate: rate53,
+        subtotal: rev53,
+      },
+      {
+        code: '99454',
+        label: 'Device supply with daily recordings (per month)',
+        claims: c54,
+        rate: rate54,
+        subtotal: rev54,
+      },
+      {
+        code: '99457',
+        label: 'First 20 min clinical management (per month)',
+        claims: c57,
+        rate: rate57,
+        subtotal: rev57,
+      },
+      {
+        code: '99458',
+        label: 'Each additional 20 min (per month)',
+        claims: c58,
+        rate: rate58,
+        subtotal: rev58,
+      },
+      {
+        code: '99091',
+        label: 'Collection and interpretation of physiologic data (per month)',
+        claims: c99091,
+        rate: rate99091,
+        subtotal: rev99091,
+      },
+    ];
 
     setResults({
-      monthly: Math.round(totalMonthly),
-      annual: Math.round(totalAnnual),
+      monthly: Math.round(monthly),
+      annual: Math.round(annual),
+      arpu: Math.round(arpu * 100) / 100,
+      breakdown,
     });
-  }, [patients, monitoringDays, cptRates]);
+  }, [enrolled, newMonthly, pct54, pct57, avg58, rate53, rate54, rate57, rate58, patients99091, rate99091, roundClaims]);
 
-  // Run calculation when patients or monitoringDays change
+  // Run calculation when any input changes
   useEffect(() => {
     calculateReimbursement();
   }, [calculateReimbursement]);
+
+  // Demo values function
+  const useDemoValues = () => {
+    setEnrolled(120);
+    setNewMonthly(12);
+    setPct54(85);
+    setPct57(60);
+    setAvg58(0.35);
+    setRate53(20);
+    setRate54(48);
+    setRate57(50);
+    setRate58(40);
+    setPatients99091(25);
+    setRate99091(35);
+    setRoundClaims(true);
+  };
+
+  // Reset function
+  const resetCalculator = () => {
+    setEnrolled(0);
+    setNewMonthly(0);
+    setPct54(0);
+    setPct57(0);
+    setAvg58(0);
+    setRate53(0);
+    setRate54(0);
+    setRate57(0);
+    setRate58(0);
+    setPatients99091(0);
+    setRate99091(0);
+    setRoundClaims(false);
+  };
+
+  // Export CSV function
+  const exportCSV = () => {
+    const header = ['Metric', 'Value'];
+    const lines = [header.join(',')];
+    const add = (k: string, v: string | number) => lines.push(`${k},${String(v).replace(/,/g, '')}`);
+
+    add('Total enrolled patients', enrolled);
+    add('New enrollments (99453)', newMonthly);
+    add('% meeting 99454', pct54.toFixed(1) + '%');
+    add('% meeting 99457', pct57.toFixed(1) + '%');
+    add('Avg extra 99458 units per 99457 pt', avg58);
+    add('Patients for 99091', patients99091);
+    results.breakdown.forEach((r: { code: string; claims: number; rate: number; subtotal: number }) => {
+      add(`${r.code} claims`, r.claims);
+      add(`${r.code} rate`, r.rate);
+      add(`${r.code} subtotal`, r.subtotal.toFixed(2));
+    });
+    add('Monthly total', results.monthly.toFixed(2));
+    add('Annualized (x12)', results.annual.toFixed(2));
+    add('Avg revenue per enrolled patient / month', results.arpu.toFixed(2));
+
+    const blob = new Blob([lines.join('\n')], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'rpm_reimbursement_calc.csv';
+    a.click();
+    URL.revokeObjectURL(url);
+  };
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-white via-white to-purple-50 py-16">
@@ -116,7 +249,7 @@ const RPMReimbursementCalculator: React.FC = () => {
               RPM <span className="text-[#B187E8]">Reimbursement</span> Calculator
             </h1>
             <p className="text-white text-base md:text-lg mb-8 max-w-3xl">
-              Discover the revenue potential of Remote Patient Monitoring (RPM) with eVitals’ calculator. Input your practice’s patient numbers and monitoring days to estimate earnings from CPT codes 99453, 99454, 99457, and 99458.
+              Discover the revenue potential of Remote Patient Monitoring (RPM) with eVitals&apos; comprehensive calculator. Input your practice&apos;s detailed metrics to estimate earnings from CPT codes 99453, 99454, 99457, and 99458.
             </p>
           </motion.div>
         </div>
@@ -128,58 +261,334 @@ const RPMReimbursementCalculator: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-purple-900 mb-8 text-center">
             Calculate Your RPM Revenue
           </h2>
-          <p className="text-lg text-gray-800 mb-8 max-w-3xl mx-auto text-center">
-            Use our interactive tool to estimate monthly and annual revenue from RPM services. Adjust the number of patients and monitoring days to see how eVitals can boost your practice’s financial performance.
-          </p>
-          <motion.div
-            className="bg-white rounded-xl p-8 shadow-lg max-w-2xl mx-auto"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
-              <div>
-                <label className="flex items-center gap-2 text-lg font-semibold text-purple-900 mb-2">
-                  <Users className="w-6 h-6" /> Number of Patients
-                </label>
-                <input
-                  type="number"
-                  value={patients}
-                  onChange={(e) => setPatients(Number(e.target.value))}
-                  min="1"
-                  className="w-full p-3 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
-                  placeholder="Enter number of patients"
-                />
+                      <p className="text-lg text-gray-800 mb-8 max-w-3xl mx-auto text-center">
+              Use our comprehensive tool to estimate monthly and annual revenue from RPM services. Enter detailed patient metrics and custom rates to see how eVitals can boost your practice&apos;s financial performance.
+            </p>
+          
+          <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+            {/* Inputs Card */}
+            <motion.div
+              className="bg-white rounded-xl p-8 shadow-lg"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-2xl font-bold text-purple-900">Inputs</h3>
+                <div className="flex gap-2">
+                  <button
+                    onClick={useDemoValues}
+                    className="text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1 rounded-md transition-colors"
+                  >
+                    Demo Values
+                  </button>
+                  <button
+                    onClick={resetCalculator}
+                    className="text-sm bg-red-100 hover:bg-red-200 text-red-700 px-3 py-1 rounded-md transition-colors"
+                  >
+                    Reset
+                  </button>
+                </div>
               </div>
-              <div>
-                <label className="flex items-center gap-2 text-lg font-semibold text-purple-900 mb-2">
-                  <Calendar className="w-6 h-6" /> Monitoring Days per Month
-                </label>
-                <input
-                  type="number"
-                  value={monitoringDays}
-                  onChange={(e) => setMonitoringDays(Number(e.target.value))}
-                  min="1"
-                  max="31"
-                  className="w-full p-3 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
-                  placeholder="Enter monitoring days"
-                />
+
+              <div className="space-y-6">
+                {/* Patient Metrics */}
+                <div>
+                  <h4 className="text-lg font-semibold text-purple-900 mb-4">Patient Metrics</h4>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Total enrolled patients
+                      </label>
+                      <input
+                        type="number"
+                        value={enrolled}
+                        onChange={(e) => setEnrolled(Number(e.target.value))}
+                        min="0"
+                        className="w-full p-3 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
+                        placeholder="e.g., 120"
+                      />
+                      <p className="text-xs text-gray-500 mt-1">Patients actively enrolled in RPM this month</p>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        New patient enrollments this month (for 99453)
+                      </label>
+                      <input
+                        type="number"
+                        value={newMonthly}
+                        onChange={(e) => setNewMonthly(Number(e.target.value))}
+                        min="0"
+                        className="w-full p-3 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
+                        placeholder="e.g., 15"
+                      />
+                      <p className="text-xs text-gray-500 mt-1">One-time setup/education billed per newly enrolled patient</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Compliance Percentages */}
+                <div>
+                  <h4 className="text-lg font-semibold text-purple-900 mb-4">Compliance Percentages</h4>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        % meeting 99454 (≥16 days of device data)
+                      </label>
+                      <input
+                        type="number"
+                        value={pct54}
+                        onChange={(e) => setPct54(Number(e.target.value))}
+                        min="0"
+                        max="100"
+                        className="w-full p-3 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
+                        placeholder="e.g., 85"
+                      />
+                      <p className="text-xs text-gray-500 mt-1">Often less than 100% due to adherence/eligibility</p>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        % meeting 99457 (≥20 min management)
+                      </label>
+                      <input
+                        type="number"
+                        value={pct57}
+                        onChange={(e) => setPct57(Number(e.target.value))}
+                        min="0"
+                        max="100"
+                        className="w-full p-3 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
+                        placeholder="e.g., 65"
+                      />
+                      <p className="text-xs text-gray-500 mt-1">Patients achieving at least 20 minutes in the month</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Additional Units */}
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Avg. additional 20‑min units per 99457 patient (for 99458)
+                  </label>
+                  <input
+                    type="number"
+                    value={avg58}
+                    onChange={(e) => setAvg58(Number(e.target.value))}
+                    min="0"
+                    step="0.1"
+                    className="w-full p-3 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
+                    placeholder="e.g., 0.4"
+                  />
+                  <p className="text-xs text-gray-500 mt-1">Can be 0, 1, 2… Decimals allowed for averages across the panel</p>
+                </div>
+
+                {/* CPT Code Rates */}
+                <div>
+                  <h4 className="text-lg font-semibold text-purple-900 mb-4">CPT Code Rates</h4>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Rate for 99453 (setup)
+                      </label>
+                      <input
+                        type="number"
+                        value={rate53}
+                        onChange={(e) => setRate53(Number(e.target.value))}
+                        min="0"
+                        step="0.01"
+                        className="w-full p-3 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
+                        placeholder="e.g., 20.00"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Rate for 99454 (device supply)
+                      </label>
+                      <input
+                        type="number"
+                        value={rate54}
+                        onChange={(e) => setRate54(Number(e.target.value))}
+                        min="0"
+                        step="0.01"
+                        className="w-full p-3 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
+                        placeholder="e.g., 48.00"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Rate for 99457 (first 20 min)
+                      </label>
+                      <input
+                        type="number"
+                        value={rate57}
+                        onChange={(e) => setRate57(Number(e.target.value))}
+                        min="0"
+                        step="0.01"
+                        className="w-full p-3 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
+                        placeholder="e.g., 50.00"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Rate for 99458 (each addl. 20 min)
+                      </label>
+                      <input
+                        type="number"
+                        value={rate58}
+                        onChange={(e) => setRate58(Number(e.target.value))}
+                        min="0"
+                        step="0.01"
+                        className="w-full p-3 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
+                        placeholder="e.g., 40.00"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* CPT Code 99091 */}
+                <div>
+                  <h4 className="text-lg font-semibold text-purple-900 mb-4">CPT Code 99091</h4>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Number of patients for 99091
+                      </label>
+                      <input
+                        type="number"
+                        value={patients99091}
+                        onChange={(e) => setPatients99091(Number(e.target.value))}
+                        min="0"
+                        className="w-full p-3 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
+                        placeholder="e.g., 25"
+                      />
+                      <p className="text-xs text-gray-500 mt-1">Patients receiving collection and interpretation of physiologic data</p>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Rate for 99091 (per month)
+                      </label>
+                      <input
+                        type="number"
+                        value={rate99091}
+                        onChange={(e) => setRate99091(Number(e.target.value))}
+                        min="0"
+                        step="0.01"
+                        className="w-full p-3 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
+                        placeholder="e.g., 35.00"
+                      />
+                      <p className="text-xs text-gray-500 mt-1">Collection and interpretation of physiologic data</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Options */}
+                <div className="flex items-center gap-4">
+                  <label className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      checked={roundClaims}
+                      onChange={(e) => setRoundClaims(e.target.checked)}
+                      className="rounded border-purple-300 text-[#B187E8] focus:ring-[#B187E8]"
+                    />
+                    <span className="text-sm text-gray-700">Round patient/claim counts to whole numbers</span>
+                  </label>
+                </div>
               </div>
-            </div>
-            {error && <p className="text-red-600 text-center mb-4">{error}</p>}
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-xl font-semibold text-purple-900 mb-4 flex items-center gap-2">
-                <DollarSign className="w-6 h-6" /> Estimated Revenue
-              </h3>
-              <p className="text-lg text-gray-800 mb-2">
-                <span className="font-bold">Monthly Revenue:</span> ${results.monthly.toLocaleString()}
-              </p>
-              <p className="text-lg text-gray-800">
-                <span className="font-bold">Annual Revenue:</span> ${results.annual.toLocaleString()}
-              </p>
-            </div>
-          </motion.div>
+            </motion.div>
+
+            {/* Results Card */}
+            <motion.div
+              className="bg-white rounded-xl p-8 shadow-lg"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-2xl font-bold text-purple-900">Results</h3>
+                <div className="flex gap-2">
+                  <button
+                    onClick={exportCSV}
+                    className="text-sm bg-blue-100 hover:bg-blue-200 text-blue-700 px-3 py-1 rounded-md transition-colors flex items-center gap-1"
+                  >
+                    <Download className="w-3 h-3" />
+                    Export CSV
+                  </button>
+                  <button
+                    onClick={() => window.print()}
+                    className="text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1 rounded-md transition-colors flex items-center gap-1"
+                  >
+                    <Printer className="w-3 h-3" />
+                    Print
+                  </button>
+                </div>
+              </div>
+
+              {error && <p className="text-red-600 text-center mb-4">{error}</p>}
+
+              {/* Key Metrics */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                <div className="bg-purple-50 p-4 rounded-lg">
+                  <div className="text-sm text-purple-600 font-medium">Monthly total</div>
+                  <div className="text-2xl font-bold text-purple-900">${results.monthly.toLocaleString()}</div>
+                </div>
+                <div className="bg-green-50 p-4 rounded-lg">
+                  <div className="text-sm text-green-600 font-medium">Annualized (×12)</div>
+                  <div className="text-2xl font-bold text-green-900">${results.annual.toLocaleString()}</div>
+                </div>
+                <div className="bg-blue-50 p-4 rounded-lg">
+                  <div className="text-sm text-blue-600 font-medium">Avg. revenue per patient/month</div>
+                  <div className="text-2xl font-bold text-blue-900">${results.arpu.toFixed(2)}</div>
+                </div>
+              </div>
+
+              {/* Breakdown Table */}
+              <div className="bg-gray-50 p-4 rounded-lg">
+                <h4 className="text-lg font-semibold text-purple-900 mb-4">Breakdown by CPT Code</h4>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="border-b border-gray-300">
+                        <th className="text-left py-2 font-semibold text-gray-700">Code</th>
+                        <th className="text-right py-2 font-semibold text-gray-700">Claims</th>
+                        <th className="text-right py-2 font-semibold text-gray-700">Rate</th>
+                        <th className="text-right py-2 font-semibold text-gray-700">Subtotal</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {results.breakdown.map((item, index) => (
+                        <tr key={index} className="border-b border-gray-200">
+                          <td className="py-2">
+                            <div className="font-semibold text-purple-900">{item.code}</div>
+                            <div className="text-xs text-gray-600">{item.label}</div>
+                          </td>
+                          <td className="text-right py-2">
+                            {roundClaims ? item.claims.toLocaleString() : item.claims.toFixed(2)}
+                          </td>
+                          <td className="text-right py-2">${item.rate.toFixed(2)}</td>
+                          <td className="text-right py-2 font-semibold">${item.subtotal.toLocaleString()}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                    <tfoot>
+                      <tr className="border-t-2 border-purple-300">
+                        <td colSpan={3} className="py-2 font-bold text-purple-900">Total (monthly)</td>
+                        <td className="text-right py-2 font-bold text-purple-900">${results.monthly.toLocaleString()}</td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
+
+              {/* Warnings */}
+              <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
+                <p className="text-sm text-yellow-800">
+                  <strong>Notes:</strong> This tool is for planning only. Actual coverage, documentation requirements, time thresholds, and rates vary by payer and locality. Enter your own rates; demo values are placeholders.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+
           <Image
             src="/assets/calculator.jpg"
             alt="RPM Calculator Illustration"
@@ -196,10 +605,10 @@ const RPMReimbursementCalculator: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-purple-900 mb-8 text-center">
             How the Calculator Works
           </h2>
-          <p className="text-lg text-gray-800 mb-8 max-w-3xl mx-auto text-center">
-            Our calculator uses standard Medicare CPT code rates to estimate RPM revenue based on your input. Here’s how it breaks down:
-          </p>
-          <div className="grid md:grid-cols-3 gap-8">
+                      <p className="text-lg text-gray-800 mb-8 max-w-3xl mx-auto text-center">
+              Our calculator uses standard Medicare CPT code rates to estimate RPM revenue based on your detailed input. Here&apos;s how it breaks down:
+            </p>
+          <div className="grid md:grid-cols-5 gap-6">
             <motion.div
               className="bg-white p-6 rounded-xl shadow-md"
               initial={{ opacity: 0, y: 20 }}
@@ -207,10 +616,10 @@ const RPMReimbursementCalculator: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              <Calculator className="w-8 h-8 text-purple-900 mb-4 mx-auto" />
-              <h3 className="text-xl font-semibold text-purple-900 mb-2">CPT Code Breakdown</h3>
-              <p className="text-gray-700">
-                Includes CPT 99453 ($19, one-time setup), CPT 99454 ($50/month, device supply), CPT 99457 ($51/month, first 20 minutes), and CPT 99458 ($42/month, additional 20 minutes).
+              <div className="text-2xl font-bold text-purple-900 mb-2">99453</div>
+              <h3 className="text-lg font-semibold text-purple-900 mb-2">Setup/Education</h3>
+              <p className="text-gray-700 text-sm">
+                New patients enrolled this month × entered rate (one‑time per patient).
               </p>
             </motion.div>
             <motion.div
@@ -220,10 +629,10 @@ const RPMReimbursementCalculator: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              <Users className="w-8 h-8 text-purple-900 mb-4 mx-auto" />
-              <h3 className="text-xl font-semibold text-purple-900 mb-2">Patient Input</h3>
-              <p className="text-gray-700">
-                Enter the number of patients enrolled in your RPM program. The calculator scales revenue based on patient volume.
+              <div className="text-2xl font-bold text-purple-900 mb-2">99454</div>
+              <h3 className="text-lg font-semibold text-purple-900 mb-2">Device Supply</h3>
+              <p className="text-gray-700 text-sm">
+                Enrolled × % meeting ≥16 days of data × rate (billed once each eligible month).
               </p>
             </motion.div>
             <motion.div
@@ -233,10 +642,36 @@ const RPMReimbursementCalculator: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
             >
-              <Calendar className="w-8 h-8 text-purple-900 mb-4 mx-auto" />
-              <h3 className="text-xl font-semibold text-purple-900 mb-2">Monitoring Days</h3>
-              <p className="text-gray-700">
-                Input the average number of days per month each patient is monitored. A minimum of 20 days unlocks additional CPT codes.
+              <div className="text-2xl font-bold text-purple-900 mb-2">99457</div>
+              <h3 className="text-lg font-semibold text-purple-900 mb-2">First 20 Min</h3>
+              <p className="text-gray-700 text-sm">
+                Enrolled × % meeting ≥20 minutes × rate (billed once per eligible month).
+              </p>
+            </motion.div>
+            <motion.div
+              className="bg-white p-6 rounded-xl shadow-md"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+            >
+              <div className="text-2xl font-bold text-purple-900 mb-2">99458</div>
+              <h3 className="text-lg font-semibold text-purple-900 mb-2">Additional Time</h3>
+              <p className="text-gray-700 text-sm">
+                99457 patients × average extra 20‑min units × rate (can be 0, 1, 2… units).
+              </p>
+            </motion.div>
+            <motion.div
+              className="bg-white p-6 rounded-xl shadow-md"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+            >
+              <div className="text-2xl font-bold text-purple-900 mb-2">99091</div>
+              <h3 className="text-lg font-semibold text-purple-900 mb-2">Physiologic Data</h3>
+              <p className="text-gray-700 text-sm">
+                Number of patients × rate (collection and interpretation of physiologic data per month).
               </p>
             </motion.div>
           </div>
