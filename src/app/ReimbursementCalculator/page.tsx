@@ -98,7 +98,7 @@ const RPMReimbursementCalculator: React.FC = () => {
       <section className="relative h-[60vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/assets/calculator-hero-bg.png"
+            src="/assets/RPMcalhero.jpg"
             alt="RPM Calculator Hero Background"
             fill
             className="object-cover kenburns"
@@ -181,7 +181,7 @@ const RPMReimbursementCalculator: React.FC = () => {
             </div>
           </motion.div>
           <Image
-            src="/assets/calculator-image.png"
+            src="/assets/calculator.jpg"
             alt="RPM Calculator Illustration"
             width={800}
             height={400}
@@ -258,21 +258,25 @@ const RPMReimbursementCalculator: React.FC = () => {
                 title: "Accurate Billing",
                 description:
                   "Automate billing for CPT codes 99453, 99454, 99457, and 99458 with audit-ready reports, reducing claim denials by 15%.",
+                image: "/assets/AccurateBilling.jpg",
               },
               {
                 title: "Revenue Growth",
                 description:
                   "Practices see an average revenue increase of $3,500 per physician monthly with our optimized RPM workflows.",
+                image: "/assets/RevenueGrowth.jpg",
               },
               {
                 title: "Time Savings",
                 description:
                   "Automated data collection and EHR integration save up to 18 hours per week, allowing focus on patient care.",
+      image: "/assets/TimeSaving.jpg",
               },
               {
                 title: "Patient Compliance",
                 description:
                   "User-friendly devices and educational resources achieve 80% adherence, enhancing outcomes and reimbursement.",
+      image: "/assets/patient-W-Watch.jpg",
               },
             ].map((benefit, idx) => (
               <motion.div
@@ -283,13 +287,15 @@ const RPMReimbursementCalculator: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
               >
-                <Image
-                  src="/assets/calculator-benefit-image.png"
-                  alt={benefit.title}
-                  width={200}
-                  height={100}
-                  className="mx-auto mb-4 rounded-md"
-                />
+                <div className="relative w-full h-48 mb-4">
+                  <Image
+                    src={benefit.image}
+                    alt={benefit.title}
+                    fill
+                    className="rounded-md object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  />
+                </div>
                 <h3 className="text-lg font-semibold text-purple-900 mb-2">{benefit.title}</h3>
                 <p className="text-gray-700">{benefit.description}</p>
               </motion.div>

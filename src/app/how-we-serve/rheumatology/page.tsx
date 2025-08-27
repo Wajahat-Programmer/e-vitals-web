@@ -392,12 +392,7 @@ const RheumatologyPage: React.FC = () => {
           <p className="text-lg text-white mb-6 text-shadow-sm">
             From solo practices to large clinics, eVitals is praised for its intuitive design and comprehensive support. Join the revolution in rheumatology care with a trusted platform.
           </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 bg-white text-purple-900 px-8 py-3 rounded-full hover:bg-gray-100 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-          >
-            Discover How We Serve Rheumatology →
-          </Link>
+         
         </div>
       </section>
 
