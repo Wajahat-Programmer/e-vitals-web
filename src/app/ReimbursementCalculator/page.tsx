@@ -10,15 +10,15 @@ import Head from "next/head";
 
 const RPMReimbursementCalculator: React.FC = () => {
   // State for input fields and results
-  const [enrolled, setEnrolled] = useState<number>(100);
-  const [newMonthly, setNewMonthly] = useState<number>(10);
-  const [pct54, setPct54] = useState<number>(85);
-  const [pct57, setPct57] = useState<number>(65);
-  const [avg58, setAvg58] = useState<number>(0.4);
-  const [rate53, setRate53] = useState<number>(19);
-  const [rate54, setRate54] = useState<number>(50);
-  const [rate57, setRate57] = useState<number>(51);
-  const [rate58, setRate58] = useState<number>(42);
+  const [enrolled, setEnrolled] = useState<number>(0);
+  const [newMonthly, setNewMonthly] = useState<number>(0);
+  const [pct54, setPct54] = useState<number>(0);
+  const [pct57, setPct57] = useState<number>(0);
+  const [avg58, setAvg58] = useState<number>(0);
+  const [rate53, setRate53] = useState<number>(0);
+  const [rate54, setRate54] = useState<number>(0);
+  const [rate57, setRate57] = useState<number>(0);
+  const [rate58, setRate58] = useState<number>(0);
   const [patients99091, setPatients99091] = useState<number>(0);
   const [rate99091, setRate99091] = useState<number>(0);
   const [roundClaims, setRoundClaims] = useState<boolean>(true);
@@ -162,6 +162,13 @@ const RPMReimbursementCalculator: React.FC = () => {
     setRoundClaims(false);
   };
 
+  // Normalize numeric input to avoid leading zeros like "05" and handle empty
+  const normalizeNumber = (value: string, allowDecimal: boolean) => {
+    if (value === "" || value === "-") return 0;
+    const num = allowDecimal ? parseFloat(value) : parseInt(value, 10);
+    return Number.isFinite(num) ? num : 0;
+  };
+
   // Export CSV function
   const exportCSV = () => {
     const header = ['Metric', 'Value'];
@@ -277,12 +284,12 @@ const RPMReimbursementCalculator: React.FC = () => {
               <div className="flex justify-between items-center mb-6">
                 <h3 className="text-2xl font-bold text-purple-900">Inputs</h3>
                 <div className="flex gap-2">
-                  <button
+                  {/* <button
                     onClick={useDemoValues}
                     className="text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1 rounded-md transition-colors"
                   >
                     Demo Values
-                  </button>
+                  </button> */}
                   <button
                     onClick={resetCalculator}
                     className="text-sm bg-red-100 hover:bg-red-200 text-red-700 px-3 py-1 rounded-md transition-colors"
@@ -298,13 +305,15 @@ const RPMReimbursementCalculator: React.FC = () => {
                   <h4 className="text-lg font-semibold text-purple-900 mb-4">Patient Metrics</h4>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-gray-700 mb-2 min-h-[40px] leading-snug">
                         Total enrolled patients
                       </label>
                       <input
-                        type="number"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
+                        onKeyDown={(e)=> (e.key === 'ArrowUp' || e.key === 'ArrowDown') && e.preventDefault()}
                         value={enrolled}
-                        onChange={(e) => setEnrolled(Number(e.target.value))}
+                        onChange={(e) => setEnrolled(normalizeNumber(e.target.value, false))}
                         min="0"
                         className="w-full p-3 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
                         placeholder="e.g., 120"
@@ -312,13 +321,15 @@ const RPMReimbursementCalculator: React.FC = () => {
                       <p className="text-xs text-gray-500 mt-1">Patients actively enrolled in RPM this month</p>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-gray-700 mb-2 min-h-[40px] leading-snug">
                         New patient enrollments this month (for 99453)
                       </label>
                       <input
-                        type="number"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
+                        onKeyDown={(e)=> (e.key === 'ArrowUp' || e.key === 'ArrowDown') && e.preventDefault()}
                         value={newMonthly}
-                        onChange={(e) => setNewMonthly(Number(e.target.value))}
+                        onChange={(e) => setNewMonthly(normalizeNumber(e.target.value, false))}
                         min="0"
                         className="w-full p-3 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
                         placeholder="e.g., 15"
@@ -328,155 +339,163 @@ const RPMReimbursementCalculator: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Compliance Percentages */}
+                {/* CPT Settings - compact rows */}
                 <div>
-                  <h4 className="text-lg font-semibold text-purple-900 mb-4">Compliance Percentages</h4>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        % meeting 99454 (≥16 days of device data)
-                      </label>
-                      <input
-                        type="number"
-                        value={pct54}
-                        onChange={(e) => setPct54(Number(e.target.value))}
-                        min="0"
-                        max="100"
-                        className="w-full p-3 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
-                        placeholder="e.g., 85"
-                      />
-                      <p className="text-xs text-gray-500 mt-1">Often less than 100% due to adherence/eligibility</p>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        % meeting 99457 (≥20 min management)
-                      </label>
-                      <input
-                        type="number"
-                        value={pct57}
-                        onChange={(e) => setPct57(Number(e.target.value))}
-                        min="0"
-                        max="100"
-                        className="w-full p-3 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
-                        placeholder="e.g., 65"
-                      />
-                      <p className="text-xs text-gray-500 mt-1">Patients achieving at least 20 minutes in the month</p>
-                    </div>
-                  </div>
-                </div>
+                  <h4 className="text-lg font-semibold text-purple-900 mb-2">CPT Settings</h4>
+                  <p className="text-xs text-gray-500 mb-3">Each row pairs the patient metric with its corresponding rate.</p>
 
-                {/* Additional Units */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Avg. additional 20‑min units per 99457 patient (for 99458)
-                  </label>
-                  <input
-                    type="number"
-                    value={avg58}
-                    onChange={(e) => setAvg58(Number(e.target.value))}
-                    min="0"
-                    step="0.1"
-                    className="w-full p-3 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
-                    placeholder="e.g., 0.4"
-                  />
-                  <p className="text-xs text-gray-500 mt-1">Can be 0, 1, 2… Decimals allowed for averages across the panel</p>
-                </div>
+                  <div className="space-y-3">
+                    {/* 99453 - New enrollments + rate */}
+                    <div className="grid md:grid-cols-2 gap-3 items-start">
+                      <div className="flex flex-col">
+                        <label className="block text-sm font-medium text-gray-700 mb-1 min-h-[40px] leading-snug">99453 • New enrollments this month</label>
+                        <input
+                          inputMode="numeric"
+                          pattern="[0-9]*"
+                          onKeyDown={(e)=> (e.key === 'ArrowUp' || e.key === 'ArrowDown') && e.preventDefault()}
+                          value={newMonthly}
+                          onChange={(e) => setNewMonthly(normalizeNumber(e.target.value, false))}
+                          min="0"
+                          className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
+                          placeholder="e.g., 12"
+                        />
+                      </div>
+                      <div className="flex flex-col">
+                        <label className="block text-sm font-medium text-gray-700 mb-1 min-h-[40px] leading-snug">Rate for 99453</label>
+                        <input
+                          inputMode="decimal"
+                          pattern="[0-9]*[.,]?[0-9]*"
+                          value={rate53}
+                          onChange={(e) => setRate53(normalizeNumber(e.target.value, true))}
+                          min="0"
+                          step="0.01"
+                          className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
+                          placeholder="e.g., 20.00"
+                        />
+                      </div>
+                    </div>
 
-                {/* CPT Code Rates */}
-                <div>
-                  <h4 className="text-lg font-semibold text-purple-900 mb-4">CPT Code Rates</h4>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Rate for 99453 (setup)
-                      </label>
-                      <input
-                        type="number"
-                        value={rate53}
-                        onChange={(e) => setRate53(Number(e.target.value))}
-                        min="0"
-                        step="0.01"
-                        className="w-full p-3 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
-                        placeholder="e.g., 20.00"
-                      />
+                    {/* 99454 - % meeting + rate */}
+                    <div className="grid md:grid-cols-2 gap-3 items-start">
+                      <div className="flex flex-col">
+                        <label className="block text-sm font-medium text-gray-700 mb-1 min-h-[40px] leading-snug">99454 • % meeting ≥16 days of data</label>
+                        <input
+                          inputMode="numeric"
+                          pattern="[0-9]*"
+                          onKeyDown={(e)=> (e.key === 'ArrowUp' || e.key === 'ArrowDown') && e.preventDefault()}
+                          value={pct54}
+                          onChange={(e) => setPct54(normalizeNumber(e.target.value, false))}
+                          min="0"
+                          max="100"
+                          className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
+                          placeholder="e.g., 85"
+                        />
+                      </div>
+                      <div className="flex flex-col">
+                        <label className="block text-sm font-medium text-gray-700 mb-1 min-h-[40px] leading-snug">Rate for 99454</label>
+                        <input
+                          inputMode="decimal"
+                          pattern="[0-9]*[.,]?[0-9]*"
+                          value={rate54}
+                          onChange={(e) => setRate54(normalizeNumber(e.target.value, true))}
+                          min="0"
+                          step="0.01"
+                          className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
+                          placeholder="e.g., 50.00"
+                        />
+                      </div>
                     </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Rate for 99454 (device supply)
-                      </label>
-                      <input
-                        type="number"
-                        value={rate54}
-                        onChange={(e) => setRate54(Number(e.target.value))}
-                        min="0"
-                        step="0.01"
-                        className="w-full p-3 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
-                        placeholder="e.g., 48.00"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Rate for 99457 (first 20 min)
-                      </label>
-                      <input
-                        type="number"
-                        value={rate57}
-                        onChange={(e) => setRate57(Number(e.target.value))}
-                        min="0"
-                        step="0.01"
-                        className="w-full p-3 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
-                        placeholder="e.g., 50.00"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Rate for 99458 (each addl. 20 min)
-                      </label>
-                      <input
-                        type="number"
-                        value={rate58}
-                        onChange={(e) => setRate58(Number(e.target.value))}
-                        min="0"
-                        step="0.01"
-                        className="w-full p-3 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
-                        placeholder="e.g., 40.00"
-                      />
-                    </div>
-                  </div>
-                </div>
 
-                {/* CPT Code 99091 */}
-                <div>
-                  <h4 className="text-lg font-semibold text-purple-900 mb-4">CPT Code 99091</h4>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Number of patients for 99091
-                      </label>
-                      <input
-                        type="number"
-                        value={patients99091}
-                        onChange={(e) => setPatients99091(Number(e.target.value))}
-                        min="0"
-                        className="w-full p-3 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
-                        placeholder="e.g., 25"
-                      />
-                      <p className="text-xs text-gray-500 mt-1">Patients receiving collection and interpretation of physiologic data</p>
+                    {/* 99457 - % meeting + rate */}
+                    <div className="grid md:grid-cols-2 gap-3 items-start">
+                      <div className="flex flex-col">
+                        <label className="block text-sm font-medium text-gray-700 mb-1 min-h-[40px] leading-snug">99457 • % meeting ≥20 min management</label>
+                        <input
+                          inputMode="numeric"
+                          pattern="[0-9]*"
+                          onKeyDown={(e)=> (e.key === 'ArrowUp' || e.key === 'ArrowDown') && e.preventDefault()}
+                          value={pct57}
+                          onChange={(e) => setPct57(normalizeNumber(e.target.value, false))}
+                          min="0"
+                          max="100"
+                          className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
+                          placeholder="e.g., 60"
+                        />
+                      </div>
+                      <div className="flex flex-col">
+                        <label className="block text-sm font-medium text-gray-700 mb-1 min-h-[40px] leading-snug">Rate for 99457</label>
+                        <input
+                          inputMode="decimal"
+                          pattern="[0-9]*[.,]?[0-9]*"
+                          value={rate57}
+                          onChange={(e) => setRate57(normalizeNumber(e.target.value, true))}
+                          min="0"
+                          step="0.01"
+                          className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
+                          placeholder="e.g., 51.00"
+                        />
+                      </div>
                     </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Rate for 99091 (per month)
-                      </label>
-                      <input
-                        type="number"
-                        value={rate99091}
-                        onChange={(e) => setRate99091(Number(e.target.value))}
-                        min="0"
-                        step="0.01"
-                        className="w-full p-3 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
-                        placeholder="e.g., 35.00"
-                      />
-                      <p className="text-xs text-gray-500 mt-1">Collection and interpretation of physiologic data</p>
+
+                    {/* 99458 - avg units + rate */}
+                    <div className="grid md:grid-cols-2 gap-3 items-start">
+                      <div className="flex flex-col">
+                        <label className="block text-sm font-medium text-gray-700 mb-1 min-h-[40px] leading-snug">99458 • Avg. additional 20‑min units per patient</label>
+                        <input
+                          inputMode="decimal"
+                          pattern="[0-9]*[.,]?[0-9]*"
+                          onKeyDown={(e)=> (e.key === 'ArrowUp' || e.key === 'ArrowDown') && e.preventDefault()}
+                          value={avg58}
+                          onChange={(e) => setAvg58(normalizeNumber(e.target.value, true))}
+                          min="0"
+                          step="0.1"
+                          className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
+                          placeholder="e.g., 0.35"
+                        />
+                      </div>
+                      <div className="flex flex-col">
+                        <label className="block text-sm font-medium text-gray-700 mb-1 min-h-[40px] leading-snug">Rate for 99458</label>
+                        <input
+                          inputMode="decimal"
+                          pattern="[0-9]*[.,]?[0-9]*"
+                          value={rate58}
+                          onChange={(e) => setRate58(normalizeNumber(e.target.value, true))}
+                          min="0"
+                          step="0.01"
+                          className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
+                          placeholder="e.g., 42.00"
+                        />
+                      </div>
+                    </div>
+
+                    {/* 99091 - patients + rate */}
+                    <div className="grid md:grid-cols-2 gap-3 items-start">
+                      <div className="flex flex-col">
+                        <label className="block text-sm font-medium text-gray-700 mb-1 min-h-[40px] leading-snug">99091 • Number of patients</label>
+                        <input
+                          inputMode="numeric"
+                          pattern="[0-9]*"
+                          onKeyDown={(e)=> (e.key === 'ArrowUp' || e.key === 'ArrowDown') && e.preventDefault()}
+                          value={patients99091}
+                          onChange={(e) => setPatients99091(normalizeNumber(e.target.value, false))}
+                          min="0"
+                          className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
+                          placeholder="e.g., 25"
+                        />
+                      </div>
+                      <div className="flex flex-col">
+                        <label className="block text-sm font-medium text-gray-700 mb-1 min-h-[40px] leading-snug">Rate for 99091</label>
+                        <input
+                          inputMode="decimal"
+                          pattern="[0-9]*[.,]?[0-9]*"
+                          value={rate99091}
+                          onChange={(e) => setRate99091(normalizeNumber(e.target.value, true))}
+                          min="0"
+                          step="0.01"
+                          className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
+                          placeholder="e.g., 35.00"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
