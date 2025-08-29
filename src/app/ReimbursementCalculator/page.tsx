@@ -15,10 +15,12 @@ const RPMReimbursementCalculator: React.FC = () => {
   const [pct54, setPct54] = useState<number>(0);
   const [pct57, setPct57] = useState<number>(0);
   const [avg58, setAvg58] = useState<number>(0);
+  const [avg58_2, setAvg58_2] = useState<number>(0);
   const [rate53, setRate53] = useState<number>(0);
   const [rate54, setRate54] = useState<number>(0);
   const [rate57, setRate57] = useState<number>(0);
   const [rate58, setRate58] = useState<number>(0);
+  const [rate58_2, setRate58_2] = useState<number>(0);
   const [patients99091, setPatients99091] = useState<number>(0);
   const [rate99091, setRate99091] = useState<number>(0);
   const [roundClaims, setRoundClaims] = useState<boolean>(true);
@@ -57,25 +59,30 @@ const RPMReimbursementCalculator: React.FC = () => {
 
     // Claims calculation (can be decimals if not rounding)
     const c53 = Math.max(0, Math.floor(newMonthly));
-    let c54 = enrolled * pct54Decimal;
-    let c57 = enrolled * pct57Decimal;
-    let c58 = c57 * avg58; // total additional 20-min units across those patients
+    // let c54 = enrolled * pct54Decimal;
+    let c54 = pct54;
+    // let c57 = enrolled * pct57Decimal;
+    let c57 = pct57;
+    let c58 = avg58;
+    let c58_2 = (avg58_2 * 2);
     const c99091 = Math.max(0, Math.floor(patients99091));
 
     if (roundClaims) {
       c54 = Math.round(c54);
       c57 = Math.round(c57);
       c58 = Math.round(c58);
+      c58_2 = Math.round(c58_2);
     }
 
     // Revenue calculation
     const rev53 = c53 * rate53;
     const rev54 = c54 * rate54;
     const rev57 = c57 * rate57;
-    const rev58 = c58 * rate58;
+    const rev58 = (c58 * rate58) + (c58_2 * rate58_2);
     const rev99091 = c99091 * rate99091;
-    const monthly = rev53 + rev54 + rev57 + rev58 + rev99091;
-    const annual = monthly * 12;
+    const monthly =  rev53 + rev54 + rev57 + rev58 + rev99091;
+    const anual = rev54 + rev57 + rev58 + rev99091;
+    const annual = rev53 + anual * 12;
     const arpu = enrolled > 0 ? monthly / enrolled : 0;
 
     // Breakdown for display
@@ -137,10 +144,12 @@ const RPMReimbursementCalculator: React.FC = () => {
     setPct54(85);
     setPct57(60);
     setAvg58(0.35);
+    setAvg58_2(0.35);
     setRate53(20);
     setRate54(48);
     setRate57(50);
     setRate58(40);
+    setRate58_2(40);
     setPatients99091(25);
     setRate99091(35);
     setRoundClaims(true);
@@ -153,10 +162,12 @@ const RPMReimbursementCalculator: React.FC = () => {
     setPct54(0);
     setPct57(0);
     setAvg58(0);
+    setAvg58_2(0);
     setRate53(0);
     setRate54(0);
     setRate57(0);
     setRate58(0);
+    setRate58_2(0);
     setPatients99091(0);
     setRate99091(0);
     setRoundClaims(false);
@@ -320,7 +331,7 @@ const RPMReimbursementCalculator: React.FC = () => {
                       />
                       <p className="text-xs text-gray-500 mt-1">Patients actively enrolled in RPM this month</p>
                     </div>
-                    <div>
+                    {/* <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2 min-h-[40px] leading-snug">
                         New patient enrollments this month (for 99453)
                       </label>
@@ -335,7 +346,7 @@ const RPMReimbursementCalculator: React.FC = () => {
                         placeholder="e.g., 15"
                       />
                       <p className="text-xs text-gray-500 mt-1">One-time setup/education billed per newly enrolled patient</p>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
 
@@ -359,6 +370,7 @@ const RPMReimbursementCalculator: React.FC = () => {
                           className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
                           placeholder="e.g., 12"
                         />
+                        <p className="text-xs text-gray-500 mt-1">One-time setup/education billed per newly enrolled patient</p>
                       </div>
                       <div className="flex flex-col">
                         <label className="block text-sm font-medium text-gray-700 mb-1 min-h-[40px] leading-snug">Rate for 99453</label>
@@ -378,7 +390,7 @@ const RPMReimbursementCalculator: React.FC = () => {
                     {/* 99454 - % meeting + rate */}
                     <div className="grid md:grid-cols-2 gap-3 items-start">
                       <div className="flex flex-col">
-                        <label className="block text-sm font-medium text-gray-700 mb-1 min-h-[40px] leading-snug">99454 • % meeting ≥16 days of data</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-1 min-h-[40px] leading-snug">99454 • Patients meeting ≥16 days data</label>
                         <input
                           inputMode="numeric"
                           pattern="[0-9]*"
@@ -409,7 +421,7 @@ const RPMReimbursementCalculator: React.FC = () => {
                     {/* 99457 - % meeting + rate */}
                     <div className="grid md:grid-cols-2 gap-3 items-start">
                       <div className="flex flex-col">
-                        <label className="block text-sm font-medium text-gray-700 mb-1 min-h-[40px] leading-snug">99457 • % meeting ≥20 min management</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-1 min-h-[40px] leading-snug">99457 • Patients meeting ≥20 min</label>
                         <input
                           inputMode="numeric"
                           pattern="[0-9]*"
@@ -440,7 +452,7 @@ const RPMReimbursementCalculator: React.FC = () => {
                     {/* 99458 - avg units + rate */}
                     <div className="grid md:grid-cols-2 gap-3 items-start">
                       <div className="flex flex-col">
-                        <label className="block text-sm font-medium text-gray-700 mb-1 min-h-[40px] leading-snug">99458 • Avg. additional 20‑min units per patient</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-1 min-h-[40px] leading-snug">99458 • Additional 20‑min 1 units per patient</label>
                         <input
                           inputMode="decimal"
                           pattern="[0-9]*[.,]?[0-9]*"
@@ -460,6 +472,36 @@ const RPMReimbursementCalculator: React.FC = () => {
                           pattern="[0-9]*[.,]?[0-9]*"
                           value={rate58}
                           onChange={(e) => setRate58(normalizeNumber(e.target.value, true))}
+                          min="0"
+                          step="0.01"
+                          className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
+                          placeholder="e.g., 42.00"
+                        />
+                      </div>
+                    </div>
+                      {/* 99458 - avg units + rate */}
+                      <div className="grid md:grid-cols-2 gap-3 items-start">
+                      <div className="flex flex-col">
+                        <label className="block text-sm font-medium text-gray-700 mb-1 min-h-[40px] leading-snug">99458 • Additional 20‑min 2 units per patient</label>
+                        <input
+                          inputMode="decimal"
+                          pattern="[0-9]*[.,]?[0-9]*"
+                          onKeyDown={(e)=> (e.key === 'ArrowUp' || e.key === 'ArrowDown') && e.preventDefault()}
+                          value={avg58_2}
+                          onChange={(e) => setAvg58_2(normalizeNumber(e.target.value, true))}
+                          min="0"
+                          step="0.1"
+                          className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
+                          placeholder="e.g., 0.35"
+                        />
+                      </div>
+                      <div className="flex flex-col">
+                        <label className="block text-sm font-medium text-gray-700 mb-1 min-h-[40px] leading-snug">Rate for 99458</label>
+                        <input
+                          inputMode="decimal"
+                          pattern="[0-9]*[.,]?[0-9]*"
+                          value={rate58_2}
+                          onChange={(e) => setRate58_2(normalizeNumber(e.target.value, true))}
                           min="0"
                           step="0.01"
                           className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
