@@ -63,8 +63,8 @@ const RPMReimbursementCalculator: React.FC = () => {
     let c54 = pct54;
     // let c57 = enrolled * pct57Decimal;
     let c57 = pct57;
-    let c58 = avg58;
-    let c58_2 = (avg58_2 * 2);
+    let c58 = avg58;       // patients with 1 extra 20-min unit
+    let c58_2 = avg58_2;   // patients with 2 extra 20-min units
     const c99091 = Math.max(0, Math.floor(patients99091));
 
     if (roundClaims) {
@@ -78,10 +78,11 @@ const RPMReimbursementCalculator: React.FC = () => {
     const rev53 = c53 * rate53;
     const rev54 = c54 * rate54;
     const rev57 = c57 * rate57;
-    const rev58 = (c58 * rate58) + (c58_2 * rate58_2);
+    const rev58 = c58 * rate58;       // 99458 (1 unit)
+    const rev58_2 = c58_2 * rate58_2; // 99458 (2 units)
     const rev99091 = c99091 * rate99091;
-    const monthly =  rev53 + rev54 + rev57 + rev58 + rev99091;
-    const anual = rev54 + rev57 + rev58 + rev99091;
+    const monthly =  rev53 + rev54 + rev57 + rev58 + rev58_2+ rev99091;
+    const anual = rev54 + rev57 + rev58 + rev58_2 + rev99091;
     const annual = rev53 + anual * 12;
     const arpu = enrolled > 0 ? monthly / enrolled : 0;
 
@@ -109,11 +110,18 @@ const RPMReimbursementCalculator: React.FC = () => {
         subtotal: rev57,
       },
       {
-        code: '99458',
+        code: '99458 (1 unit)',
         label: 'Each additional 20 min (per month)',
         claims: c58,
         rate: rate58,
         subtotal: rev58,
+      },
+      {
+        code: '99458 (2 units)',
+        label: 'Each additional 40 min (per month)',
+        claims: c58_2,
+        rate: rate58_2,
+        subtotal: rev58_2,
       },
       {
         code: '99091',
@@ -124,13 +132,14 @@ const RPMReimbursementCalculator: React.FC = () => {
       },
     ];
 
+
     setResults({
       monthly: Math.round(monthly),
       annual: Math.round(annual),
       arpu: Math.round(arpu * 100) / 100,
       breakdown,
     });
-  }, [enrolled, newMonthly, pct54, pct57, avg58, rate53, rate54, rate57, rate58, patients99091, rate99091, roundClaims]);
+  }, [enrolled, newMonthly, pct54, pct57, avg58, rate53, rate54, rate57, rate58, rate58_2, patients99091, rate99091, roundClaims]);
 
   // Run calculation when any input changes
   useEffect(() => {
@@ -312,7 +321,7 @@ const RPMReimbursementCalculator: React.FC = () => {
 
               <div className="space-y-6">
                 {/* Patient Metrics */}
-                <div>
+                {/* <div>
                   <h4 className="text-lg font-semibold text-purple-900 mb-4">Patient Metrics</h4>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
@@ -346,9 +355,9 @@ const RPMReimbursementCalculator: React.FC = () => {
                         placeholder="e.g., 15"
                       />
                       <p className="text-xs text-gray-500 mt-1">One-time setup/education billed per newly enrolled patient</p>
-                    </div> */}
+                    </div>
                   </div>
-                </div>
+                </div> */}
 
                 {/* CPT Settings - compact rows */}
                 <div>

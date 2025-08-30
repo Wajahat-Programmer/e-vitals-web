@@ -144,19 +144,19 @@ const Header: React.FC = () => {
                     >
                       Resources
                     </Link>
-                    <Link
+                    {/* <Link
                       href="/support/faqs"
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900"
                     >
                       FAQs
-                    </Link>
+                    </Link> */}
                   </div>
                 </div>
               )}
             </div>
 
             <Link
-              href="/insights-overview"
+              href="/insights/overview"
               className="text-m font-medium tracking-wider hover:underline"
             >
               Insights

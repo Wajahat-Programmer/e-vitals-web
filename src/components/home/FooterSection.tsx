@@ -81,7 +81,7 @@ const FooterSection = () => {
                 else if (link === "RPM Software") href = "/rpm/RPMSoftware";
                 else if (link === "RPM Devices") href = "/rpm/RPMDevices";
                 else if (link === "Reimbursement & Billing") href = "/rpm/Reimbursement-and-Billing";
-                else if (link === "Reimbursement Estimator") href = "/rpm/Reimbursement-and-Billing";
+                else if (link === "Reimbursement Estimator") href = "/ReimbursementCalculator";
 
                 return (
                   <li key={link}>
