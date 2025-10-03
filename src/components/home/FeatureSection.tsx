@@ -13,17 +13,24 @@ const FeatureSection = () => {
             className="font-semibold text-slate-900 mb-6 leading-snug"
             style={{ fontSize: '2.2rem', lineHeight: 1.4 }}
           >
-            <span className="text-[#401b62]">For your </span>
-            <span className="text-[#a18adb]">patients&rsquo; vitals</span>
-            <span className="text-[#401b62]">. For your </span>
-            <span className="text-[#a18adb]">clinical decisions</span>
-            <span className="text-[#401b62]">. For </span>
-            <span className="text-[#a18adb]">practices</span>
-            <span className="text-[#401b62]">. For </span>
-            <span className="text-[#a18adb]">health systems</span>
-            <span className="text-[#401b62]">
-              . For all of it—managed in one place. For care that continues between visits.
-            </span>
+            <span className="text-[#401b62]">Because superior </span>
+            <span className="text-[#a18adb]">patient management</span>
+            <span className="text-[#401b62]"> is continuous, not confined to clinic hours.</span>
+
+            <br />
+            <br />
+
+            <span className="text-[#401b62]">The HIPAA-compliant </span>
+            <span className="text-[#a18adb]">eVitals Remote Patient Monitoring (RPM)</span>
+            <span className="text-[#401b62]"> platform empowers </span>
+            <span className="text-[#a18adb]">US providers</span>
+            <span className="text-[#401b62]"> to streamline </span>
+            <span className="text-[#a18adb]">chronic care</span>
+            <span className="text-[#401b62]"> secure </span>
+            <span className="text-[#a18adb]">Medicare reimbursement</span>
+            <span className="text-[#401b62]">, and deliver better </span>
+            <span className="text-[#a18adb]">patient outcomes</span>
+            <span className="text-[#401b62]"> beyond the clinic.</span>
           </p>
         </div>
 

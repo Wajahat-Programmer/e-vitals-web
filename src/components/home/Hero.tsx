@@ -48,7 +48,7 @@ const Hero: React.FC = () => {
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/assets/eVitals-bg.png"
+          src="/assets/herobg.jpg"
           alt="eVitals Hero Background"
           fill
           className="object-cover kenburns"
@@ -63,15 +63,15 @@ const Hero: React.FC = () => {
       <div className="relative z-10 w-full">
         <div className="text-left pl-6 md:pl-12 lg:pl-20 max-w-3xl">
           <h1 className="text-white text-4xl md:text-6xl font-bold leading-tight mb-6">
-            Care beyond clinic,
-            <br />
-            always <span className="text-[#B187E8]"> connected</span>
+            Elevating Patient Care <br />
+            with Advanced Remote
+            <span className="text-[#B187E8]"> Patient Monitoring</span>
           </h1>
 
           <p className="text-white text-base md:text-lg mb-8">
-            eVitals is a remote patient monitoring solution designed to help
-            clinicians deliver proactive & personalized care—right from a
-            distance.
+            eVitals delivers comprehensive RPM to US healthcare facilities,
+            enhancing patient outcomes while maximizing provider reimbursement
+            and practice efficiency.
           </p>
 
           {/* Typewriter Effect */}
