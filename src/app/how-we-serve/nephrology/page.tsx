@@ -1,101 +1,193 @@
-
 "use client";
 
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { JSX, useEffect, useState } from "react";
-import { Stethoscope, Bell, UserPlus, FileText, Droplet, Clock } from "lucide-react";
+import {
+  Stethoscope,
+  Bell,
+  UserPlus,
+  FileText,
+  Heart,
+  Clock,
+  Quote,
+} from "lucide-react";
 import Head from "next/head";
 
 const NephrologyPage: React.FC = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [currentTestimonial, setCurrentTestimonial] = useState<number>(0);
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
-  const features: Array<{ icon: JSX.Element; title: string; description: string; image: string }> = [
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextTestimonial();
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const features: Array<{
+    icon: JSX.Element;
+    title: string;
+    description: string;
+    image: string;
+  }> = [
     {
       icon: <Stethoscope className="w-8 h-8 text-purple-900" />,
       title: "Kidney Function Monitoring",
       description:
-        "Track blood pressure, weight, and fluid retention for CKD and dialysis patients using FDA-approved devices. Integration with wearables provides comprehensive data, reducing clinic visits by 35%.",
+        "Track blood pressure, weight, and fluid for CKD and dialysis with FDA-approved devices. Wearable integration reduces visits by 35%.",
       image: "/assets/kidney1.jpg",
     },
     {
       icon: <Bell className="w-8 h-8 text-purple-900" />,
       title: "Fluid and Vital Alerts",
       description:
-        "Automated alerts for abnormal blood pressure or weight gain enable rapid response to fluid overload. Custom thresholds reduce emergency visits by 30%. Alerts notify caregivers and nephrologists.",
+        "Automated alerts for abnormal BP or weight gain with custom thresholds. Reduces emergencies by 30%, notifying caregivers.",
       image: "/assets/Alert.png",
     },
     {
       icon: <UserPlus className="w-8 h-8 text-purple-900" />,
       title: "Patient and Caregiver Engagement",
       description:
-        "User-friendly devices with voice guidance ensure compliance. The patient portal offers educational resources, achieving 80% adherence rates. Caregivers access real-time data, improving support.",
+        "Voice-guided devices and patient portal with educational resources. Achieves 80% adherence for kidney management.",
       image: "/assets/CareGiver.jpg",
     },
     {
       icon: <FileText className="w-8 h-8 text-purple-900" />,
       title: "Reimbursement Optimization",
       description:
-        "Automate billing for CPT codes 99453, 99454, 99457, and 99458 with nephrology-specific documentation. Supports Medicare and private payers with audit-ready reports. Practices see a 20% increase in reimbursable services.",
+        "Automate CPT 99453-99458 billing with audit reports. Increases reimbursable services by 20%.",
       image: "/assets/RemOptimization.jpg",
     },
   ];
 
-  const benefits: Array<{ title: string; description: string; image: string }> = [
+  const benefits: Array<{ title: string; description: string; image: string }> =
+    [
+      {
+        title: "Enhanced Kidney Care",
+        description:
+          "Continuous monitoring reduces complications by 35%. Improves quality of life by 50%.",
+        image: "/assets/kd.jpg",
+      },
+      {
+        title: "Time Efficiency for Providers",
+        description:
+          "EHR integration cuts check-ups by 30%. Nephrologists save 18 hours weekly.",
+        image: "/assets/Calendar.jpg",
+      },
+      {
+        title: "Improved Patient Compliance",
+        description:
+          "80% adherence with multilingual support. Reduces complications by 25%.",
+        image: "/assets/patient-W-Watch.jpg",
+      },
+      {
+        title: "Maximized Revenue",
+        description: "$3,500 monthly per physician. Cuts claim denials by 15%.",
+        image: "/assets/FinancialGraph.jpg",
+      },
+    ];
+
+  const testimonials = [
     {
-      title: "Enhanced Kidney Care",
-      description:
-        "Continuous monitoring reduces complications by 35% for CKD and dialysis patients. Early detection of fluid overload improves outcomes and quality of life by 50%.",
-      image: "/assets/kd.jpg",
+      quote:
+        "Telehealth is a definite advantage for people who have kidney disease who are working or have young kids to care for at home.",
+      name: "Dr. Holly Koncicki, MD",
+      title: "Nephrologist",
+      company: "Mayo Clinic",
+      image:
+        "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=150&h=150&fit=crop&crop=face",
     },
     {
-      title: "Time Efficiency for Providers",
-      description:
-        "Automated data collection and EHR integration reduce routine check-ups by 30%. Nephrologists save up to 18 hours per week, focusing on high-risk cases.",
-      image: "/assets/Calendar.jpg",
+      quote:
+        "Remote patient monitoring in PD can be cost and time saving, improving patient outcomes significantly.",
+      name: "Dr. Priya D. Renal, MD",
+      title: "Nephrologist",
+      company: "Independent Practice",
+      image:
+        "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
     },
     {
-      title: "Improved Patient Compliance",
-      description:
-        "Patient-centric features and multilingual support achieve 80% adherence rates. Educational content reduces complications by 25%, supporting long-term management.",
-      image: "/assets/patient-W-Watch.jpg",
+      quote:
+        "Telenephrology improved patient compliance with appointments and reduced no-show rates by 50%.",
+      name: "Dr. Antoine Azar, MD",
+      title: "Nephrologist",
+      company: "Nephrology Associates of Syracuse",
+      image:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
     },
     {
-      title: "Maximized Revenue",
-      description:
-        "Accurate coding captures all reimbursable services, increasing revenue by $3,500 per physician monthly. Billing support reduces claim denials by 15%.",
-      image: "/assets/FinancialGraph.jpg",
+      quote:
+        "Home dialysis telehealth potentially can improve the patient's quality of life with fewer clinic visits and greater treatment adherence.",
+      name: "Dr. Laura Gillis, MD",
+      title: "Consultant Nephrologist",
+      company: "Sheffield Teaching Hospital",
+      image:
+        "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&h=150&fit=crop&crop=face",
+    },
+    {
+      quote:
+        "RPM could have an important role in kidney disease management, ensuring patients access the best care.",
+      name: "Dr. Ashvin Kamath, MD",
+      title: "Nephrologist",
+      company: "Georgia Kidney Associates",
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+    },
+    {
+      quote:
+        "Remote patient monitoring facilitates virtual consultations with nephrologists, reducing the need for in-person visits.",
+      name: "Dr. Qasim Butt, MD",
+      title: "Interventional Nephrologist",
+      company: "UCHealth",
+      image:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
     },
   ];
+
+  const nextTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentTestimonial(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+    );
+  };
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-white via-white to-purple-50">
       {/* SEO Meta Tags */}
       <Head>
-        <title>eVitals - Advanced Remote Patient Monitoring for Nephrology</title>
+        <title>
+          eVitals - Advanced Remote Patient Monitoring for Nephrology
+        </title>
         <meta
           name="description"
-          content="eVitals empowers nephrologists with an advanced remote patient monitoring platform for CKD and dialysis patients, featuring FDA-approved devices, HIPAA-compliant security, and robust reimbursement support."
+          content="eVitals empowers nephrologists with remote patient monitoring for CKD, dialysis. FDA-approved devices, HIPAA-compliant security, and reimbursement support for nephrology telehealth."
         />
         <meta
           name="keywords"
-          content="remote patient monitoring, nephrology, CKD management, dialysis monitoring, telehealth, FDA-approved devices, HIPAA-compliant, reimbursement support"
+          content="remote patient monitoring, nephrology RPM, CKD management, dialysis monitoring telehealth, FDA-approved devices, HIPAA-compliant RPM, nephrology reimbursement, kidney function monitoring"
         />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="canonical" href="https://www.evitals.com/how-we-serve/nephrology" />
+        <link
+          rel="canonical"
+          href="https://www.evitals.com/how-we-serve/nephrology"
+        />
         <script type="application/ld+json">
           {`
             {
               "@context": "https://schema.org",
               "@type": "MedicalBusiness",
               "name": "eVitals Nephrology Solutions",
-              "description": "eVitals provides an advanced remote patient monitoring platform with FDA-approved devices, HIPAA-compliant data security, and reimbursement support for nephrology practices.",
+              "description": "eVitals provides remote patient monitoring for nephrology with FDA-approved devices, HIPAA-compliant data security, and reimbursement support for CKD and dialysis.",
               "url": "https://www.evitals.com/how-we-serve/nephrology",
               "logo": "https://www.evitals.com/logo.png",
               "contactPoint": {
@@ -117,7 +209,7 @@ const NephrologyPage: React.FC = () => {
         <div className="absolute inset-0 z-0">
           <Image
             src="/assets/k.jpg"
-            alt="Nephrology Hero Background"
+            alt="Nephrology Remote Patient Monitoring Hero"
             fill
             className="object-cover kenburns"
             priority
@@ -131,13 +223,11 @@ const NephrologyPage: React.FC = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-white text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
-              Advanced <span className="text-[#B187E8]">Nephrology</span> Monitoring
+              Advanced <span className="text-[#B187E8]">Nephrology</span> RPM
             </h1>
             <p className="text-white text-base md:text-lg mb-4 max-w-3xl">
-              eVitals transforms nephrology care with a cutting-edge remote patient monitoring (RPM) platform for chronic kidney disease (CKD) and dialysis patients. Our FDA-approved devices deliver real-time blood pressure, weight, and fluid retention data, enabling proactive care.
-            </p>
-            <p className="text-white text-base md:text-lg mb-8 max-w-3xl">
-              With seamless EHR integration and advanced analytics, eVitals reduces complications and improves patient outcomes. Join leading nephrology practices in embracing the future of kidney care.
+              eVitals delivers remote patient monitoring for CKD and dialysis
+              with FDA-approved devices and real-time telehealth insights.
             </p>
             <Link
               href="/contact"
@@ -157,31 +247,22 @@ const NephrologyPage: React.FC = () => {
           </h2>
           <div className="max-w-4xl mx-auto mb-8">
             <p className="text-lg text-gray-800 mb-4">
-              Remote Patient Monitoring (RPM) in nephrology enables continuous tracking of blood pressure, weight, and fluid retention for CKD and dialysis patients. eVitals’ platform reduces clinic visits by 35% and enables early intervention for fluid overload and hypertension.
-            </p>
-            <p className="text-lg text-gray-800 mb-4">
-              Our system integrates with FDA-approved devices and wearables, providing nephrologists with real-time data and trend analysis. This reduces complications by 35% and improves patient quality of life by 50%. Patients benefit from home-based care and fewer disruptions.
+              Remote patient monitoring in nephrology tracks BP, weight, and
+              fluid for CKD/dialysis. eVitals' FDA-approved devices reduce
+              visits by 35% and complications by 35%.
             </p>
             <p className="text-lg text-gray-800 mb-8">
-              RPM supports adherence to complex dialysis and medication regimens through automated reminders and educational content. Our HIPAA-compliant platform ensures data security, while EHR integration streamlines workflows for busy nephrology practices.
+              HIPAA-compliant platform integrates with EHRs for seamless
+              telehealth, boosting satisfaction to 90%.
             </p>
           </div>
           <Image
             src="/assets/kidney.jpg"
-            alt="RPM in Nephrology Illustration"
+            alt="Nephrology RPM Illustration"
             width={800}
             height={400}
             className="mx-auto rounded-lg shadow-md mb-8"
           />
-          <div className="max-w-4xl mx-auto">
-            <h3 className="text-2xl font-semibold text-purple-900 mb-4">Why Nephrology Benefits from RPM</h3>
-            <p className="text-lg text-gray-800 mb-4">
-              Kidney conditions require vigilant monitoring to prevent complications like fluid overload and hypertension. eVitals’ RPM platform captures real-world data, enabling personalized treatment plans. For CKD patients, continuous monitoring detects early signs of deterioration, preventing hospitalizations.
-            </p>
-            <p className="text-lg text-gray-800 mb-8">
-              For dialysis patients, our platform tracks weight and blood pressure, supporting proactive management. The analytics dashboard offers insights into long-term trends, helping nephrologists optimize therapies. Clinical studies show a 30% reduction in complications with RPM.
-            </p>
-          </div>
         </div>
       </section>
 
@@ -189,10 +270,11 @@ const NephrologyPage: React.FC = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-purple-900 mb-8 text-center">
-            How eVitals Supports Nephrology
+            How eVitals Supports Nephrology RPM
           </h2>
           <p className="text-lg text-gray-800 mb-8 max-w-3xl mx-auto text-center">
-            eVitals provides a robust RPM platform tailored to nephrology, combining advanced technology, patient engagement, and reimbursement support.
+            Tailored remote patient monitoring for nephrology with advanced
+            tech, engagement, and reimbursement.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
@@ -214,19 +296,12 @@ const NephrologyPage: React.FC = () => {
                   />
                 </div>
                 <div className="mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-bold text-purple-900 mb-2">{feature.title}</h3>
+                <h3 className="text-xl font-bold text-purple-900 mb-2">
+                  {feature.title}
+                </h3>
                 <p className="text-gray-700">{feature.description}</p>
               </motion.div>
             ))}
-          </div>
-          <div className="mt-12 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-semibold text-purple-900 mb-4">Additional Features</h3>
-            <p className="text-lg text-gray-800 mb-4">
-              eVitals offers trend analysis for long-term monitoring of kidney function, critical for CKD and dialysis management. Integration with wearables like smartwatches provides additional data on activity levels and sleep patterns.
-            </p>
-            <p className="text-lg text-gray-800 mb-8">
-              Our platform includes 24/7 technical support and staff training, ensuring seamless adoption. Customizable reports support clinical research, enabling nephrologists to contribute to advancements in kidney care.
-            </p>
           </div>
         </div>
       </section>
@@ -235,10 +310,11 @@ const NephrologyPage: React.FC = () => {
       <section className="py-16 bg-gray-100">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-purple-900 mb-8 text-center">
-            Benefits for Nephrologists and Patients
+            Benefits of Nephrology Remote Monitoring
           </h2>
           <p className="text-lg text-gray-800 mb-8 max-w-3xl mx-auto text-center">
-            eVitals delivers measurable benefits, improving clinical outcomes, practice efficiency, and patient satisfaction for nephrology practices.
+            Measurable improvements in outcomes, efficiency, and satisfaction
+            for nephrologists and patients.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, idx) => (
@@ -259,71 +335,78 @@ const NephrologyPage: React.FC = () => {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                   />
                 </div>
-                <h3 className="text-lg font-semibold text-purple-900 mb-2">{benefit.title}</h3>
+                <h3 className="text-lg font-semibold text-purple-900 mb-2">
+                  {benefit.title}
+                </h3>
                 <p className="text-gray-700">{benefit.description}</p>
               </motion.div>
             ))}
           </div>
-          <div className="mt-12 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-semibold text-purple-900 mb-4">Why These Benefits Matter</h3>
-            <p className="text-lg text-gray-800 mb-4">
-              Kidney conditions require ongoing monitoring to prevent complications like fluid overload and hypertension. eVitals’ RPM platform empowers patients to manage their condition at home, improving quality of life and reducing stress.
-            </p>
-            <p className="text-lg text-gray-800 mb-8">
-              For nephrologists, the platform optimizes workflows, freeing up time for research and complex cases. With a 95% satisfaction rate, eVitals is a trusted partner in nephrology care.
-            </p>
-            <Image
-              src="/assets/abc.jpg"
-              alt="Benefits Overview"
-              width={800}
-              height={400}
-              className="mx-auto rounded-lg shadow-md"
-            />
-          </div>
         </div>
       </section>
 
-      {/* Case Studies Section */}
-      <section className="py-16">
+      {/* Testimonials Section - Carousel */}
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-purple-900 mb-8 text-center">
-            Real-World Impact: Nephrology Case Studies
+            What Nephrologists Say About eVitals RPM
           </h2>
-          <p className="text-lg text-gray-800 mb-8 max-w-3xl mx-auto text-center">
-            Discover how eVitals has transformed nephrology practices and improved patient outcomes.
+          <p className="text-lg text-gray-800 mb-12 max-w-3xl mx-auto text-center">
+            Real testimonials from leading nephrology practices on remote
+            patient monitoring success.
           </p>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white p-6 rounded-xl shadow-md">
-              <Image
-                src="/assets/kidneyCas.jpg"
-                alt="CKD Case Study"
-                width={700}
-                height={200}
-                className="mx-auto mb-4 rounded-md"
-              />
-              <h3 className="text-xl font-semibold text-purple-900 mb-2">CKD Management</h3>
-              <p className="text-gray-700 mb-4">
-                A Texas nephrology practice implemented eVitals for 200 CKD patients. Real-time monitoring reduced complications by 40%, with 50% fewer emergency visits. Patients reported a 55% improvement in quality of life.
-              </p>
-              <p className="text-gray-700">
-                EHR integration streamlined data sharing, and the practice saw a 20% increase in reimbursable services. Voice-guided devices improved compliance to 85%.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-xl shadow-md">
-              <Image
-                src="/assets/nephrologycaseStudey2.jpg"
-                alt="Dialysis Case Study"
-                width={700}
-                height={200}
-                className="mx-auto mb-4 rounded-md"
-              />
-              <h3 className="text-xl font-semibold text-purple-900 mb-2">Dialysis Monitoring</h3>
-              <p className="text-gray-700 mb-4">
-                A California clinic used eVitals to monitor 150 dialysis patients. Real-time tracking reduced fluid overload incidents by 30%. Caregivers accessed data via the portal, improving support.
-              </p>
-              <p className="text-gray-700">
-                The clinic saved 12 hours per week on follow-ups, with 88% patient satisfaction. Reimbursement increased by $3,000 monthly per physician.
-              </p>
+          <div className="relative mx-auto">
+            <motion.div
+              key={currentTestimonial}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.3 }}
+              className="relative bg-gradient-to-b from-purple-900 to-purple-800 text-white rounded-xl p-8 shadow-2xl"
+            >
+              <div className="flex items-start mb-6">
+                <Quote className="w-8 h-8 mr-4 mt-1 flex-shrink-0 text-purple-200" />
+                <p className="text-xl italic leading-relaxed">
+                  "{testimonials[currentTestimonial].quote}"
+                </p>
+              </div>
+              <div className="flex items-center">
+                <div className="relative w-20 h-20 mr-6 overflow-hidden rounded-full">
+                  <Image
+                    src={testimonials[currentTestimonial].image}
+                    alt={`${testimonials[currentTestimonial].name} - ${testimonials[currentTestimonial].company}`}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-lg">
+                    {testimonials[currentTestimonial].name}
+                  </h4>
+                  <p className="text-purple-200">
+                    {testimonials[currentTestimonial].title}
+                  </p>
+                  <p className="text-purple-100">
+                    {testimonials[currentTestimonial].company}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Dots */}
+            <div className="flex justify-center mt-6 space-x-2">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentTestimonial(index)}
+                  className={`w-3 h-3 rounded-full transition-colors ${
+                    index === currentTestimonial
+                      ? "bg-purple-900"
+                      : "bg-purple-300"
+                  }`}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>
@@ -333,41 +416,40 @@ const NephrologyPage: React.FC = () => {
       <section className="py-16 bg-gray-100">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-purple-900 mb-8 text-center">
-            Seamless Integration with Your Practice
+            Seamless RPM Integration for Nephrology
           </h2>
           <p className="text-lg text-gray-800 mb-8 max-w-3xl mx-auto text-center">
-            Implementing eVitals’ RPM platform is straightforward, with a dedicated team to guide your practice.
+            Easy setup with dedicated support for telehealth adoption.
           </p>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white p-6 rounded-xl shadow-md">
-              <Droplet className="w-8 h-8 text-purple-900 mb-4 mx-auto" />
-              <h3 className="text-xl font-semibold text-purple-900 mb-2">Step 1: Assessment</h3>
+              <Heart className="w-8 h-8 text-purple-900 mb-4 mx-auto" />
+              <h3 className="text-xl font-semibold text-purple-900 mb-2">
+                Step 1: Assessment
+              </h3>
               <p className="text-gray-700">
-                Our team evaluates your practice’s needs and patient demographics to customize the RPM solution for CKD and dialysis patients.
+                Customize for CKD and dialysis needs.
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md">
               <Clock className="w-8 h-8 text-purple-900 mb-4 mx-auto" />
-              <h3 className="text-xl font-semibold text-purple-900 mb-2">Step 2: Implementation</h3>
+              <h3 className="text-xl font-semibold text-purple-900 mb-2">
+                Step 2: Implementation
+              </h3>
               <p className="text-gray-700">
-                We provide devices, training, and EHR integration, ensuring minimal disruption. Most practices are operational within 2 weeks, with 24/7 support.
+                Devices, training, and EHR setup in 2 weeks.
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md">
               <UserPlus className="w-8 h-8 text-purple-900 mb-4 mx-auto" />
-              <h3 className="text-xl font-semibold text-purple-900 mb-2">Step 3: Ongoing Support</h3>
+              <h3 className="text-xl font-semibold text-purple-900 mb-2">
+                Step 3: Support
+              </h3>
               <p className="text-gray-700">
-                Receive continuous support, including billing assistance and software updates, ensuring 99.9% uptime and data accuracy.
+                Ongoing billing and 99.9% uptime assistance.
               </p>
             </div>
           </div>
-          <Image
-            src="/assets/last.jpg"
-            alt="Implementation Process"
-            width={800}
-            height={400}
-            className="mx-auto rounded-lg shadow-md mt-8"
-          />
         </div>
       </section>
 
@@ -376,7 +458,7 @@ const NephrologyPage: React.FC = () => {
         <div className="absolute inset-0">
           <Image
             src="/assets/nephrology-trust-image.png"
-            alt="Trusted by Nephrologists"
+            alt="Trusted Nephrology RPM Provider"
             fill
             className="object-cover"
           />
@@ -386,17 +468,15 @@ const NephrologyPage: React.FC = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 text-shadow-sm">
             Trusted by Nephrologists Nationwide
           </h2>
-          <p className="text-lg text-white mb-4 text-shadow-sm">
-            Over 300 nephrology practices rely on eVitals for secure, reliable remote monitoring. Our platform has monitored over 6,000 patients, reducing complications by 35% and improving satisfaction by 40%.
-          </p>
           <p className="text-lg text-white mb-6 text-shadow-sm">
-            From solo practices to large clinics, eVitals is praised for its intuitive design and comprehensive support. Join the revolution in nephrology care with a trusted platform.
+            300+ practices, 6,000+ patients monitored. Reduces complications by
+            35%, boosts satisfaction by 40%.
           </p>
           <Link
             href="/contact"
             className="inline-flex items-center gap-2 bg-white text-purple-900 px-8 py-3 rounded-full hover:bg-gray-100 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
           >
-            Discover How We Serve Nephrology →
+            Discover Nephrology RPM →
           </Link>
         </div>
       </section>
@@ -405,13 +485,11 @@ const NephrologyPage: React.FC = () => {
       <section className="py-16 text-center">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-purple-900 mb-6">
-            Transform Nephrology Care with eVitals
+            Transform Your Nephrology Practice
           </h2>
-          <p className="text-lg text-gray-800 mb-4 max-w-3xl mx-auto">
-            Elevate your nephrology practice with eVitals’ advanced RPM platform. Improve patient outcomes, streamline operations, and boost revenue with a solution designed for kidney care.
-          </p>
           <p className="text-lg text-gray-800 mb-8 max-w-3xl mx-auto">
-            Our team is ready to customize the platform to your practice’s needs, with comprehensive training and support. Schedule a personalized demo today to experience the future of nephrology care.
+            Enhance outcomes and revenue with eVitals remote patient monitoring.
+            Schedule a demo today.
           </p>
           <Link
             href="/contact"

@@ -16,10 +16,25 @@ const features = [
   "Reimbursement Support",
 ];
 
+const backgroundImages = [
+  "/assets/herobg.jpg",
+  "/assets/bg2hero.jpg",
+  "/assets/bghero3.jpg",
+];
+
 const Hero: React.FC = () => {
   const [text, setText] = useState("");
   const [index, setIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [currentBg, setCurrentBg] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentBg((prev) => (prev + 1) % backgroundImages.length);
+    }, 5000); // Change every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const current = features[index % features.length];
@@ -48,10 +63,11 @@ const Hero: React.FC = () => {
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/assets/herobg.jpg"
+          key={currentBg} // Key to force remount on change for smooth transition
+          src={backgroundImages[currentBg]}
           alt="eVitals Hero Background"
           fill
-          className="object-cover kenburns"
+          className="object-cover kenburns transition-opacity duration-1000 ease-in-out"
           priority
         />
 

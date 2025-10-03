@@ -1,101 +1,193 @@
-
 "use client";
 
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { JSX, useEffect, useState } from "react";
-import { Stethoscope, Bell, UserPlus, FileText, Brain, Clock } from "lucide-react";
+import {
+  Stethoscope,
+  Bell,
+  UserPlus,
+  FileText,
+  Heart,
+  Clock,
+  Quote,
+} from "lucide-react";
 import Head from "next/head";
 
 const NeurologyPage: React.FC = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [currentTestimonial, setCurrentTestimonial] = useState<number>(0);
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
-  const features: Array<{ icon: JSX.Element; title: string; description: string; image: string }> = [
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextTestimonial();
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const features: Array<{
+    icon: JSX.Element;
+    title: string;
+    description: string;
+    image: string;
+  }> = [
     {
-      icon: <Stethoscope className="w-8  text-purple-900" />,
+      icon: <Stethoscope className="w-8 h-8 text-purple-900" />,
       title: "Advanced Neurological Monitoring",
       description:
-        "Track critical neurological indicators such as blood pressure, heart rate, and oxygen saturation for epilepsy, stroke recovery, and neurodegenerative conditions using FDA-approved devices with cellular connectivity. Our platform integrates with wearable EEG devices for real-time seizure detection, enabling neurologists to monitor patients remotely with unparalleled precision. This reduces clinic visits by 40% and provides continuous data for accurate assessments.",
+        "Track vitals and EEG for epilepsy, stroke, Parkinson's with FDA-approved devices. Wearable integration reduces visits by 40%.",
       image: "/assets/advance.jpg",
     },
     {
       icon: <Bell className="w-8 h-8 text-purple-900" />,
       title: "Immediate Alert System",
       description:
-        "Receive automated, customizable alerts for abnormal readings, such as irregular heart rates or seizure indicators, allowing rapid response to potential neurological events. Alerts can be configured for multiple recipients, including caregivers and emergency services, ensuring comprehensive coverage. This feature has reduced emergency response times by 50% in clinical studies, minimizing complications for epilepsy and stroke patients.",
+        "Automated alerts for abnormal readings or seizures. Reduces response times by 50%, notifying caregivers.",
       image: "/assets/Alert.png",
     },
     {
       icon: <UserPlus className="w-8 h-8 text-purple-900" />,
       title: "Patient and Caregiver Engagement",
       description:
-        "User-friendly devices with voice guidance in multiple languages (English, Spanish, and more) ensure compliance, even for patients with cognitive impairments. Caregivers access a dedicated portal for real-time data and trend analysis, fostering collaborative care. Educational resources, including video tutorials and medication guides, enhance patient and family involvement, improving adherence rates to 85%.",
+        "Voice-guided devices in multiple languages with caregiver portal. Boosts adherence to 85%.",
       image: "/assets/CareGiver.jpg",
     },
     {
       icon: <FileText className="w-8 h-8 text-purple-900" />,
       title: "Reimbursement Optimization",
       description:
-        "Automate billing for CPT codes 99453, 99454, 99457, and 99458 with neurology-specific documentation. Our system supports Medicare and private payers, generating audit-ready reports to ensure compliance. Practices report a 20-30% increase in reimbursable services, with dedicated support for navigating complex billing requirements, saving up to 15 hours weekly on administrative tasks.",
+        "Automate CPT 99453-99458 billing with audit reports. Increases reimbursable services by 20-30%, saving 15 hours weekly.",
       image: "/assets/RemOptimization.jpg",
     },
   ];
 
-  const benefits: Array<{ title: string; description: string; image: string }> = [
+  const benefits: Array<{ title: string; description: string; image: string }> =
+    [
+      {
+        title: "Enhanced Patient Safety",
+        description:
+          "Continuous monitoring reduces admissions by 35% for epilepsy. Improves outcomes for stroke and Parkinson’s.",
+        image: "/assets/safety.jpg",
+      },
+      {
+        title: "Time Efficiency for Providers",
+        description:
+          "EHR integration cuts check-ups by 30%. Neurologists save 25 hours weekly.",
+        image: "/assets/Calendar.jpg",
+      },
+      {
+        title: "Improved Patient Compliance",
+        description:
+          "80% adherence with reminders and education. Improves medication adherence by 40%.",
+        image: "/assets/patient-W-Watch.jpg",
+      },
+      {
+        title: "Maximized Revenue",
+        description:
+          "$4,000 monthly per physician. Reduces claim denials by 25%.",
+        image: "/assets/FinancialGraph.jpg",
+      },
+    ];
+
+  const testimonials = [
     {
-      title: "Enhanced Patient Safety",
-      description:
-        "Continuous monitoring detects neurological events early, preventing complications and reducing hospital admissions by 35% for epilepsy patients. Real-time data allows for timely interventions, improving outcomes for stroke and Parkinson’s patients. Patients report greater peace of mind knowing their condition is monitored 24/7.",
-      image: "/assets/safety.jpg",
+      quote:
+        "Telehealth is a great tool to keep the lines of communication open with patients.",
+      name: "Dr. Jeffrey Gelblum, MD",
+      title: "Senior Attending Board Member",
+      company: "First Choice Neurology",
+      image:
+        "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=150&h=150&fit=crop&crop=face",
     },
     {
-      title: "Time Efficiency for Providers",
-      description:
-        "Automated data collection and EHR integration streamline workflows, allowing neurologists to focus on complex cases. Routine check-ups are reduced by 30%, saving up to 25 hours per week. Our platform’s intuitive dashboard provides actionable insights, enabling faster decision-making and treatment adjustments.",
-      image: "/assets/Calendar.jpg",
+      quote:
+        "Telehealth gives patients and doctors more care options, providing access to quality care that fits their schedule.",
+      name: "Dr. Jeffrey Gelblum, MD",
+      title: "Senior Attending Board Member",
+      company: "First Choice Neurology",
+      image:
+        "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
     },
     {
-      title: "Improved Patient Compliance",
-      description:
-        "Patient-centric devices with reminders and multilingual support achieve 80% adherence rates. Personalized education plans and caregiver involvement enhance long-term management. Studies show a 40% improvement in medication adherence, critical for managing neurological conditions like epilepsy and migraines.",
-      image: "/assets/patient-W-Watch.jpg",
+      quote:
+        "Telehealth has improved health outcomes and compliance with treatment plans through rapid communication.",
+      name: "Dr. Jeffrey Gelblum, MD",
+      title: "Senior Attending Board Member",
+      company: "First Choice Neurology",
+      image:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
     },
     {
-      title: "Maximized Revenue",
-      description:
-        "Accurate coding and documentation capture all reimbursable services, increasing revenue by an average of $4,000 per physician monthly. Our billing support team ensures compliance with Medicare and private payer requirements, reducing claim denials by 25% and boosting practice profitability.",
-      image: "/assets/FinancialGraph.jpg",
+      quote: "Telehealth visits are here to stay, and our patients love it.",
+      name: "Dr. Jeffrey Gelblum, MD",
+      title: "Senior Attending Board Member",
+      company: "First Choice Neurology",
+      image:
+        "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&h=150&fit=crop&crop=face",
+    },
+    {
+      quote:
+        "We’re excited to use this platform to educate the community about neurological conditions.",
+      name: "Dr. Jeffrey Gelblum, MD",
+      title: "Senior Attending Board Member",
+      company: "First Choice Neurology",
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+    },
+    {
+      quote:
+        "I only see the expansion of telehealth and remote healthcare technologies; the possibilities are endless.",
+      name: "Dr. Jeffrey Gelblum, MD",
+      title: "Senior Attending Board Member",
+      company: "First Choice Neurology",
+      image:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
     },
   ];
+
+  const nextTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentTestimonial(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+    );
+  };
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-white via-white to-purple-50">
       {/* SEO Meta Tags */}
       <Head>
-        <title>eVitals - Advanced Remote Patient Monitoring for Neurology</title>
+        <title>
+          eVitals - Advanced Remote Patient Monitoring for Neurology
+        </title>
         <meta
           name="description"
-          content="eVitals empowers neurologists with an advanced remote patient monitoring platform for epilepsy, stroke, Parkinson’s, and other neurological disorders, featuring FDA-approved devices, HIPAA-compliant security, and robust reimbursement support."
+          content="eVitals empowers neurologists with remote patient monitoring for epilepsy, stroke recovery, Parkinson's. FDA-approved devices, HIPAA-compliant security, and reimbursement support for neurology telehealth."
         />
         <meta
           name="keywords"
-          content="remote patient monitoring, neurology, epilepsy management, stroke recovery, Parkinson’s monitoring, telehealth, FDA-approved devices, HIPAA-compliant, reimbursement support"
+          content="remote patient monitoring, neurology RPM, epilepsy management, stroke recovery telehealth, Parkinson's monitoring, FDA-approved devices, HIPAA-compliant RPM, neurology reimbursement, EEG seizure detection"
         />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="canonical" href="https://www.evitals.com/how-we-serve/neurology" />
+        <link
+          rel="canonical"
+          href="https://www.evitals.com/how-we-serve/neurology"
+        />
         <script type="application/ld+json">
           {`
             {
               "@context": "https://schema.org",
               "@type": "MedicalBusiness",
               "name": "eVitals Neurology Solutions",
-              "description": "eVitals provides an advanced remote patient monitoring platform with FDA-approved devices, HIPAA-compliant data security, and reimbursement support for neurology practices.",
+              "description": "eVitals provides remote patient monitoring for neurology with FDA-approved devices, HIPAA-compliant data security, and reimbursement support for epilepsy, stroke, and Parkinson's.",
               "url": "https://www.evitals.com/how-we-serve/neurology",
               "logo": "https://www.evitals.com/logo.png",
               "contactPoint": {
@@ -117,7 +209,7 @@ const NeurologyPage: React.FC = () => {
         <div className="absolute inset-0 z-0">
           <Image
             src="/assets/n.jpg"
-            alt="Neurology Hero Background"
+            alt="Neurology Remote Patient Monitoring Hero"
             fill
             className="object-cover kenburns"
             priority
@@ -131,13 +223,12 @@ const NeurologyPage: React.FC = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-white text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
-              Advanced <span className="text-[#B187E8]">Neurology</span> Monitoring
+              Advanced <span className="text-[#B187E8]">Neurology</span> RPM
             </h1>
             <p className="text-white text-base md:text-lg mb-4 max-w-3xl">
-              eVitals revolutionizes neurological care with a state-of-the-art remote patient monitoring (RPM) platform designed for epilepsy, stroke recovery, Parkinson’s, and other neurological disorders. Our FDA-approved devices and HIPAA-compliant technology deliver real-time data, empowering neurologists to provide proactive, personalized care from anywhere.
-            </p>
-            <p className="text-white text-base md:text-lg mb-8 max-w-3xl">
-              With seamless EHR integration and advanced analytics, eVitals enables precise treatment adjustments and early intervention, reducing hospital visits and improving patient quality of life. Join the future of neurology with a platform trusted by leading practices nationwide.
+              eVitals delivers remote patient monitoring for epilepsy, stroke,
+              Parkinson’s with FDA-approved devices and real-time telehealth
+              insights.
             </p>
             <Link
               href="/contact"
@@ -157,31 +248,22 @@ const NeurologyPage: React.FC = () => {
           </h2>
           <div className="max-w-4xl mx-auto mb-8">
             <p className="text-lg text-gray-800 mb-4">
-              Remote Patient Monitoring (RPM) in neurology is redefining how neurologists manage chronic conditions like epilepsy, stroke, Parkinson’s disease, and multiple sclerosis. By leveraging FDA-approved devices, eVitals enables continuous tracking of vital signs and neurological indicators in patients’ daily environments, capturing data that traditional clinic visits often miss.
-            </p>
-            <p className="text-lg text-gray-800 mb-4">
-              Our platform uses advanced algorithms to detect patterns associated with neurological events, such as seizures or stroke precursors, enabling early intervention. This reduces emergency hospital admissions by 35% and improves patient outcomes. Integration with wearable EEG devices and telemedicine platforms allows for comprehensive monitoring and virtual consultations, ensuring seamless care delivery.
+              Remote patient monitoring in neurology tracks vitals and EEG for
+              epilepsy, stroke, Parkinson’s. eVitals' FDA-approved devices
+              reduce visits by 40% and admissions by 35%.
             </p>
             <p className="text-lg text-gray-800 mb-8">
-              RPM also supports medication adherence through automated reminders and progress tracking, critical for conditions requiring complex regimens. Patients and caregivers benefit from real-time data access, fostering collaborative care. Clinical studies show that RPM increases patient adherence to neurological treatment plans by 40%, leading to better disease management and fewer complications.
+              HIPAA-compliant platform integrates with EHRs for seamless
+              telehealth, boosting adherence by 40%.
             </p>
           </div>
           <Image
             src="/assets/neurologyhero.jpg"
-            alt="RPM in Neurology Illustration"
+            alt="Neurology RPM Illustration"
             width={800}
             height={400}
             className="mx-auto rounded-lg shadow-md mb-8"
           />
-          <div className="max-w-4xl mx-auto">
-            <h3 className="text-2xl font-semibold text-purple-900 mb-4">Why Neurology Benefits from RPM</h3>
-            <p className="text-lg text-gray-800 mb-4">
-              Neurological conditions often require long-term monitoring due to their unpredictable nature. eVitals’ RPM solution provides neurologists with a holistic view of patient health, including trends in blood pressure, heart rate, and neurological activity. This data-driven approach supports personalized treatment plans, reducing the risk of adverse events.
-            </p>
-            <p className="text-lg text-gray-800 mb-8">
-              For example, in epilepsy management, our platform can detect pre-seizure patterns, allowing for timely medication adjustments. For stroke patients, continuous monitoring of vitals helps prevent secondary events. Our system’s HIPAA-compliant security ensures patient data is protected, while integration with EHR systems streamlines workflows for busy neurology practices.
-            </p>
-          </div>
         </div>
       </section>
 
@@ -189,10 +271,11 @@ const NeurologyPage: React.FC = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-purple-900 mb-8 text-center">
-            How eVitals Supports Neurology
+            How eVitals Supports Neurology RPM
           </h2>
           <p className="text-lg text-gray-800 mb-8 max-w-3xl mx-auto text-center">
-            eVitals provides a comprehensive RPM platform tailored to the unique needs of neurology practices. Our solution combines cutting-edge technology, patient-centric design, and robust support to enhance care delivery and practice efficiency.
+            Tailored remote patient monitoring for neurology with advanced tech,
+            engagement, and reimbursement.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
@@ -204,7 +287,7 @@ const NeurologyPage: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
               >
-                <div className="relative w-full h-48   mb-4">
+                <div className="relative w-full h-48 mb-4">
                   <Image
                     src={feature.image}
                     alt={feature.title}
@@ -214,19 +297,12 @@ const NeurologyPage: React.FC = () => {
                   />
                 </div>
                 <div className="mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-bold text-purple-900 mb-2">{feature.title}</h3>
+                <h3 className="text-xl font-bold text-purple-900 mb-2">
+                  {feature.title}
+                </h3>
                 <p className="text-gray-700">{feature.description}</p>
               </motion.div>
             ))}
-          </div>
-          <div className="mt-12 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-semibold text-purple-900 mb-4">Additional Features</h3>
-            <p className="text-lg text-gray-800 mb-4">
-              Beyond core monitoring, eVitals offers trend analysis for long-term disease progression tracking, critical for conditions like Parkinson’s and Alzheimer’s. Our platform supports integration with third-party wearables, such as smartwatches, for additional data points like sleep patterns and activity levels, which are vital for neurological assessments.
-            </p>
-            <p className="text-lg text-gray-800 mb-8">
-              We also provide 24/7 technical support and training for practice staff, ensuring seamless adoption. Our analytics dashboard includes customizable reports for clinical research, enabling neurologists to contribute to advancements in the field while managing patient care.
-            </p>
           </div>
         </div>
       </section>
@@ -235,10 +311,11 @@ const NeurologyPage: React.FC = () => {
       <section className="py-16 bg-gray-100">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-purple-900 mb-8 text-center">
-            Benefits for Neurologists and Patients
+            Benefits of Neurology Remote Monitoring
           </h2>
           <p className="text-lg text-gray-800 mb-8 max-w-3xl mx-auto text-center">
-            eVitals’ RPM platform delivers measurable benefits for both neurologists and their patients, enhancing clinical outcomes, practice efficiency, and patient satisfaction.
+            Measurable improvements in outcomes, efficiency, and satisfaction
+            for neurologists and patients.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, idx) => (
@@ -259,70 +336,118 @@ const NeurologyPage: React.FC = () => {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                   />
                 </div>
-                <h3 className="text-lg font-semibold text-purple-900 mb-2">{benefit.title}</h3>
+                <h3 className="text-lg font-semibold text-purple-900 mb-2">
+                  {benefit.title}
+                </h3>
                 <p className="text-gray-700">{benefit.description}</p>
               </motion.div>
             ))}
           </div>
-          <div className="mt-12 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-semibold text-purple-900 mb-4">Why These Benefits Matter</h3>
-            <p className="text-lg text-gray-800 mb-4">
-              For patients with chronic neurological conditions, consistent monitoring is critical to preventing acute events. eVitals’ RPM platform reduces the burden on patients by allowing them to manage their condition from home, improving their quality of life. For neurologists, the platform frees up valuable time, enabling focus on complex cases and research.
-            </p>
-            <p className="text-lg text-gray-800 mb-8">
-              Our reimbursement support ensures practices can sustainably implement RPM without financial strain. With a 98% satisfaction rate among users, eVitals is a trusted partner in transforming neurological care delivery.
-            </p>
-            <Image
-              src="/assets/NeuroSafety.jpg"
-              alt="Benefits Overview"
-              width={800}
-              height={400}
-              className="mx-auto rounded-lg shadow-md"
-            />
+        </div>
+      </section>
+
+      {/* Testimonials Section - Carousel */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-purple-900 mb-8 text-center">
+            What Neurologists Say About eVitals RPM
+          </h2>
+          <p className="text-lg text-gray-800 mb-12 max-w-3xl mx-auto text-center">
+            Real testimonials from leading neurology practices on remote patient
+            monitoring success.
+          </p>
+          <div className="relative max-w-4xl mx-auto">
+            <motion.div
+              key={currentTestimonial}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.3 }}
+              className="relative bg-gradient-to-b from-purple-900 to-purple-800 text-white rounded-xl p-8 shadow-2xl"
+            >
+              <div className="flex items-start mb-6">
+                <Quote className="w-8 h-8 mr-4 mt-1 flex-shrink-0 text-purple-200" />
+                <p className="text-xl italic leading-relaxed">
+                  "{testimonials[currentTestimonial].quote}"
+                </p>
+              </div>
+              <div className="flex items-center">
+                <div className="relative w-20 h-20 mr-6 overflow-hidden rounded-full">
+                  <Image
+                    src={testimonials[currentTestimonial].image}
+                    alt={`${testimonials[currentTestimonial].name} - ${testimonials[currentTestimonial].company}`}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-lg">
+                    {testimonials[currentTestimonial].name}
+                  </h4>
+                  <p className="text-purple-200">
+                    {testimonials[currentTestimonial].title}
+                  </p>
+                  <p className="text-purple-100">
+                    {testimonials[currentTestimonial].company}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Dots */}
+            <div className="flex justify-center mt-6 space-x-2">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentTestimonial(index)}
+                  className={`w-3 h-3 rounded-full transition-colors ${
+                    index === currentTestimonial
+                      ? "bg-purple-900"
+                      : "bg-purple-300"
+                  }`}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Case Studies Section */}
-      <section className="py-16">
+      {/* Implementation Process Section */}
+      <section className="py-16 bg-gray-100">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-purple-900 mb-8 text-center">
-            Real-World Impact: Neurology Case Studies
+            Seamless RPM Integration for Neurology
           </h2>
           <p className="text-lg text-gray-800 mb-8 max-w-3xl mx-auto text-center">
-            See how eVitals has transformed neurology practices and improved patient outcomes through real-world applications of our RPM platform.
+            Easy setup with dedicated support for telehealth adoption.
           </p>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white p-6 rounded-xl shadow-md">
-              <Image
-                src="/assets/ecg.jpg"
-                alt="Epilepsy Case Study"
-                width={700}
-                height={200}
-                className="mx-auto mb-4 rounded-md"
-              />
-              <h3 className="text-xl font-semibold text-purple-900 mb-2">Epilepsy Management</h3>
-              <p className="text-gray-700 mb-4">
-                A large neurology practice in California implemented eVitals’ RPM platform for 200 epilepsy patients. By using wearable EEG devices and automated alerts, the practice reduced seizure-related emergency visits by 45%. Patients reported a 50% improvement in quality of life due to fewer disruptions and better medication adherence.
-              </p>
+              <Heart className="w-8 h-8 text-purple-900 mb-4 mx-auto" />
+              <h3 className="text-xl font-semibold text-purple-900 mb-2">
+                Step 1: Assessment
+              </h3>
               <p className="text-gray-700">
-                The platform’s integration with EHR systems allowed seamless data sharing, enabling neurologists to adjust anti-epileptic drugs based on real-time data. The practice also saw a 25% increase in reimbursable services through accurate CPT code documentation.
+                Customize for epilepsy and Parkinson's needs.
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md">
-              <Image
-                src="/assets/EcgCS2.jpg"
-                alt="Stroke Recovery Case Study"
-                width={700}
-                height={200}
-                className="mx-auto mb-4 rounded-md"
-              />
-              <h3 className="text-xl font-semibold text-purple-900 mb-2">Stroke Recovery</h3>
-              <p className="text-gray-700 mb-4">
-                A Midwest hospital used eVitals to monitor 150 stroke patients post-discharge. Continuous tracking of blood pressure and heart rate reduced secondary stroke events by 30%. Caregivers accessed real-time data, improving family support and patient compliance.
-              </p>
+              <Clock className="w-8 h-8 text-purple-900 mb-4 mx-auto" />
+              <h3 className="text-xl font-semibold text-purple-900 mb-2">
+                Step 2: Implementation
+              </h3>
               <p className="text-gray-700">
-                The hospital reported saving 20 hours per week on follow-up visits, allowing staff to focus on acute care. Patients appreciated the platform’s ease of use, with 90% reporting high satisfaction with the voice-guided devices.
+                Devices, training, and EHR setup in 2 weeks.
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-md">
+              <UserPlus className="w-8 h-8 text-purple-900 mb-4 mx-auto" />
+              <h3 className="text-xl font-semibold text-purple-900 mb-2">
+                Step 3: Support
+              </h3>
+              <p className="text-gray-700">
+                Ongoing billing and 99.9% uptime assistance.
               </p>
             </div>
           </div>
@@ -334,7 +459,7 @@ const NeurologyPage: React.FC = () => {
         <div className="absolute inset-0">
           <Image
             src="/assets/neurology-trust-image.png"
-            alt="Trusted by Neurologists"
+            alt="Trusted Neurology RPM Provider"
             fill
             className="object-cover"
           />
@@ -344,60 +469,16 @@ const NeurologyPage: React.FC = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 text-shadow-sm">
             Trusted by Neurologists Nationwide
           </h2>
-          <p className="text-lg text-white mb-4 text-shadow-sm">
-            Over 500 neurology practices across the U.S. rely on eVitals for secure, reliable remote monitoring. Our platform has monitored over 10,000 neurological patients, reducing emergency interventions by 40% and improving patient satisfaction scores by 35%.
-          </p>
           <p className="text-lg text-white mb-6 text-shadow-sm">
-            From small clinics to large hospital systems, eVitals is praised for its intuitive interface, robust analytics, and dedicated support. Our platform empowers neurologists to deliver cutting-edge care while optimizing practice operations.
+            500+ practices, 10,000+ patients monitored. Reduces emergencies by
+            40%, boosts satisfaction by 35%.
           </p>
           <Link
             href="/contact"
             className="inline-flex items-center gap-2 bg-white text-purple-900 px-8 py-3 rounded-full hover:bg-gray-100 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
           >
-            Discover How We Serve Neurology →
+            Discover Neurology RPM →
           </Link>
-        </div>
-      </section>
-
-      {/* Implementation Process Section */}
-      <section className="py-16 bg-gray-100">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-purple-900 mb-8 text-center">
-            Seamless Integration with Your Practice
-          </h2>
-          <p className="text-lg text-gray-800 mb-8 max-w-3xl mx-auto text-center">
-            Implementing eVitals’ RPM platform is straightforward, with a dedicated team to guide your practice every step of the way. Here’s how we ensure a smooth transition:
-          </p>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-xl shadow-md">
-              <Brain className="w-8 h-8 text-purple-900 mb-4 mx-auto" />
-              <h3 className="text-xl font-semibold text-purple-900 mb-2">Step 1: Assessment</h3>
-              <p className="text-gray-700">
-                Our team evaluates your practice’s needs, patient demographics, and existing workflows to customize the RPM solution. We identify key conditions like epilepsy or Parkinson’s to prioritize monitoring parameters.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-xl shadow-md">
-              <Clock className="w-8 h-8 text-purple-900 mb-4 mx-auto" />
-              <h3 className="text-xl font-semibold text-purple-900 mb-2">Step 2: Implementation</h3>
-              <p className="text-gray-700">
-                We provide devices, training, and EHR integration, ensuring minimal disruption. Our team handles device setup for patients and staff, with 24/7 support available. Most practices are fully operational within 2 weeks.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-xl shadow-md">
-              <UserPlus className="w-8 h-8 text-purple-900 mb-4 mx-auto" />
-              <h3 className="text-xl font-semibold text-purple-900 mb-2">Step 3: Ongoing Support</h3>
-              <p className="text-gray-700">
-                Receive continuous support, including billing assistance, software updates, and patient education resources. Our team monitors system performance to ensure 99.9% uptime and data accuracy.
-              </p>
-            </div>
-          </div>
-          <Image
-            src="/assets/DR.jpg"
-            alt="Implementation Process"
-            width={800}
-            height={400}
-            className="mx-auto rounded-lg shadow-md mt-8"
-          />
         </div>
       </section>
 
@@ -405,13 +486,11 @@ const NeurologyPage: React.FC = () => {
       <section className="py-16 text-center">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-purple-900 mb-6">
-            Transform Neurology Care with eVitals
+            Transform Your Neurology Practice
           </h2>
-          <p className="text-lg text-gray-800 mb-4 max-w-3xl mx-auto">
-            Elevate your neurology practice with eVitals’ advanced RPM platform. Improve patient outcomes, streamline operations, and boost revenue with a solution designed for the unique challenges of neurological care.
-          </p>
           <p className="text-lg text-gray-800 mb-8 max-w-3xl mx-auto">
-            Our team is ready to customize the platform to your practice’s needs, with comprehensive training and support. Schedule a personalized demo today to experience how eVitals can revolutionize your approach to patient care.
+            Enhance outcomes and revenue with eVitals remote patient monitoring.
+            Schedule a demo today.
           </p>
           <Link
             href="/contact"
