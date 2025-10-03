@@ -1,7 +1,8 @@
 "use client";
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import RpmOverviewSection from "./Crisis";
 
 const FeatureSection = () => {
   return (
@@ -11,17 +12,22 @@ const FeatureSection = () => {
         <div className="text-center mb-16">
           <p
             className="font-semibold text-slate-900 mb-6 leading-snug"
-            style={{ fontSize: '2.2rem', lineHeight: 1.4 }}
+            style={{ fontSize: "2.2rem", lineHeight: 1.4 }}
           >
             <span className="text-[#401b62]">Because superior </span>
             <span className="text-[#a18adb]">patient management</span>
-            <span className="text-[#401b62]"> is continuous, not confined to clinic hours.</span>
+            <span className="text-[#401b62]">
+              {" "}
+              is continuous, not confined to clinic hours.
+            </span>
 
             <br />
             <br />
 
             <span className="text-[#401b62]">The HIPAA-compliant </span>
-            <span className="text-[#a18adb]">eVitals Remote Patient Monitoring (RPM)</span>
+            <span className="text-[#a18adb]">
+              eVitals Remote Patient Monitoring (RPM)
+            </span>
             <span className="text-[#401b62]"> platform empowers </span>
             <span className="text-[#a18adb]">US providers</span>
             <span className="text-[#401b62]"> to streamline </span>
@@ -33,6 +39,7 @@ const FeatureSection = () => {
             <span className="text-[#401b62]"> beyond the clinic.</span>
           </p>
         </div>
+        <RpmOverviewSection />
 
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-6 justify-items-center">
@@ -71,10 +78,13 @@ const FeatureSection = () => {
                   />
                 </div>
               </div>
-              <h3 className="text-2xl font-bold text-[#401b62] mb-4">{feature.title}</h3>
-              <p className="text-slate-600 text-[1.05rem] leading-relaxed">{feature.description}</p>
+              <h3 className="text-2xl font-bold text-[#401b62] mb-4">
+                {feature.title}
+              </h3>
+              <p className="text-slate-600 text-[1.05rem] leading-relaxed">
+                {feature.description}
+              </p>
             </div>
-
           ))}
         </div>
       </div>
@@ -82,13 +92,17 @@ const FeatureSection = () => {
       <div className="container-lg mx-auto px-4 py-16">
         {/* Specialties We Serve */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-[#270949] mb-3">Specialties We Serve</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-[#270949] mb-3">
+            Specialties We Serve
+          </h1>
           <p className="text-slate-600 max-w-3xl mx-auto">
-            We work with healthcare providers across multiple specialties, delivering condition-specific monitoring and actionable insights:
+            We work with healthcare providers across multiple specialties,
+            delivering condition-specific monitoring and actionable insights:
           </p>
           <Link
             href="/for-organizations"
-            className="inline-flex items-center text-gray-500 underline hover:text-[#36036B] font-bold px-6 py-1 rounded-md transition">
+            className="inline-flex items-center text-gray-500 underline hover:text-[#36036B] font-bold px-6 py-1 rounded-md transition"
+          >
             Learn More →
           </Link>
         </div>
@@ -96,10 +110,10 @@ const FeatureSection = () => {
         <div className="relative overflow-hidden">
           {/* Left fade overlay */}
           <div className="absolute left-0 top-0 w-40 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
-          
+
           {/* Right fade overlay */}
           <div className="absolute right-0 top-0 w-40 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
-          
+
           <div className="marquee">
             <ul className="shrink-0 flex gap-4 md:gap-6 py-2 pr-4">
               {[
@@ -115,13 +129,14 @@ const FeatureSection = () => {
                   key={item}
                   className="shrink-0 rounded-2xl px-5 py-3 bg-white font-semibold"
                 >
-                  <span className="text-[#B187E8]">
-                    {item}
-                  </span>
+                  <span className="text-[#B187E8]">{item}</span>
                 </li>
               ))}
             </ul>
-            <ul className="shrink-0 flex gap-4 md:gap-6 py-2 pr-4" aria-hidden="true">
+            <ul
+              className="shrink-0 flex gap-4 md:gap-6 py-2 pr-4"
+              aria-hidden="true"
+            >
               {[
                 "Family & Internal Medicine",
                 "Cardiology",
@@ -135,23 +150,25 @@ const FeatureSection = () => {
                   key={`${item}-${idx}`}
                   className="shrink-0 rounded-2xl px-5 py-3 bg-white font-semibold"
                 >
-                  <span className="text-[#B187E8]">
-                    {item}
-                  </span>
+                  <span className="text-[#B187E8]">{item}</span>
                 </li>
               ))}
             </ul>
           </div>
           <style jsx>{`
-            .marquee { 
-              display: flex; 
-              width: max-content; 
-              animation: scrollLeft 28s linear infinite; 
+            .marquee {
+              display: flex;
+              width: max-content;
+              animation: scrollLeft 28s linear infinite;
             }
-            
-            @keyframes scrollLeft { 
-              0% { transform: translateX(0); }
-              100% { transform: translateX(-50%); }
+
+            @keyframes scrollLeft {
+              0% {
+                transform: translateX(0);
+              }
+              100% {
+                transform: translateX(-50%);
+              }
             }
           `}</style>
         </div>
