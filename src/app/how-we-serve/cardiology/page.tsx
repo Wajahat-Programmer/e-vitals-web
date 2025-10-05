@@ -4,23 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { JSX, useEffect, useState } from "react";
-import {
-  Stethoscope,
-  Bell,
-  UserPlus,
-  FileText,
-  Heart,
-  Clock,
-  Quote,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
+import { Stethoscope, Bell, UserPlus, FileText, Heart, Clock, Quote } from "lucide-react";
 import Head from "next/head";
 
 const CardiologyPage: React.FC = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [currentTestimonial, setCurrentTestimonial] = useState<number>(0);
-console.log("Rendering Cardiology Page");
 
   useEffect(() => {
     setIsVisible(true);
@@ -28,7 +17,7 @@ console.log("Rendering Cardiology Page");
 
   useEffect(() => {
     const interval = setInterval(() => {
-      nextTestimonial();
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
     }, 5000);
     return () => clearInterval(interval);
   }, []);
@@ -148,15 +137,7 @@ console.log("Rendering Cardiology Page");
     },
   ];
 
-  const nextTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setCurrentTestimonial(
-      (prev) => (prev - 1 + testimonials.length) % testimonials.length
-    );
-  };
+  // autoplay handled in useEffect above
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-white via-white to-purple-50">
@@ -366,8 +347,9 @@ console.log("Rendering Cardiology Page");
             >
               <div className="flex items-start mb-6">
                 <Quote className="w-8 h-8 mr-4 mt-1 flex-shrink-0 text-purple-200" />
+                {/* eslint-disable-next-line react/no-unescaped-entities */}
                 <p className="text-xl italic leading-relaxed">
-                  "{testimonials[currentTestimonial].quote}"
+                  {testimonials[currentTestimonial].quote}
                 </p>
               </div>
               <div className="flex items-center">

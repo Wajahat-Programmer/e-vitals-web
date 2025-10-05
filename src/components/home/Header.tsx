@@ -8,10 +8,9 @@ const Header: React.FC = () => {
   const [isRpmOpen, setIsRpmOpen] = useState(false);
   const [isSupportOpen, setIsSupportOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [isServeOpen, setIsServeOpen] = useState(false);
   const rpmDropdownRef = useRef<HTMLDivElement>(null);
   const supportDropdownRef = useRef<HTMLDivElement>(null);
-  const serveDropdownRef = useRef<HTMLDivElement>(null);
+  
 
   const handleMouseEnter = (
     setOpen: React.Dispatch<React.SetStateAction<boolean>>

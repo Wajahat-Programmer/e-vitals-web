@@ -369,8 +369,9 @@ const GeriatricsPage: React.FC = () => {
             >
               <div className="flex items-start mb-6">
                 <Quote className="w-8 h-8 mr-4 mt-1 flex-shrink-0 text-purple-200" />
+                {/* eslint-disable-next-line react/no-unescaped-entities */}
                 <p className="text-xl italic leading-relaxed">
-                  "{testimonials[currentTestimonial].quote}"
+                  {testimonials[currentTestimonial].quote}
                 </p>
               </div>
               <div className="flex items-center">

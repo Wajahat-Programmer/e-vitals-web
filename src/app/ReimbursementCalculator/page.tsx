@@ -53,9 +53,7 @@ const RPMReimbursementCalculator: React.FC = () => {
 
     setError("");
 
-    // Calculate percentages
-    const pct54Decimal = Math.max(0, Math.min(100, pct54)) / 100;
-    const pct57Decimal = Math.max(0, Math.min(100, pct57)) / 100;
+    // Calculate percentages (not used directly in current UI)
 
     // Claims calculation (can be decimals if not rounding)
     const c53 = Math.max(0, Math.floor(newMonthly));
@@ -139,30 +137,14 @@ const RPMReimbursementCalculator: React.FC = () => {
       arpu: Math.round(arpu * 100) / 100,
       breakdown,
     });
-  }, [enrolled, newMonthly, pct54, pct57, avg58, rate53, rate54, rate57, rate58, rate58_2, patients99091, rate99091, roundClaims]);
+  }, [enrolled, newMonthly, pct54, pct57, avg58, avg58_2, rate53, rate54, rate57, rate58, rate58_2, patients99091, rate99091, roundClaims]);
 
   // Run calculation when any input changes
   useEffect(() => {
     calculateReimbursement();
   }, [calculateReimbursement]);
 
-  // Demo values function
-  const useDemoValues = () => {
-    setEnrolled(120);
-    setNewMonthly(12);
-    setPct54(85);
-    setPct57(60);
-    setAvg58(0.35);
-    setAvg58_2(0.35);
-    setRate53(20);
-    setRate54(48);
-    setRate57(50);
-    setRate58(40);
-    setRate58_2(40);
-    setPatients99091(25);
-    setRate99091(35);
-    setRoundClaims(true);
-  };
+  // Demo values function removed (unused)
 
   // Reset function
   const resetCalculator = () => {

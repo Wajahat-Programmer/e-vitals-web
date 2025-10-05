@@ -25,7 +25,7 @@ const PulmonologyPage: React.FC = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      nextTestimonial();
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
     }, 5000);
     return () => clearInterval(interval);
   }, []);
@@ -150,15 +150,7 @@ const PulmonologyPage: React.FC = () => {
     },
   ];
 
-  const nextTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setCurrentTestimonial(
-      (prev) => (prev - 1 + testimonials.length) % testimonials.length
-    );
-  };
+  // autoplay handled in useEffect above
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-white via-white to-purple-50">
@@ -369,8 +361,9 @@ const PulmonologyPage: React.FC = () => {
             >
               <div className="flex items-start mb-6">
                 <Quote className="w-8 h-8 mr-4 mt-1 flex-shrink-0 text-purple-200" />
+                {/* eslint-disable-next-line react/no-unescaped-entities */}
                 <p className="text-xl italic leading-relaxed">
-                  "{testimonials[currentTestimonial].quote}"
+                  {testimonials[currentTestimonial].quote}
                 </p>
               </div>
               <div className="flex items-center">
