@@ -20,6 +20,7 @@ import Head from "next/head";
 const CardiologyPage: React.FC = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [currentTestimonial, setCurrentTestimonial] = useState<number>(0);
+console.log("Rendering Cardiology Page");
 
   useEffect(() => {
     setIsVisible(true);
