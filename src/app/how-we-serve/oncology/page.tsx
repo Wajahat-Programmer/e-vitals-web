@@ -96,7 +96,7 @@ const OncologyPage: React.FC = () => {
   const testimonials = [
     {
       quote:
-        "It's our job to take care of our patients, whether they're in clinic or at home. The only way to take care of them is to understand what they go through on a daily basis, and we need tools to help us do that.",
+        "Its our job to take care of our patients, whether theyre in clinic or at home. The only way to take care of them is to understand what they go through on a daily basis, and we need tools to help us do that.",
       name: "Pr Ethan Basch",
       title: "Oncologist and Director of Research",
       company: "University of North Carolina",
@@ -123,7 +123,7 @@ const OncologyPage: React.FC = () => {
     },
     {
       quote:
-        "The idea is that we can have a vision of the patient's progression of care, even outside of hospital walls, and anticipate problems as they come.",
+        "The idea is that we can have a vision of the patients progression of care, even outside of hospital walls, and anticipate problems as they come.",
       name: "Dr Antoine Lemaire",
       title: "Head of Oncology and Medical Specialties",
       company: "Centre Hospitalier de Valenciennes",
@@ -132,7 +132,7 @@ const OncologyPage: React.FC = () => {
     },
     {
       quote:
-        "Remote monitoring has greatly improved the quality of care here (...) It's a win for patients and a win for us.",
+        "Remote monitoring has greatly improved the quality of care here (...) Its a win for patients and a win for us.",
       name: "Dr Joana Ribiero",
       title: "Medical oncologist",
       company: "Gustave Roussy",

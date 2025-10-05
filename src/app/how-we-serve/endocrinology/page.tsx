@@ -252,7 +252,7 @@ const EndocrinologyPage: React.FC = () => {
           <div className="max-w-4xl mx-auto mb-8">
             <p className="text-lg text-gray-800 mb-4">
               Remote patient monitoring in endocrinology tracks glucose and
-              vitals outside clinics. eVitals' FDA-approved devices reduce
+              vitals outside clinics. eVitals FDA-approved devices reduce
               visits by 40% and A1C by 1.2%.
             </p>
             <p className="text-lg text-gray-800 mb-8">

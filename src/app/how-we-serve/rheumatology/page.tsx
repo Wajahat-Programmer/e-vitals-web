@@ -123,7 +123,7 @@ const RheumatologyPage: React.FC = () => {
     },
     {
       quote:
-        "That's key because in arthritis we want to predict changes, we want to detect the changes and act as early as possible. More data and granularity lead to greater accuracy and predictive values for potential worsening of conditions or improvements due to a change in treatment.",
+        "Thats key because in arthritis we want to predict changes, we want to detect the changes and act as early as possible. More data and granularity lead to greater accuracy and predictive values for potential worsening of conditions or improvements due to a change in treatment.",
       name: "Marc Blanchard, MSc, PhD",
       title: "Project Leader in Digital Health",
       company: "Lausanne University Hospital",
@@ -132,7 +132,7 @@ const RheumatologyPage: React.FC = () => {
     },
     {
       quote:
-        "Most importantly, RPM connects patients and healthcare providers. It might not be a human connection, but it's another layer, another dimension of the connection. It does not require much time or resource efforts, but it collects data and involves and empowers the patients from home.",
+        "Most importantly, RPM connects patients and healthcare providers. It might not be a human connection, but its another layer, another dimension of the connection. It does not require much time or resource efforts, but it collects data and involves and empowers the patients from home.",
       name: "Marc Blanchard, MSc, PhD",
       title: "Project Leader in Digital Health",
       company: "Lausanne University Hospital",

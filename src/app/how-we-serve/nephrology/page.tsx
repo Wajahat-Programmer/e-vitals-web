@@ -123,7 +123,7 @@ const NephrologyPage: React.FC = () => {
     },
     {
       quote:
-        "Home dialysis telehealth potentially can improve the patient's quality of life with fewer clinic visits and greater treatment adherence.",
+        "Home dialysis telehealth potentially can improve the patients quality of life with fewer clinic visits and greater treatment adherence.",
       name: "Dr. Laura Gillis, MD",
       title: "Consultant Nephrologist",
       company: "Sheffield Teaching Hospital",

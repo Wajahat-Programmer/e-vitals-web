@@ -116,7 +116,7 @@ console.log("Rendering Cardiology Page");
     },
     {
       quote:
-        "We will not get around introducing remote monitoring. I'm also confident that the healthcare of the future will be that centers that don't get on the train right now of remote monitoring will be outpaced and will be providing sub-perfect care compared to the competing systems.",
+        "We will not get around introducing remote monitoring. I am also confident that the healthcare of the future will be that centers that donot get on the train right now of remote monitoring will be outpaced and will be providing sub-perfect care compared to the competing systems.",
       name: "Dr. Marat Fudim, MD",
       title: "Advanced Heart Failure Specialist and Cardiologist",
       company: "Duke University Medical Center",
@@ -247,7 +247,7 @@ console.log("Rendering Cardiology Page");
           <div className="max-w-4xl mx-auto mb-8">
             <p className="text-lg text-gray-800 mb-4">
               Remote patient monitoring in cardiology tracks cardiac metrics
-              like blood pressure and ECG outside clinics. eVitals' FDA-approved
+              like blood pressure and ECG outside clinics. eVitals FDA-approved
               devices reduce visits by 45% and readmissions by 30% for heart
               failure.
             </p>

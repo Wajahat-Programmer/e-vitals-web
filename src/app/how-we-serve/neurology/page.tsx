@@ -431,7 +431,7 @@ const NeurologyPage: React.FC = () => {
                 Step 1: Assessment
               </h3>
               <p className="text-gray-700">
-                Customize for epilepsy and Parkinson's needs.
+                Customize for epilepsy and Parkinsons needs.
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow-md">

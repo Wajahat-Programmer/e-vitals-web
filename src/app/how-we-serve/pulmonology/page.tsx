@@ -96,7 +96,7 @@ const PulmonologyPage: React.FC = () => {
   const testimonials = [
     {
       quote:
-        "The additional layer of safety provided by our remote patient monitoring team helps the lung transplant team risk stratify patients in a way that we couldn't until now.",
+        "The additional layer of safety provided by our remote patient monitoring team helps the lung transplant team risk stratify patients in a way that we couldnt until now.",
       name: "Dr. Sadia Z. Shah, MD",
       title: "Transplant Pulmonologist",
       company: "Mayo Clinic",
@@ -132,7 +132,7 @@ const PulmonologyPage: React.FC = () => {
     },
     {
       quote:
-        "RPM allows you to monitor your lungs' function, such as how much air you can breathe in and how much oxygen is in your blood.",
+        "RPM allows you to monitor your lungs function, such as how much air you can breathe in and how much oxygen is in your blood.",
       name: "HealthArc Expert",
       title: "Respiratory Specialist",
       company: "HealthArc",
