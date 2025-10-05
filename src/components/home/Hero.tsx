@@ -79,7 +79,7 @@ const Hero: React.FC = () => {
       <div className="relative z-10 w-full">
         <div className="text-left pl-6 md:pl-12 lg:pl-20 max-w-3xl">
           <h1 className="text-white text-4xl md:text-6xl font-bold leading-tight mb-6">
-            Modern RPM & CCM Platform
+            Advance RPM & CCM Platform
             <br /> Built for Better Outcomes
           </h1>
 
