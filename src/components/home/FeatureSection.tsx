@@ -52,9 +52,9 @@ const FeatureSection = () => {
             },
             {
               image: "/assets/eVitals-Devices.png",
-              title: "FDA-Approved Devices",
+              title: "FDA-Cleared Devices",
               description:
-                "We provide top-tier, FDA-approved devices for accurate and reliable vitals tracking. From blood pressure monitors to pulse oximeters, every tool is chosen for clinical precision—so you can trust the data that drives your care decisions.",
+                "We provide top-tier, FDA-cleared devices for accurate and reliable vitals tracking. From blood pressure monitors to pulse oximeters, every tool is chosen for clinical precision—so you can trust the data that drives your care decisions.",
             },
             {
               image: "/assets/eVitals-reimbusement.png",

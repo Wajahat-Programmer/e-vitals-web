@@ -172,11 +172,11 @@ const EndocrinologyPage: React.FC = () => {
         </title>
         <meta
           name="description"
-          content="eVitals empowers endocrinologists with remote patient monitoring for diabetes, thyroid disorders. FDA-approved devices, HIPAA-compliant security, and reimbursement support for endocrinology telehealth."
+          content="eVitals empowers endocrinologists with an advanced remote patient monitoring platform for diabetes and endocrine disorders, featuring FDA-cleared devices, HIPAA-compliant security, and robust reimbursement support."
         />
         <meta
           name="keywords"
-          content="remote patient monitoring, endocrinology RPM, diabetes management, glucose monitoring telehealth, thyroid disorders, FDA-approved devices, HIPAA-compliant RPM, endocrinology reimbursement, CGM integration"
+          content="remote patient monitoring, endocrinology, diabetes management, thyroid disorders, telehealth, FDA-cleared devices, HIPAA-compliant, reimbursement support"
         />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />

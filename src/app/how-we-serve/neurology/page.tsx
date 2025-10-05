@@ -40,7 +40,7 @@ const NeurologyPage: React.FC = () => {
       icon: <Stethoscope className="w-8 h-8 text-purple-900" />,
       title: "Advanced Neurological Monitoring",
       description:
-        "Track vitals and EEG for epilepsy, stroke, Parkinson's with FDA-approved devices. Wearable integration reduces visits by 40%.",
+        "Track critical neurological indicators such as blood pressure, heart rate, and oxygen saturation for epilepsy, stroke recovery, and neurodegenerative conditions using FDA-cleared devices with cellular connectivity. Our platform integrates with wearable EEG devices for real-time seizure detection, enabling neurologists to monitor patients remotely with unparalleled precision. This reduces clinic visits by 40% and provides continuous data for accurate assessments.",
       image: "/assets/advance.jpg",
     },
     {
@@ -169,11 +169,11 @@ const NeurologyPage: React.FC = () => {
         </title>
         <meta
           name="description"
-          content="eVitals empowers neurologists with remote patient monitoring for epilepsy, stroke recovery, Parkinson's. FDA-approved devices, HIPAA-compliant security, and reimbursement support for neurology telehealth."
+          content="eVitals empowers neurologists with an advanced remote patient monitoring platform for epilepsy, stroke, Parkinson’s, and other neurological disorders, featuring FDA-cleared devices, HIPAA-compliant security, and robust reimbursement support."
         />
         <meta
           name="keywords"
-          content="remote patient monitoring, neurology RPM, epilepsy management, stroke recovery telehealth, Parkinson's monitoring, FDA-approved devices, HIPAA-compliant RPM, neurology reimbursement, EEG seizure detection"
+          content="remote patient monitoring, neurology, epilepsy management, stroke recovery, Parkinson’s monitoring, telehealth, FDA-cleared devices, HIPAA-compliant, reimbursement support"
         />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -187,7 +187,7 @@ const NeurologyPage: React.FC = () => {
               "@context": "https://schema.org",
               "@type": "MedicalBusiness",
               "name": "eVitals Neurology Solutions",
-              "description": "eVitals provides remote patient monitoring for neurology with FDA-approved devices, HIPAA-compliant data security, and reimbursement support for epilepsy, stroke, and Parkinson's.",
+              "description": "eVitals provides an advanced remote patient monitoring platform with FDA-cleared devices, HIPAA-compliant data security, and reimbursement support for neurology practices.",
               "url": "https://www.evitals.com/how-we-serve/neurology",
               "logo": "https://www.evitals.com/logo.png",
               "contactPoint": {
@@ -226,9 +226,10 @@ const NeurologyPage: React.FC = () => {
               Advanced <span className="text-[#B187E8]">Neurology</span> RPM
             </h1>
             <p className="text-white text-base md:text-lg mb-4 max-w-3xl">
-              eVitals delivers remote patient monitoring for epilepsy, stroke,
-              Parkinson’s with FDA-approved devices and real-time telehealth
-              insights.
+              eVitals revolutionizes neurological care with a state-of-the-art remote patient monitoring (RPM) platform designed for epilepsy, stroke recovery, Parkinson’s, and other neurological disorders. Our FDA-cleared devices and HIPAA-compliant technology deliver real-time data, empowering neurologists to provide proactive, personalized care from anywhere.
+            </p>
+            <p className="text-white text-base md:text-lg mb-8 max-w-3xl">
+              With seamless EHR integration and advanced analytics, eVitals enables precise treatment adjustments and early intervention, reducing hospital visits and improving patient quality of life. Join the future of neurology with a platform trusted by leading practices nationwide.
             </p>
             <Link
               href="/contact"
@@ -248,9 +249,10 @@ const NeurologyPage: React.FC = () => {
           </h2>
           <div className="max-w-4xl mx-auto mb-8">
             <p className="text-lg text-gray-800 mb-4">
-              Remote patient monitoring in neurology tracks vitals and EEG for
-              epilepsy, stroke, Parkinson’s. eVitals' FDA-approved devices
-              reduce visits by 40% and admissions by 35%.
+              Remote Patient Monitoring (RPM) in neurology is redefining how neurologists manage chronic conditions like epilepsy, stroke, Parkinson’s disease, and multiple sclerosis. By leveraging FDA-cleared devices, eVitals enables continuous tracking of vital signs and neurological indicators in patients’ daily environments, capturing data that traditional clinic visits often miss.
+            </p>
+            <p className="text-lg text-gray-800 mb-4">
+              Our platform uses advanced algorithms to detect patterns associated with neurological events, such as seizures or stroke precursors, enabling early intervention. This reduces emergency hospital admissions by 35% and improves patient outcomes. Integration with wearable EEG devices and telemedicine platforms allows for comprehensive monitoring and virtual consultations, ensuring seamless care delivery.
             </p>
             <p className="text-lg text-gray-800 mb-8">
               HIPAA-compliant platform integrates with EHRs for seamless

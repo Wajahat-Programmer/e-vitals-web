@@ -11,9 +11,9 @@ import React, { useState, useEffect } from "react";
 // });
 
 const features = [
-  "HIPAA Compliance",
-  "FDA-Approved Devices",
-  "Reimbursement Support",
+  "HIPAA-Compliant Workflows",
+  "FDA-Cleared Devices",
+  "CCM & RPM Reimbursement",
 ];
 
 const backgroundImages = [
@@ -79,15 +79,12 @@ const Hero: React.FC = () => {
       <div className="relative z-10 w-full">
         <div className="text-left pl-6 md:pl-12 lg:pl-20 max-w-3xl">
           <h1 className="text-white text-4xl md:text-6xl font-bold leading-tight mb-6">
-            Elevating Patient Care <br />
-            with Advanced Remote
-            <span className="text-[#B187E8]"> Patient Monitoring</span>
+            Modern RPM & CCM Platform
+            <br /> Built for Better Outcomes
           </h1>
 
-          <p className="text-white text-base md:text-lg mb-8">
-            eVitals delivers comprehensive RPM to US healthcare facilities,
-            enhancing patient outcomes while maximizing provider reimbursement
-            and practice efficiency.
+          <p className="text-white text-base md:text-lg mb-8 max-w-2xl">
+            Deliver proactive, connected care with a HIPAA-compliant platform that integrates FDA-cleared devices, simplifies billing, and streamlines clinical workflows.
           </p>
 
           {/* Typewriter Effect */}
@@ -97,12 +94,20 @@ const Hero: React.FC = () => {
           </p>
 
           {/* CTA Button */}
-          <Link
-            href="/for-organizations"
-            className="bg-[#36036B] hover:bg-[#4b0d8d] text-white text-base font-semibold px-6 py-3 rounded-md shadow-md transition duration-300 inline-block"
-          >
-            Schedule a FREE demo →
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/demo"
+              className="bg-[#36036B] hover:bg-[#4b0d8d] text-white text-base font-semibold px-6 py-3 rounded-md shadow-md transition duration-300 inline-block"
+            >
+              Book a live demo →
+            </Link>
+            <Link
+              href="/rpm/RPMSoftware"
+              className="bg-white/10 hover:bg-white/20 text-white backdrop-blur px-6 py-3 rounded-md text-base font-semibold transition"
+            >
+              Explore the platform
+            </Link>
+          </div>
         </div>
       </div>
     </section>

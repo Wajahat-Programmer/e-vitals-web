@@ -167,7 +167,7 @@ console.log("Rendering Cardiology Page");
         </title>
         <meta
           name="description"
-          content="eVitals empowers cardiologists with remote patient monitoring for hypertension, heart failure, and arrhythmias. FDA-approved devices, HIPAA-compliant security, and reimbursement support for telehealth in cardiology."
+          content="eVitals empowers cardiologists with an advanced remote patient monitoring platform for hypertension, heart failure, and arrhythmias, featuring FDA-cleared devices, HIPAA-compliant security, and robust reimbursement support."
         />
         <meta
           name="keywords"

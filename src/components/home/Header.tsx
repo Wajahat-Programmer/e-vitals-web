@@ -7,6 +7,7 @@ import React, { useState, useRef } from "react";
 const Header: React.FC = () => {
   const [isRpmOpen, setIsRpmOpen] = useState(false);
   const [isSupportOpen, setIsSupportOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isServeOpen, setIsServeOpen] = useState(false);
   const rpmDropdownRef = useRef<HTMLDivElement>(null);
   const supportDropdownRef = useRef<HTMLDivElement>(null);
@@ -97,12 +98,64 @@ const Header: React.FC = () => {
               )}
             </div>
 
-            <Link
-              href="/services"
-              className="text-m font-medium tracking-wider hover:underline"
+            {/* Services Dropdown (now includes Who We Serve) */}
+            <div
+              className="relative group"
+              onMouseEnter={() => handleMouseEnter(setIsServicesOpen)}
+              onMouseLeave={() => handleMouseLeave(setIsServicesOpen)}
             >
-              Services
-            </Link>
+              <button className="text-m font-medium tracking-wider hover:underline flex items-center">
+                Services
+                <svg
+                  className={`ml-1 w-4 h-4 transition-transform ${isServicesOpen ? "rotate-180" : ""}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              {isServicesOpen && (
+                <div className="absolute left-0 top-full w-[560px] bg-white rounded-md shadow-lg z-50 p-4 grid grid-cols-2 gap-4">
+                  <div>
+                    <Link
+                      href="/services"
+                      className="block px-3 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900 rounded"
+                    >
+                      Services Overview
+                    </Link>
+                    <Link
+                      href="/insights/overview"
+                      className="block px-3 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900 rounded"
+                    >
+                      Insights
+                    </Link>
+                    <Link
+                      href="/ReimbursementCalculator"
+                      className="block px-3 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900 rounded"
+                    >
+                      RPM Reimbursement Calculator
+                    </Link>
+                  </div>
+                  <div>
+                    <div className="px-3 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">Who We Serve</div>
+                    <Link href="/how-we-serve/cardiology" className="block px-3 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900 rounded">Cardiology</Link>
+                    <Link href="/how-we-serve/endocrinology" className="block px-3 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900 rounded">Endocrinology</Link>
+                    <Link href="/how-we-serve/neurology" className="block px-3 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900 rounded">Neurology</Link>
+                    <Link href="/how-we-serve/pulmonology" className="block px-3 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900 rounded">Pulmonology</Link>
+                    <Link href="/how-we-serve/oncology" className="block px-3 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900 rounded">Oncology</Link>
+                    <Link href="/how-we-serve/geriatrics" className="block px-3 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900 rounded">Geriatrics</Link>
+                    <Link href="/how-we-serve/nephrology" className="block px-3 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900 rounded">Nephrology</Link>
+                    <Link href="/how-we-serve/rheumatology" className="block px-3 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900 rounded">Rheumatology</Link>
+                  </div>
+                </div>
+              )}
+            </div>
 
             {/* Support & Compliance Dropdown */}
             <div
@@ -162,86 +215,7 @@ const Header: React.FC = () => {
               Insights
             </Link>
 
-            {/* How We Serve Dropdown */}
-            <div
-              className="relative group"
-              ref={serveDropdownRef}
-              onMouseEnter={() => handleMouseEnter(setIsServeOpen)}
-              onMouseLeave={() => handleMouseLeave(setIsServeOpen)}
-            >
-              <button className="text-m font-medium tracking-wider hover:underline flex items-center">
-                Who We Serve
-                <svg
-                  className={`ml-1 w-4 h-4 transition-transform ${
-                    isServeOpen ? "rotate-180" : ""
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-              {isServeOpen && (
-                <div className="absolute left-0 top-full w-56 bg-white rounded-md shadow-lg z-50">
-                  <div className="py-1">
-                    <Link
-                      href="/how-we-serve/cardiology"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900"
-                    >
-                      Cardiology
-                    </Link>
-                    <Link
-                      href="/how-we-serve/endocrinology"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900"
-                    >
-                      Endocrinology
-                    </Link>
-                    <Link
-                      href="/how-we-serve/neurology"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900"
-                    >
-                      Neurology
-                    </Link>
-                    <Link
-                      href="/how-we-serve/pulmonology"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900"
-                    >
-                      Pulmonology
-                    </Link>
-                    <Link
-                      href="/how-we-serve/oncology"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900"
-                    >
-                      Oncology
-                    </Link>
-                    <Link
-                      href="/how-we-serve/geriatrics"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900"
-                    >
-                      Geriatrics
-                    </Link>
-                    <Link
-                      href="/how-we-serve/nephrology"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900"
-                    >
-                      Nephrology
-                    </Link>
-                    <Link
-                      href="/how-we-serve/rheumatology"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900"
-                    >
-                      Rheumatology
-                    </Link>
-                  </div>
-                </div>
-              )}
-            </div>
+            {/* Who We Serve merged into Services dropdown above */}
             <Link
               href="/ReimbursementCalculator"
               className="text-m font-medium tracking-wider hover:underline"

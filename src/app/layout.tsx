@@ -15,10 +15,43 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: 'e-Vitals - Remote Patient Monitoring',
-  description: 'Care beyond clinic, always connected.',
+  metadataBase: new URL('https://www.evitals.healthcare'),
+  title: {
+    default: 'eVitals | Remote Patient Monitoring (RPM) & CCM Platform',
+    template: '%s | eVitals',
+  },
+  description: 'HIPAA-compliant RPM & CCM platform helping practices improve outcomes and reimbursement with FDA-cleared devices, seamless EHR workflows, and US-based support.',
+  keywords: ['Remote Patient Monitoring', 'RPM', 'Chronic Care Management', 'CCM', 'HIPAA', 'FDA-cleared devices', 'EHR integration', 'reimbursement', 'telehealth'],
   icons: {
-    icon: 'assets/eVitals-favicon.png', // Path relative to public/
+    icon: '/assets/eVitals-favicon.png',
+  },
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    url: '/',
+    title: 'eVitals | Remote Patient Monitoring (RPM) & CCM Platform',
+    description: 'Deliver proactive care at scale with HIPAA-compliant RPM & CCM. Boost reimbursements, reduce readmissions, and streamline clinical workflows.',
+    siteName: 'eVitals',
+    images: [
+      {
+        url: '/assets/eVitals-Devices.png',
+        width: 1200,
+        height: 630,
+        alt: 'eVitals RPM & CCM Platform',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'eVitals | RPM & CCM Platform',
+    description: 'HIPAA-compliant remote patient monitoring with FDA-cleared devices and EHR-friendly workflows.',
+    images: ['/assets/eVitals-Devices.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

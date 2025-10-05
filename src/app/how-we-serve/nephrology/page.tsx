@@ -40,7 +40,7 @@ const NephrologyPage: React.FC = () => {
       icon: <Stethoscope className="w-8 h-8 text-purple-900" />,
       title: "Kidney Function Monitoring",
       description:
-        "Track blood pressure, weight, and fluid for CKD and dialysis with FDA-approved devices. Wearable integration reduces visits by 35%.",
+        "Track blood pressure, weight, and fluid retention for CKD and dialysis patients using FDA-cleared devices. Integration with wearables provides comprehensive data, reducing clinic visits by 35%.",
       image: "/assets/kidney1.jpg",
     },
     {
@@ -169,11 +169,11 @@ const NephrologyPage: React.FC = () => {
         </title>
         <meta
           name="description"
-          content="eVitals empowers nephrologists with remote patient monitoring for CKD, dialysis. FDA-approved devices, HIPAA-compliant security, and reimbursement support for nephrology telehealth."
+          content="eVitals empowers nephrologists with an advanced remote patient monitoring platform for CKD and dialysis patients, featuring FDA-cleared devices, HIPAA-compliant security, and robust reimbursement support."
         />
         <meta
           name="keywords"
-          content="remote patient monitoring, nephrology RPM, CKD management, dialysis monitoring telehealth, FDA-approved devices, HIPAA-compliant RPM, nephrology reimbursement, kidney function monitoring"
+          content="remote patient monitoring, nephrology, CKD management, dialysis monitoring, telehealth, FDA-cleared devices, HIPAA-compliant, reimbursement support"
         />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -187,7 +187,7 @@ const NephrologyPage: React.FC = () => {
               "@context": "https://schema.org",
               "@type": "MedicalBusiness",
               "name": "eVitals Nephrology Solutions",
-              "description": "eVitals provides remote patient monitoring for nephrology with FDA-approved devices, HIPAA-compliant data security, and reimbursement support for CKD and dialysis.",
+              "description": "eVitals provides an advanced remote patient monitoring platform with FDA-cleared devices, HIPAA-compliant data security, and reimbursement support for nephrology practices.",
               "url": "https://www.evitals.com/how-we-serve/nephrology",
               "logo": "https://www.evitals.com/logo.png",
               "contactPoint": {
@@ -226,8 +226,10 @@ const NephrologyPage: React.FC = () => {
               Advanced <span className="text-[#B187E8]">Nephrology</span> RPM
             </h1>
             <p className="text-white text-base md:text-lg mb-4 max-w-3xl">
-              eVitals delivers remote patient monitoring for CKD and dialysis
-              with FDA-approved devices and real-time telehealth insights.
+              eVitals transforms nephrology care with a cutting-edge remote patient monitoring (RPM) platform for chronic kidney disease (CKD) and dialysis patients. Our FDA-cleared devices deliver real-time blood pressure, weight, and fluid retention data, enabling proactive care.
+            </p>
+            <p className="text-white text-base md:text-lg mb-8 max-w-3xl">
+              With seamless EHR integration and advanced analytics, eVitals reduces complications and improves patient outcomes. Join leading nephrology practices in embracing the future of kidney care.
             </p>
             <Link
               href="/contact"
@@ -247,9 +249,10 @@ const NephrologyPage: React.FC = () => {
           </h2>
           <div className="max-w-4xl mx-auto mb-8">
             <p className="text-lg text-gray-800 mb-4">
-              Remote patient monitoring in nephrology tracks BP, weight, and
-              fluid for CKD/dialysis. eVitals' FDA-approved devices reduce
-              visits by 35% and complications by 35%.
+              Remote Patient Monitoring (RPM) in nephrology enables continuous tracking of blood pressure, weight, and fluid retention for CKD and dialysis patients. eVitals’ platform reduces clinic visits by 35% and enables early intervention for fluid overload and hypertension.
+            </p>
+            <p className="text-lg text-gray-800 mb-4">
+              Our system integrates with FDA-cleared devices and wearables, providing nephrologists with real-time data and trend analysis. This reduces complications by 35% and improves patient quality of life by 50%. Patients benefit from home-based care and fewer disruptions.
             </p>
             <p className="text-lg text-gray-800 mb-8">
               HIPAA-compliant platform integrates with EHRs for seamless

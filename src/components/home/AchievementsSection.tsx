@@ -229,7 +229,7 @@ const StatsGrid: React.FC = () => {
             <p className="text-1xl text-gray-700 leading-tight mb-1">
               Top-Notch{" "}
               <span className="text-[#45a5bf] font-semibold">
-                FDA-Approved{" "}
+                FDA-Cleared{" "}
               </span>{" "}
               vital monitoring devices.
             </p>

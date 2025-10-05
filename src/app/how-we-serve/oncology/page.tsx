@@ -40,7 +40,7 @@ const OncologyPage: React.FC = () => {
       icon: <Stethoscope className="w-8 h-8 text-purple-900" />,
       title: "Vital Signs & Weight Monitoring",
       description:
-        "Track vitals and weight for cancer patients with FDA-approved devices, including smart scales up to 550 lbs. Wearable integration reduces visits by 35%.",
+        "Track vital signs and weight fluctuations for cancer patients using FDA-cleared devices, including high-capacity smart scales (up to 550 lbs). Integration with wearables supports side-effect monitoring, reducing clinic visits by 35%.",
       image: "/assets/Cancer.jpg",
     },
     {
@@ -167,11 +167,11 @@ const OncologyPage: React.FC = () => {
         <title>eVitals - Advanced Remote Patient Monitoring for Oncology</title>
         <meta
           name="description"
-          content="eVitals empowers oncologists with remote patient monitoring for cancer care, chemotherapy. FDA-approved devices, HIPAA-compliant security, and reimbursement support for oncology telehealth."
+          content="eVitals empowers oncologists with an advanced remote patient monitoring platform for cancer care, featuring FDA-cleared devices, HIPAA-compliant security, and robust reimbursement support."
         />
         <meta
           name="keywords"
-          content="remote patient monitoring, oncology RPM, cancer management, chemotherapy monitoring telehealth, FDA-approved devices, HIPAA-compliant RPM, oncology reimbursement, vital signs weight monitoring"
+          content="remote patient monitoring, oncology, cancer management, chemotherapy monitoring, telehealth, FDA-cleared devices, HIPAA-compliant, reimbursement support"
         />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -185,7 +185,7 @@ const OncologyPage: React.FC = () => {
               "@context": "https://schema.org",
               "@type": "MedicalBusiness",
               "name": "eVitals Oncology Solutions",
-              "description": "eVitals provides remote patient monitoring for oncology with FDA-approved devices, HIPAA-compliant data security, and reimbursement support for cancer and chemotherapy management.",
+              "description": "eVitals provides an advanced remote patient monitoring platform with FDA-cleared devices, HIPAA-compliant data security, and reimbursement support for oncology practices.",
               "url": "https://www.evitals.com/how-we-serve/oncology",
               "logo": "https://www.evitals.com/logo.png",
               "contactPoint": {
@@ -224,9 +224,10 @@ const OncologyPage: React.FC = () => {
               Advanced <span className="text-[#B187E8]">Oncology</span> RPM
             </h1>
             <p className="text-white text-base md:text-lg mb-4 max-w-3xl">
-              eVitals delivers remote patient monitoring for cancer and
-              chemotherapy with FDA-approved devices and real-time telehealth
-              insights.
+              eVitals transforms oncology care with a cutting-edge remote patient monitoring (RPM) platform for cancer patients undergoing chemotherapy or immunotherapy. Our FDA-cleared devices deliver real-time vital sign and weight data, enabling proactive care.
+            </p>
+            <p className="text-white text-base md:text-lg mb-8 max-w-3xl">
+              With seamless EHR integration and advanced analytics, eVitals reduces complications and improves patient outcomes. Join leading oncology practices in embracing the future of cancer care.
             </p>
             <Link
               href="/contact"
@@ -246,9 +247,10 @@ const OncologyPage: React.FC = () => {
           </h2>
           <div className="max-w-4xl mx-auto mb-8">
             <p className="text-lg text-gray-800 mb-4">
-              Remote patient monitoring in oncology tracks vitals and weight for
-              cancer treatment. eVitals' FDA-approved devices reduce visits by
-              35% and complications by 40%.
+              Remote Patient Monitoring (RPM) in oncology enables continuous tracking of vital signs, weight, and treatment side effects for cancer patients. eVitals’ platform reduces clinic visits by 35% and enables early intervention for chemotherapy-related complications.
+            </p>
+            <p className="text-lg text-gray-800 mb-4">
+              Our system integrates with FDA-cleared smart scales and wearable devices, providing oncologists with real-time data and trend analysis. This reduces complications by 40% and improves patient quality of life by 50%. Patients benefit from home-based monitoring and fewer disruptions.
             </p>
             <p className="text-lg text-gray-800 mb-8">
               HIPAA-compliant platform integrates with EHRs for seamless

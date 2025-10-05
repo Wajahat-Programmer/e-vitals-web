@@ -40,7 +40,7 @@ const RheumatologyPage: React.FC = () => {
       icon: <Stethoscope className="w-8 h-8 text-purple-900" />,
       title: "Joint Health Monitoring",
       description:
-        "Track pain, mobility, vitals for RA, lupus with FDA-approved wearables. Reduces visits by 35%.",
+        "Track pain levels, joint mobility, and vital signs for RA and lupus patients using FDA-cleared wearable devices. Integration with patient-reported outcomes reduces clinic visits by 35%.",
       image: "/assets/joints.jpg",
     },
     {
@@ -169,11 +169,11 @@ const RheumatologyPage: React.FC = () => {
         </title>
         <meta
           name="description"
-          content="eVitals empowers rheumatologists with remote patient monitoring for RA, lupus. FDA-approved devices, HIPAA-compliant security, and reimbursement support for rheumatology telehealth."
+          content="eVitals empowers rheumatologists with an advanced remote patient monitoring platform for RA and lupus patients, featuring FDA-cleared devices, HIPAA-compliant security, and robust reimbursement support."
         />
         <meta
           name="keywords"
-          content="remote patient monitoring, rheumatology RPM, rheumatoid arthritis management, lupus monitoring telehealth, FDA-approved devices, HIPAA-compliant RPM, rheumatology reimbursement, joint health monitoring"
+          content="remote patient monitoring, rheumatology, rheumatoid arthritis management, lupus monitoring, telehealth, FDA-cleared devices, HIPAA-compliant, reimbursement support"
         />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -187,7 +187,7 @@ const RheumatologyPage: React.FC = () => {
               "@context": "https://schema.org",
               "@type": "MedicalBusiness",
               "name": "eVitals Rheumatology Solutions",
-              "description": "eVitals provides remote patient monitoring for rheumatology with FDA-approved devices, HIPAA-compliant data security, and reimbursement support for RA and lupus.",
+              "description": "eVitals provides an advanced remote patient monitoring platform with FDA-cleared devices, HIPAA-compliant data security, and reimbursement support for rheumatology practices.",
               "url": "https://www.evitals.com/how-we-serve/rheumatology",
               "logo": "https://www.evitals.com/logo.png",
               "contactPoint": {
@@ -226,8 +226,10 @@ const RheumatologyPage: React.FC = () => {
               Advanced <span className="text-[#B187E8]">Rheumatology</span> RPM
             </h1>
             <p className="text-white text-base md:text-lg mb-4 max-w-3xl">
-              eVitals delivers remote patient monitoring for RA and lupus with
-              FDA-approved devices and real-time telehealth insights.
+              eVitals transforms rheumatology care with a cutting-edge remote patient monitoring (RPM) platform for rheumatoid arthritis (RA) and lupus patients. Our FDA-cleared devices deliver real-time pain, mobility, and vital sign data, enabling proactive care.
+            </p>
+            <p className="text-white text-base md:text-lg mb-8 max-w-3xl">
+              With seamless EHR integration and advanced analytics, eVitals reduces flares and improves patient outcomes. Join leading rheumatology practices in embracing the future of autoimmune care.
             </p>
             <Link
               href="/contact"
@@ -247,9 +249,10 @@ const RheumatologyPage: React.FC = () => {
           </h2>
           <div className="max-w-4xl mx-auto mb-8">
             <p className="text-lg text-gray-800 mb-4">
-              Remote patient monitoring in rheumatology tracks pain, mobility
-              for RA, lupus. eVitals' FDA-approved devices reduce visits by 35%
-              and flares by 35%.
+              Remote Patient Monitoring (RPM) in rheumatology enables continuous tracking of pain levels, joint mobility, and vital signs for RA and lupus patients. eVitals’ platform reduces clinic visits by 35% and enables early intervention for disease flares.
+            </p>
+            <p className="text-lg text-gray-800 mb-4">
+              Our system integrates with FDA-cleared wearable devices, providing rheumatologists with real-time data and trend analysis. This reduces flares by 35% and improves patient quality of life by 50%. Patients benefit from home-based care and fewer disruptions.
             </p>
             <p className="text-lg text-gray-800 mb-8">
               HIPAA-compliant platform integrates with EHRs for seamless

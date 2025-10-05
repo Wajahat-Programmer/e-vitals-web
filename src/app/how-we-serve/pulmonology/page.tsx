@@ -40,7 +40,7 @@ const PulmonologyPage: React.FC = () => {
       icon: <Stethoscope className="w-8 h-8 text-purple-900" />,
       title: "Pulse Oximetry Monitoring",
       description:
-        "Track oxygen saturation and pulse for COPD, asthma, fibrosis with FDA-approved oximeters. Spirometry integration reduces visits by 40%.",
+        "Track oxygen saturation and pulse rate for COPD, asthma, and pulmonary fibrosis using FDA-cleared cellular-enabled pulse oximeters. Integration with spirometry devices provides comprehensive respiratory data, reducing clinic visits by 40%.",
       image: "/assets/monito.jpg",
     },
     {
@@ -169,11 +169,11 @@ const PulmonologyPage: React.FC = () => {
         </title>
         <meta
           name="description"
-          content="eVitals empowers pulmonologists with remote patient monitoring for COPD, asthma, pulmonary disorders. FDA-approved devices, HIPAA-compliant security, and reimbursement support for pulmonology telehealth."
+          content="eVitals empowers pulmonologists with an advanced remote patient monitoring platform for COPD, asthma, and pulmonary disorders, featuring FDA-cleared devices, HIPAA-compliant security, and robust reimbursement support."
         />
         <meta
           name="keywords"
-          content="remote patient monitoring, pulmonology RPM, COPD management, asthma monitoring telehealth, pulmonary fibrosis, FDA-approved devices, HIPAA-compliant RPM, pulmonology reimbursement, pulse oximetry monitoring"
+          content="remote patient monitoring, pulmonology, COPD management, asthma monitoring, telehealth, FDA-cleared devices, HIPAA-compliant, reimbursement support"
         />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -187,7 +187,7 @@ const PulmonologyPage: React.FC = () => {
               "@context": "https://schema.org",
               "@type": "MedicalBusiness",
               "name": "eVitals Pulmonology Solutions",
-              "description": "eVitals provides remote patient monitoring for pulmonology with FDA-approved devices, HIPAA-compliant data security, and reimbursement support for COPD, asthma, and pulmonary disorders.",
+              "description": "eVitals provides an advanced remote patient monitoring platform with FDA-cleared devices, HIPAA-compliant data security, and reimbursement support for pulmonology practices.",
               "url": "https://www.evitals.com/how-we-serve/pulmonology",
               "logo": "https://www.evitals.com/logo.png",
               "contactPoint": {
@@ -226,9 +226,10 @@ const PulmonologyPage: React.FC = () => {
               Advanced <span className="text-[#B187E8]">Pulmonology</span> RPM
             </h1>
             <p className="text-white text-base md:text-lg mb-4 max-w-3xl">
-              eVitals delivers remote patient monitoring for COPD, asthma,
-              pulmonary fibrosis with FDA-approved devices and real-time
-              telehealth insights.
+              eVitals transforms pulmonology care with a cutting-edge remote patient monitoring (RPM) platform for COPD, asthma, and pulmonary fibrosis. Our FDA-cleared devices deliver real-time respiratory data, enabling proactive care.
+            </p>
+            <p className="text-white text-base md:text-lg mb-8 max-w-3xl">
+              With seamless EHR integration and advanced analytics, eVitals reduces exacerbations and improves patient outcomes. Join leading pulmonology practices in embracing the future of respiratory care.
             </p>
             <Link
               href="/contact"
@@ -248,9 +249,10 @@ const PulmonologyPage: React.FC = () => {
           </h2>
           <div className="max-w-4xl mx-auto mb-8">
             <p className="text-lg text-gray-800 mb-4">
-              Remote patient monitoring in pulmonology tracks oxygen and pulse
-              for COPD, asthma. eVitals' FDA-approved devices reduce visits by
-              40% and exacerbations by 35%.
+              Remote Patient Monitoring (RPM) in pulmonology enables continuous tracking of oxygen saturation, pulse rate, and spirometry data for patients with COPD, asthma, and other respiratory disorders. eVitals’ platform reduces clinic visits by 40% and enables early intervention.
+            </p>
+            <p className="text-lg text-gray-800 mb-4">
+              Our system integrates with FDA-cleared pulse oximeters and spirometry devices, providing pulmonologists with real-time data and trend analysis. This reduces exacerbations by 35% and improves patient quality of life by 50%. Patients benefit from home-based care and fewer disruptions.
             </p>
             <p className="text-lg text-gray-800 mb-8">
               HIPAA-compliant platform integrates with EHRs for seamless

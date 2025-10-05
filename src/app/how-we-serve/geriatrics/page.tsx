@@ -40,7 +40,7 @@ const GeriatricsPage: React.FC = () => {
       icon: <Stethoscope className="w-8 h-8 text-purple-900" />,
       title: "Comprehensive Vital Signs Monitoring",
       description:
-        "Track blood pressure, heart rate, and oxygen for elderly with chronic conditions using FDA-approved devices. Wearable integration reduces visits by 35%.",
+        "Track blood pressure, heart rate, and oxygen saturation for elderly patients with chronic conditions using FDA-cleared devices. Integration with wearables supports mobility tracking, reducing clinic visits by 35%.",
       image: "/assets/mewdicines.jpg",
     },
     {
@@ -169,11 +169,11 @@ const GeriatricsPage: React.FC = () => {
         </title>
         <meta
           name="description"
-          content="eVitals empowers geriatricians with remote patient monitoring for elderly chronic conditions and fall prevention. FDA-approved devices, HIPAA-compliant security, and reimbursement support for geriatrics telehealth."
+          content="eVitals empowers geriatricians with an advanced remote patient monitoring platform for elderly patients with chronic conditions, featuring FDA-cleared devices, HIPAA-compliant security, and robust reimbursement support."
         />
         <meta
           name="keywords"
-          content="remote patient monitoring, geriatrics RPM, elderly care, chronic condition management, fall prevention telehealth, FDA-approved devices, HIPAA-compliant RPM, geriatrics reimbursement, senior vital monitoring"
+          content="remote patient monitoring, geriatrics, elderly care, chronic condition management, telehealth, FDA-cleared devices, HIPAA-compliant, reimbursement support"
         />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -187,7 +187,7 @@ const GeriatricsPage: React.FC = () => {
               "@context": "https://schema.org",
               "@type": "MedicalBusiness",
               "name": "eVitals Geriatrics Solutions",
-              "description": "eVitals provides remote patient monitoring for geriatrics with FDA-approved devices, HIPAA-compliant data security, and reimbursement support for elderly chronic conditions and fall prevention.",
+              "description": "eVitals provides an advanced remote patient monitoring platform with FDA-cleared devices, HIPAA-compliant data security, and reimbursement support for geriatrics practices.",
               "url": "https://www.evitals.com/how-we-serve/geriatrics",
               "logo": "https://www.evitals.com/logo.png",
               "contactPoint": {
@@ -226,9 +226,10 @@ const GeriatricsPage: React.FC = () => {
               Advanced <span className="text-[#B187E8]">Geriatrics</span> RPM
             </h1>
             <p className="text-white text-base md:text-lg mb-4 max-w-3xl">
-              eVitals delivers remote patient monitoring for elderly chronic
-              conditions and fall prevention with FDA-approved devices and
-              real-time telehealth insights.
+              eVitals transforms geriatric care with a cutting-edge remote patient monitoring (RPM) platform for elderly patients with chronic conditions. Our FDA-cleared devices deliver real-time vital sign and mobility data, enabling proactive care.
+            </p>
+            <p className="text-white text-base md:text-lg mb-8 max-w-3xl">
+              With seamless EHR integration and advanced analytics, eVitals reduces complications and improves patient outcomes. Join leading geriatrics practices in embracing the future of elderly care.
             </p>
             <Link
               href="/contact"
@@ -248,9 +249,10 @@ const GeriatricsPage: React.FC = () => {
           </h2>
           <div className="max-w-4xl mx-auto mb-8">
             <p className="text-lg text-gray-800 mb-4">
-              Remote patient monitoring in geriatrics tracks vitals and mobility
-              for chronic conditions. eVitals' FDA-approved devices reduce
-              visits by 35% and complications by 35%.
+              Remote Patient Monitoring (RPM) in geriatrics enables continuous tracking of vital signs, mobility, and fall risks for elderly patients with chronic conditions. eVitals’ platform reduces clinic visits by 35% and enables early intervention for health issues.
+            </p>
+            <p className="text-lg text-gray-800 mb-4">
+              Our system integrates with FDA-cleared devices and wearables, providing geriatricians with real-time data and trend analysis. This reduces complications by 35% and improves patient quality of life by 50%. Patients benefit from home-based care and fewer disruptions.
             </p>
             <p className="text-lg text-gray-800 mb-8">
               HIPAA-compliant platform integrates with EHRs for seamless
