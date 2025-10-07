@@ -17,9 +17,9 @@ const features = [
 ];
 
 const backgroundImages = [
-  "/assets/herobg.jpg",
-  "/assets/bg2hero.jpg",
-  "/assets/bghero3.jpg",
+  "/assets/herobg.webp",
+  "/assets/bg2hero.png",
+  "/assets/bghero3.webp",
 ];
 
 const Hero: React.FC = () => {
