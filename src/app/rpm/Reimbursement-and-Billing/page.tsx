@@ -60,8 +60,8 @@ const ReimbursementBilling = () => {
               reimbursement is critical for sustaining care quality and business
               growth. Our Reimbursement & Billing solutions are designed to help
               providers, clinics, and hospitals seamlessly navigate complex
-              payer requirements while ensuring maximum reimbursement for RPM,
-              CCM, and other eligible care programs.
+              payer requirements while ensuring maximum reimbursement for RPM
+              and other eligible care programs.
             </p>
           </div>
         </div>
@@ -306,11 +306,11 @@ const ReimbursementBilling = () => {
                 title: "Remote Patient Monitoring (RPM)",
                 desc: "Comprehensive billing for all RPM services and devices.",
               },
-              {
-                icon: "🩺",
-                title: "Chronic Care Management (CCM)",
-                desc: "Monthly care coordination and management services.",
-              },
+              // {
+              //   icon: "🩺",
+              //   title: "Chronic Care Management (CCM)",
+              //   desc: "Monthly care coordination and management services.",
+              // },
               {
                 icon: "🔄",
                 title: "Transitional Care Management (TCM)",

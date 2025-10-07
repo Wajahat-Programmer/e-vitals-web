@@ -207,12 +207,12 @@ const Header: React.FC = () => {
               )}
             </div>
 
-            <Link
+            {/* <Link
               href="/insights/overview"
               className="text-m font-medium tracking-wider hover:underline"
             >
               Insights
-            </Link>
+            </Link> */}
 
             {/* Who We Serve merged into Services dropdown above */}
             {/* <Link

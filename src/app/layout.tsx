@@ -17,11 +17,11 @@ const inter = Inter({
 export const metadata = {
   metadataBase: new URL('https://www.evitals.healthcare'),
   title: {
-    default: 'eVitals | Remote Patient Monitoring (RPM) & CCM Platform',
+    default: 'eVitals | Remote Patient Monitoring (RPM)',
     template: '%s | eVitals',
   },
-  description: 'HIPAA-compliant RPM & CCM platform helping practices improve outcomes and reimbursement with FDA-cleared devices, seamless EHR workflows, and US-based support.',
-  keywords: ['Remote Patient Monitoring', 'RPM', 'Chronic Care Management', 'CCM', 'HIPAA', 'FDA-cleared devices', 'EHR integration', 'reimbursement', 'telehealth'],
+  description: 'HIPAA-compliant RPM platform helping practices improve outcomes and reimbursement with FDA-cleared devices, seamless EHR workflows, and US-based support.',
+  keywords: ['Remote Patient Monitoring', 'RPM', 'Chronic Care Management', 'HIPAA', 'FDA-cleared devices', 'EHR integration', 'reimbursement', 'telehealth'],
   icons: {
     icon: '/assets/eVitals-favicon.png',
   },
@@ -31,21 +31,21 @@ export const metadata = {
   openGraph: {
     type: 'website',
     url: '/',
-    title: 'eVitals | Remote Patient Monitoring (RPM) & CCM Platform',
-    description: 'Deliver proactive care at scale with HIPAA-compliant RPM & CCM. Boost reimbursements, reduce readmissions, and streamline clinical workflows.',
+    title: 'eVitals | Remote Patient Monitoring (RPM) Platform',
+    description: 'Deliver proactive care at scale with HIPAA-compliant RPM. Boost reimbursements, reduce readmissions, and streamline clinical workflows.',
     siteName: 'eVitals',
     images: [
       {
         url: '/assets/eVitals-Devices.png',
         width: 1200,
         height: 630,
-        alt: 'eVitals RPM & CCM Platform',
+        alt: 'eVitals RPM Platform',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'eVitals | RPM & CCM Platform',
+    title: 'eVitals | RPM Platform',
     description: 'HIPAA-compliant remote patient monitoring with FDA-cleared devices and EHR-friendly workflows.',
     images: ['/assets/eVitals-Devices.png'],
   },
