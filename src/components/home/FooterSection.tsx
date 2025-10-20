@@ -12,10 +12,10 @@ import {
 
 const FooterSection = () => {
   return (
-    <footer className="bg-[#fafafa] text-slate-700 py-16 px-4 sm:px-6 lg:px-8">
-      <div className="container-lg">
+    <footer className="w-full bg-[#fafafa] text-slate-700 py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto w-full">
         {/* Top Section */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12 items-start">
           {/* Brand Info */}
           <div className="space-y-6">
             <div className="flex items-center">
@@ -27,10 +27,9 @@ const FooterSection = () => {
               />
             </div>
             <p className="text-slate-600 leading-relaxed">
-            eVitals is a cutting-edge Remote Patient Monitoring (RPM) platform that empowers healthcare 
-            providers with real-time, secure patient insights. Boost efficiency, ensure compliance, and 
-            elevate care quality effortlessly with eVitals.
-
+              eVitals is a cutting-edge Remote Patient Monitoring (RPM) platform that empowers healthcare 
+              providers with real-time, secure patient insights. Boost efficiency, ensure compliance, and 
+              elevate care quality effortlessly with eVitals.
             </p>
             <div className="flex space-x-4">
               {[
@@ -62,26 +61,22 @@ const FooterSection = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Product Section */}
           <div>
             <h3 className="text-lg font-semibold text-slate-900 mb-6">
-              Quick Links
+              Product
             </h3>
             <ul className="space-y-3">
               {[
-                "Home",
-                "RPM Software",
-                "RPM Devices",
-                "Reimbursement & Billing",
-                "Reimbursement Estimator",
+                "Solutions",
+                "How it works", 
+                "Programs"
               ].map((link) => {
                 let href = "#";
 
-                if (link === "Home") href = "/";
-                else if (link === "RPM Software") href = "/rpm/RPMSoftware";
-                else if (link === "RPM Devices") href = "/rpm/RPMDevices";
-                else if (link === "Reimbursement & Billing") href = "/rpm/Reimbursement-and-Billing";
-                else if (link === "Reimbursement Estimator") href = "/ReimbursementCalculator";
+                if (link === "Solutions") href = "/solutions";
+                else if (link === "How it works") href = "/how-it-works";
+                else if (link === "Programs") href = "/programs";
 
                 return (
                   <li key={link}>
@@ -97,27 +92,20 @@ const FooterSection = () => {
             </ul>
           </div>
 
-          {/* Support */}
+          {/* Resources Section */}
           <div>
             <h3 className="text-lg font-semibold text-slate-900 mb-6">
-              Support
+              Resources
             </h3>
             <ul className="space-y-3">
               {[
-                "Services",
-                "Compliance & Security",
-                "Downloads",
-                "Reimbursement & Billing",
-                "Insights",
+                "Reimbursement",
+                "FAQ"
               ].map((link) => {
                 let href = "#";
 
-                if (link === "Services") href = "/services";
-                else if (link === "Compliance & Security") href = "/support/compliance-and-security";
-                else if (link === "Downloads") href = "/support/resources";
-                else if (link === "FAQs") href = "/";
-                else if (link === "Insights") href = "/insights/overview";
-                
+                if (link === "Reimbursement") href = "/reimbursement";
+                else if (link === "FAQ") href = "/faq";
 
                 return (
                   <li key={link}>
@@ -133,41 +121,20 @@ const FooterSection = () => {
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Contact Section */}
           <div>
             <h3 className="text-lg font-semibold text-slate-900 mb-6">
-              Support
+              Contact
             </h3>
-            <ul className="space-y-3">
-              {[
-                "Book Demo",
-                "General Inquiry",
-                "Technical Support",
-                "Explore Partnership",
-              ].map((link) => {
-                let href = "#";
-
-                if (link === "Book Demo") href = "/contact?booking=demo";
-                else if (link === "General Inquiry") href = "/contact?booking=inquiry";
-                else if (link === "Technical Support") href = "/contact?booking=technical-support";
-                else if (link === "Explore Partnership") href = "/contact?booking=partnership";
-
-                return (
-                  <li key={link}>
-                    <Link
-                      href={href}
-                      className="text-slate-600 hover:text-slate-900 transition-colors hover:underline"
-                    >
-                      {link}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
+            <div className="space-y-3">
+              <a 
+                href="mailto:info@evitalsrpm.com" 
+                className="text-slate-600 hover:text-slate-900 transition-colors hover:underline block"
+              >
+                info@evitalsrpm.com
+              </a>
+            </div>
           </div>
-
-
-
         </div>
 
         {/* Divider */}
@@ -179,18 +146,12 @@ const FooterSection = () => {
             © {new Date().getFullYear()} eVitals. All rights reserved.
           </p>
           <div className="flex space-x-6">
-           <Link href="/privacy-policy" className="text-slate-500 hover:text-slate-700 text-sm transition-colors">
+            <Link href="/privacy-policy" className="text-slate-500 hover:text-slate-700 text-sm transition-colors">
               Privacy Policy
             </Link>
             <Link href="/terms-of-service" className="text-slate-500 hover:text-slate-700 text-sm transition-colors">
               Terms of Service
             </Link>
-            {/* <a
-              href="#"
-              className="text-slate-500 hover:text-slate-700 text-sm transition-colors"
-            >
-              Cookies
-            </a> */}
           </div>
         </div>
       </div>

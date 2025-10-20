@@ -107,7 +107,7 @@ export default function ComplianceSecurity() {
 
       {/* Details Section */}
       <section className="bg-white py-12">
-        <div className="container mx-auto px-4 max-w-full grid md:grid-cols-2 gap-12 items-center px-24 py-16">
+        <div className="container mx-auto max-w-full grid md:grid-cols-2 gap-12 items-center px-24 py-16">
           <div>
           <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-[#2E1065] to-[#B187E8] bg-clip-text text-transparent">Regular Audits & Monitoring</h2>
 
