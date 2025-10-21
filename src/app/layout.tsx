@@ -58,7 +58,7 @@ export const metadata = {
 const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`min-h-screen flex flex-col bg-slate-50 font-sans ${inter.className}`}>
+      <body className={`w-full min-h-screen flex flex-col bg-slate-50 font-sans ${inter.className}`}>
         <Header />
         <main className="flex-1">
           {children}

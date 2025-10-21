@@ -2,13 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
-// import { Inter } from "next/font/google";
-
-// // Load Inter
-// const inter = Inter({
-//   subsets: ["latin"],
-//   weight: ["400", "600", "700"], // adjust weights as needed
-// });
+import { ChevronsRight, Check } from 'lucide-react';
 
 const features = [
   "HIPAA-Compliant Workflows",
@@ -59,54 +53,83 @@ const Hero: React.FC = () => {
   }, [text, isDeleting, index]);
 
   return (
-    <section className="relative h-[90vh] flex items-center overflow-hidden">
+    <section className="relative h-[70vh] flex items-center overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0 z-0">
-        <Image
-          key={currentBg} // Key to force remount on change for smooth transition
-          src={backgroundImages[currentBg]}
-          alt="eVitals Hero Background"
-          fill
-          className="object-cover kenburns transition-opacity duration-1000 ease-in-out"
-          priority
-        />
-
-        {/* Left-side black gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
+        <div className="bg-white" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 w-full">
-        <div className="text-left pl-6 md:pl-12 lg:pl-20 max-w-3xl">
-          <h1 className="text-white text-4xl md:text-6xl font-bold leading-tight mb-6">
-            Advance RPM Platform
-            <br /> Built for Better Outcomes
-          </h1>
+        <div className="container mx-auto px-4 flex flex-col lg:flex-row items-start justify-between">
+          {/* Left Content */}
+          <div className="text-left max-w-3xl lg:max-w-2xl">
+            <h1 className="text-black text-4xl md:text-6xl font-bold leading-tight mb-6">
+              Turn-key  
+              <span className="text-[#012c66]"> Remote Patient Monitoring</span>
+              <br />
+              <span className="text-black">for chronic conditions</span>
+            </h1>
 
-          <p className="text-white text-base md:text-lg mb-8 max-w-2xl">
-            Deliver proactive, connected care with a HIPAA-compliant platform that integrates FDA-cleared devices, simplifies billing, and streamlines clinical workflows.
-          </p>
+            <p className="text-black text-base md:text-lg mb-8 max-w-2xl">
+              e-Vitals equips your practice with devices, onboarding, clinical dashboards,
+              and billing support so you can improve outcomes, reduce readmissions,
+              and grow reimbursable services without extra admin burden.
+            </p>
 
-          {/* Typewriter Effect */}
-          <p className="text-[#B187E8] text-base md:text-4xl mb-8 font-bold">
-            {text}
-            <span className="border-r-2 border-white animate-pulse ml-1"></span>
-          </p>
+            {/* CTA Buttons */}
+            <div className="flex items-center gap-4 mb-8">
+              <Link
+                href="/demo"
+                className="group bg-[#5ce1e6] hover:bg-[#1faaaf] text-white text-base font-semibold px-6 py-3 rounded-md shadow-md transition-all duration-300 inline-flex items-center gap-2 whitespace-nowrap flex-nowrap min-w-0"
+              >
+                Request a Demo
+                <ChevronsRight size={20} className="transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0" />
+              </Link>
+              <Link
+                href="/rpm/RPMSoftware"
+                className="bg-[#012c66] hover:bg-[#02224d] text-white backdrop-blur px-6 py-3 rounded-md text-base font-semibold transition inline-flex gap-2 flex-nowrap whitespace-nowrap"
+              >
+                See Sample Billing Report
+                <ChevronsRight size={20} className="transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0" />
+              </Link>
+            </div>
 
-          {/* CTA Button */}
-          <div className="flex items-center gap-4">
-            <Link
-              href="/demo"
-              className="bg-[#36036B] hover:bg-[#4b0d8d] text-white text-base font-semibold px-6 py-3 rounded-md shadow-md transition duration-300 inline-block"
-            >
-              Book a live demo →
-            </Link>
-            <Link
-              href="/rpm/RPMSoftware"
-              className="bg-white/10 hover:bg-white/20 text-white backdrop-blur px-6 py-3 rounded-md text-base font-semibold transition"
-            >
-              Explore the platform
-            </Link>
+            {/* Features List */}
+            <div className="flex flex-wrap gap-4">
+              {["Device provisioning", "Clinical monitoring", "Billing workflows"].map((feature) => (
+                <div key={feature} className="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-lg">
+                  <Check size={18} className="text-green-500 flex-shrink-0" />
+                  <span className="text-gray-700 text-sm font-medium">{feature}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Side - Simple LARGE Flex Box */}
+          <div className="w-full lg:w-auto flex justify-center lg:justify-end">
+            <div className="bg-white/80 backdrop-blur-xl border border-white/50 rounded-3xl shadow-2xl p-10 w-full max-w-lg lg:max-w-2xl xl:max-w-3xl">
+              <h3 className="text-4xl font-bold text-gray-800 mb-10 text-center">
+                Unified Patient Dashboard
+              </h3>
+              <div className="space-y-4">
+                {[
+                  "Device provisioning & setup",
+                  "Clinical monitoring dashboards",
+                  "Automated billing workflows", 
+                  "HIPAA compliance management",
+                  "FDA-cleared medical devices",
+                  "Reimbursement optimization",
+                  "Patient onboarding support",
+                  "24/7 technical assistance"
+                ].map((feature) => (
+                  <div key={feature} className="flex items-center gap-3">
+                    <Check size={20} className="text-green-500 flex-shrink-0" />
+                    <span className="text-gray-700 text-base">{feature}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -115,7 +138,6 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
-
 // // Hero.tsx
 // import Image from 'next/image';
 // import Link from 'next/link';

@@ -99,13 +99,11 @@ const FooterSection = () => {
             </h3>
             <ul className="space-y-3">
               {[
-                "Reimbursement",
-                "FAQ"
+                "Reimbursement"
               ].map((link) => {
                 let href = "#";
 
-                if (link === "Reimbursement") href = "/reimbursement";
-                else if (link === "FAQ") href = "/faq";
+                if (link === "Reimbursement") href = "/ReimbursementCalculator";
 
                 return (
                   <li key={link}>
@@ -120,7 +118,6 @@ const FooterSection = () => {
               })}
             </ul>
           </div>
-
           {/* Contact Section */}
           <div>
             <h3 className="text-lg font-semibold text-slate-900 mb-6">

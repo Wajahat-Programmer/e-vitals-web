@@ -7,10 +7,10 @@ import React, { useState, useRef } from "react";
 const Header: React.FC = () => {
   const [isRpmOpen, setIsRpmOpen] = useState(false);
   const [isSupportOpen, setIsSupportOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isServeOpen, setIsServeOpen] = useState(false);
   const rpmDropdownRef = useRef<HTMLDivElement>(null);
   const supportDropdownRef = useRef<HTMLDivElement>(null);
-  
+  const serveDropdownRef = useRef<HTMLDivElement>(null);
 
   const handleMouseEnter = (
     setOpen: React.Dispatch<React.SetStateAction<boolean>>
@@ -26,35 +26,67 @@ const Header: React.FC = () => {
 
   return (
     <div className="w-full">
-      {/* Top Bar */}
-      <div className="bg-white text-black text-sm border-b border-gray-200">
-        <div className="container mx-auto px-4 py-2 flex justify-between items-center">
-          <div className="flex items-center space-x-2">
-            <Link href="/">
-              <Image
-                src="/assets/logo.png"
-                alt="eVitals Logo"
-                width={140}
-                height={50}
-              />
-            </Link>
+      {/* Top Bar - Blue Background */}
+      <div className="w-full bg-[#012c66] text-white border-b border-gray-300 mt-10">
+        <div className="container mx-auto flex justify-between items-center py-1 px-4">
+
+          {/* Left Section - Stars + Text */}
+          <div className="flex items-center">
+            {/* Stars Image */}
+            <Image
+              src="/assets/stars.png"
+              alt="Stars"
+              width={55}
+              height={55}
+              className="object-contain mr-4"
+            />
+
+            {/* Text */}
+            <p className="text-white text-lg">
+              Earn joy, improve Patient Monitoring for clients of any size.
+            </p>
           </div>
+
+          {/* Right Section - HIPAA Logo */}
+          <div className="flex items-center">
+            <Image
+              src="/assets/Hippa.png"
+              alt="HIPAA Logo"
+              width={160}
+              height={60}
+              className="object-contain ml-4"
+            />
+          </div>
+
         </div>
       </div>
 
       {/* Main Navbar */}
-      <header className="bg-[#270949] text-white shadow-sm sticky top-0 z-40">
+      <header className="bg-white text-gray-800 border-b border-gray-200 sticky top-0 z-40">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <nav className="hidden md:flex space-x-8">
-            {/* RPM Solution Dropdown */}
+          {/* Logo Section */}
+          <div className="flex items-center">
+            <Link href="/">
+              <Image
+                src="/assets/logo.png"
+                alt="eVitals Logo"
+                width={100}
+                height={40}
+              />
+            </Link>
+          </div>
+
+          {/* Navigation */}
+          <nav className="hidden lg:flex space-x-6 flex-1 ml-8">
+            {/* Solutions Dropdown */}
             <div
               className="relative group"
               ref={rpmDropdownRef}
               onMouseEnter={() => handleMouseEnter(setIsRpmOpen)}
               onMouseLeave={() => handleMouseLeave(setIsRpmOpen)}
             >
-              <button className="text-m font-medium tracking-wider hover:underline flex items-center">
-                RPM Solution
+              <button className="text-sm font-medium text-gray-700 hover:text-[#003d82] flex items-center py-2">
+                Solutions
                 <svg
                   className={`ml-1 w-4 h-4 transition-transform ${
                     isRpmOpen ? "rotate-180" : ""
@@ -72,23 +104,23 @@ const Header: React.FC = () => {
                 </svg>
               </button>
               {isRpmOpen && (
-                <div className="absolute left-0 top-full w-56 bg-white rounded-md shadow-lg z-50">
-                  <div className="py-1">
+                <div className="absolute left-0 top-full mt-0 w-48 bg-white rounded-md shadow-lg z-50 border border-gray-200">
+                  <div className="py-2">
                     <Link
                       href="/rpm/RPMSoftware"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#003d82]"
                     >
                       RPM Software
                     </Link>
                     <Link
                       href="/rpm/RPMDevices"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#003d82]"
                     >
                       RPM Devices
                     </Link>
                     <Link
                       href="/rpm/Reimbursement-and-Billing"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#003d82]"
                     >
                       Reimbursement and Billing
                     </Link>
@@ -97,16 +129,20 @@ const Header: React.FC = () => {
               )}
             </div>
 
-            {/* Services Dropdown (now includes Who We Serve) */}
+            {/* How it Works */}
+            {/* Who We Serve Dropdown */}
             <div
               className="relative group"
-              onMouseEnter={() => handleMouseEnter(setIsServicesOpen)}
-              onMouseLeave={() => handleMouseLeave(setIsServicesOpen)}
+              ref={serveDropdownRef}
+              onMouseEnter={() => handleMouseEnter(setIsServeOpen)}
+              onMouseLeave={() => handleMouseLeave(setIsServeOpen)}
             >
-              <button className="text-m font-medium tracking-wider hover:underline flex items-center">
-                Services
+              <button className="text-sm font-medium text-gray-700 hover:text-[#003d82] flex items-center py-2">
+                Who We Serve
                 <svg
-                  className={`ml-1 w-4 h-4 transition-transform ${isServicesOpen ? "rotate-180" : ""}`}
+                  className={`ml-1 w-4 h-4 transition-transform ${
+                    isServeOpen ? "rotate-180" : ""
+                  }`}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -119,52 +155,74 @@ const Header: React.FC = () => {
                   />
                 </svg>
               </button>
-              {isServicesOpen && (
-                <div className="absolute left-0 top-full w-[560px] bg-white rounded-md shadow-lg z-50 p-4 grid grid-cols-2 gap-4">
-                  <div>
+
+              {isServeOpen && (
+                <div className="absolute left-0 top-full mt-0 w-56 bg-white rounded-md shadow-lg z-50 border border-gray-200">
+                  <div className="py-2">
                     <Link
-                      href="/services"
-                      className="block px-3 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900 rounded"
+                      href="/how-we-serve/cardiology"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#003d82]"
                     >
-                      Services Overview
+                      Cardiology
                     </Link>
                     <Link
-                      href="/insights/overview"
-                      className="block px-3 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900 rounded"
+                      href="/how-we-serve/endocrinology"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#003d82]"
                     >
-                      Insights
+                      Endocrinology
                     </Link>
                     <Link
-                      href="/ReimbursementCalculator"
-                      className="block px-3 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900 rounded"
+                      href="/how-we-serve/geriatrics"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#003d82]"
                     >
-                      RPM Reimbursement Calculator
+                      Geriatrics
                     </Link>
-                  </div>
-                  <div>
-                    <div className="px-3 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">Who We Serve</div>
-                    <Link href="/how-we-serve/cardiology" className="block px-3 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900 rounded">Cardiology</Link>
-                    <Link href="/how-we-serve/endocrinology" className="block px-3 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900 rounded">Endocrinology</Link>
-                    <Link href="/how-we-serve/neurology" className="block px-3 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900 rounded">Neurology</Link>
-                    <Link href="/how-we-serve/pulmonology" className="block px-3 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900 rounded">Pulmonology</Link>
-                    <Link href="/how-we-serve/oncology" className="block px-3 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900 rounded">Oncology</Link>
-                    <Link href="/how-we-serve/geriatrics" className="block px-3 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900 rounded">Geriatrics</Link>
-                    <Link href="/how-we-serve/nephrology" className="block px-3 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900 rounded">Nephrology</Link>
-                    <Link href="/how-we-serve/rheumatology" className="block px-3 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900 rounded">Rheumatology</Link>
+                    <Link
+                      href="/how-we-serve/nephrology"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#003d82]"
+                    >
+                      Nephrology
+                    </Link>
+                    <Link
+                      href="/how-we-serve/neurology"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#003d82]"
+                    >
+                      Neurology
+                    </Link>
+                    <Link
+                      href="/how-we-serve/oncology"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#003d82]"
+                    >
+                      Oncology
+                    </Link>
+                    <Link
+                      href="/how-we-serve/pulmonology"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#003d82]"
+                    >
+                      Pulmonology
+                    </Link>
+                    <Link
+                      href="/how-we-serve/rheumatology"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#003d82]"
+                    >
+                      Rheumatology
+                    </Link>
+
                   </div>
                 </div>
               )}
             </div>
 
-            {/* Support & Compliance Dropdown */}
+
+            {/* Why us Dropdown */}
             <div
               className="relative group"
               ref={supportDropdownRef}
               onMouseEnter={() => handleMouseEnter(setIsSupportOpen)}
               onMouseLeave={() => handleMouseLeave(setIsSupportOpen)}
             >
-              <button className="text-m font-medium tracking-wider hover:underline flex items-center">
-                Support & Compliance
+              <button className="text-sm font-medium text-gray-700 hover:text-[#003d82] flex items-center py-2">
+                Why us
                 <svg
                   className={`ml-1 w-4 h-4 transition-transform ${
                     isSupportOpen ? "rotate-180" : ""
@@ -182,53 +240,63 @@ const Header: React.FC = () => {
                 </svg>
               </button>
               {isSupportOpen && (
-                <div className="absolute left-0 top-full w-56 bg-white rounded-md shadow-lg z-50">
-                  <div className="py-1">
+                <div className="absolute left-0 top-full mt-0 w-48 bg-white rounded-md shadow-lg z-50 border border-gray-200">
+                  <div className="py-2">
+                    <Link
+                      href="/why-us/clinical-expertise"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#003d82]"
+                    >
+                      Clinical Expertise
+                    </Link>
                     <Link
                       href="/support/compliance-and-security"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#003d82]"
                     >
                       Compliance & Security
                     </Link>
-                    <Link
-                      href="/support/resources"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900"
-                    >
-                      Resources
-                    </Link>
                     {/* <Link
-                      href="/support/faqs"
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900"
+                      href="/why-us/support"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#003d82]"
                     >
-                      FAQs
+                      Support
                     </Link> */}
                   </div>
                 </div>
               )}
             </div>
 
-            {/* <Link
-              href="/insights/overview"
-              className="text-m font-medium tracking-wider hover:underline"
+            {/* Resources */}
+            <Link
+              href="/support/resources"
+              className="text-sm font-medium text-gray-700 hover:text-[#003d82] py-2"
             >
-              Insights
-            </Link> */}
+              Resources
+            </Link>
 
-            {/* Who We Serve merged into Services dropdown above */}
+            {/* FAQ */}
             {/* <Link
-              href="/ReimbursementCalculator"
-              className="text-m font-medium tracking-wider hover:underline"
+              href="/faq"
+              className="text-sm font-medium text-gray-700 hover:text-[#003d82] py-2"
             >
-              RPM Reimbursement Calculator
+              FAQ
             </Link> */}
           </nav>
 
-          <Link
-            href="/contact"
-            className="bg-[#B187E8] hover:bg-[#9d6dd6] text-white text-lg text-shadow-lg font-semibold px-5 py-2 rounded-full transition"
-          >
-            Contact Us
-          </Link>
+          {/* Right Side Actions */}
+          <div className="flex items-center space-x-4">
+            <Link
+              href="/contact"
+              className="text-sm font-medium text-gray-700 hover:text-[#003d82]"
+            >
+              Login
+            </Link>
+            <Link
+              href="/demo"
+              className="bg-[#00bcd4] hover:bg-[#00acc1] text-white text-sm font-medium px-4 py-2 rounded transition"
+            >
+              Request a Demo
+            </Link>
+          </div>
         </div>
       </header>
     </div>

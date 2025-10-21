@@ -271,7 +271,7 @@ const ReimbursementBilling = () => {
             ].map((benefit, index) => (
               <div
                 key={index}
-                className={`bg-gradient-to-br from-purple-50 to-blue-50 p-8 rounded-xl border border-purple-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 transition-all duration-1000 delay-${
+                className={`bg-gradient-to-br from-purple-50 to-blue-50 p-8 rounded-xl border border-purple-200 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-1000 delay-${
                   (index + 1) * 200
                 } ${
                   isVisible
@@ -324,7 +324,7 @@ const ReimbursementBilling = () => {
             ].map((program, index) => (
               <div
                 key={index}
-                className={`bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-purple-100 text-center transition-all duration-1000 delay-${
+                className={`bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-2 border border-purple-100 text-center transition-all duration-1000 delay-${
                   (index + 1) * 200
                 } ${
                   isVisible
