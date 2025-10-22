@@ -1,19 +1,21 @@
 "use client";
 
 import Image from "next/image";
-// import Link from "next/link";
+import Link from "next/link";
 import CTASection from "../../../components/home/CTASection";
 import { FaHeartbeat, FaDollarSign, FaClock, FaUsers } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { ChevronsRight } from 'lucide-react';
+
 const RPMSoftware = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const compliancePoints = [
-    "Devices are FDA-cleared medical devices.",
-    "Data is collected for at least 16 days every 30 days.",
     "All transmissions are encrypted and securely stored.",
     "Patient consent is documented and stored for audit readiness.",
+    "Devices are FDA-cleared medical devices.",
+    "Data is collected for at least 16 days every 30 days.",
   ];
 
   const features = [
@@ -69,44 +71,98 @@ const RPMSoftware = () => {
 
   return (
     <main className="bg-white text-black">
-      <section className="relative h-screen w-full overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/assets/eVitals-bgrpmsw.png"
-            alt="RPM Software"
-            fill
-            className="object-cover blur-sm"
-            priority
-            quality={100}
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-[#2E1065]/70" />
-        </div>
+      {/* Hero Section - Reduced padding */}
+      <section className="relative w-full overflow-hidden bg-white pt-4 md:pt-6 lg:pt-10 pb-10">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center min-h-[80vh] md:min-h-[85vh]">
+            {/* Left Content */}
+            <div
+              className={`transition-all duration-1000 ${
+                isVisible
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 -translate-x-10"
+              }`}
+            >
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-[#0B2B5C]">
+                Smart, Secure, and Clinician-Friendly{" "}
+                <span className="block mt-2">RPM Software</span>
+              </h1>
+              <p className="text-lg md:text-xl mb-8 text-gray-700 leading-relaxed">
+                Our eVitals RPM platform empowers healthcare providers to
+                remotely track patients vitals in real time, detect early
+                warning signs, and intervene before conditions worsen—all while
+                meeting Medicare and private payer requirements for
+                reimbursement.
+              </p>
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-8">
+                <Link
+                  href="/demo"
+                  className="group bg-[#5ce1e6] hover:bg-[#1faaaf] text-white text-base font-semibold px-6 py-3 rounded-md shadow-md transition-all duration-300 inline-flex items-center gap-2 whitespace-nowrap flex-nowrap min-w-0"
+                >
+                  Request a Demo
+                  <ChevronsRight size={20} className="transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0" />
+                </Link>
+                <Link
+                  href="/rpm/RPMSoftware"
+                  className="bg-[#012c66] hover:bg-[#02224d] text-white backdrop-blur px-6 py-3 rounded-md text-base font-semibold transition inline-flex gap-2 flex-nowrap whitespace-nowrap"
+                >
+                  See Sample Billing Report
+                  <ChevronsRight size={20} className="transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0" />
+                </Link>
+              </div>
+              </div>
 
-        <div className="relative z-10 h-full flex items-center justify-center text-center px-6">
-          <div
-            className={`max-w-4xl transition-all duration-1000 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}
-          >
-            <p className="inline-block bg-[#B187E8]/70 text-white text-sm font-semibold px-4 py-1 rounded-full mb-4 shadow-lg animate-pulse">
-              Remote Patient Monitoring (RPM) Software - eVitals Platform
-            </p>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-white text-shadow-lg">
-              Smart, Secure, and Clinician-Friendly{" "}
-              <span className="text-[#B187E8] animate-pulse">RPM Software</span>
-            </h1>
-            <p className="text-xl md:text-1xl mb-8 text-white/90 max-w-3xl mx-auto text-shadow-lg">
-              Our eVitals RPM platform empowers healthcare providers to remotely
-              track patients vitals in real time, detect early warning signs,
-              and intervene before conditions worsen—all while meeting Medicare
-              and private payer requirements for reimbursement.
-            </p>
+            {/* Right Images Grid */}
+            <div
+              className={`relative transition-all duration-1000 delay-300 ${
+                isVisible
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 translate-x-10"
+              }`}
+            >
+              <div className="grid grid-cols-2 gap-4">
+                {/* Top Left - Large Image */}
+                <div className="col-span-1 row-span-2">
+                  <div className="relative h-full min-h-[350px] md:min-h-[400px] rounded-3xl overflow-hidden shadow-2xl">
+                    <Image
+                      src="/assets/Smart.png"
+                      alt="Patient monitoring blood pressure"
+                      fill
+                      className="object-cover"
+                      quality={100}
+                    />
+                  </div>
+                </div>
+
+                {/* Top Right */}
+                <div className="relative h-[170px] md:h-[190px] rounded-3xl overflow-hidden shadow-xl">
+                  <Image
+                    src="/assets/Smart1.jpeg"
+                    alt="Video consultation"
+                    fill
+                    className="object-cover"
+                    quality={100}
+                  />
+                </div>
+
+                {/* Bottom Right */}
+                <div className="relative h-[170px] md:h-[190px] rounded-3xl overflow-hidden shadow-xl">
+                  <Image
+                    src="/assets/Smart2.jpeg"
+                    alt="Patient using tablet"
+                    fill
+                    className="object-cover"
+                    quality={100}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* What is RPM Software Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-start">
@@ -122,72 +178,9 @@ const RPMSoftware = () => {
               </h2>
               <p className="text-gray-700 mb-6">
                 Remote Patient Monitoring (RPM) software collects, transmits,
-                and displays patients physiologic data from FDA-cleared devices,
+                and displays patient physiologic data from FDA-cleared devices,
                 giving providers continuous visibility between office visits.
               </p>
-              <div className="bg-[#F9F5FF] p-6 rounded-xl border-l-4 border-[#B187E8]">
-                <h3 className="text-xl font-semibold text-[#2E1065] mb-3">
-                  With eVitals, you can:
-                </h3>
-                <ul className="space-y-3 text-gray-700">
-                  <li className="flex items-start gap-3">
-                    <span className="mt-1">
-                      <svg
-                        className="w-5 h-5 text-[#B187E8]"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                    </span>
-                    <span>Monitor patients 24/7 with automated alerts</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="mt-1">
-                      <svg
-                        className="w-5 h-5 text-[#B187E8]"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                    </span>
-                    <span>Access a secure, HIPAA-compliant dashboard</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="mt-1">
-                      <svg
-                        className="w-5 h-5 text-[#B187E8]"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                    </span>
-                    <span>
-                      Integrate data with your EHR for streamlined workflows
-                    </span>
-                  </li>
-                </ul>
-              </div>
             </div>
             <div
               className={`relative min-h-[320px] rounded-2xl overflow-hidden transition-all duration-1000 delay-500 ${
@@ -205,9 +198,45 @@ const RPMSoftware = () => {
               />
             </div>
           </div>
+
+          {/* With eVitals Card */}
+          <div className="mt-12 flex justify-center">
+            <div className="bg-gradient-to-br from-[#C5D9E8] to-[#A8C5DD] p-8 rounded-3xl shadow-lg max-w-3xl w-full">
+              <h3 className="text-2xl md:text-3xl font-bold text-[#0B2B5C] mb-6">
+                With eVitals, you can
+              </h3>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3 text-[#0B2B5C]">
+                  <span className="mt-1 flex-shrink-0">
+                    <div className="w-2 h-2 bg-[#0B2B5C] rounded-full"></div>
+                  </span>
+                  <span className="text-lg font-medium">
+                    Monitor patients 24/7 with automated alerts
+                  </span>
+                </li>
+                <li className="flex items-start gap-3 text-[#0B2B5C]">
+                  <span className="mt-1 flex-shrink-0">
+                    <div className="w-2 h-2 bg-[#0B2B5C] rounded-full"></div>
+                  </span>
+                  <span className="text-lg font-medium">
+                    Access a secure, HIPAA-compliant dashboard
+                  </span>
+                </li>
+                <li className="flex items-start gap-3 text-[#0B2B5C]">
+                  <span className="mt-1 flex-shrink-0">
+                    <div className="w-2 h-2 bg-[#0B2B5C] rounded-full"></div>
+                  </span>
+                  <span className="text-lg font-medium">
+                    Integrate data with your EHR for streamlined workflows
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
+      {/* Key Features Section */}
       <section className="py-16 bg-[#F9F5FF]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
@@ -296,6 +325,7 @@ const RPMSoftware = () => {
         </div>
       </section>
 
+      {/* How It Works Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
@@ -312,7 +342,7 @@ const RPMSoftware = () => {
           >
             <Image
               src="/assets/eVitals-works.png"
-              alt="eVitals RPM Dashboard"
+              alt="How eVitals RPM Works"
               fill
               className="object-contain"
               quality={100}
@@ -321,6 +351,7 @@ const RPMSoftware = () => {
         </div>
       </section>
 
+      {/* Benefits for Providers Section */}
       <section className="py-20 bg-gradient-to-b from-[#F9F5FF] to-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
@@ -379,6 +410,7 @@ const RPMSoftware = () => {
         </div>
       </section>
 
+      {/* Compliance-Ready Section */}
       <section className="py-16 bg-[#F9F5FF] overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
@@ -425,6 +457,7 @@ const RPMSoftware = () => {
         </div>
       </section>
 
+      {/* CTA Section */}
       <CTASection />
     </main>
   );

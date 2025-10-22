@@ -50,7 +50,7 @@ const Header: React.FC = () => {
           {/* Right Section - HIPAA Logo */}
           <div className="flex items-center">
             <Image
-              src="/assets/Hippa.png"
+              src="/assets/hipa-logo.png"
               alt="HIPAA Logo"
               width={160}
               height={60}
