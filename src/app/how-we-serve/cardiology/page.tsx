@@ -1,7 +1,8 @@
 "use client";
-
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { ChevronsRight } from 'lucide-react';
 import { 
   Stethoscope, 
   Bell, 
@@ -182,9 +183,13 @@ const CardiologyPage = () => {
               <p className="text-gray-700 text-lg mb-6 max-w-xl">
                 Remote Patient Monitoring (RPM) programs can be seamlessly customized to enhance patient engagement, improve health outcomes, and maximize the success of your practice.
               </p>
-              <button className="bg-[#003d7a] hover:bg-[#002d5a] text-white px-6 py-3 rounded-lg font-semibold transition shadow-lg">
-                Request a Demo →
-              </button>
+              <Link
+                href="/demo"
+                className="group bg-[#5ce1e6] hover:bg-[#1faaaf] text-white text-base font-semibold px-6 py-3 rounded-md shadow-md transition-all duration-300 inline-flex items-center gap-2 whitespace-nowrap flex-nowrap min-w-0"
+              >
+                Request a Demo
+                <ChevronsRight size={20} className="transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0" />
+              </Link>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 20 }}
@@ -245,23 +250,29 @@ const CardiologyPage = () => {
           <div className="grid md:grid-cols-2 gap-8 items-start">
             {/* Left Side - Specialty List */}
             <div className="bg-gray-100 rounded-lg overflow-hidden shadow-lg">
-              <div className="bg-white p-4 border-b-2 border-gray-300">
-                <h3 className="font-semibold text-lg text-gray-800">Primary Care Providers</h3>
-              </div>
-              <div className="bg-[#003d7a] text-white p-4">
-                <h3 className="font-bold text-lg">Cardiologists</h3>
+              <div className="bg-[#012c66] p-4 border-b-2 border-gray-300">
+                <h3 className="font-bold text-lg text-white">Cardiology</h3>
               </div>
               <div className="bg-white p-4 border-b border-gray-200">
-                <h3 className="font-semibold text-gray-800">Nephrologists</h3>
+                <h3 className="font-semibold text-lg text-gray-800">Endocrinology</h3>
               </div>
               <div className="bg-white p-4 border-b border-gray-200">
-                <h3 className="font-semibold text-gray-800">Pulmonologists</h3>
+                <h3 className="font-semibold text-gray-800">Geriatrics</h3>
               </div>
               <div className="bg-white p-4 border-b border-gray-200">
-                <h3 className="font-semibold text-gray-800">Endocrinologists</h3>
+                <h3 className="font-semibold text-gray-800">Nephrology</h3>
               </div>
-              <div className="bg-white p-4">
-                <h3 className="font-semibold text-gray-800">Internal Medicine</h3>
+              <div className="bg-white p-4 border-b border-gray-200">
+                <h3 className="font-semibold text-gray-800">Neurology</h3>
+              </div>
+              <div className="bg-white p-4 border-b border-gray-200">
+                <h3 className="font-semibold text-gray-800">Oncoology</h3>
+              </div>
+              <div className="bg-white p-4 border-b border-gray-200">
+                <h3 className="font-semibold text-gray-800">Pulmonology</h3>
+              </div>
+              <div className="bg-white p-4 border-b border-gray-200">
+                <h3 className="font-semibold text-gray-800">Rheumatology</h3>
               </div>
             </div>
 
@@ -415,7 +426,7 @@ const CardiologyPage = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="bg-gradient-to-br from-[#003d7a] to-[#0052a3] text-white rounded-2xl p-8 md:p-12 shadow-2xl"
+              className="bg-gradient-to-br from-[#012c66] to-[#012c65] text-white rounded-2xl p-8 md:p-12 shadow-2xl"
             >
               <div className="flex items-start mb-6">
                 <Quote className="w-12 h-12 mr-4 flex-shrink-0 text-blue-300 opacity-50" />
@@ -453,7 +464,7 @@ const CardiologyPage = () => {
                   onClick={() => setCurrentTestimonial(index)}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
                     index === currentTestimonial
-                      ? "bg-[#003d7a] w-8"
+                      ? "bg-[#012c66] w-8"
                       : "bg-gray-300 hover:bg-gray-400"
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
@@ -465,7 +476,7 @@ const CardiologyPage = () => {
       </section>
 
       {/* CTA Banner */}
-      <section className="bg-[#003d7a] py-16 text-center text-white">
+      <section className="bg-[#012c66] py-16 text-center text-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Empowering Every Practice with Smart Monitoring
@@ -473,9 +484,13 @@ const CardiologyPage = () => {
           <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto">
             Whether you manage a small clinic or a large specialty group, eVitals provides an end-to-end IoT solution that includes HIPAA-complaint device integration, user engagement, and comprehensive patient education and support.
           </p>
-          <button className="bg-white text-[#003d7a] hover:bg-gray-100 px-8 py-4 rounded-lg font-bold text-lg transition shadow-lg">
-            Get Started →
-          </button>
+          <Link
+            href="/contact"
+            className="group bg-[#5ce1e6] hover:bg-[#1faaaf] text-white text-base font-semibold px-6 py-3 rounded-md shadow-md transition-all duration-300 inline-flex items-center gap-2 whitespace-nowrap flex-nowrap min-w-0"
+          >
+            Discover Cardiology RPM 
+            <ChevronsRight size={20} className="transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0" />
+          </Link>
         </div>
       </section>
 
