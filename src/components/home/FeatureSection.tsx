@@ -390,7 +390,7 @@ const FeatureSection = () => {
                             </div>
 
                             <Link
-                                href="/ReimbursementCalculator"
+                                href="/rpm/Reimbursement-and-Billing"
                                 className="group bg-[#001f54] text-white text-lg px-8 py-4 rounded-lg font-semibold hover:bg-[#001840] transition-colors w-full sm:w-auto inline-flex items-center justify-center gap-2 whitespace-nowrap"
                             >
                                 Check out the Reimbursement calculator

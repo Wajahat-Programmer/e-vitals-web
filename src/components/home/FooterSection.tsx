@@ -103,7 +103,7 @@ const FooterSection = () => {
               ].map((link) => {
                 let href = "#";
 
-                if (link === "Reimbursement") href = "/ReimbursementCalculator";
+                if (link === "Reimbursement") href = "/rpm/Reimbursement-and-Billing";
 
                 return (
                   <li key={link}>
