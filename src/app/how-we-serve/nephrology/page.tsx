@@ -1,23 +1,49 @@
 "use client";
-
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { JSX, useEffect, useState } from "react";
-import {
-  Stethoscope,
-  Bell,
-  UserPlus,
-  FileText,
-  Heart,
-  Clock,
-  Quote,
-} from "lucide-react";
-import Head from "next/head";
+import { useEffect, useState } from "react";
+import { 
+  Stethoscope, Bell, UserPlus, FileText, Heart, Clock, DollarSign, Activity, Users,BarChart3, ChevronsRight } from "lucide-react";
 
-const NephrologyPage: React.FC = () => {
-  const [isVisible, setIsVisible] = useState<boolean>(false);
-  const [currentTestimonial, setCurrentTestimonial] = useState<number>(0);
+const NephrologyPage = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const testimonials = [
+    {
+      quote:
+        "While we've encountered minor issues, the overall benefits far outweigh them. The platform has streamlined our processes, improved patient outcomes, and boosted revenue.",
+      name: "Jessica Putnam, MBA",
+      title: "Administrator",
+      company: "Virginia Cardiovascular Consultants",
+      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&h=200&fit=crop",
+    },
+    {
+      quote:
+        "Implementation of RPM services with Cardiac RMS was very efficient as they were reliable and prepared. Now that our office is providing RPM services, we have a scalable process to help patients become more compliant with their medications, feel connected to their care team, and receive interventions when necessary.",
+      name: "Wael Hamade",
+      title: "CEO",
+      company: "Jackson Cardiology Consultants, PLLC",
+      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&h=200&fit=crop",
+    },
+    {
+      quote:
+        "We will not get around introducing remote monitoring. I am confident that the healthcare of the future will be that centers that do not get on the train right now of remote monitoring will be outpaced and will be providing sub-perfect care compared to the competing systems.",
+      name: "Dr. Marat Fudim, MD",
+      title: "Advanced Heart Failure Specialist and Cardiologist",
+      company: "Duke University Medical Center",
+      image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=200&h=200&fit=crop",
+    },
+    {
+      quote:
+        "The technology enables our clinic to provide ambulatory cardiac arrhythmia care to patients across a wide geographic area spanning more than 40 counties in rural and suburban Illinois.",
+      name: "Dr. Ziad Issa, MD",
+      title: "Executive Director of Cardiac Electrophysiology",
+      company: "Prairie Heart Institute of Illinois",
+      image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=200&h=200&fit=crop",
+    },
+  ];
 
   useEffect(() => {
     setIsVisible(true);
@@ -25,480 +51,324 @@ const NephrologyPage: React.FC = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      nextTestimonial();
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [testimonials.length]);
 
-  const features: Array<{
-    icon: JSX.Element;
-    title: string;
-    description: string;
-    image: string;
-  }> = [
+  const features = [
     {
       icon: <Stethoscope className="w-8 h-8 text-purple-900" />,
-      title: "Kidney Function Monitoring",
+      title: "Real-Time Cardiac Monitoring",
       description:
-        "Track blood pressure, weight, and fluid retention for CKD and dialysis patients using FDA-cleared devices. Integration with wearables provides comprehensive data, reducing clinic visits by 35%.",
-      image: "/assets/kidney1.jpg",
+        "Track blood pressure, heart rate, and ECG for hypertension, heart failure, and arrhythmias with FDA-cleared devices. Integrates with wearables, reducing clinic visits by 45%.",
+      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop",
     },
     {
       icon: <Bell className="w-8 h-8 text-purple-900" />,
-      title: "Fluid and Vital Alerts",
+      title: "Early Intervention Alerts",
       description:
-        "Automated alerts for abnormal BP or weight gain with custom thresholds. Reduces emergencies by 30%, notifying caregivers.",
-      image: "/assets/Alert.png",
+        "Automated alerts for abnormal readings like irregular heartbeats. Custom thresholds reduce hospital readmissions by 30% for heart failure patients.",
+      image: "https://images.unsplash.com/photo-1584515933487-779824d29309?w=800&h=600&fit=crop",
     },
     {
       icon: <UserPlus className="w-8 h-8 text-purple-900" />,
       title: "Patient and Caregiver Engagement",
       description:
-        "Voice-guided devices and patient portal with educational resources. Achieves 80% adherence for kidney management.",
-      image: "/assets/CareGiver.jpg",
+        "Voice-guided devices in English/Spanish with caregiver portal. Boosts adherence to 88% for better cardiac health management.",
+      image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=600&fit=crop",
     },
     {
       icon: <FileText className="w-8 h-8 text-purple-900" />,
       title: "Reimbursement Optimization",
       description:
-        "Automate CPT 99453-99458 billing with audit reports. Increases reimbursable services by 20%.",
-      image: "/assets/RemOptimization.jpg",
+        "Automate billing for CPT 99453-99458 with audit-ready reports. Increases reimbursable services by 25%, saving 12 hours weekly.",
+      image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&h=600&fit=crop",
     },
   ];
 
-  const benefits: Array<{ title: string; description: string; image: string }> =
-    [
-      {
-        title: "Enhanced Kidney Care",
-        description:
-          "Continuous monitoring reduces complications by 35%. Improves quality of life by 50%.",
-        image: "/assets/kd.jpg",
-      },
-      {
-        title: "Time Efficiency for Providers",
-        description:
-          "EHR integration cuts check-ups by 30%. Nephrologists save 18 hours weekly.",
-        image: "/assets/Calendar.jpg",
-      },
-      {
-        title: "Improved Patient Compliance",
-        description:
-          "80% adherence with multilingual support. Reduces complications by 25%.",
-        image: "/assets/patient-W-Watch.jpg",
-      },
-      {
-        title: "Maximized Revenue",
-        description: "$3,500 monthly per physician. Cuts claim denials by 15%.",
-        image: "/assets/FinancialGraph.jpg",
-      },
-    ];
-
-  const testimonials = [
+  const benefits = [
     {
-      quote:
-        "Telehealth is a definite advantage for people who have kidney disease who are working or have young kids to care for at home.",
-      name: "Dr. Holly Koncicki, MD",
-      title: "Nephrologist",
-      company: "Mayo Clinic",
-      image:
-        "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=150&h=150&fit=crop&crop=face",
+      icon: <Heart className="w-12 h-12 text-purple-900 mb-4" />,
+      title: "Improved Cardiac Outcomes",
+      description:
+        "Continuous monitoring cuts complications and readmissions by 35%. Real-time data enhances survival and quality of life.",
     },
     {
-      quote:
-        "Remote patient monitoring in PD can be cost and time saving, improving patient outcomes significantly.",
-      name: "Dr. Priya D. Renal, MD",
-      title: "Nephrologist",
-      company: "Independent Practice",
-      image:
-        "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
+      icon: <Clock className="w-12 h-12 text-purple-900 mb-4" />,
+      title: "Time Efficiency for Providers",
+      description:
+        "EHR integration reduces check-ups by 40%. Cardiologists save 20 hours weekly for complex cases.",
     },
     {
-      quote:
-        "Telenephrology improved patient compliance with appointments and reduced no-show rates by 50%.",
-      name: "Dr. Antoine Azar, MD",
-      title: "Nephrologist",
-      company: "Nephrology Associates of Syracuse",
-      image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+      icon: <Users className="w-12 h-12 text-purple-900 mb-4" />,
+      title: "Enhanced Patient Compliance",
+      description:
+        "85% adherence with reminders and multilingual support. Reduces adverse events by 30%.",
     },
     {
-      quote:
-        "Home dialysis telehealth potentially can improve the patients quality of life with fewer clinic visits and greater treatment adherence.",
-      name: "Dr. Laura Gillis, MD",
-      title: "Consultant Nephrologist",
-      company: "Sheffield Teaching Hospital",
-      image:
-        "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&h=150&fit=crop&crop=face",
-    },
-    {
-      quote:
-        "RPM could have an important role in kidney disease management, ensuring patients access the best care.",
-      name: "Dr. Ashvin Kamath, MD",
-      title: "Nephrologist",
-      company: "Georgia Kidney Associates",
-      image:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
-    },
-    {
-      quote:
-        "Remote patient monitoring facilitates virtual consultations with nephrologists, reducing the need for in-person visits.",
-      name: "Dr. Qasim Butt, MD",
-      title: "Interventional Nephrologist",
-      company: "UCHealth",
-      image:
-        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+      icon: <DollarSign className="w-12 h-12 text-purple-900 mb-4" />,
+      title: "Maximized Revenue",
+      description:
+        "$5,000 monthly per physician via accurate coding. Cuts claim denials by 20%.",
     },
   ];
 
-  const nextTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setCurrentTestimonial(
-      (prev) => (prev - 1 + testimonials.length) % testimonials.length
-    );
-  };
+  const keyAdvantages = [
+    {
+      icon: <DollarSign className="w-16 h-16 text-blue-600" />,
+      title: "Reduce Healthcare Utilization Costs",
+      description: "Lower hospital readmissions and emergency visits through proactive monitoring"
+    },
+    {
+      icon: <Activity className="w-16 h-16 text-blue-600" />,
+      title: "Enhance Patient Compliance and Outcomes",
+      description: "Improve medication adherence and treatment plan following"
+    },
+    {
+      icon: <Users className="w-16 h-16 text-blue-600" />,
+      title: "Boost Patient-Provider Communication & Engagement",
+      description: "Enable real-time communication and strengthen patient relationships"
+    },
+    {
+      icon: <BarChart3 className="w-16 h-16 text-blue-600" />,
+      title: "Generate Actionable Clinical Data",
+      description: "Access comprehensive health data for informed clinical decisions"
+    }
+  ];
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-white via-white to-purple-50">
-      {/* SEO Meta Tags */}
-      <Head>
-        <title>
-          eVitals - Advanced Remote Patient Monitoring for Nephrology
-        </title>
-        <meta
-          name="description"
-          content="eVitals empowers nephrologists with an advanced remote patient monitoring platform for CKD and dialysis patients, featuring FDA-cleared devices, HIPAA-compliant security, and robust reimbursement support."
-        />
-        <meta
-          name="keywords"
-          content="remote patient monitoring, nephrology, CKD management, dialysis monitoring, telehealth, FDA-cleared devices, HIPAA-compliant, reimbursement support"
-        />
-        <meta name="robots" content="index, follow" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link
-          rel="canonical"
-          href="https://www.evitals.com/how-we-serve/nephrology"
-        />
-        <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "MedicalBusiness",
-              "name": "eVitals Nephrology Solutions",
-              "description": "eVitals provides an advanced remote patient monitoring platform with FDA-cleared devices, HIPAA-compliant data security, and reimbursement support for nephrology practices.",
-              "url": "https://www.evitals.com/how-we-serve/nephrology",
-              "logo": "https://www.evitals.com/logo.png",
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+1-800-123-4567",
-                "contactType": "customer service"
-              },
-              "sameAs": [
-                "https://www.linkedin.com/company/evitals",
-                "https://twitter.com/evitals_health"
-              ]
-            }
-          `}
-        </script>
-      </Head>
+    <div className="relative min-h-screen bg-white">
+      {/* Hero Banner */}
+      <section className="bg-gradient-to-r from-blue-50 to-purple-50 py-4 px-4">
+        <div className="container mx-auto text-center">
+          <p className="text-blue-900 font-semibold">
+            🏥 Two free Remote Monitoring for clinical trials org need! 
+            <a href="#" className="underline ml-2">Learn More</a>
+          </p>
+        </div>
+      </section>
 
       {/* Hero Section */}
-      <section className="relative h-[90vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/assets/k.jpg"
-            alt="Nephrology Remote Patient Monitoring Hero"
-            fill
-            className="object-cover kenburns"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
-        </div>
-        <div className="relative z-10 w-full text-left pl-6 md:pl-12 lg:pl-20 max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-white text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
-              Advanced <span className="text-[#B187E8]">Nephrology</span> RPM
-            </h1>
-            <p className="text-white text-base md:text-lg mb-4 max-w-3xl">
-              eVitals transforms nephrology care with a cutting-edge remote patient monitoring (RPM) platform for chronic kidney disease (CKD) and dialysis patients. Our FDA-cleared devices deliver real-time blood pressure, weight, and fluid retention data, enabling proactive care.
-            </p>
-            <p className="text-white text-base md:text-lg mb-8 max-w-3xl">
-              With seamless EHR integration and advanced analytics, eVitals reduces complications and improves patient outcomes. Join leading nephrology practices in embracing the future of kidney care.
-            </p>
-            <Link
-              href="/contact"
-              className="bg-[#36036B] hover:bg-[#4b0d8d] text-white text-base font-semibold px-6 py-3 rounded-md shadow-md transition duration-300 inline-block"
-            >
-              Schedule a FREE Demo →
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* RPM in Nephrology Section */}
-      <section className="py-16 bg-gray-100">
+      <section className="relative min-h-[600px] flex items-center">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-purple-900 mb-8 text-center">
-            RPM in Nephrology: Revolutionizing Kidney Care
-          </h2>
-          <div className="max-w-4xl mx-auto mb-8">
-            <p className="text-lg text-gray-800 mb-4">
-              Remote Patient Monitoring (RPM) in nephrology enables continuous tracking of blood pressure, weight, and fluid retention for CKD and dialysis patients. eVitals’ platform reduces clinic visits by 35% and enables early intervention for fluid overload and hypertension.
-            </p>
-            <p className="text-lg text-gray-800 mb-4">
-              Our system integrates with FDA-cleared devices and wearables, providing nephrologists with real-time data and trend analysis. This reduces complications by 35% and improves patient quality of life by 50%. Patients benefit from home-based care and fewer disruptions.
-            </p>
-            <p className="text-lg text-gray-800 mb-8">
-              HIPAA-compliant platform integrates with EHRs for seamless
-              telehealth, boosting satisfaction to 90%.
-            </p>
-          </div>
-          <Image
-            src="/assets/kidney.jpg"
-            alt="Nephrology RPM Illustration"
-            width={800}
-            height={400}
-            className="mx-auto rounded-lg shadow-md mb-8"
-          />
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-purple-900 mb-8 text-center">
-            How eVitals Supports Nephrology RPM
-          </h2>
-          <p className="text-lg text-gray-800 mb-8 max-w-3xl mx-auto text-center">
-            Tailored remote patient monitoring for nephrology with advanced
-            tech, engagement, and reimbursement.
-          </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-purple-100"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-              >
-                <div className="relative w-full h-48 mb-4">
-                  <Image
-                    src={feature.image}
-                    alt={feature.title}
-                    fill
-                    className="rounded-md object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                  />
-                </div>
-                <div className="mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-bold text-purple-900 mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-700">{feature.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="py-16 bg-gray-100">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-purple-900 mb-8 text-center">
-            Benefits of Nephrology Remote Monitoring
-          </h2>
-          <p className="text-lg text-gray-800 mb-8 max-w-3xl mx-auto text-center">
-            Measurable improvements in outcomes, efficiency, and satisfaction
-            for nephrologists and patients.
-          </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, idx) => (
-              <motion.div
-                key={idx}
-                className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300"
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-              >
-                <div className="relative w-full h-48 mb-4">
-                  <Image
-                    src={benefit.image}
-                    alt={benefit.title}
-                    fill
-                    className="rounded-md object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                  />
-                </div>
-                <h3 className="text-lg font-semibold text-purple-900 mb-2">
-                  {benefit.title}
-                </h3>
-                <p className="text-gray-700">{benefit.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section - Carousel */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-purple-900 mb-8 text-center">
-            What Nephrologists Say About eVitals RPM
-          </h2>
-          <p className="text-lg text-gray-800 mb-12 max-w-3xl mx-auto text-center">
-            Real testimonials from leading nephrology practices on remote
-            patient monitoring success.
-          </p>
-          <div className="relative mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
             <motion.div
-              key={currentTestimonial}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.3 }}
-              className="relative bg-gradient-to-b from-purple-900 to-purple-800 text-white rounded-xl p-8 shadow-2xl"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : -20 }}
+              transition={{ duration: 0.8 }}
             >
-              <div className="flex items-start mb-6">
-                <Quote className="w-8 h-8 mr-4 mt-1 flex-shrink-0 text-purple-200" />
-                <p className="text-xl italic leading-relaxed">
-                  {testimonials[currentTestimonial].quote}
-                </p>
-              </div>
-              <div className="flex items-center">
-                <div className="relative w-20 h-20 mr-6 overflow-hidden rounded-full">
-                  <Image
-                    src={testimonials[currentTestimonial].image}
-                    alt={`${testimonials[currentTestimonial].name} - ${testimonials[currentTestimonial].company}`}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-lg">
-                    {testimonials[currentTestimonial].name}
-                  </h4>
-                  <p className="text-purple-200">
-                    {testimonials[currentTestimonial].title}
-                  </p>
-                  <p className="text-purple-100">
-                    {testimonials[currentTestimonial].company}
-                  </p>
-                </div>
-              </div>
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+                <span className="text-black">Explore</span><br />
+                <span className="text-[#003d7a]">Remote Healthcare</span><br />
+                <span className="text-[#003d7a]">Solutions</span><br />
+                <span className="text-black">Tailored to Your Specialty</span>
+              </h1>
+              <p className="text-gray-700 text-lg mb-6 max-w-xl">
+                Remote Patient Monitoring (RPM) programs can be seamlessly customized to enhance patient engagement, improve health outcomes, and maximize the success of your practice.
+              </p>
+              <Link
+                href="/demo"
+                className="group bg-[#5ce1e6] hover:bg-[#1faaaf] text-white text-base font-semibold px-6 py-3 rounded-md shadow-md transition-all duration-300 inline-flex items-center gap-2 whitespace-nowrap flex-nowrap min-w-0"
+              >
+                Request a Demo
+                <ChevronsRight size={20} className="transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0" />
+              </Link>
             </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : 20 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative"
+            >
+              <img 
+                src="/assets/nephro.webp"
+                alt="Healthcare Professional with Patient"
+                className="rounded-lg shadow-xl w-full"
+              />
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
-            {/* Dots */}
-            <div className="flex justify-center mt-6 space-x-2">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentTestimonial(index)}
-                  className={`w-3 h-3 rounded-full transition-colors ${
-                    index === currentTestimonial
-                      ? "bg-purple-900"
-                      : "bg-purple-300"
-                  }`}
-                  aria-label={`Go to testimonial ${index + 1}`}
+      {/* RPM Solution Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <img 
+                src="/assets/remote-consultations.png"
+                alt="Healthcare Professional with Patient"
+                className="rounded-lg shadow-xl w-full"
+              />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-[#003d7a] mb-6">
+                Get a specialized Remote Patient Monitoring (RPM) solution
+              </h2>
+              <p className="text-gray-700 text-lg mb-4 leading-relaxed">
+                Remote healthcare solutions through RPM plays a vital role in healthcare delivery for patients with chronic conditions. Implementing an effective RPM program requires alignment with your medical specialty and the specific conditions you treat.
+              </p>
+              <p className="text-gray-700 text-lg leading-relaxed">
+                At e-Vitals, our comprehensive RPM devices, user-friendly platform, and professional clinical monitoring services are built to support your practice goals and enhance the quality of patient care.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+ 
+
+          {/* WHO WE SERVE Section */}
+          <section className="py-16 bg-white">
+            <div className="container mx-auto px-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#003d7a] mb-12 text-center">
+                WHO WE SERVE
+              </h2>
+              <div className="grid md:grid-cols-2 gap-8 items-start">
+                {/* Left Side - Specialty List */}
+                <div className="bg-gray-100 rounded-lg overflow-hidden shadow-lg">
+                  <div className="bg-white p-4 border-b-2 border-gray-300">
+                    <h3 className="font-semibold text-lg text-gray-800">Cardiology</h3>
+                  </div>
+                  <div className="bg-white p-4 border-b border-gray-200">
+                    <h3 className="font-semibold text-lg text-gray-800">Endocrinology</h3>
+                  </div>
+                  <div className="bg-white p-4 border-b border-gray-200">
+                    <h3 className="font-semibold text-gray-800">Geriatrics</h3>
+                  </div>
+                  <div className="bg-[#012c66] p-4 border-b border-gray-200">
+                    <h3 className="font-bold text-white">Nephrology</h3>
+                  </div>
+                  <div className="bg-white p-4 border-b border-gray-200">
+                    <h3 className="font-semibold text-gray-800">Neurology</h3>
+                  </div>
+                  <div className="bg-white p-4 border-b border-gray-200">
+                    <h3 className="font-semibold text-gray-800">Oncology</h3>
+                  </div>
+                  <div className="bg-white p-4 border-b border-gray-200">
+                    <h3 className="font-semibold text-gray-800">Pulmonology</h3>
+                  </div>
+                  <div className="bg-white p-4 border-b border-gray-200">
+                    <h3 className="font-semibold text-gray-800">Rheumatology</h3>
+                  </div>
+                </div>
+
+                {/* Right Side - Cardiologists Details */}
+                <div>
+                  <div className="mb-6">
+                    <img 
+                    src="/assets/nephrologists.jpeg"
+                    alt="Healthcare Professional with Patient"
+                    className="rounded-lg shadow-xl w-full"
+                  />
+                  </div>
+                  <h3 className="text-2xl font-bold text-[#003d7a] mb-4">Nephrology</h3>
+                  <p className="text-gray-700 text-lg leading-relaxed">
+                    Our RPM solutions empower cardiologists to monitor blood pressure, heart rate, weight, and cardiac rhythm in real time. Identify early signs of heart failure or arrhythmia exacerbation, reduce hospital readmissions, and deliver timely interventions for your cardiac patients.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+
+      {/* Maximize Care Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="bg-white rounded-4xl shadow-2xl p-12 text-center">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3F] mb-6">
+              Maximize Care and Growth
+            </h2>
+            
+            <h3 className="text-xl md:text-2xl font-bold text-black mb-8">
+              The Benefits of Remote Patient Monitoring (RPM)<br />
+              for Specialty Practices
+            </h3>
+            
+            <p className="text-gray-800 text-lg md:text-xl leading-relaxed max-w-4xl mx-auto">
+              Remote healthcare solutions are essential for driving efficiency and improving outcomes in modern specialty care. An advanced RPM platform can transform how your practice manages chronic conditions and interacts with patients.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Key Advantages Section */}
+      <section className="py-16 bg-white flex justify-center items-center">
+        <div className="w-full max-w-5xl px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#003d7a] mb-2">
+            Key Advantages of
+          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#003d7a] mb-12">
+            Implementing an RPM Platform
+          </h2>
+
+          <div className="space-y-10">
+            {/* Reusable Row Style */}
+            {[
+              {
+                img: "/assets/reduce-costs.jpg",
+                text: "Reduce Healthcare Utilization Costs",
+              },
+              {
+                img: "/assets/patient-compliance.jpeg",
+                text: "Enhance Patient Compliance and Outcomes",
+              },
+              {
+                img: "/assets/patient-provider.jpg",
+                text: "Boost Patient-Provider Communication & Engagement",
+              },
+              {
+                img: "/assets/clinical-data.jpeg",
+                text: "Generate Actionable Clinical Data",
+              },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="flex flex-col md:flex-row items-center justify-center md:space-x-8 space-y-4 md:space-y-0"
+              >
+                <img
+                  src={item.img}
+                  alt={item.text}
+                  className="w-40 h-40 object-cover rounded-lg shadow-md"
                 />
-              ))}
-            </div>
+                <div className="md:w-[350px] flex justify-center">
+                  <h3 className="text-xl md:text-2xl font-semibold text-gray-900 text-center md:text-left leading-snug">
+                    {item.text}
+                  </h3>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Implementation Process Section */}
-      <section className="py-16 bg-gray-100">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-purple-900 mb-8 text-center">
-            Seamless RPM Integration for Nephrology
-          </h2>
-          <p className="text-lg text-gray-800 mb-8 max-w-3xl mx-auto text-center">
-            Easy setup with dedicated support for telehealth adoption.
-          </p>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-xl shadow-md">
-              <Heart className="w-8 h-8 text-purple-900 mb-4 mx-auto" />
-              <h3 className="text-xl font-semibold text-purple-900 mb-2">
-                Step 1: Assessment
-              </h3>
-              <p className="text-gray-700">
-                Customize for CKD and dialysis needs.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-xl shadow-md">
-              <Clock className="w-8 h-8 text-purple-900 mb-4 mx-auto" />
-              <h3 className="text-xl font-semibold text-purple-900 mb-2">
-                Step 2: Implementation
-              </h3>
-              <p className="text-gray-700">
-                Devices, training, and EHR setup in 2 weeks.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-xl shadow-md">
-              <UserPlus className="w-8 h-8 text-purple-900 mb-4 mx-auto" />
-              <h3 className="text-xl font-semibold text-purple-900 mb-2">
-                Step 3: Support
-              </h3>
-              <p className="text-gray-700">
-                Ongoing billing and 99.9% uptime assistance.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      
+            
 
-      {/* Trust Section */}
-      <section className="relative py-20 min-h-[600px] flex justify-center items-center text-center">
-        <div className="absolute inset-0">
-          <Image
-            src="/assets/nephrology-trust-image.png"
-            alt="Trusted Nephrology RPM Provider"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gray-900/50" />
-        </div>
-        <div className="relative z-10 flex flex-col items-center justify-center max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 text-shadow-sm">
-            Trusted by Nephrologists Nationwide
+      {/* CTA Banner */}
+      <section className="bg-[#003d7a] py-16 text-center text-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Empowering Every Practice with Smart Monitoring
           </h2>
-          <p className="text-lg text-white mb-6 text-shadow-sm">
-            300+ practices, 6,000+ patients monitored. Reduces complications by
-            35%, boosts satisfaction by 40%.
+          <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto">
+            Whether you manage a small clinic or a large specialty group, eVitals provides an end-to-end IoT solution that includes HIPAA-compliant device integration, user engagement, and comprehensive patient education and support.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-white text-purple-900 px-8 py-3 rounded-full hover:bg-gray-100 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            className="group bg-[#5ce1e6] hover:bg-[#1faaaf] text-white text-base font-semibold px-6 py-3 rounded-md shadow-md transition-all duration-300 inline-flex items-center gap-2 whitespace-nowrap flex-nowrap min-w-0"
           >
-            Discover Nephrology RPM →
-          </Link>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 text-center">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-purple-900 mb-6">
-            Transform Your Nephrology Practice
-          </h2>
-          <p className="text-lg text-gray-800 mb-8 max-w-3xl mx-auto">
-            Enhance outcomes and revenue with eVitals remote patient monitoring.
-            Schedule a demo today.
-          </p>
-          <Link
-            href="/contact"
-            className="bg-[#36036B] hover:bg-[#4b0d8d] text-white text-base font-semibold px-6 py-3 rounded-md shadow-md transition duration-300 inline-block"
-          >
-            Schedule a FREE Demo →
+            Discover Nephrology RPM 
+            <ChevronsRight size={20} className="transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0" />
           </Link>
         </div>
       </section>

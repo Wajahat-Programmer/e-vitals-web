@@ -172,14 +172,12 @@ const CardiologyPage = () => {
               animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : -20 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-4xl md:text-5xl font-bold text-[#003d7a] mb-4 leading-tight">
-                Explore<br />
-                Remote Healthcare<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                  Solutions
-                </span><br />
-                Tailored to Your Specialty
-              </h1>
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+              <span className="text-black">Explore</span><br />
+              <span className="text-[#012c66]">Remote Healthcare</span><br />
+              <span className="text-[#012c66]">Solutions</span><br />
+              <span className="text-black">Tailored to Your Specialty</span>
+            </h1>
               <p className="text-gray-700 text-lg mb-6 max-w-xl">
                 Remote Patient Monitoring (RPM) programs can be seamlessly customized to enhance patient engagement, improve health outcomes, and maximize the success of your practice.
               </p>
@@ -198,7 +196,7 @@ const CardiologyPage = () => {
               className="relative"
             >
               <img 
-                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop"
+                src="/assets/remote-consultations.png"
                 alt="Healthcare Professional with Patient"
                 className="rounded-lg shadow-xl w-full"
               />
@@ -217,9 +215,9 @@ const CardiologyPage = () => {
               viewport={{ once: true }}
             >
               <img 
-                src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=600&h=800&fit=crop"
-                alt="Healthcare Support"
-                className="rounded-lg shadow-lg"
+                src="/assets/patient.jpeg"
+                alt="Healthcare Professional with Patient"
+                className="rounded-lg shadow-xl w-full"
               />
             </motion.div>
             <motion.div
@@ -266,7 +264,7 @@ const CardiologyPage = () => {
                 <h3 className="font-semibold text-gray-800">Neurology</h3>
               </div>
               <div className="bg-white p-4 border-b border-gray-200">
-                <h3 className="font-semibold text-gray-800">Oncoology</h3>
+                <h3 className="font-semibold text-gray-800">Oncology</h3>
               </div>
               <div className="bg-white p-4 border-b border-gray-200">
                 <h3 className="font-semibold text-gray-800">Pulmonology</h3>
@@ -280,12 +278,12 @@ const CardiologyPage = () => {
             <div>
               <div className="mb-6">
                 <img 
-                  src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=400&fit=crop"
-                  alt="Cardiology Care"
-                  className="rounded-lg shadow-lg w-full"
-                />
+                src="/assets/cardiology.jpeg"
+                alt="Healthcare Professional with Patient"
+                className="rounded-lg shadow-xl w-full"
+              />
               </div>
-              <h3 className="text-2xl font-bold text-[#003d7a] mb-4">Cardiologists</h3>
+              <h3 className="text-2xl font-bold text-[#003d7a] mb-4">Cardiology</h3>
               <p className="text-gray-700 text-lg leading-relaxed">
                 Our RPM solutions empower cardiologists to monitor blood pressure, heart rate, weight, and cardiac rhythm in real time. Identify early signs of heart failure or arrhythmia exacerbation, reduce hospital readmissions, and deliver timely interventions for your cardiac patients.
               </p>
@@ -295,50 +293,70 @@ const CardiologyPage = () => {
       </section>
 
       {/* Maximize Care Section */}
-      <section className="py-16 bg-gradient-to-br from-blue-50 to-purple-50">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#003d7a] mb-4">
-            Maximize Care and Growth
-          </h2>
-          <h3 className="text-xl font-semibold text-gray-700 mb-6">
-            The Benefits of Remote Patient Monitoring (RPM) for Specialty Practices
-          </h3>
-          <p className="text-gray-700 text-lg max-w-3xl mx-auto leading-relaxed">
-            Remote healthcare solutions are essential for driving efficiency and improving outcomes in modern specialty care. An advanced RPM platform can transform how your practice manages chronic conditions and interacts with patients.
-          </p>
+      <section className="py-16 bg-white">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="bg-white rounded-4xl shadow-2xl p-12 text-center">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3F] mb-6">
+              Maximize Care and Growth
+            </h2>
+            
+            <h3 className="text-xl md:text-2xl font-bold text-black mb-8">
+              The Benefits of Remote Patient Monitoring (RPM)<br />
+              for Specialty Practices
+            </h3>
+            
+            <p className="text-gray-800 text-lg md:text-xl leading-relaxed max-w-4xl mx-auto">
+              Remote healthcare solutions are essential for driving efficiency and improving outcomes in modern specialty care. An advanced RPM platform can transform how your practice manages chronic conditions and interacts with patients.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Key Advantages Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#003d7a] mb-12 text-center">
-            Key Advantages of Implementing an RPM Platform
+      <section className="py-16 bg-white flex justify-center items-center">
+        <div className="w-full max-w-5xl px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#003d7a] mb-2">
+            Key Advantages of
           </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {keyAdvantages.map((advantage, index) => (
-              <motion.div
+          <h2 className="text-3xl md:text-4xl font-bold text-[#003d7a] mb-12">
+            Implementing an RPM Platform
+          </h2>
+
+          <div className="space-y-10">
+            {/* Reusable Row Style */}
+            {[
+              {
+                img: "/assets/reduce-costs.jpg",
+                text: "Reduce Healthcare Utilization Costs",
+              },
+              {
+                img: "/assets/patient-compliance.jpeg",
+                text: "Enhance Patient Compliance and Outcomes",
+              },
+              {
+                img: "/assets/patient-provider.jpg",
+                text: "Boost Patient-Provider Communication & Engagement",
+              },
+              {
+                img: "/assets/clinical-data.jpeg",
+                text: "Generate Actionable Clinical Data",
+              },
+            ].map((item, index) => (
+              <div
                 key={index}
-                className="flex items-start space-x-6 p-6 bg-gray-50 rounded-lg hover:shadow-lg transition"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                className="flex flex-col md:flex-row items-center justify-center md:space-x-8 space-y-4 md:space-y-0"
               >
-                <div className="flex-shrink-0">
-                  <div className="bg-blue-50 p-4 rounded-lg">
-                    {advantage.icon}
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
-                    {advantage.title}
+                <img
+                  src={item.img}
+                  alt={item.text}
+                  className="w-40 h-40 object-cover rounded-lg shadow-md"
+                />
+                <div className="md:w-[350px] flex justify-center">
+                  <h3 className="text-xl md:text-2xl font-semibold text-gray-900 text-center md:text-left leading-snug">
+                    {item.text}
                   </h3>
-                  <p className="text-gray-600">
-                    {advantage.description}
-                  </p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -348,7 +366,7 @@ const CardiologyPage = () => {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-[#003d7a] mb-8 text-center">
-            How eVitals Supports Cardiology RPM
+            How e-Vitals Supports Cardiology RPM
           </h2>
           <p className="text-lg text-gray-700 mb-12 max-w-3xl mx-auto text-center">
             Tailored remote patient monitoring for cardiology with advanced technology, engagement tools, and reimbursement support.
@@ -382,7 +400,7 @@ const CardiologyPage = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 bg-white">
+      {/* <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-[#003d7a] mb-8 text-center">
             Benefits of Cardiology Remote Monitoring
@@ -409,71 +427,7 @@ const CardiologyPage = () => {
             ))}
           </div>
         </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#003d7a] mb-8 text-center">
-            What Cardiologists Say About eVitals RPM
-          </h2>
-          <p className="text-lg text-gray-700 mb-12 max-w-3xl mx-auto text-center">
-            Real testimonials from leading cardiology practices on remote patient monitoring success.
-          </p>
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              key={currentTestimonial}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              className="bg-gradient-to-br from-[#012c66] to-[#012c65] text-white rounded-2xl p-8 md:p-12 shadow-2xl"
-            >
-              <div className="flex items-start mb-6">
-                <Quote className="w-12 h-12 mr-4 flex-shrink-0 text-blue-300 opacity-50" />
-                <p className="text-xl md:text-2xl italic leading-relaxed">
-                  {testimonials[currentTestimonial].quote}
-                </p>
-              </div>
-              <div className="flex items-center mt-8">
-                <div className="relative w-20 h-20 mr-6 overflow-hidden rounded-full border-4 border-white shadow-lg flex-shrink-0">
-                  <img
-                    src={testimonials[currentTestimonial].image}
-                    alt={testimonials[currentTestimonial].name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-bold text-xl mb-1">
-                    {testimonials[currentTestimonial].name}
-                  </h4>
-                  <p className="text-blue-200 mb-1">
-                    {testimonials[currentTestimonial].title}
-                  </p>
-                  <p className="text-blue-100 text-sm">
-                    {testimonials[currentTestimonial].company}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Dots Navigation */}
-            <div className="flex justify-center mt-8 space-x-3">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentTestimonial(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentTestimonial
-                      ? "bg-[#012c66] w-8"
-                      : "bg-gray-300 hover:bg-gray-400"
-                  }`}
-                  aria-label={`Go to testimonial ${index + 1}`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      </section> */}
 
       {/* CTA Banner */}
       <section className="bg-[#012c66] py-16 text-center text-white">
@@ -493,47 +447,6 @@ const CardiologyPage = () => {
           </Link>
         </div>
       </section>
-
-      {/* Footer */}
-      {/* <footer className="bg-gray-100 py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="bg-[#003d7a] p-1 rounded">
-                  <Heart className="w-6 h-6 text-white" />
-                </div>
-                <span className="text-xl font-bold text-[#003d7a]">e-Vitals</span>
-              </div>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                eVitals is a cutting-edge Remote Patient Monitoring (RPM) platform that empowers healthcare providers, enhances patient outcomes, and facilitates efficient, smart compliance, and ensures quality monitoring with eVitals.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-bold text-[#003d7a] mb-4">Product</h4>
-              <ul className="space-y-2 text-gray-600">
-                <li><a href="#" className="hover:text-[#003d7a] transition">Solutions</a></li>
-                <li><a href="#" className="hover:text-[#003d7a] transition">How it Works</a></li>
-                <li><a href="#" className="hover:text-[#003d7a] transition">Features</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold text-[#003d7a] mb-4">Resources</h4>
-              <ul className="space-y-2 text-gray-600">
-                <li><a href="#" className="hover:text-[#003d7a] transition">Reimbursement</a></li>
-                <li><a href="#" className="hover:text-[#003d7a] transition">FAQ</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold text-[#003d7a] mb-4">Contact</h4>
-              <p className="text-gray-600">info@evitalsrpm.com</p>
-            </div>
-          </div>
-          <div className="border-t border-gray-300 mt-8 pt-8 text-center text-gray-500 text-sm">
-            <p>© 2025 e-Vitals. All rights reserved.</p>
-          </div>
-        </div>
-      </footer> */}
     </div>
   );
 };

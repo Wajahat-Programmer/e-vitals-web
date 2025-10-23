@@ -172,13 +172,11 @@ const PulmonologyPage = () => {
               animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : -20 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-4xl md:text-5xl font-bold text-[#012c66] mb-4 leading-tight">
-                Explore<br />
-                Remote Healthcare <br />
-                <span className=" bg-clip-text text-[#012c66]">
-                  Solutions
-                </span><br />
-                Tailored to Your Specialty
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+                <span className="text-black">Explore</span><br />
+                <span className="text-[#003d7a]">Remote Healthcare</span><br />
+                <span className="text-[#003d7a]">Solutions</span><br />
+                <span className="text-black">Tailored to Your Specialty</span>
               </h1>
               <p className="text-gray-700 text-lg mb-6 max-w-xl">
                 Remote Patient Monitoring (RPM) programs can be seamlessly customized to enhance patient engagement, improve health outcomes, and maximize the success of your practice.
@@ -198,7 +196,7 @@ const PulmonologyPage = () => {
               className="relative"
             >
               <img 
-                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop"
+                src="/assets/pulmo.jpg"
                 alt="Healthcare Professional with Patient"
                 className="rounded-lg shadow-xl w-full"
               />
@@ -217,9 +215,9 @@ const PulmonologyPage = () => {
               viewport={{ once: true }}
             >
               <img 
-                src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=600&h=800&fit=crop"
-                alt="Healthcare Support"
-                className="rounded-lg shadow-lg"
+                src="/assets/remote-consultations.png"
+                alt="Healthcare Professional with Patient"
+                className="rounded-lg shadow-xl w-full"
               />
             </motion.div>
             <motion.div
@@ -266,7 +264,7 @@ const PulmonologyPage = () => {
                 <h3 className="font-semibold text-gray-800">Neurology</h3>
               </div>
               <div className="bg-white p-4 border-b border-gray-200">
-                <h3 className="font-semibold text-gray-800">Oncoology</h3>
+                <h3 className="font-semibold text-gray-800">Oncology</h3>
               </div>
               <div className="bg-[#012c66] p-4 border-b border-gray-200">
                 <h3 className="font-bold text-white">Pulmonology</h3>
@@ -280,14 +278,16 @@ const PulmonologyPage = () => {
             <div>
               <div className="mb-6">
                 <img 
-                  src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=400&fit=crop"
-                  alt="Cardiology Care"
-                  className="rounded-lg shadow-lg w-full"
-                />
+                src="/assets/lungs.jpg"
+                alt="Healthcare Professional with Patient"
+                className="rounded-lg shadow-xl w-full"
+              />
               </div>
-              <h3 className="text-2xl font-bold text-[#003d7a] mb-4">Pulmonologists</h3>
+              <h3 className="text-2xl font-bold text-[#003d7a] mb-4">Pulmonology</h3>
               <p className="text-gray-700 text-lg leading-relaxed">
-                e-Vitals supports pulmonary practices by enabling remote monitoring of oxygen saturation, respiratory rate, and peak flow. Manage COPD and other chronic respiratory conditions with consistent, actionable data between office visits.
+                e-Vitals supports pulmonary practices by enabling remote monitoring of oxygen saturation, 
+                respiratory rate, and peak flow. Manage COPD and other chronic respiratory conditions with 
+                consistent, actionable data between office visits.
               </p>
             </div>
           </div>
@@ -295,50 +295,70 @@ const PulmonologyPage = () => {
       </section>
 
       {/* Maximize Care Section */}
-      <section className="py-16 bg-gradient-to-br from-blue-50 to-purple-50">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#003d7a] mb-4">
-            Maximize Care and Growth
-          </h2>
-          <h3 className="text-xl font-semibold text-gray-700 mb-6">
-            The Benefits of Remote Patient Monitoring (RPM) for Specialty Practices
-          </h3>
-          <p className="text-gray-700 text-lg max-w-3xl mx-auto leading-relaxed">
-            Remote healthcare solutions are essential for driving efficiency and improving outcomes in modern specialty care. An advanced RPM platform can transform how your practice manages chronic conditions and interacts with patients.
-          </p>
+      <section className="py-16 bg-white">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="bg-white rounded-4xl shadow-2xl p-12 text-center">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3F] mb-6">
+              Maximize Care and Growth
+            </h2>
+            
+            <h3 className="text-xl md:text-2xl font-bold text-black mb-8">
+              The Benefits of Remote Patient Monitoring (RPM)<br />
+              for Specialty Practices
+            </h3>
+            
+            <p className="text-gray-800 text-lg md:text-xl leading-relaxed max-w-4xl mx-auto">
+              Remote healthcare solutions are essential for driving efficiency and improving outcomes in modern specialty care. An advanced RPM platform can transform how your practice manages chronic conditions and interacts with patients.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Key Advantages Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#003d7a] mb-12 text-center">
-            Key Advantages of Implementing an RPM Platform
+      <section className="py-16 bg-white flex justify-center items-center">
+        <div className="w-full max-w-5xl px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#003d7a] mb-2">
+            Key Advantages of
           </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {keyAdvantages.map((advantage, index) => (
-              <motion.div
+          <h2 className="text-3xl md:text-4xl font-bold text-[#003d7a] mb-12">
+            Implementing an RPM Platform
+          </h2>
+
+          <div className="space-y-10">
+            {/* Reusable Row Style */}
+            {[
+              {
+                img: "/assets/reduce-costs.jpg",
+                text: "Reduce Healthcare Utilization Costs",
+              },
+              {
+                img: "/assets/patient-compliance.jpeg",
+                text: "Enhance Patient Compliance and Outcomes",
+              },
+              {
+                img: "/assets/patient-provider.jpg",
+                text: "Boost Patient-Provider Communication & Engagement",
+              },
+              {
+                img: "/assets/clinical-data.jpeg",
+                text: "Generate Actionable Clinical Data",
+              },
+            ].map((item, index) => (
+              <div
                 key={index}
-                className="flex items-start space-x-6 p-6 bg-gray-50 rounded-lg hover:shadow-lg transition"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                className="flex flex-col md:flex-row items-center justify-center md:space-x-8 space-y-4 md:space-y-0"
               >
-                <div className="flex-shrink-0">
-                  <div className="bg-blue-50 p-4 rounded-lg">
-                    {advantage.icon}
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
-                    {advantage.title}
+                <img
+                  src={item.img}
+                  alt={item.text}
+                  className="w-40 h-40 object-cover rounded-lg shadow-md"
+                />
+                <div className="md:w-[350px] flex justify-center">
+                  <h3 className="text-xl md:text-2xl font-semibold text-gray-900 text-center md:text-left leading-snug">
+                    {item.text}
                   </h3>
-                  <p className="text-gray-600">
-                    {advantage.description}
-                  </p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

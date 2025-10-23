@@ -607,50 +607,84 @@ const RPMCalculator = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* Image Card 1 */}
-            <div className="relative rounded-xl overflow-hidden shadow-lg">
-              <img 
-                src="/api/placeholder/500/300" 
-                alt="Professional calculating"
-                className="w-full h-64 object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
-                <div className="p-6 text-white">
-                  <div className="bg-blue-600 inline-block px-3 py-1 rounded text-sm font-bold mb-2">99453</div>
-                  <h3 className="text-xl font-bold mb-1">Setup/Education</h3>
-                  <p className="text-sm text-white/90">Initial setup and patient education (one-time per new RPM patient - includes (one-time fee)</p>
-                  <div className="mt-2">
-                    <span className="text-2xl font-bold">• 99454</span>
-                  </div>
-                  <p className="text-sm text-white/90 mt-1">Device Supply</p>
-                  <p className="text-xs text-white/80">Supply and monitoring of remote devices with daily recording or programmed alerts (per 30 days/16+ days of data - one billable unit per calendar month)</p>
-                </div>
+          <div className="grid md:grid-cols-2 gap-6 items-start">
+            {/* Left Column - Images */}
+            <div className="space-y-6">
+              <div className="rounded-xl overflow-hidden shadow-lg">
+                <img 
+                  src="/assets/calculator.png" 
+                  alt="Professional calculating"
+                  className="w-full h-64 object-cover"
+                />
+              </div>
+              <div className="rounded-xl overflow-hidden shadow-lg">
+                <img 
+                  src="/assets/stethoscope.png" 
+                  alt="Calculator and stethoscope"
+                  className="w-full h-64 object-cover"
+                />
               </div>
             </div>
 
-            {/* Image Card 2 */}
-            <div className="relative rounded-xl overflow-hidden shadow-lg">
-              <img 
-                src="/api/placeholder/500/300" 
-                alt="Calculator and stethoscope"
-                className="w-full h-64 object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
-                <div className="p-6 text-white">
-                  <div className="bg-purple-600 inline-block px-3 py-1 rounded text-sm font-bold mb-2">99457</div>
-                  <h3 className="text-xl font-bold mb-1">First 20 Min</h3>
-                  <p className="text-sm text-white/90">Interactive communication (first 20 minutes per calendar month, one billable unit per calendar month)</p>
-                  <div className="mt-2">
-                    <span className="text-2xl font-bold">• 99458</span>
+            {/* Right Column - Code Information Boxes */}
+            <div className="space-y-0">
+              {/* 99453 - Gray Background */}
+              <div className="bg-gray-200 p-4 border-b-2 border-white">
+                <div className="flex items-start gap-2">
+                  <span className="text-black font-bold">•</span>
+                  <div>
+                    <p className="text-black font-bold">99453:</p>
+                    <p className="text-blue-700 font-bold">Setup/Education</p>
+                    <p className="text-black text-sm">New patients enrolled this month × entered rate (one-time per patient).</p>
                   </div>
-                  <p className="text-sm text-white/90 mt-1">Additional Time</p>
-                  <p className="text-xs text-white/80">Additional interactive communication every 20 min (up to 2 units)</p>
-                  <div className="mt-2">
-                    <span className="text-2xl font-bold">• 99091</span>
+                </div>
+              </div>
+
+              {/* 99454 - Purple Background */}
+              <div className="bg-purple-200 p-4 border-b-2 border-white">
+                <div className="flex items-start gap-2">
+                  <span className="text-black font-bold">•</span>
+                  <div>
+                    <p className="text-black font-bold">99454</p>
+                    <p className="text-blue-700 font-bold">Device Supply</p>
+                    <p className="text-black text-sm">Enrolled × % meeting ≥16 days of data × rate (billed once each eligible month).</p>
                   </div>
-                  <p className="text-sm text-white/90 mt-1">Physiological Data</p>
-                  <p className="text-xs text-white/80">Number of patients with collection and interpretation of physiological data (first 30 monthly)</p>
+                </div>
+              </div>
+
+              {/* 99457 - Gray Background */}
+              <div className="bg-gray-200 p-4 border-b-2 border-white">
+                <div className="flex items-start gap-2">
+                  <span className="text-black font-bold">•</span>
+                  <div>
+                    <p className="text-black font-bold">99457:</p>
+                    <p className="text-blue-700 font-bold">First 20 Min</p>
+                    <p className="text-black text-sm">Enrolled × % meeting ≥20 minutes × rate (billed once per eligible month).</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* 99458 - Purple Background */}
+              <div className="bg-purple-200 p-4 border-b-2 border-white">
+                <div className="flex items-start gap-2">
+                  <span className="text-black font-bold">•</span>
+                  <div>
+                    <p className="text-black font-bold">99458:</p>
+                    <p className="text-blue-700 font-bold">Additional Time</p>
+                    <p className="text-black text-sm">99457 patients × average extra 20-min units × rate (can be 0, 1, 2…units).</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* 99091 - Gray Background */}
+              <div className="bg-gray-200 p-4">
+                <div className="flex items-start gap-2">
+                  <span className="text-black font-bold">•</span>
+                  <div>
+                    <p className="text-black font-bold">99091:</p>
+                    <p className="text-blue-700 font-bold">Physiologic Data</p>
+                    <p className="text-black text-sm">Number of patients × rate (collection and interpretation of physiologic data per month).</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -694,6 +728,48 @@ const RPMCalculator = () => {
                 <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Maximize Your RPM Revenue Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            {/* Left Column - Image */}
+            <div className="relative">
+              <div className="rounded-3xl overflow-hidden shadow-2xl">
+                <img 
+                  src="/assets/doctor-writing.jpeg" 
+                  alt="Healthcare professional writing"
+                  className="w-full h-[600px] object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Right Column - Content */}
+            <div className="space-y-6">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3F] leading-tight">
+                Maximize Your RPM Revenue with eVitals
+              </h2>
+              
+              <p className="text-lg text-gray-700 leading-relaxed text-justify">
+                Unlock the full financial potential of Remote Patient Monitoring with eVitals' comprehensive platform. Our team customizes solutions to your practice's needs, ensuring seamless integration and maximum reimbursement. Schedule a personalized demo today to see how eVitals can transform your practice's revenue and patient care.
+              </p>
+
+              <div className="pt-4">
+                <Link
+                    href="/demo"
+                    className="group bg-[#5ce1e6] hover:bg-[#1faaaf] text-white text-base font-semibold px-6 py-3 rounded-md shadow-md transition-all duration-300 inline-flex items-center gap-2"
+                  >
+                    Request a Demo
+                    <ChevronsRight
+                      size={18}
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                  />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
