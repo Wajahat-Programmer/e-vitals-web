@@ -250,7 +250,7 @@ const NeurologyPage = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-[#012c66] mb-12 text-center">
             WHO WE SERVE
           </h2>
-          <div className="grid md:grid-cols-2 gap-8 items-start">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
             {/* Left Side - Specialty List */}
             <div className="bg-gray-100 rounded-lg overflow-hidden shadow-lg">
               <div className="bg-white p-4 border-b-2 border-gray-300">
@@ -294,7 +294,7 @@ const NeurologyPage = () => {
                 platform designed for epilepsy, stroke recovery, Parkinson’s, and other neurological disorders. 
                 Our FDA-cleared devices and HIPAA-compliant technology deliver real-time data, empowering neurologists 
                 to provide proactive, personalized care from anywhere. With seamless EHR integration and advanced analytics, 
-                eVitals enables precise treatment adjustments and early intervention, reducing hospital visits and improving 
+                e-Vitals enables precise treatment adjustments and early intervention, reducing hospital visits and improving 
                 patient quality of life. Join the future of neurology with a platform trusted by leading practices nationwide.
                 </p>
             </div>

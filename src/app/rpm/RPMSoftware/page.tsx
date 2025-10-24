@@ -165,10 +165,10 @@ const RPMSoftware = () => {
       {/* What is RPM Software Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-start">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Image on the Left */}
             <div
-              className={`relative min-h-[320px] rounded-2xl overflow-hidden transition-all duration-1000 delay-500 ${
+              className={`relative min-h-[320px] md:h-[420px] rounded-2xl overflow-hidden transition-all duration-1000 delay-500 ${
                 isVisible
                   ? "opacity-100 translate-x-0"
                   : "opacity-0 -translate-x-10"

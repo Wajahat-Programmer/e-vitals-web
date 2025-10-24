@@ -238,7 +238,7 @@ const NephrologyPage = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-[#012c66] mb-12 text-center">
                 WHO WE SERVE
               </h2>
-              <div className="grid md:grid-cols-2 gap-8 items-start">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
                 {/* Left Side - Specialty List */}
                 <div className="bg-gray-100 rounded-lg overflow-hidden shadow-lg">
                   <div className="bg-white p-4 border-b-2 border-gray-300">
@@ -371,7 +371,7 @@ const NephrologyPage = () => {
             Empowering Every Practice with Smart Monitoring
           </h2>
           <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto">
-            Whether you manage a small clinic or a large specialty group, eVitals provides an 
+            Whether you manage a small clinic or a large specialty group, e-Vitals provides an 
             end-to-end IoT solution that includes HIPAA-compliant device integration, user 
             engagement, and comprehensive patient education and support.
           </p>

@@ -614,7 +614,7 @@ const RPMCalculator = () => {
 
           <div className="grid md:grid-cols-2 gap-6 items-start">
             {/* Left Column - Images */}
-            <div className="space-y-6">
+            <div className="space-y-4">
               <div className="rounded-xl overflow-hidden shadow-lg">
                 <img 
                   src="/assets/calculator.png" 
@@ -728,7 +728,7 @@ const RPMCalculator = () => {
                 desc: "User-friendly devices and proactive alerts achieve 80% adherence, enhancing outcomes and enabling sustainable reimbursement."
               }
             ].map((item, idx) => (
-              <div key={idx} className="bg-white rounded-lg p-6 shadow-md border border-gray-200 hover:shadow-lg transition-all">
+              <div key={idx} className="bg-white rounded-4xl p-6 shadow-md border border-gray-200 hover:shadow-4xl transition-all duration-300">
                 <h3 className="text-lg font-bold text-[#0B1F3F] mb-3">{item.title}</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
               </div>

@@ -251,7 +251,7 @@ const CardiologyPage = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-[#012c66] mb-12 text-center">
             WHO WE SERVE
           </h2>
-          <div className="grid md:grid-cols-2 gap-8 items-start">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
             {/* Left Side - Specialty List */}
             <div className="bg-gray-100 rounded-lg overflow-hidden shadow-lg">
               <div className="bg-[#012c66] p-4 border-b-2 border-gray-300">

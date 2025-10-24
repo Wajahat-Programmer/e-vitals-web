@@ -31,7 +31,7 @@ const SampleMonthlyWorkflowAnimation = () => {
     
     return (
         <div 
-            className="bg-white rounded-xl p-8 shadow-xl border border-gray-200 h-full min-h-[400px] relative overflow-hidden flex flex-col justify-start" 
+            className="bg-white rounded-xl p-8 shadow-xl border border-gray-200 h-[400] min-h-[400px] relative overflow-hidden flex flex-col justify-start" 
         >
             <h3 className="text-2xl font-bold text-gray-900 mb-6 z-10">
                 Sample Monthly Workflow
@@ -238,7 +238,7 @@ const FeatureSection = () => {
                     <div className="flex items-center justify-center">
                     <div className="w-full max-w-sm">
                         <Image
-                        src="/assets/weight-scale.png"
+                        src="/assets/weight.png"
                         alt="Weight Scale"
                         width={400}
                         height={400}
@@ -262,7 +262,7 @@ const FeatureSection = () => {
                     {/* Responsive grid for CPT codes and workflow */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                         {/* CPT Codes List */}
-                        <div className="space-y-4">
+                        <div className="space-y-8">
                             {[
                                 {
                                     code: "CPT 99453",
@@ -323,7 +323,10 @@ const FeatureSection = () => {
                 <div className="container mx-auto max-w-7xl">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                         {/* Left Side - See eVitals in action */}
-                        <div>
+                        
+                        <div className="flex flex-col justify-between min-h-full"> {/* Change */}
+                    
+                            <div>
                             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                                 See e-Vitals in action
                             </h2>
@@ -334,67 +337,73 @@ const FeatureSection = () => {
 
                             <div className="mb-8">
                                 <h3 className="text-xl font-bold text-gray-900 mb-4">
-                                    Cardiology, Primary Care, Endocrinology, Pulmonology
+                                Cardiology, Primary Care, Endocrinology, Pulmonology
                                 </h3>
                                 <p className="text-gray-700 mb-2">
-                                    Clinical practice for any device
+                                Clinical practice for any device
                                 </p>
                             </div>
 
                             <div className="mb-8">
                                 <h3 className="text-xl font-bold text-gray-900 mb-4">
-                                    Remote Patient Monitoring adds a new layer of care
+                                Remote Patient Monitoring adds a new layer of care
                                 </h3>
                                 <ul className="space-y-2">
-                                    {[
-                                        "Improved vitals",
-                                        "Reduced hospitalizations",
-                                        "Fewer interventions",
-                                        "Better outcomes/year",
-                                    ].map((item, index) => (
-                                        <li key={index} className="flex items-center">
-                                            <span className="text-red-500 mr-2">•</span>
-                                            <span className="text-gray-700">{item}</span>
-                                        </li>
-                                    ))}
+                                {[
+                                    "Improved vitals",
+                                    "Reduced hospitalizations",
+                                    "Fewer interventions",
+                                    "Better outcomes/year",
+                                ].map((item, index) => (
+                                    <li key={index} className="flex items-center">
+                                    <span className="text-red-500 mr-2">•</span>
+                                    <span className="text-gray-700">{item}</span>
+                                    </li>
+                                ))}
                                 </ul>
                             </div>
 
                             <div className="mb-10">
                                 <h3 className="text-xl font-bold text-gray-900 mb-4">
-                                    Reimbursement
+                                Reimbursement
                                 </h3>
                                 <p className="text-red-600 font-semibold text-lg">
-                                    + $275/patient: 8-10% added per month
+                                + $275/patient: 8-10% added per month
                                 </p>
                             </div>
 
-                            <div className="mb-10 flex items-center justify-start">
+                            {/* To move “LET’S PARTNER IN CARE” slightly downward for better visual balance */}
+                            <div className="mb-10 flex items-center justify-start mt-15"> {/*Change */}
                                 <div>
-                                    <h3 className="text-4xl font-black text-gray-900 leading-tight">
-                                        <span className="block">LET'S</span>
-                                        <span className="block">PARTNER IN</span>
-                                        <span className="block">CARE</span>
-                                    </h3>
+                                <h3 className="text-4xl font-black text-gray-900 leading-tight">
+                                    <span className="block">LET'S</span>
+                                    <span className="block">PARTNER IN</span>
+                                    <span className="block">CARE</span>
+                                </h3>
                                 </div>
+
                                 {/* Image for Care Partner - Restored original Image component */}
                                 <div className="ml-8">
-                                    <Image
-                                        src="/assets/care-partner.png"
-                                        alt="Partnership"
-                                        width={150}
-                                        height={150}
-                                        className="w-32 h-auto"
-                                    />
+                                <Image
+                                    src="/assets/care-partner.png"
+                                    alt="Partnership"
+                                    width={150}
+                                    height={150}
+                                    className="w-32 h-auto"
+                                />
                                 </div>
+                            </div>
                             </div>
 
                             <Link
-                                href="/rpm/Reimbursement-and-Billing"
-                                className="group bg-[#012c66] text-white text-lg px-8 py-4 rounded-lg font-semibold hover:bg-[#02224d] transition-colors w-full sm:w-auto inline-flex items-center justify-center gap-2 whitespace-nowrap"
+                            href="/rpm/Reimbursement-and-Billing"
+                            className="group bg-[#012c66] text-white text-lg px-8 py-4 rounded-lg font-semibold hover:bg-[#02224d] transition-colors w-full sm:w-auto inline-flex items-center justify-center gap-2 whitespace-nowrap mt-auto"
                             >
-                                Check out the Reimbursement calculator
-                                <ChevronsRight size={20} className="transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0" />
+                            Check out the Reimbursement calculator
+                            <ChevronsRight
+                                size={20}
+                                className="transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0"
+                            />
                             </Link>
                         </div>
 
