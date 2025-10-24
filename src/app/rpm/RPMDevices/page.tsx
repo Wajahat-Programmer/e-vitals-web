@@ -27,14 +27,15 @@ const RPMDevices = () => {
                   : "opacity-0 -translate-x-10"
               }`}
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-[#0B2B5C]">
-                FDA-Cleared Devices Designed for Seamless Remote Care
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                <span className="text-[#012c66]">FDA-Cleared Devices Designed for </span>
+                <span className="text-black">Seamless Remote Care</span>
               </h1>
-              <p className="text-lg md:text-xl mb-6 text-gray-700 leading-relaxed">
+              <p className="text-lg md:text-xl mb-6 text-gray-700 leading-relaxed text-justify">
                 Our RPM devices are built to deliver accurate, real-time patient
                 data directly to your clinic—no complicated setup, no missed
                 readings. From 2-in-1 monitoring devices to high-capacity
-                weight scales, each device integrates with our eVitals RPM
+                weight scales, each device integrates with our e-Vitals RPM
                 platform to ensure providers get the insights they need and
                 patients enjoy a simple, stress-free experience.
               </p>
@@ -209,7 +210,7 @@ const RPMDevices = () => {
               <h3 className="text-xl font-bold text-[#6B46C1] mb-6">
                 Two Critical Readings. One Smart Device.
               </h3>
-              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+              <p className="text-lg text-gray-700 mb-8 leading-relaxed text-justify">
                 The ForaCare D40g combines blood pressure and blood glucose
                 monitoring in one FDA-cleared device—perfect for patients
                 managing multiple chronic conditions.
@@ -220,7 +221,8 @@ const RPMDevices = () => {
                   href="#"
                   className="inline-flex items-center gap-2 bg-[#0B2B5C] text-white px-6 py-3 rounded-lg hover:bg-[#0a2449] transition-all duration-300 font-semibold shadow-lg hover:shadow-xl"
                 >
-                  📄 Download User Guide →
+                  📄 Download User Guide 
+                  <ChevronsRight size={20} className="transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0" />
                 </Link>
               </div>
             </div>
@@ -262,7 +264,7 @@ const RPMDevices = () => {
                 },
                 {
                   title: "Cloud Integration",
-                  desc: "Syncs with eVitals RPM dashboard for clinician review",
+                  desc: "Syncs with e-Vitals RPM dashboard for clinician review",
                 },
                 {
                   title: "Backlit LCD Display",
@@ -330,7 +332,7 @@ const RPMDevices = () => {
               <h3 className="text-xl font-bold text-[#6B46C1] mb-6">
                 Track Weight Trends for Better Chronic Care
               </h3>
-              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+              <p className="text-lg text-gray-700 mb-8 leading-relaxed text-justify">
                 The ForaCare TNG Scale 550 Mobile is ideal for monitoring
                 conditions like CHF, CKD, and obesity, where daily weight
                 changes can signal early complications.
@@ -341,7 +343,8 @@ const RPMDevices = () => {
                   href="#"
                   className="inline-flex items-center gap-2 bg-[#0B2B5C] text-white px-6 py-3 rounded-lg hover:bg-[#0a2449] transition-all duration-300 font-semibold shadow-lg hover:shadow-xl"
                 >
-                  📄 Download User Guide →
+                  📄 Download User Guide 
+                  <ChevronsRight size={20} className="transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0" />
                 </Link>
               </div>
             </div>
@@ -363,7 +366,7 @@ const RPMDevices = () => {
                 },
                 {
                   title: "Bluetooth Connectivity",
-                  desc: "Syncs readings with eVitals RPM platform",
+                  desc: "Syncs readings with e-Vitals RPM platform",
                 },
                 {
                   title: "Talking Function",
@@ -402,7 +405,7 @@ const RPMDevices = () => {
                   key={index}
                   className="bg-[#E8E4F3] p-6 rounded-xl hover:shadow-lg transition-all duration-300 group border-l-4 border-[#6B46C1]"
                 >
-                  <h5 className="font-bold text-[#0B2B5C] mb-2 text-lg">
+                  <h5 className="font-bold text-[#012c66] mb-2 text-lg">
                     {feature.title}
                   </h5>
                   <p className="text-gray-700 text-sm leading-relaxed">

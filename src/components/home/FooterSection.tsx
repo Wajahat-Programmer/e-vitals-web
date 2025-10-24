@@ -26,10 +26,10 @@ const FooterSection = () => {
                 height={64}
               />
             </div>
-            <p className="text-slate-600 leading-relaxed">
-              eVitals is a cutting-edge Remote Patient Monitoring (RPM) platform that empowers healthcare 
+            <p className="text-slate-600 leading-relaxed text-justify">
+              e-Vitals is a cutting-edge Remote Patient Monitoring (RPM) platform that empowers healthcare 
               providers with real-time, secure patient insights. Boost efficiency, ensure compliance, and 
-              elevate care quality effortlessly with eVitals.
+              elevate care quality effortlessly with e-Vitals.
             </p>
             <div className="flex space-x-4">
               {[

@@ -213,12 +213,14 @@ const RPMCalculator = () => {
                 : "opacity-0 -translate-x-10"
             }`}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-[#0B2B5C]">
-              RPM <span className="text-[#00d4ff]">Reimbursement</span>
-              <span className="block mt-2">Calculator</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              <span className="text-black">RPM</span>{' '}
+              <span className="text-[#012c66]">Reimbursement Calculator</span>
             </h1>
             <p className="text-lg md:text-xl mb-8 text-gray-700 leading-relaxed">
-              Discover the Financial Impact of Remote Patient Monitoring (RPM) with eVitals' comprehensive calculator. Input your practice's detailed metrics to estimate monthly revenue from RPM CPT codes 99453, 99454, 99457, and 99458.
+              Discover the Financial Impact of Remote Patient Monitoring (RPM) with e-Vitals' 
+              comprehensive calculator. Input your practice's detailed metrics to estimate 
+              monthly revenue from RPM CPT codes 99453, 99454, 99457, and 99458.
             </p>
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-8">
@@ -264,7 +266,9 @@ const RPMCalculator = () => {
               Calculate Your RPM Revenue
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Use our comprehensive tool to estimate monthly and annual revenue from RPM services. Enter detailed patient metrics and custom rates to see how eVitals can boost your practice's financial performance.
+              Use our comprehensive tool to estimate monthly and annual revenue from RPM services. 
+              Enter detailed patient metrics and custom rates to see how e-Vitals can boost your 
+              practice's financial performance.
             </p>
           </div>
 
@@ -587,7 +591,8 @@ const RPMCalculator = () => {
               {/* Warnings */}
               <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
                 <p className="text-sm text-yellow-800">
-                  <strong>Notes:</strong> This tool is for planning only. Actual coverage, documentation requirements, time thresholds, and rates vary by payer and locality. Enter your own rates; demo values are placeholders.
+                  <strong>Notes:</strong> This tool is for planning only. Actual coverage, documentation requirements, time thresholds, 
+                  and rates vary by payer and locality. Enter your own rates; demo values are placeholders.
                 </p>
               </div>
             </div>
@@ -697,10 +702,10 @@ const RPMCalculator = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-[#0B1F3F] mb-3">
-              Why Use eVitals for RPM Reimbursement
+              Why Use e-Vitals for RPM Reimbursement
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto">
-              eVitals' RPM platform maximizes your practice's revenue while improving patient outcomes. Here's how we help:
+              e-Vitals' RPM platform maximizes your practice's revenue while improving patient outcomes. Here's how we help:
             </p>
           </div>
 
@@ -754,7 +759,10 @@ const RPMCalculator = () => {
               </h2>
               
               <p className="text-lg text-gray-700 leading-relaxed text-justify">
-                Unlock the full financial potential of Remote Patient Monitoring with eVitals' comprehensive platform. Our team customizes solutions to your practice's needs, ensuring seamless integration and maximum reimbursement. Schedule a personalized demo today to see how eVitals can transform your practice's revenue and patient care.
+                Unlock the full financial potential of Remote Patient Monitoring with e-Vitals' comprehensive platform. 
+                Our team customizes solutions to your practice's needs, ensuring seamless integration and maximum 
+                reimbursement. Schedule a personalized demo today to see how e-Vitals can transform your practice's 
+                revenue and patient care.
               </p>
 
               <div className="pt-4">

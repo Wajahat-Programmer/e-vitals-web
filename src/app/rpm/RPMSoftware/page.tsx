@@ -83,12 +83,12 @@ const RPMSoftware = () => {
                   : "opacity-0 -translate-x-10"
               }`}
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-[#0B2B5C]">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-[#012c66]">
                 Smart, Secure, and Clinician-Friendly{" "}
-                <span className="block mt-2">RPM Software</span>
+                <span className="block mt-2 text-[#000000]">RPM Software</span>
               </h1>
-              <p className="text-lg md:text-xl mb-8 text-gray-700 leading-relaxed">
-                Our eVitals RPM platform empowers healthcare providers to
+              <p className="text-lg md:text-xl mb-8 text-gray-700 leading-relaxed text-justify">
+                Our e-Vitals RPM platform empowers healthcare providers to
                 remotely track patients vitals in real time, detect early
                 warning signs, and intervene before conditions worsen—all while
                 meeting Medicare and private payer requirements for
@@ -166,27 +166,12 @@ const RPMSoftware = () => {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-start">
-            <div
-              className={`transition-all duration-1000 delay-300 ${
-                isVisible
-                  ? "opacity-100 translate-x-0"
-                  : "opacity-0 -translate-x-10"
-              }`}
-            >
-              <h2 className="text-3xl font-bold text-[#2E1065] mb-4">
-                What is RPM Software?
-              </h2>
-              <p className="text-gray-700 mb-6">
-                Remote Patient Monitoring (RPM) software collects, transmits,
-                and displays patient physiologic data from FDA-cleared devices,
-                giving providers continuous visibility between office visits.
-              </p>
-            </div>
+            {/* Image on the Left */}
             <div
               className={`relative min-h-[320px] rounded-2xl overflow-hidden transition-all duration-1000 delay-500 ${
                 isVisible
                   ? "opacity-100 translate-x-0"
-                  : "opacity-0 translate-x-10"
+                  : "opacity-0 -translate-x-10"
               }`}
             >
               <Image
@@ -197,51 +182,75 @@ const RPMSoftware = () => {
                 quality={100}
               />
             </div>
+
+            {/* Text on the Right */}
+            <div
+              className={`transition-all duration-1000 delay-300 ${
+                isVisible
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 translate-x-10"
+              }`}
+            >
+              <h2 className="text-3xl font-bold text-[#2E1065] mb-4">
+                What is RPM Software?
+              </h2>
+              <p className="text-lg md:text-xl mb-8 text-gray-700 leading-relaxed text-justify">
+                Remote Patient Monitoring (RPM) software collects, transmits,
+                and displays patient physiologic data from FDA-cleared devices,
+                giving providers continuous visibility between office visits.
+              </p>
+            </div>
           </div>
 
           {/* With eVitals Card */}
-          <div className="mt-12 flex justify-center">
-            <div className="bg-gradient-to-br from-[#C5D9E8] to-[#A8C5DD] p-8 rounded-3xl shadow-lg max-w-3xl w-full">
-              <h3 className="text-2xl md:text-3xl font-bold text-[#0B2B5C] mb-6">
-                With eVitals, you can
-              </h3>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3 text-[#0B2B5C]">
-                  <span className="mt-1 flex-shrink-0">
-                    <div className="w-2 h-2 bg-[#0B2B5C] rounded-full"></div>
-                  </span>
-                  <span className="text-lg font-medium">
-                    Monitor patients 24/7 with automated alerts
-                  </span>
-                </li>
-                <li className="flex items-start gap-3 text-[#0B2B5C]">
-                  <span className="mt-1 flex-shrink-0">
-                    <div className="w-2 h-2 bg-[#0B2B5C] rounded-full"></div>
-                  </span>
-                  <span className="text-lg font-medium">
-                    Access a secure, HIPAA-compliant dashboard
-                  </span>
-                </li>
-                <li className="flex items-start gap-3 text-[#0B2B5C]">
-                  <span className="mt-1 flex-shrink-0">
-                    <div className="w-2 h-2 bg-[#0B2B5C] rounded-full"></div>
-                  </span>
-                  <span className="text-lg font-medium">
-                    Integrate data with your EHR for streamlined workflows
-                  </span>
-                </li>
-              </ul>
-            </div>
+          <div className="mt-12 flex justify-center"> 
+            <div className="bg-gradient-to-br from-[#C5D9E8] to-[#A8C5DD] p-8 rounded-3xl shadow-lg max-w-3xl w-full"> 
+              <h3 className="text-2xl md:text-3xl font-bold text-[#0B2B5C] mb-6"> 
+                With e-Vitals, you can 
+              </h3> 
+              <ul className="space-y-4"> 
+                <li className="flex items-start gap-3 text-[#0B2B5C]"
+                > 
+                  <span className="mt-1 flex-shrink-0"> 
+                    <div className="w-2 h-2 bg-[#0B2B5C] rounded-full">
+                    </div> 
+                  </span> 
+                <span className="text-lg font-medium"> 
+                  Monitor patients 24/7 with automated alerts 
+                </span> 
+                </li> 
+                <li className="flex items-start gap-3 text-[#0B2B5C]"> 
+                  <span className="mt-1 flex-shrink-0"> 
+                      <div className="w-2 h-2 bg-[#0B2B5C] rounded-full"
+                      >
+                      </div> 
+                  </span> 
+                  <span className="text-lg font-medium"> 
+                    Access a secure, HIPAA-compliant dashboard 
+                  </span> 
+                </li> 
+                <li className="flex items-start gap-3 text-[#0B2B5C]"> 
+                  <span className="mt-1 flex-shrink-0"> 
+                      <div className="w-2 h-2 bg-[#0B2B5C] rounded-full">
+                      </div> 
+                  </span> 
+                  <span className="text-lg font-medium"> 
+                    Integrate data with your EHR for streamlined workflows 
+                  </span> 
+                  </li> 
+              </ul> 
+            </div> 
           </div>
         </div>
       </section>
+
 
       {/* Key Features Section */}
       <section className="py-16 bg-[#F9F5FF]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#2E1065]">
-              Key Features of eVitals RPM Software include
+              Key Features of e-Vitals RPM Software include
             </h2>
             <TypewriterFeatures />
           </div>
@@ -292,7 +301,7 @@ const RPMSoftware = () => {
             ].map((feature, index) => (
               <div
                 key={index}
-                className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-purple-100"
+                className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-purple-100 text-justify "
               >
                 <h3 className="text-xl font-bold text-[#2E1065] mb-3">
                   {feature.title}
@@ -359,7 +368,7 @@ const RPMSoftware = () => {
               Benefits for Providers
             </h2>
             <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-              Discover how eVitals RPM empowers healthcare practices to deliver
+              Discover how e-Vitals RPM empowers healthcare practices to deliver
               better care, save time, and boost revenue.
             </p>
           </div>
@@ -368,7 +377,7 @@ const RPMSoftware = () => {
             {[
               {
                 title: "Improve Patient Outcomes",
-                desc: "With eVitals RPM, providers can track vitals in real time, detect issues early, and prevent costly hospitalizations while boosting long-term health outcomes.",
+                desc: "With e-Vitals RPM, providers can track vitals in real time, detect issues early, and prevent costly hospitalizations while boosting long-term health outcomes.",
                 icon: <FaHeartbeat className="text-white text-2xl" />,
                 color: "bg-purple-600",
               },
@@ -380,7 +389,7 @@ const RPMSoftware = () => {
               },
               {
                 title: "Save Time",
-                desc: "eVitals RPM automates alerts, reports, and dashboards—reducing manual workload and freeing staff to focus on direct patient care.",
+                desc: "e-Vitals RPM automates alerts, reports, and dashboards—reducing manual workload and freeing staff to focus on direct patient care.",
                 icon: <FaClock className="text-white text-2xl" />,
                 color: "bg-blue-600",
               },
@@ -393,7 +402,7 @@ const RPMSoftware = () => {
             ].map((b, i) => (
               <div
                 key={i}
-                className="bg-white p-8 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-purple-100"
+                className="bg-white p-8 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-purple-100 text-justify"
               >
                 <div
                   className={`w-14 h-14 flex items-center justify-center rounded-full ${b.color} shadow-lg mb-4`}

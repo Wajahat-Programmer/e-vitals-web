@@ -26,9 +26,9 @@ const CTASection = () => {
               Ready to see it in action?
             </h2>
 
-            <p className="text-base md:text-lg text-black mb-8 leading-relaxed">
+            <p className="text-base md:text-lg text-black mb-8 leading-relaxed text-justify">
               Start improving outcomes and growing your practice today with our
-              eVitals RPM platform, FDA-cleared devices, and dedicated support
+              e-Vitals RPM platform, FDA-cleared devices, and dedicated support
               team — deliver higher-quality care while generating new revenue
               streams.
             </p>

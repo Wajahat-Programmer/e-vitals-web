@@ -178,8 +178,9 @@ const CardiologyPage = () => {
               <span className="text-[#012c66]">Solutions</span><br />
               <span className="text-black">Tailored to Your Specialty</span>
             </h1>
-              <p className="text-gray-700 text-lg mb-6 max-w-xl">
-                Remote Patient Monitoring (RPM) programs can be seamlessly customized to enhance patient engagement, improve health outcomes, and maximize the success of your practice.
+              <p className="text-gray-700 text-lg mb-6 max-w-xl text-justify">
+                Remote Patient Monitoring (RPM) programs can be seamlessly customized to enhance patient 
+                engagement, improve health outcomes, and maximize the success of your practice.
               </p>
               <Link
                 href="/demo"
@@ -228,11 +229,16 @@ const CardiologyPage = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-[#003d7a] mb-6">
                 Get a specialized Remote Patient Monitoring (RPM) solution
               </h2>
-              <p className="text-gray-700 text-lg mb-4 leading-relaxed">
-                Remote healthcare solutions through RPM plays a vital role in healthcare delivery for patients with chronic conditions. Implementing an effective RPM program requires alignment with your medical specialty and the specific conditions you treat.
+              <p className="text-gray-700 text-lg mb-4 leading-relaxed text-justify">
+                Remote healthcare solutions through RPM plays a vital role in healthcare 
+                delivery for patients with chronic conditions. Implementing an effective 
+                RPM program requires alignment with your medical specialty and the 
+                specific conditions you treat.
               </p>
-              <p className="text-gray-700 text-lg leading-relaxed">
-                At e-Vitals, our comprehensive RPM devices, user-friendly platform, and professional clinical monitoring services are built to support your practice goals and enhance the quality of patient care.
+              <p className="text-gray-700 text-lg leading-relaxed text-justify">
+                At e-Vitals, our comprehensive RPM devices, user-friendly platform, 
+                and professional clinical monitoring services are built to support 
+                your practice goals and enhance the quality of patient care.
               </p>
             </motion.div>
           </div>
@@ -242,7 +248,7 @@ const CardiologyPage = () => {
       {/* WHO WE SERVE Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#003d7a] mb-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#012c66] mb-12 text-center">
             WHO WE SERVE
           </h2>
           <div className="grid md:grid-cols-2 gap-8 items-start">
@@ -284,8 +290,11 @@ const CardiologyPage = () => {
               />
               </div>
               <h3 className="text-2xl font-bold text-[#003d7a] mb-4">Cardiology</h3>
-              <p className="text-gray-700 text-lg leading-relaxed">
-                Our RPM solutions empower cardiologists to monitor blood pressure, heart rate, weight, and cardiac rhythm in real time. Identify early signs of heart failure or arrhythmia exacerbation, reduce hospital readmissions, and deliver timely interventions for your cardiac patients.
+              <p className="text-gray-700 text-lg leading-relaxed text-justify">
+                Our RPM solutions empower cardiologists to monitor blood pressure, heart rate, 
+                weight, and cardiac rhythm in real time. Identify early signs of heart failure 
+                or arrhythmia exacerbation, reduce hospital readmissions, and deliver timely 
+                interventions for your cardiac patients.
               </p>
             </div>
           </div>
@@ -296,7 +305,7 @@ const CardiologyPage = () => {
       <section className="py-16 bg-white">
         <div className="max-w-5xl mx-auto px-6">
           <div className="bg-white rounded-4xl shadow-2xl p-12 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3F] mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#012c66] mb-6">
               Maximize Care and Growth
             </h2>
             
@@ -306,7 +315,9 @@ const CardiologyPage = () => {
             </h3>
             
             <p className="text-gray-800 text-lg md:text-xl leading-relaxed max-w-4xl mx-auto">
-              Remote healthcare solutions are essential for driving efficiency and improving outcomes in modern specialty care. An advanced RPM platform can transform how your practice manages chronic conditions and interacts with patients.
+              Remote healthcare solutions are essential for driving efficiency and improving 
+              outcomes in modern specialty care. An advanced RPM platform can transform how 
+              your practice manages chronic conditions and interacts with patients.
             </p>
           </div>
         </div>
@@ -315,10 +326,10 @@ const CardiologyPage = () => {
       {/* Key Advantages Section */}
       <section className="py-16 bg-white flex justify-center items-center">
         <div className="w-full max-w-5xl px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#003d7a] mb-2">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#012c66] mb-2">
             Key Advantages of
           </h2>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#003d7a] mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#012c66] mb-12">
             Implementing an RPM Platform
           </h2>
 
@@ -365,7 +376,7 @@ const CardiologyPage = () => {
       {/* Features Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#003d7a] mb-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#012c66] mb-8 text-center">
             How e-Vitals Supports Cardiology RPM
           </h2>
           <p className="text-lg text-gray-700 mb-12 max-w-3xl mx-auto text-center">
@@ -389,10 +400,10 @@ const CardiologyPage = () => {
                   />
                 </div>
                 <div className="mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-bold text-[#003d7a] mb-3">
+                <h3 className="text-xl font-bold text-[#012c66] mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                <p className="text-gray-600 leading-relaxed text-justify">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -436,7 +447,9 @@ const CardiologyPage = () => {
             Empowering Every Practice with Smart Monitoring
           </h2>
           <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto">
-            Whether you manage a small clinic or a large specialty group, eVitals provides an end-to-end IoT solution that includes HIPAA-complaint device integration, user engagement, and comprehensive patient education and support.
+            Whether you manage a small clinic or a large specialty group, e-Vitals 
+            provides an end-to-end IoT solution that includes HIPAA-complaint device 
+            integration, user engagement, and comprehensive patient education and support.
           </p>
           <Link
             href="/contact"
