@@ -288,19 +288,6 @@ const RPMCalculator = () => {
             </div>
 
             <div className="space-y-6">
-              {/* Total Enrolled Patients */}
-              {/* <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Total enrolled patients</label>
-                <input
-                  type="number"
-                  value={enrolled || ''}
-                  onChange={(e) => setEnrolled(normalizeNumber(e.target.value, false))}
-                  min="0"
-                  className="w-full p-3 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                  placeholder="e.g., 100"
-                />
-              </div> */}
-
               {/* CPT Settings */}
               <div>
                 <h4 className="text-lg font-semibold text-purple-900 mb-2">CPT Settings</h4>
@@ -313,13 +300,13 @@ const RPMCalculator = () => {
                       <label className="block text-sm font-medium text-gray-700 mb-1 min-h-[40px] leading-snug">99453 • New enrollments this month</label>
                       <input
                         inputMode="numeric"
-                          pattern="[0-9]*"
-                          onKeyDown={(e)=> (e.key === 'ArrowUp' || e.key === 'ArrowDown') && e.preventDefault()}
-                          value={newMonthly}
-                          onChange={(e) => setNewMonthly(normalizeNumber(e.target.value, false))}
-                          min="0"
-                          className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
-                          placeholder="e.g., 12"
+                        pattern="[0-9]*"
+                        onKeyDown={(e)=> (e.key === 'ArrowUp' || e.key === 'ArrowDown') && e.preventDefault()}
+                        value={newMonthly}
+                        onChange={(e) => setNewMonthly(normalizeNumber(e.target.value, false))}
+                        min="0"
+                        className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8] text-gray-900"
+                        placeholder="e.g., 12"
                       />
                       <p className="text-xs text-gray-500 mt-1">One-time setup/education billed per newly enrolled patient</p>
                     </div>
@@ -327,13 +314,13 @@ const RPMCalculator = () => {
                       <label className="block text-sm font-medium text-gray-700 mb-1 min-h-[40px] leading-snug">Rate for 99453</label>
                       <input
                         inputMode="decimal"
-                          pattern="[0-9]*[.,]?[0-9]*"
-                          value={rate53}
-                          onChange={(e) => setRate53(normalizeNumber(e.target.value, true))}
-                          min="0"
-                          step="0.01"
-                          className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
-                          placeholder="e.g., 20.00"
+                        pattern="[0-9]*[.,]?[0-9]*"
+                        value={rate53}
+                        onChange={(e) => setRate53(normalizeNumber(e.target.value, true))}
+                        min="0"
+                        step="0.01"
+                        className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8] text-gray-900"
+                        placeholder="e.g., 20.00"
                       />
                       <div className="h-5 mt-2"></div>
                     </div>
@@ -345,27 +332,27 @@ const RPMCalculator = () => {
                       <label className="block text-sm font-medium text-gray-700 mb-1 min-h-[40px] leading-snug">99454 • Patients meeting ≥16 days data</label>
                       <input
                         inputMode="numeric"
-                          pattern="[0-9]*"
-                          onKeyDown={(e)=> (e.key === 'ArrowUp' || e.key === 'ArrowDown') && e.preventDefault()}
-                          value={pct54}
-                          onChange={(e) => setPct54(normalizeNumber(e.target.value, false))}
-                          min="0"
-                          max="100"
-                          className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
-                          placeholder="e.g., 85"
+                        pattern="[0-9]*"
+                        onKeyDown={(e)=> (e.key === 'ArrowUp' || e.key === 'ArrowDown') && e.preventDefault()}
+                        value={pct54}
+                        onChange={(e) => setPct54(normalizeNumber(e.target.value, false))}
+                        min="0"
+                        max="100"
+                        className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8] text-gray-900"
+                        placeholder="e.g., 85"
                       />
                     </div>
                     <div className="flex flex-col">
                       <label className="block text-sm font-medium text-gray-700 mb-1 min-h-[40px] leading-snug">Rate for 99454</label>
                       <input
                         inputMode="decimal"
-                          pattern="[0-9]*[.,]?[0-9]*"
-                          value={rate54}
-                          onChange={(e) => setRate54(normalizeNumber(e.target.value, true))}
-                          min="0"
-                          step="0.01"
-                          className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
-                          placeholder="e.g., 50.00"
+                        pattern="[0-9]*[.,]?[0-9]*"
+                        value={rate54}
+                        onChange={(e) => setRate54(normalizeNumber(e.target.value, true))}
+                        min="0"
+                        step="0.01"
+                        className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8] text-gray-900"
+                        placeholder="e.g., 50.00"
                       />
                     </div>
                   </div>
@@ -376,27 +363,27 @@ const RPMCalculator = () => {
                       <label className="block text-sm font-medium text-gray-700 mb-1 min-h-[40px] leading-snug">99457 • Patients meeting ≥20 min</label>
                       <input
                         inputMode="numeric"
-                          pattern="[0-9]*"
-                          onKeyDown={(e)=> (e.key === 'ArrowUp' || e.key === 'ArrowDown') && e.preventDefault()}
-                          value={pct57}
-                          onChange={(e) => setPct57(normalizeNumber(e.target.value, false))}
-                          min="0"
-                          max="100"
-                          className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
-                          placeholder="e.g., 60"
+                        pattern="[0-9]*"
+                        onKeyDown={(e)=> (e.key === 'ArrowUp' || e.key === 'ArrowDown') && e.preventDefault()}
+                        value={pct57}
+                        onChange={(e) => setPct57(normalizeNumber(e.target.value, false))}
+                        min="0"
+                        max="100"
+                        className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8] text-gray-900"
+                        placeholder="e.g., 60"
                       />
                     </div>
                     <div className="flex flex-col">
                       <label className="block text-sm font-medium text-gray-700 mb-1 min-h-[40px] leading-snug">Rate for 99457</label>
                       <input
                         inputMode="decimal"
-                          pattern="[0-9]*[.,]?[0-9]*"
-                          value={rate57}
-                          onChange={(e) => setRate57(normalizeNumber(e.target.value, true))}
-                          min="0"
-                          step="0.01"
-                          className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
-                          placeholder="e.g., 51.00"
+                        pattern="[0-9]*[.,]?[0-9]*"
+                        value={rate57}
+                        onChange={(e) => setRate57(normalizeNumber(e.target.value, true))}
+                        min="0"
+                        step="0.01"
+                        className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8] text-gray-900"
+                        placeholder="e.g., 51.00"
                       />
                     </div>
                   </div>
@@ -407,27 +394,27 @@ const RPMCalculator = () => {
                       <label className="block text-sm font-medium text-gray-700 mb-1 min-h-[40px] leading-snug">99458 • Additional 20-min 1 units per patient</label>
                       <input
                         inputMode="decimal"
-                          pattern="[0-9]*[.,]?[0-9]*"
-                          onKeyDown={(e)=> (e.key === 'ArrowUp' || e.key === 'ArrowDown') && e.preventDefault()}
-                          value={avg58}
-                          onChange={(e) => setAvg58(normalizeNumber(e.target.value, true))}
-                          min="0"
-                          step="0.1"
-                          className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
-                          placeholder="e.g., 0.35"
+                        pattern="[0-9]*[.,]?[0-9]*"
+                        onKeyDown={(e)=> (e.key === 'ArrowUp' || e.key === 'ArrowDown') && e.preventDefault()}
+                        value={avg58}
+                        onChange={(e) => setAvg58(normalizeNumber(e.target.value, true))}
+                        min="0"
+                        step="0.1"
+                        className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8] text-gray-900"
+                        placeholder="e.g., 0.35"
                       />
                     </div>
                     <div className="flex flex-col">
                       <label className="block text-sm font-medium text-gray-700 mb-1 min-h-[40px] leading-snug">Rate for 99458</label>
                       <input
                         inputMode="decimal"
-                          pattern="[0-9]*[.,]?[0-9]*"
-                          value={rate58}
-                          onChange={(e) => setRate58(normalizeNumber(e.target.value, true))}
-                          min="0"
-                          step="0.01"
-                          className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
-                          placeholder="e.g., 42.00"
+                        pattern="[0-9]*[.,]?[0-9]*"
+                        value={rate58}
+                        onChange={(e) => setRate58(normalizeNumber(e.target.value, true))}
+                        min="0"
+                        step="0.01"
+                        className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8] text-gray-900"
+                        placeholder="e.g., 42.00"
                       />
                     </div>
                   </div>
@@ -438,27 +425,27 @@ const RPMCalculator = () => {
                       <label className="block text-sm font-medium text-gray-700 mb-1 min-h-[40px] leading-snug">99458 • Additional 20-min 2 units per patient</label>
                       <input
                         inputMode="decimal"
-                          pattern="[0-9]*[.,]?[0-9]*"
-                          onKeyDown={(e)=> (e.key === 'ArrowUp' || e.key === 'ArrowDown') && e.preventDefault()}
-                          value={avg58_2}
-                          onChange={(e) => setAvg58_2(normalizeNumber(e.target.value, true))}
-                          min="0"
-                          step="0.1"
-                          className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
-                          placeholder="e.g., 0.35"
+                        pattern="[0-9]*[.,]?[0-9]*"
+                        onKeyDown={(e)=> (e.key === 'ArrowUp' || e.key === 'ArrowDown') && e.preventDefault()}
+                        value={avg58_2}
+                        onChange={(e) => setAvg58_2(normalizeNumber(e.target.value, true))}
+                        min="0"
+                        step="0.1"
+                        className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8] text-gray-900"
+                        placeholder="e.g., 0.35"
                       />
                     </div>
                     <div className="flex flex-col">
                       <label className="block text-sm font-medium text-gray-700 mb-1 min-h-[40px] leading-snug">Rate for 99458</label>
                       <input
                         inputMode="decimal"
-                          pattern="[0-9]*[.,]?[0-9]*"
-                          value={rate58_2}
-                          onChange={(e) => setRate58_2(normalizeNumber(e.target.value, true))}
-                          min="0"
-                          step="0.01"
-                          className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
-                          placeholder="e.g., 42.00"
+                        pattern="[0-9]*[.,]?[0-9]*"
+                        value={rate58_2}
+                        onChange={(e) => setRate58_2(normalizeNumber(e.target.value, true))}
+                        min="0"
+                        step="0.01"
+                        className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8] text-gray-900"
+                        placeholder="e.g., 42.00"
                       />
                     </div>
                   </div>
@@ -469,26 +456,26 @@ const RPMCalculator = () => {
                       <label className="block text-sm font-medium text-gray-700 mb-1 min-h-[40px] leading-snug">99091 • Number of patients</label>
                       <input
                         inputMode="numeric"
-                          pattern="[0-9]*"
-                          onKeyDown={(e)=> (e.key === 'ArrowUp' || e.key === 'ArrowDown') && e.preventDefault()}
-                          value={patients99091}
-                          onChange={(e) => setPatients99091(normalizeNumber(e.target.value, false))}
-                          min="0"
-                          className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
-                          placeholder="e.g., 25"
+                        pattern="[0-9]*"
+                        onKeyDown={(e)=> (e.key === 'ArrowUp' || e.key === 'ArrowDown') && e.preventDefault()}
+                        value={patients99091}
+                        onChange={(e) => setPatients99091(normalizeNumber(e.target.value, false))}
+                        min="0"
+                        className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8] text-gray-900"
+                        placeholder="e.g., 25"
                       />
                     </div>
                     <div className="flex flex-col">
                       <label className="block text-sm font-medium text-gray-700 mb-1 min-h-[40px] leading-snug">Rate for 99091</label>
                       <input
                         inputMode="decimal"
-                          pattern="[0-9]*[.,]?[0-9]*"
-                          value={rate99091}
-                          onChange={(e) => setRate99091(normalizeNumber(e.target.value, true))}
-                          min="0"
-                          step="0.01"
-                          className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8]"
-                          placeholder="e.g., 35.00"
+                        pattern="[0-9]*[.,]?[0-9]*"
+                        value={rate99091}
+                        onChange={(e) => setRate99091(normalizeNumber(e.target.value, true))}
+                        min="0"
+                        step="0.01"
+                        className="w-full p-2.5 border border-purple-200 rounded-md focus:outline-none focus:ring-2 focus:ring-[#B187E8] text-gray-900"
+                        placeholder="e.g., 35.00"
                       />
                     </div>
                   </div>
@@ -570,11 +557,11 @@ const RPMCalculator = () => {
                             <div className="font-semibold text-purple-900">{item.code}</div>
                             <div className="text-xs text-gray-600">{item.label}</div>
                           </td>
-                          <td className="text-right py-3">
+                          <td className="text-right py-3 text-gray-900">
                             {roundClaims ? item.claims.toLocaleString() : item.claims.toFixed(2)}
                           </td>
-                          <td className="text-right py-3">${item.rate.toFixed(2)}</td>
-                          <td className="text-right py-3 font-semibold">${item.subtotal.toLocaleString()}</td>
+                          <td className="text-right py-3 text-gray-900">${item.rate.toFixed(2)}</td>
+                          <td className="text-right py-3 font-semibold text-gray-900">${item.subtotal.toLocaleString()}</td>
                         </tr>
                       ))}
                     </tbody>

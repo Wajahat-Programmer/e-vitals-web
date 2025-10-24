@@ -216,7 +216,7 @@ const CardiologyPage = () => {
               viewport={{ once: true }}
             >
               <img 
-                src="/assets/patient.jpeg"
+                src="/assets/patient-monitoring.jpg"
                 alt="Healthcare Professional with Patient"
                 className="rounded-lg shadow-xl w-full"
               />
@@ -284,7 +284,7 @@ const CardiologyPage = () => {
             <div>
               <div className="mb-6">
                 <img 
-                src="/assets/cardiology.jpeg"
+                src="/assets/cardiology.jpg"
                 alt="Healthcare Professional with Patient"
                 className="rounded-lg shadow-xl w-full"
               />

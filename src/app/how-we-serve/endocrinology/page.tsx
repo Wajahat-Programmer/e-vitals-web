@@ -283,7 +283,7 @@ const EndocrinologyPage = () => {
             <div>
               <div className="mb-6">
                 <img 
-                src="/assets/endocrinologist.jpg"
+                src="/assets/endocrinlogist.jpg"
                 alt="Healthcare Professional with Patient"
                 className="rounded-lg shadow-xl w-full"
               />
