@@ -218,8 +218,8 @@ const RPMCalculator = () => {
               <span className="text-[#012c66]">Reimbursement Calculator</span>
             </h1>
             <p className="text-lg md:text-xl mb-8 text-gray-700 leading-relaxed">
-              Discover the Financial Impact of Remote Patient Monitoring (RPM) with e-Vitals' 
-              comprehensive calculator. Input your practice's detailed metrics to estimate 
+              Discover the Financial Impact of Remote Patient Monitoring (RPM) with e-Vitals&#39;
+              comprehensive calculator. Input your practice&#39;s detailed metrics to estimate 
               monthly revenue from RPM CPT codes 99453, 99454, 99457, and 99458.
             </p>
             {/* CTA Buttons */}
@@ -268,7 +268,7 @@ const RPMCalculator = () => {
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Use our comprehensive tool to estimate monthly and annual revenue from RPM services. 
               Enter detailed patient metrics and custom rates to see how e-Vitals can boost your 
-              practice's financial performance.
+              practice&#39;s financial performance.
             </p>
           </div>
 
@@ -595,7 +595,7 @@ const RPMCalculator = () => {
               How the Calculator Works
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto">
-              Our calculator uses standard Medicare CPT code rates to estimate RPM revenue based on your detailed input. Here's how it breaks down:
+              Our calculator uses standard Medicare CPT code rates to estimate RPM revenue based on your detailed input. Here&#39;s how it breaks down:
             </p>
           </div>
 
@@ -692,7 +692,7 @@ const RPMCalculator = () => {
               Why Use e-Vitals for RPM Reimbursement
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto">
-              e-Vitals' RPM platform maximizes your practice's revenue while improving patient outcomes. Here's how we help:
+              e-Vitals&#39; RPM platform maximizes your practice&#39;s revenue while improving patient outcomes. Here&#39;s how we help:
             </p>
           </div>
 
@@ -746,9 +746,9 @@ const RPMCalculator = () => {
               </h2>
               
               <p className="text-lg text-gray-700 leading-relaxed text-justify">
-                Unlock the full financial potential of Remote Patient Monitoring with e-Vitals' comprehensive platform. 
-                Our team customizes solutions to your practice's needs, ensuring seamless integration and maximum 
-                reimbursement. Schedule a personalized demo today to see how e-Vitals can transform your practice's 
+                Unlock the full financial potential of Remote Patient Monitoring with e-Vitals&#39; comprehensive platform. 
+                Our team customizes solutions to your practice&#39;s needs, ensuring seamless integration and maximum 
+                reimbursement. Schedule a personalized demo today to see how e-Vitals can transform your practice&#39;s 
                 revenue and patient care.
               </p>
 
