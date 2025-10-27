@@ -159,7 +159,7 @@ const NeurologyPage = () => {
               <h3 className="text-2xl font-bold text-[#012c66] mb-4">Neurology</h3>
               <p className="text-gray-700 text-lg leading-relaxed text-justify">
                 e-Vitals revolutionizes neurological care with a state-of-the-art remote patient monitoring (RPM) 
-                platform designed for epilepsy, stroke recovery, Parkinson's, and other neurological disorders. 
+                platform designed for epilepsy, stroke recovery, Parkinson&apos;s, and other neurological disorders. 
                 Our FDA-cleared devices and HIPAA-compliant technology deliver real-time data, empowering neurologists 
                 to provide proactive, personalized care from anywhere. With seamless EHR integration and advanced analytics, 
                 e-Vitals enables precise treatment adjustments and early intervention, reducing hospital visits and improving 

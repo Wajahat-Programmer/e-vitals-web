@@ -7,17 +7,9 @@ import Image from "next/image";
 
 const CardiologyPage = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   useEffect(() => {
     setIsVisible(true);
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(interval);
   }, []);
 
   const features = [
@@ -85,6 +77,7 @@ const CardiologyPage = () => {
       image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=200&h=200&fit=crop",
     },
   ];
+
   return (
     <div className="relative min-h-screen bg-white">
       {/* Hero Banner */}
