@@ -218,8 +218,8 @@ const RPMCalculator = () => {
               <span className="text-[#012c66]">Reimbursement Calculator</span>
             </h1>
             <p className="text-lg md:text-xl mb-8 text-gray-700 leading-relaxed">
-              Discover the Financial Impact of Remote Patient Monitoring (RPM) with e-Vitals&#39;
-              comprehensive calculator. Input your practice&#39;s detailed metrics to estimate 
+              Discover the Financial Impact of Remote Patient Monitoring (RPM) with e-Vitals&apos;
+              comprehensive calculator. Input your practice&apos;s detailed metrics to estimate 
               monthly revenue from RPM CPT codes 99453, 99454, 99457, and 99458.
             </p>
             {/* CTA Buttons */}
@@ -242,14 +242,14 @@ const RPMCalculator = () => {
           </div>
 
           {/* Right Side - Background Image */}
-          <div className="relative h-full w-full transition-all duration-1000 delay-300 rounded-4xl">
+          <div className="relative h-full w-full transition-all duration-1000 delay-300 rounded-2xl">
             {/* Background Image Container */}
             <div className="absolute inset-0 -right-20 -top-10 -bottom-10 z-0">
               <Image
-                src="/assets/RPM Calculator.png"
+                src="/assets/RPM Calculator.jpg"
                 alt="RPM Calculator Background"
                 fill
-                className="object-contain rounded-4xl ml-15"
+                className="object-contain rounded-2xl ml-15"
                 quality={100}
               />
             </div>
@@ -268,7 +268,7 @@ const RPMCalculator = () => {
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Use our comprehensive tool to estimate monthly and annual revenue from RPM services. 
               Enter detailed patient metrics and custom rates to see how e-Vitals can boost your 
-              practice&#39;s financial performance.
+              practice&apos;s financial performance.
             </p>
           </div>
 
@@ -595,7 +595,7 @@ const RPMCalculator = () => {
               How the Calculator Works
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto">
-              Our calculator uses standard Medicare CPT code rates to estimate RPM revenue based on your detailed input. Here&#39;s how it breaks down:
+              Our calculator uses standard Medicare CPT code rates to estimate RPM revenue based on your detailed input. Here&apos;s how it breaks down:
             </p>
           </div>
 
@@ -603,16 +603,20 @@ const RPMCalculator = () => {
             {/* Left Column - Images */}
             <div className="space-y-4">
               <div className="rounded-xl overflow-hidden shadow-lg">
-                <img 
-                  src="/assets/calculator.png" 
+                <Image 
+                  src="/assets/calculator.jpg" 
                   alt="Professional calculating"
+                  width={600}
+                  height={256}
                   className="w-full h-64 object-cover"
                 />
               </div>
               <div className="rounded-xl overflow-hidden shadow-lg">
-                <img 
-                  src="/assets/stethoscope.png" 
+                <Image 
+                  src="/assets/stethoscope.jpg" 
                   alt="Calculator and stethoscope"
+                  width={600}
+                  height={256}
                   className="w-full h-64 object-cover"
                 />
               </div>
@@ -692,7 +696,7 @@ const RPMCalculator = () => {
               Why Use e-Vitals for RPM Reimbursement
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto">
-              e-Vitals&#39; RPM platform maximizes your practice&#39;s revenue while improving patient outcomes. Here&#39;s how we help:
+              e-Vitals&apos; RPM platform maximizes your practice&apos;s revenue while improving patient outcomes. Here&apos;s how we help:
             </p>
           </div>
 
@@ -731,38 +735,50 @@ const RPMCalculator = () => {
             {/* Left Column - Image */}
             <div className="relative">
               <div className="rounded-3xl overflow-hidden shadow-2xl">
-                <img 
-                  src="/assets/doctor-writing.jpeg" 
-                  alt="Healthcare professional writing"
-                  className="w-full h-[600px] object-cover"
+                <Image 
+                  src="/assets/calculator.jpg" 
+                  alt="Maximize RPM Revenue"
+                  width={600}
+                  height={400}
+                  className="w-full h-auto object-cover"
                 />
               </div>
             </div>
 
             {/* Right Column - Content */}
             <div className="space-y-6">
-              <h2 className="text-4xl md:text-5xl font-bold text-[#0B1F3F] leading-tight">
-                Maximize Your RPM Revenue with eVitals
+              <h2 className="text-4xl font-bold text-[#0B1F3F]">
+                Maximize Your RPM Revenue with e-Vitals
               </h2>
               
-              <p className="text-lg text-gray-700 leading-relaxed text-justify">
-                Unlock the full financial potential of Remote Patient Monitoring with e-Vitals&#39; comprehensive platform. 
-                Our team customizes solutions to your practice&#39;s needs, ensuring seamless integration and maximum 
-                reimbursement. Schedule a personalized demo today to see how e-Vitals can transform your practice&#39;s 
-                revenue and patient care.
-              </p>
-
-              <div className="pt-4">
-                <Link
-                    href="/demo"
-                    className="group bg-[#5ce1e6] hover:bg-[#1faaaf] text-white text-base font-semibold px-6 py-3 rounded-md shadow-md transition-all duration-300 inline-flex items-center gap-2"
-                  >
-                    Request a Demo
-                    <ChevronsRight
-                      size={18}
-                      className="transition-transform duration-300 group-hover:translate-x-1"
-                  />
-                </Link>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-[#5ce1e6] rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-gray-700">
+                    <strong>Automated Documentation:</strong> e-Vitals ensures all required data for RPM codes is captured and documented, reducing claim denials.
+                  </p>
+                </div>
+                
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-[#5ce1e6] rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-gray-700">
+                    <strong>Customizable Workflows:</strong> Tailor RPM services to your practice&apos;s needs, whether you&apos;re managing chronic conditions or post-discharge care.
+                  </p>
+                </div>
+                
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-[#5ce1e6] rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-gray-700">
+                    <strong>Real-Time Monitoring:</strong> Track patient vitals and engagement in real-time, allowing for timely interventions and improved outcomes.
+                  </p>
+                </div>
+                
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-[#5ce1e6] rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-gray-700">
+                    <strong>Comprehensive Reporting:</strong> Access detailed reports on patient adherence, clinical outcomes, and financial performance to optimize your RPM program.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -771,8 +787,6 @@ const RPMCalculator = () => {
 
       {/* CTA Section */}
       <CTASection />
-
-     
     </main>
   );
 };

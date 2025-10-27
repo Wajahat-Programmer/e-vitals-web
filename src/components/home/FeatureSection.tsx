@@ -281,7 +281,7 @@ const FeatureSection = () => {
                                 },
                                 {
                                     code: "CPT 99448",
-                                    description: "RPM each add'l 20 minutes",
+                                    description: "RPM each add&apos;l 20 minutes",
                                     amount: "$44",
                                 },
                                 {
@@ -331,7 +331,7 @@ const FeatureSection = () => {
                                 See e-Vitals in action
                             </h2>
                             <p className="text-gray-700 mb-8">
-                                Tell us about your practice(s) and we&#39;ll tailor a demo to your
+                                Tell us about your practice(s) and we&apos;ll tailor a demo to your
                                 patient population, workflows, and payers.
                             </p>
 
@@ -372,11 +372,11 @@ const FeatureSection = () => {
                                 </p>
                             </div>
 
-                            {/* To move “LET’S PARTNER IN CARE” slightly downward for better visual balance */}
+                            {/* To move "LET&apos;S PARTNER IN CARE" slightly downward for better visual balance */}
                             <div className="mb-10 flex items-center justify-start mt-15"> {/*Change */}
                                 <div>
                                 <h3 className="text-4xl font-black text-gray-900 leading-tight">
-                                    <span className="block">LET&#39;s</span>
+                                    <span className="block">LET&apos;S</span>
                                     <span className="block">PARTNER IN</span>
                                     <span className="block">CARE</span>
                                 </h3>

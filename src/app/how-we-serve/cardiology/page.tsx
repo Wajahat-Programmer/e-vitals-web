@@ -2,27 +2,12 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { ChevronsRight } from 'lucide-react';
-import { 
-  Stethoscope, 
-  Bell, 
-  UserPlus, 
-  FileText, 
-  Heart, 
-  Clock, 
-  Quote,
-  Menu,
-  X,
-  DollarSign,
-  Activity,
-  Users,
-  BarChart3
-} from "lucide-react";
+import { ChevronsRight, Stethoscope, Bell, UserPlus, FileText } from "lucide-react";
+import Image from "next/image";
 
 const CardiologyPage = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
@@ -66,33 +51,6 @@ const CardiologyPage = () => {
     },
   ];
 
-  const benefits = [
-    {
-      icon: <Heart className="w-12 h-12 text-purple-900 mb-4" />,
-      title: "Improved Cardiac Outcomes",
-      description:
-        "Continuous monitoring cuts complications and readmissions by 35%. Real-time data enhances survival and quality of life.",
-    },
-    {
-      icon: <Clock className="w-12 h-12 text-purple-900 mb-4" />,
-      title: "Time Efficiency for Providers",
-      description:
-        "EHR integration reduces check-ups by 40%. Cardiologists save 20 hours weekly for complex cases.",
-    },
-    {
-      icon: <Users className="w-12 h-12 text-purple-900 mb-4" />,
-      title: "Enhanced Patient Compliance",
-      description:
-        "85% adherence with reminders and multilingual support. Reduces adverse events by 30%.",
-    },
-    {
-      icon: <DollarSign className="w-12 h-12 text-purple-900 mb-4" />,
-      title: "Maximized Revenue",
-      description:
-        "$5,000 monthly per physician via accurate coding. Cuts claim denials by 20%.",
-    },
-  ];
-
   const testimonials = [
     {
       quote:
@@ -127,30 +85,6 @@ const CardiologyPage = () => {
       image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=200&h=200&fit=crop",
     },
   ];
-
-  const keyAdvantages = [
-    {
-      icon: <DollarSign className="w-16 h-16 text-blue-600" />,
-      title: "Reduce Healthcare Utilization Costs",
-      description: "Lower hospital readmissions and emergency visits through proactive monitoring"
-    },
-    {
-      icon: <Activity className="w-16 h-16 text-blue-600" />,
-      title: "Enhance Patient Compliance and Outcomes",
-      description: "Improve medication adherence and treatment plan following"
-    },
-    {
-      icon: <Users className="w-16 h-16 text-blue-600" />,
-      title: "Boost Patient-Provider Communication & Engagement",
-      description: "Enable real-time communication and strengthen patient relationships"
-    },
-    {
-      icon: <BarChart3 className="w-16 h-16 text-blue-600" />,
-      title: "Generate Actionable Clinical Data",
-      description: "Access comprehensive health data for informed clinical decisions"
-    }
-  ];
-
   return (
     <div className="relative min-h-screen bg-white">
       {/* Hero Banner */}
@@ -196,10 +130,13 @@ const CardiologyPage = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative"
             >
-              <img 
+              <Image 
                 src="/assets/remote-consultations.png"
                 alt="Healthcare Professional with Patient"
+                width={800}
+                height={600}
                 className="rounded-lg shadow-xl w-full"
+                priority
               />
             </motion.div>
           </div>
@@ -215,9 +152,11 @@ const CardiologyPage = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <img 
+              <Image 
                 src="/assets/patient-monitoring.jpg"
                 alt="Healthcare Professional with Patient"
+                width={800}
+                height={600}
                 className="rounded-lg shadow-xl w-full"
               />
             </motion.div>
@@ -283,9 +222,11 @@ const CardiologyPage = () => {
             {/* Right Side - Cardiologists Details */}
             <div>
               <div className="mb-6">
-                <img 
+                <Image 
                 src="/assets/cardiology.jpg"
                 alt="Healthcare Professional with Patient"
+                width={800}
+                height={600}
                 className="rounded-lg shadow-xl w-full"
               />
               </div>
@@ -357,9 +298,11 @@ const CardiologyPage = () => {
                 key={index}
                 className="flex flex-col md:flex-row items-center justify-center md:space-x-8 space-y-4 md:space-y-0"
               >
-                <img
+                <Image
                   src={item.img}
                   alt={item.text}
+                  width={160}
+                  height={160}
                   className="w-40 h-40 object-cover rounded-lg shadow-md"
                 />
                 <div className="md:w-[350px] flex justify-center">
@@ -393,9 +336,11 @@ const CardiologyPage = () => {
                 transition={{ delay: index * 0.1 }}
               >
                 <div className="relative w-full h-48 mb-4 overflow-hidden rounded-lg">
-                  <img
+                  <Image
                     src={feature.image}
                     alt={feature.title}
+                    width={400}
+                    height={300}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -409,36 +354,6 @@ const CardiologyPage = () => {
           </div>
         </div>
       </section>
-
-      {/* Benefits Section */}
-      {/* <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#003d7a] mb-8 text-center">
-            Benefits of Cardiology Remote Monitoring
-          </h2>
-          <p className="text-lg text-gray-700 mb-12 max-w-3xl mx-auto text-center">
-            Measurable improvements in outcomes, efficiency, and satisfaction for cardiologists and patients.
-          </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, idx) => (
-              <motion.div
-                key={idx}
-                className="bg-gradient-to-br from-purple-50 to-blue-50 p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 text-center"
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-              >
-                <div className="flex justify-center">{benefit.icon}</div>
-                <h3 className="text-lg font-bold text-[#003d7a] mb-3">
-                  {benefit.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section> */}
 
       {/* CTA Banner */}
       <section className="bg-[#012c66] py-16 text-center text-white">
