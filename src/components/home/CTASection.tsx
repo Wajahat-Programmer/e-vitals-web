@@ -88,7 +88,7 @@ const CTASection = () => {
             {/* CTA Button */}
             <Link
               href="/demo"
-              className="group bg-[#5ce1e6] hover:bg-[#1faaaf] text-white text-base font-semibold px-6 py-3 rounded-md shadow-md transition-all duration-300 inline-flex items-center gap-2"
+              className="group bg-[#158185] hover:bg-[#5ce1e6] text-white text-base font-semibold px-6 py-3 rounded-md shadow-md transition-all duration-300 inline-flex items-center gap-2"
             >
               Request a Demo
               <ChevronsRight

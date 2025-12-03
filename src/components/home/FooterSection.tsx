@@ -36,23 +36,28 @@ const FooterSection = () => {
                 {
                   icon: <FaFacebookF className="w-5 h-5" />,
                   color: "text-blue-600",
+                  label: "Visit our Facebook page"
                 },
                 {
                   icon: <FaTwitter className="w-5 h-5" />,
                   color: "text-sky-600",
+                  label: "Visit our Twitter profile"
                 },
                 {
                   icon: <FaLinkedinIn className="w-5 h-5" />,
                   color: "text-blue-700",
+                  label: "Visit our LinkedIn page"
                 },
                 {
                   icon: <FaInstagram className="w-5 h-5" />,
                   color: "text-pink-600",
+                  label: "Visit our Instagram profile"
                 },
               ].map((social, index) => (
                 <a
                   key={index}
                   href="#"
+                  aria-label={social.label}
                   className={`${social.color} hover:text-white p-2 rounded-full bg-slate-200 hover:bg-slate-300 transition-colors`}
                 >
                   {social.icon}

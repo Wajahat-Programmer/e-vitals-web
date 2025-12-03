@@ -416,19 +416,21 @@ const FeatureSection = () => {
                         <form className="space-y-6">
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div>
-                                <label className="block text-sm font-semibold text-gray-900 mb-2">
+                                <label htmlFor="firstName" className="block text-sm font-semibold text-gray-900 mb-2">
                                 First Name
                                 </label>
                                 <input
+                                id="firstName"
                                 type="text"
                                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-semibold text-gray-900 mb-2">
+                                <label htmlFor="lastName" className="block text-sm font-semibold text-gray-900 mb-2">
                                 Last Name
                                 </label>
                                 <input
+                                id="lastName"
                                 type="text"
                                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 />
@@ -437,19 +439,21 @@ const FeatureSection = () => {
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div>
-                                <label className="block text-sm font-semibold text-gray-900 mb-2">
-                                email
+                                <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
+                                Email
                                 </label>
                                 <input
+                                id="email"
                                 type="email"
                                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-semibold text-gray-900 mb-2">
+                                <label htmlFor="phone" className="block text-sm font-semibold text-gray-900 mb-2">
                                 Phone
                                 </label>
                                 <input
+                                id="phone"
                                 type="tel"
                                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 />
@@ -458,19 +462,21 @@ const FeatureSection = () => {
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div>
-                                <label className="block text-sm font-semibold text-gray-900 mb-2">
+                                <label htmlFor="practiceName" className="block text-sm font-semibold text-gray-900 mb-2">
                                 Practice name
                                 </label>
                                 <input
+                                id="practiceName"
                                 type="text"
                                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-semibold text-gray-900 mb-2">
+                                <label htmlFor="website" className="block text-sm font-semibold text-gray-900 mb-2">
                                 Website
                                 </label>
                                 <input
+                                id="website"
                                 type="url"
                                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 />
@@ -479,19 +485,21 @@ const FeatureSection = () => {
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div>
-                                <label className="block text-sm font-semibold text-gray-900 mb-2">
+                                <label htmlFor="specialty" className="block text-sm font-semibold text-gray-900 mb-2">
                                 Specialty
                                 </label>
                                 <input
+                                id="specialty"
                                 type="text"
                                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-semibold text-gray-900 mb-2">
+                                <label htmlFor="providers" className="block text-sm font-semibold text-gray-900 mb-2">
                                 Number of providers
                                 </label>
                                 <input
+                                id="providers"
                                 type="text"
                                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 />
@@ -499,18 +507,18 @@ const FeatureSection = () => {
                             </div>
 
                             <div>
-                            <label className="block text-sm font-semibold text-gray-900 mb-2">
+                            <label htmlFor="message" className="block text-sm font-semibold text-gray-900 mb-2">
                                 Message
                             </label>
                             <textarea
+                                id="message"
                                 rows={4}
                                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                             ></textarea>
                             </div>
 
                             <p className="text-xs text-gray-800">
-                            By submitting, you agree to be contacted about eVitals. You
-                            can opt out at any time.
+                            By submitting, you agree to be contacted about eVitals. You can opt out at any time.
                             </p>
 
                             <div className="flex gap-4 justify-center">

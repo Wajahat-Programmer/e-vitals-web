@@ -292,7 +292,7 @@ const Header: React.FC = () => {
             </Link>
             <Link
               href="/demo"
-              className="bg-[#00bcd4] hover:bg-[#00acc1] text-white text-sm font-medium px-4 py-2 rounded transition"
+              className="bg-[#008191] hover:bg-[#00acc1] text-white text-sm font-bold text-[16px] px-4 py-2 rounded transition"
             >
               Request a Demo
             </Link>

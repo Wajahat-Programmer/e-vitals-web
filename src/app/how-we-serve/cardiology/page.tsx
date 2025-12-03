@@ -103,7 +103,7 @@ const CardiologyPage = () => {
               <span className="text-black">Explore</span><br />
               <span className="text-[#012c66]">Remote Healthcare</span><br />
               <span className="text-[#012c66]">Solutions</span><br />
-              <span className="text-black">Tailored to Your Specialty</span>
+              <span className="text-black">Tailored to Your Speciality</span>
             </h1>
               <p className="text-gray-700 text-lg mb-6 max-w-xl text-justify">
                 Remote Patient Monitoring (RPM) programs can be seamlessly customized to enhance patient 

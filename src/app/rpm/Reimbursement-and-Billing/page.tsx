@@ -224,13 +224,13 @@ const RPMCalculator = () => {
             </p>
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-8">
-              <Link
+              {/* <Link
                   href="/demo"
                   className="group bg-[#5ce1e6] hover:bg-[#1faaaf] text-white text-base font-semibold px-6 py-3 rounded-md shadow-md transition-all duration-300 inline-flex items-center gap-2 whitespace-nowrap flex-nowrap min-w-0"
                 >
                   Request a Demo
                   <ChevronsRight size={20} className="transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0" />
-                </Link>
+                </Link> */}
                 <Link
                   href="/rpm/RPMSoftware"
                   className="bg-[#012c66] hover:bg-[#02224d] text-white backdrop-blur px-6 py-3 rounded-md text-base font-semibold transition inline-flex gap-2 flex-nowrap whitespace-nowrap"
@@ -528,7 +528,7 @@ const RPMCalculator = () => {
                   <div className="text-2xl font-bold text-purple-900">${results.monthly.toLocaleString()}</div>
                 </div>
                 <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-                  <div className="text-sm text-green-600 font-medium">Annualized (×12)</div>
+                  <div className="text-sm text-green-700 font-medium">Annualized (×12)</div>
                   <div className="text-2xl font-bold text-green-900">${results.annual.toLocaleString()}</div>
                 </div>
                 <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
