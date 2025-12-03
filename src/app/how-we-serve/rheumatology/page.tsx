@@ -43,13 +43,13 @@ const RheumatologyPage = () => {
                 Remote Patient Monitoring (RPM) programs can be seamlessly customized to enhance 
                 patient engagement, improve health outcomes, and maximize the success of your practice.
               </p>
-              <Link
+              {/* <Link
                 href="/demo"
                 className="group bg-[#5ce1e6] hover:bg-[#1faaaf] text-white text-base font-semibold px-6 py-3 rounded-md shadow-md transition-all duration-300 inline-flex items-center gap-2 whitespace-nowrap flex-nowrap min-w-0"
               >
                 Request a Demo
                 <ChevronsRight size={20} className="transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0" />
-              </Link>
+              </Link> */}
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 20 }}
@@ -257,7 +257,7 @@ const RheumatologyPage = () => {
           </p>
           <Link
             href="/contact"
-            className="group bg-[#5ce1e6] hover:bg-[#1faaaf] text-white text-base font-semibold px-6 py-3 rounded-md shadow-md transition-all duration-300 inline-flex items-center gap-2 whitespace-nowrap flex-nowrap min-w-0"
+            className="group bg-[#307b7f] hover:bg-[#1faaaf] text-white text-base font-semibold px-6 py-3 rounded-md shadow-md transition-all duration-300 inline-flex items-center gap-2 whitespace-nowrap flex-nowrap min-w-0"
           >
             Discover Rheumatology RPM 
             <ChevronsRight size={20} className="transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0" />
