@@ -89,6 +89,7 @@ const CTASection = () => {
             <Link
               href="/demo"
               className="group bg-[#158185] hover:bg-[#5ce1e6] text-white text-base font-semibold px-6 py-3 rounded-md shadow-md transition-all duration-300 inline-flex items-center gap-2"
+              aria-label="Request a demo of our platform, takes you to the demo request page"
             >
               Request a Demo
               <ChevronsRight

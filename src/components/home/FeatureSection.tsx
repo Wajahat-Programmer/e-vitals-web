@@ -398,6 +398,7 @@ const FeatureSection = () => {
                             <Link
                             href="/rpm/Reimbursement-and-Billing"
                             className="group bg-[#012c66] text-white text-lg px-8 py-4 rounded-lg font-semibold hover:bg-[#02224d] transition-colors w-full sm:w-auto inline-flex items-center justify-center gap-2 whitespace-nowrap mt-auto"
+                            aria-describedby="reimbursement-calc-desc"
                             >
                             Check out the Reimbursement calculator
                             <ChevronsRight
@@ -405,6 +406,10 @@ const FeatureSection = () => {
                                 className="transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0"
                             />
                             </Link>
+
+                            <span id="reimbursement-calc-desc" className="sr-only">
+                            Explore a tool that helps estimate reimbursement amounts for RPM services.
+                            </span>
                         </div>
 
                         {/* Right Side - Request a demo form */}
