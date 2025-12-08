@@ -18,7 +18,9 @@ const RPMDevices = () => {
       {/* Hero Section */}
       <section className="relative min-h-screen w-full overflow-hidden bg-white py-16 md:py-0">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen">
+          {/* <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen"> */}
+          {/* <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-screen"> */}
+          <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[80vh] lg:min-h-screen">
             {/* Left Content */}
             <div
               className={`transition-all duration-1000 ${
@@ -27,11 +29,13 @@ const RPMDevices = () => {
                   : "opacity-0 -translate-x-10"
               }`}
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              {/* <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"> */}
+              <h1 className="text-2.5xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-5.5xl xl:text-6xl font-bold mb-4 sm:mb-6 leading-snug sm:leading-tight">
                 <span className="text-[#012c66]">FDA-Cleared Devices Designed for </span>
                 <span className="text-black">Seamless Remote Care</span>
               </h1>
-              <p className="text-lg md:text-xl mb-6 text-gray-700 leading-relaxed text-justify">
+              {/* <p className="text-lg md:text-xl mb-6 text-gray-700 leading-relaxed text-justify"> */}
+              <p className="text-sm xs:text-base sm:text-lg md:text-xl mb-4 sm:mb-6 text-gray-700 leading-relaxed text-left sm:text-justify">
                 Our RPM devices are built to deliver accurate, real-time patient
                 data directly to your clinic—no complicated setup, no missed
                 readings. From 2-in-1 monitoring devices to high-capacity
@@ -40,7 +44,9 @@ const RPMDevices = () => {
                 patients enjoy a simple, stress-free experience.
               </p>
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-8">
+              {/* <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-8"> */}
+              {/* <div className="flex flex-col xs:flex-row items-start xs:items-center gap-3 sm:gap-4 mb-8"> */}
+              <div className="flex flex-col xs:flex-row items-stretch xs:items-center gap-2.5 xs:gap-3 sm:gap-4 mb-6 sm:mb-8 w-full sm:w-auto">
                 {/* <Link
                   href="/demo"
                   className="group bg-[#5ce1e6] hover:bg-[#1faaaf] text-white text-base font-semibold px-6 py-3 rounded-md shadow-md transition-all duration-300 inline-flex items-center gap-2 whitespace-nowrap flex-nowrap min-w-0"
@@ -48,13 +54,24 @@ const RPMDevices = () => {
                   Request a Demo
                   <ChevronsRight size={20} className="transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0" />
                 </Link> */}
-                <Link
+                {/* <Link
                   href="/rpm/RPMSoftware"
                   className="bg-[#012c66] hover:bg-[#02224d] text-white backdrop-blur px-6 py-3 rounded-md text-base font-semibold transition inline-flex gap-2 flex-nowrap whitespace-nowrap"
                 >
                   See Sample Billing Report
                   <ChevronsRight size={20} className="transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0" />
+                </Link> */}
+
+                <Link
+                  href="/rpm/RPMSoftware"
+                  className="bg-[#012c66] hover:bg-[#02224d] text-white backdrop-blur px-4 xs:px-5 sm:px-6 py-2.5 sm:py-3 rounded-md text-xs xs:text-sm sm:text-base font-semibold transition inline-flex items-center justify-center gap-1.5 xs:gap-2 sm:gap-2 w-full sm:w-auto"
+                >
+                  <span className="whitespace-nowrap overflow-hidden text-ellipsis">
+                    See Sample Billing Report
+                  </span>
+                  <ChevronsRight className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-0.5" />
                 </Link>
+
               </div>
             </div>
 
@@ -68,7 +85,8 @@ const RPMDevices = () => {
             >
               <div className="relative">
                 {/* Background Image for Icons */}
-                <div className="absolute -top-20 -left-20 -right-20 -bottom-20 z-0">
+                {/* <div className="absolute -top-20 -left-20 -right-20 -bottom-20 z-0"> */}
+                <div className="absolute -top-10 -left-10 -right-10 -bottom-10 sm:-top-16 sm:-left-16 sm:-right-16 sm:-bottom-16 md:-top-20 md:-left-20 md:-right-20 md:-bottom-20 z-0">
                   <Image
                     src="/assets/device1-img.jpg" 
                     alt="Background Pattern"
@@ -79,7 +97,9 @@ const RPMDevices = () => {
                 </div>
 
                 {/* Phone Image */}
-                <div className="relative z-10 rounded-4xl mx-auto w-64 h-[500px]">
+                {/* <div className="relative z-10 rounded-4xl mx-auto w-64 h-[500px]"> */}
+                <div className="relative z-10 rounded-2xl sm:rounded-3xl lg:rounded-4xl mx-auto w-40 xs:w-44 sm:w-48 md:w-56 lg:w-64 h-[320px] xs:h-[340px] 
+                sm:h-[380px] md:h-[420px] lg:h-[500px]">
                   {/* <Image
                     src="/assets/device1-img.jpg"
                     alt="RPM Mobile App"
@@ -92,7 +112,8 @@ const RPMDevices = () => {
                 {/* Floating Icons */}
                 <div className="absolute top-0 left-0 w-full h-full z-20">
                   {/* Medical Cross Icon - Top Left */}
-                  <div className="absolute top-8 left-4 w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center shadow-lg animate-bounce">
+                  {/* <div className="absolute top-8 left-4 w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center shadow-lg animate-bounce"> */}
+                  <div className="absolute top-4 sm:top-8 left-2 sm:left-4 w-12 h-12 sm:w-16 sm:h-16 bg-green-500 rounded-2xl flex items-center justify-center shadow-lg animate-bounce">
                     <svg
                       className="w-10 h-10 text-white"
                       fill="currentColor"
@@ -103,7 +124,8 @@ const RPMDevices = () => {
                   </div>
 
                   {/* Heart Icon - Top Center */}
-                  <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-20 h-20 bg-red-500 rounded-2xl flex items-center justify-center shadow-lg">
+                  {/* <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-20 h-20 bg-red-500 rounded-2xl flex items-center justify-center shadow-lg"> */}
+                  <div className="absolute top-2 sm:top-4 left-1/2 transform -translate-x-1/2 w-16 h-16 sm:w-20 sm:h-20 bg-red-500 rounded-2xl flex items-center justify-center shadow-lg">
                     <svg
                       className="w-12 h-12 text-white"
                       fill="currentColor"
@@ -114,7 +136,8 @@ const RPMDevices = () => {
                   </div>
 
                   {/* Lock Icon - Top Right */}
-                  <div className="absolute top-12 right-8 w-14 h-14 bg-blue-400 rounded-2xl flex items-center justify-center shadow-lg animate-pulse">
+                  {/* <div className="absolute top-12 right-8 w-14 h-14 bg-blue-400 rounded-2xl flex items-center justify-center shadow-lg animate-pulse"> */}
+                  <div className="absolute top-8 sm:top-12 right-4 sm:right-8 w-12 h-12 sm:w-14 sm:h-14 bg-blue-400 rounded-2xl flex items-center justify-center shadow-lg animate-pulse">
                     <svg
                       className="w-8 h-8 text-white"
                       fill="currentColor"
@@ -125,7 +148,8 @@ const RPMDevices = () => {
                   </div>
 
                   {/* Chart Icon - Left */}
-                  <div className="absolute top-1/3 left-0 w-14 h-14 bg-purple-500 rounded-2xl flex items-center justify-center shadow-lg">
+                  {/* <div className="absolute top-1/3 left-0 w-14 h-14 bg-purple-500 rounded-2xl flex items-center justify-center shadow-lg"> */}
+                  <div className="absolute top-1/3 left-0 sm:left-2 w-12 h-12 sm:w-14 sm:h-14 bg-purple-500 rounded-2xl flex items-center justify-center shadow-lg">
                     <svg
                       className="w-8 h-8 text-white"
                       fill="currentColor"
@@ -136,7 +160,8 @@ const RPMDevices = () => {
                   </div>
 
                   {/* Calendar Icon - Right */}
-                  <div className="absolute top-1/3 right-4 w-14 h-14 bg-purple-600 rounded-2xl flex items-center justify-center shadow-lg animate-bounce">
+                  {/* <div className="absolute top-1/3 right-4 w-14 h-14 bg-purple-600 rounded-2xl flex items-center justify-center shadow-lg animate-bounce"> */}
+                  <div className="absolute top-1/3 right-2 sm:right-4 w-12 h-12 sm:w-14 sm:h-14 bg-purple-600 rounded-2xl flex items-center justify-center shadow-lg animate-bounce">
                     <svg
                       className="w-8 h-8 text-white"
                       fill="currentColor"
@@ -147,7 +172,8 @@ const RPMDevices = () => {
                   </div>
 
                   {/* Document Icon - Bottom Left */}
-                  <div className="absolute bottom-20 left-8 w-14 h-14 bg-red-400 rounded-2xl flex items-center justify-center shadow-lg animate-pulse">
+                  {/* <div className="absolute bottom-20 left-8 w-14 h-14 bg-red-400 rounded-2xl flex items-center justify-center shadow-lg animate-pulse"> */}
+                  <div className="absolute bottom-16 sm:bottom-20 left-4 sm:left-8 w-12 h-12 sm:w-14 sm:h-14 bg-red-400 rounded-2xl flex items-center justify-center shadow-lg animate-pulse">
                     <svg
                       className="w-8 h-8 text-white"
                       fill="currentColor"
@@ -158,7 +184,8 @@ const RPMDevices = () => {
                   </div>
 
                   {/* Clock Icon - Bottom Right */}
-                  <div className="absolute bottom-16 right-0 w-14 h-14 bg-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
+                  {/* <div className="absolute bottom-16 right-0 w-14 h-14 bg-pink-500 rounded-2xl flex items-center justify-center shadow-lg"> */}
+                  <div className="absolute bottom-12 sm:bottom-16 right-0 sm:right-2 w-12 h-12 sm:w-14 sm:h-14 bg-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
                     <svg
                       className="w-8 h-8 text-white"
                       fill="currentColor"
@@ -176,9 +203,11 @@ const RPMDevices = () => {
 
       {/* 2-in-1 Device Section */}
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
+        {/* <div className="max-w-7xl mx-auto px-6"> */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Grid Section */}
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* <div className="grid lg:grid-cols-2 gap-12 items-center"> */}
+          <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div
               className={`transition-all duration-1000 delay-300 ${
                 isVisible
@@ -186,7 +215,8 @@ const RPMDevices = () => {
                   : "opacity-0 -translate-x-10"
               }`}
             >
-              <div className="relative min-h-[400px]">
+              {/* <div className="relative min-h-[400px]"> */}
+              <div className="relative min-h-[300px] md:min-h-[400px]">
                 <Image
                   src="/assets/bp.png"
                   alt="ForaCare D40g 2-in-1 Monitor"
@@ -204,25 +234,35 @@ const RPMDevices = () => {
                   : "opacity-0 translate-x-10"
               }`}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-[#0B2B5C] mb-4">
+              {/* <h2 className="text-3xl md:text-4xl font-bold text-[#0B2B5C] mb-4"> */}
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0B2B5C] mb-4">
                 2-in-1 Remote Blood Pressure & Blood Glucose Monitor
               </h2>
               <h3 className="text-xl font-bold text-[#6B46C1] mb-6">
                 Two Critical Readings. One Smart Device.
               </h3>
-              <p className="text-lg text-gray-700 mb-8 leading-relaxed text-justify">
+              {/* <p className="text-lg text-gray-700 mb-8 leading-relaxed text-justify"> */}
+              <p className="text-base sm:text-lg text-gray-700 mb-8 leading-relaxed text-left md:text-justify">
                 The ForaCare D40g combines blood pressure and blood glucose
                 monitoring in one FDA-cleared device—perfect for patients
                 managing multiple chronic conditions.
               </p>
 
               <div className="mt-8">
-                <Link
+                {/* <Link
                   href="#"
                   className="inline-flex items-center gap-2 bg-[#0B2B5C] text-white px-6 py-3 rounded-lg hover:bg-[#0a2449] transition-all duration-300 font-semibold shadow-lg hover:shadow-xl"
                 >
                   📄 Download User Guide 
                   <ChevronsRight size={20} className="transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0" />
+                </Link> */}
+
+                <Link
+                  href="#"
+                  className="inline-flex items-center justify-center gap-1.5 xs:gap-2 bg-[#0B2B5C] text-white px-3.5 xs:px-4 sm:px-6 py-2 xs:py-2.5 sm:py-3 rounded-lg hover:bg-[#0a2449] transition-all duration-300 font-semibold shadow-lg hover:shadow-xl text-xs xs:text-sm sm:text-base w-full sm:w-auto"
+                >
+                  <span>📄 Download User Guide</span>
+                  <ChevronsRight className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-0.5" />
                 </Link>
               </div>
             </div>
@@ -236,7 +276,8 @@ const RPMDevices = () => {
               </h4>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"> */}
+            <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
               {[
                 {
                   title: "2-in-1 Monitoring",
@@ -297,8 +338,10 @@ const RPMDevices = () => {
       </section>
 
       {/* Weight Scale Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
+      {/* <section className="py-20 bg-gray-50"> */}
+      <section className="py-12 sm:py-16 md:py-20 bg-gray-50">
+        {/* <div className="max-w-7xl mx-auto px-6"> */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Grid Section */}
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div
@@ -332,7 +375,8 @@ const RPMDevices = () => {
               <h3 className="text-xl font-bold text-[#6B46C1] mb-6">
                 Track Weight Trends for Better Chronic Care
               </h3>
-              <p className="text-lg text-gray-700 mb-8 leading-relaxed text-justify">
+              {/* <p className="text-lg text-gray-700 mb-8 leading-relaxed text-justify"> */}
+              <p className="text-base sm:text-lg text-gray-700 mb-8 leading-relaxed text-left md:text-justify">
                 The ForaCare TNG Scale 550 Mobile is ideal for monitoring
                 conditions like CHF, CKD, and obesity, where daily weight
                 changes can signal early complications.
@@ -358,7 +402,8 @@ const RPMDevices = () => {
               </h4>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"> */}
+            <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
               {[
                 {
                   title: "High Capacity",
@@ -419,15 +464,18 @@ const RPMDevices = () => {
       </section>
 
       {/* Why Our Devices Stand Out */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
+      {/* <section className="py-20 bg-white"> */}
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
+        {/* <div className="max-w-7xl mx-auto px-6"> */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[#0B2B5C] mb-6">
               Why Our RPM Devices Stand Out
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"> */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {[
               {
                 icon: "🏥",
@@ -476,9 +524,12 @@ const RPMDevices = () => {
       </section>
 
       {/* Compliance Section */}
-      <section className="py-20 bg-[#F0F4F8]">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+      {/* <section className="py-20 bg-[#F0F4F8]"> */}
+      <section className="py-12 sm:py-16 md:py-20 bg-[#F0F4F8]">
+        {/* <div className="max-w-5xl mx-auto px-6"> */}
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* <div className="grid md:grid-cols-2 gap-12 items-center"> */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-[#0B2B5C] mb-6">
                 Compliance-Ready for RPM Billing

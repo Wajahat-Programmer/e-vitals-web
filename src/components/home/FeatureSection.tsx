@@ -397,12 +397,14 @@ const FeatureSection = () => {
 
                             <Link
                             href="/rpm/Reimbursement-and-Billing"
-                            className="group bg-[#012c66] text-white text-lg px-8 py-4 rounded-lg font-semibold hover:bg-[#02224d] transition-colors w-full sm:w-auto inline-flex items-center justify-center gap-2 whitespace-nowrap mt-auto"
+                            className="group bg-[#012c66] text-white text-sm xs:text-base sm:text-lg px-4 xs:px-6 sm:px-7 md:px-8 py-3 xs:py-3.5 sm:py-4 rounded-lg font-semibold hover:bg-[#02224d] transition-colors w-full xs:w-auto inline-flex items-center justify-center gap-2 xs:gap-2.5 sm:gap-3 whitespace-nowrap mt-auto"
+                            
                             >
                             Check out the Reimbursement calculator
                             <ChevronsRight
                                 size={20}
-                                className="transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0"
+                                // className="transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0"
+                                className="transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0 w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6"
                             />
                             </Link>
                         </div>
@@ -521,16 +523,21 @@ const FeatureSection = () => {
                             By submitting, you agree to be contacted about eVitals. You can opt out at any time.
                             </p>
 
-                            <div className="flex gap-4 justify-center">
+                            {/* <div className="flex gap-4 justify-center"> */}
+                            <div className="flex gap-2 sm:gap-4 justify-center flex-wrap sm:flex-nowrap">
                             <button
                                 type="submit"
-                                className="bg-[#012c66] text-white px-16 py-4 rounded-lg font-semibold hover:bg-[#02224d] transition-colors text-lg"
+                                // className="bg-[#012c66] text-white px-16 py-4 rounded-lg font-semibold hover:bg-[#02224d] transition-colors text-lg"
+                                className="bg-[#012c66] text-white px-6 py-3 sm:px-8 md:px-12 lg:px-16 rounded-lg font-semibold hover:bg-[#02224d] transition-colors text-sm sm:text-base lg:text-lg w-full sm:w-auto min-w-[140px]"
                             >
                                 Submit
                             </button>
                             <button
                                 type="button"
-                                className="bg-[#012c66] text-white px-16 py-4 rounded-lg font-semibold hover:bg-[#02224d] transition-colors text-lg"
+                                // className="bg-[#012c66] text-white px-16 py-4 rounded-lg font-semibold hover:bg-[#02224d] transition-colors text-lg"
+                                className="bg-[#012c66] text-white px-6 py-3 sm:px-8 md:px-12 lg:px-16 rounded-lg font-semibold hover:bg-[#02224d] transition-colors text-sm sm:text-base lg:text-lg w-full sm:w-auto min-w-[140px]"
+
+                                
                             >
                                 Clear
                             </button>

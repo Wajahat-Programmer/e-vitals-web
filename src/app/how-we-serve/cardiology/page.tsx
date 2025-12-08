@@ -144,13 +144,15 @@ const CardiologyPage = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
+              // ADD THIS LINE
+              className="rounded-lg shadow-xl relative w-full"
             >
+              <div className="relative w-full aspect-[4/3] overflow-hidden rounded-lg shadow-xl"></div>
               <Image 
                 src="/assets/patient-monitoring.jpg"
                 alt="Healthcare Professional with Patient"
-                width={800}
-                height={600}
-                className="rounded-lg shadow-xl w-full"
+                fill
+                className="object-cover"
               />
             </motion.div>
             <motion.div

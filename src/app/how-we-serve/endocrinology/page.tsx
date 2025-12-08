@@ -149,7 +149,7 @@ const EndocrinologyPage = () => {
             <div>
               <div className="mb-6">
                 <Image 
-                src="/assets/endocrinlogist.jpg"
+                src="/assets/endocrinologist.jpg"
                 alt="Healthcare Professional with Patient"
                 width={800}
                 height={600}

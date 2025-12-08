@@ -131,6 +131,7 @@ const RPMSoftware = () => {
                       fill
                       className="object-cover"
                       quality={100}
+                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 40vw, 35vw"
                     />
                   </div>
                 </div>
@@ -143,6 +144,7 @@ const RPMSoftware = () => {
                     fill
                     className="object-cover"
                     quality={100}
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 40vw, 35vw"
                   />
                 </div>
 
@@ -154,6 +156,7 @@ const RPMSoftware = () => {
                     fill
                     className="object-cover"
                     quality={100}
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 40vw, 35vw"
                   />
                 </div>
               </div>
@@ -168,7 +171,8 @@ const RPMSoftware = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Image on the Left */}
             <div
-              className={`relative min-h-[320px] md:h-[420px] rounded-2xl overflow-hidden transition-all duration-1000 delay-500 ${
+              // className={`relative min-h-[320px] md:h-[420px] rounded-2xl overflow-hidden transition-all duration-1000 delay-500 ${
+              className={`relative w-full aspect-[4/3] md:aspect-video lg:aspect-[4/3] rounded-2xl overflow-hidden transition-all duration-1000 delay-500 ${
                 isVisible
                   ? "opacity-100 translate-x-0"
                   : "opacity-0 -translate-x-10"
@@ -180,6 +184,7 @@ const RPMSoftware = () => {
                 fill
                 className="object-cover"
                 quality={100}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
 

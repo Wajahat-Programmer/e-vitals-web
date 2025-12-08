@@ -202,9 +202,11 @@ const RPMCalculator = () => {
   return (
     <main className="bg-white min-h-screen">
       {/* Hero Section */}
-    <section className="relative w-full overflow-hidden bg-white pt-4 md:pt-6 lg:pt-10 pb-10">
+    {/* <section className="relative w-full overflow-hidden bg-white pt-4 md:pt-6 lg:pt-10 pb-10"> */}
+    <section className="relative w-full overflow-hidden bg-white py-8 md:py-12 lg:py-16">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center min-h-[80vh] md:min-h-[85vh]">
+        {/* <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center min-h-[80vh] md:min-h-[85vh]"> */}
+       <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center lg:items-start">
           {/* Left Content */}
           <div
             className={`transition-all duration-1000 ${
@@ -242,14 +244,18 @@ const RPMCalculator = () => {
           </div>
 
           {/* Right Side - Background Image */}
-          <div className="relative h-full w-full transition-all duration-1000 delay-300 rounded-2xl">
+          {/* <div className="relative h-full w-full transition-all duration-1000 delay-300 rounded-2xl"> */}
+          <div className="relative w-full transition-all duration-1000 delay-300 rounded-2xl lg:h-full">
             {/* Background Image Container */}
-            <div className="absolute inset-0 -right-20 -top-10 -bottom-10 z-0">
+            {/* <div className="absolute inset-0 -right-20 -top-10 -bottom-10 z-0"> */}
+            {/* <div className="relative w-full h-full"> */}
+            <div className="relative w-full h-[300px] sm:h-[400px] lg:h-full">
               <Image
                 src="/assets/RPM Calculator.jpg"
                 alt="RPM Calculator Background"
                 fill
-                className="object-contain rounded-2xl ml-15"
+                // className="object-contain rounded-2xl ml-15"
+                className="object-contain rounded-2xl"
                 quality={100}
               />
             </div>
@@ -259,7 +265,8 @@ const RPMCalculator = () => {
     </section>
 
       {/* Calculator Section */}
-      <section className="py-16 bg-gray-50">
+      {/* <section className="py-16 bg-gray-50"> */}
+      <section className="py-8 md:py-12 lg:py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-[#0B1F3F] mb-4">
@@ -272,7 +279,8 @@ const RPMCalculator = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+          {/* <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto"> */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 max-w-7xl mx-auto">
             {/* Inputs Card */}
           <div className="bg-white rounded-xl p-8 shadow-lg border border-gray-200">
             <div className="flex justify-between items-center mb-6">
@@ -498,7 +506,8 @@ const RPMCalculator = () => {
           </div>
 
             {/* Results Card */}
-            <div className="bg-white rounded-xl p-8 shadow-lg border border-gray-200">
+            {/* <div className="bg-white rounded-xl p-8 shadow-lg border border-gray-200"> */}
+            <div className="bg-white rounded-xl p-4 md:p-6 lg:p-8 shadow-lg border border-gray-200">
               <div className="flex justify-between items-center mb-6">
                 <h3 className="text-2xl font-bold text-purple-900">Results</h3>
                 <div className="flex gap-2">
@@ -588,7 +597,8 @@ const RPMCalculator = () => {
       </section>
 
       {/* How Calculator Works */}
-      <section className="py-12 bg-white">
+      {/* <section className="py-12 bg-white"> */}
+      <section className="py-8 md:py-10 lg:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-[#0B1F3F] mb-3">
@@ -689,7 +699,8 @@ const RPMCalculator = () => {
       </section>
 
       {/* Why Use eVitals */}
-      <section className="py-12 bg-gray-50">
+      {/* <section className="py-12 bg-gray-50"> */}
+      <section className="py-8 md:py-10 lg:py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-[#0B1F3F] mb-3">
@@ -729,7 +740,8 @@ const RPMCalculator = () => {
       </section>
 
       {/* Maximize Your RPM Revenue Section */}
-      <section className="py-16 bg-gray-50">
+      {/* <section className="py-16 bg-gray-50"> */}
+      <section className="py-8 md:py-12 lg:py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             {/* Left Column - Image */}
