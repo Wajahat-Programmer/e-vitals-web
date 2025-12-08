@@ -131,7 +131,7 @@ const BookSlotPage = () => {
           <div className="pt-4">
             <button
               type="submit"
-              className="w-full text-white font-semibold py-3 rounded-full bg-[#270949] hover:from-[#6B21A8] hover:to-[#2E003E] transition duration-300 shadow-lg"
+              className="w-full text-white font-semibold py-3 rounded-full bg-[#002c66] hover:from-[#5678d8] hover:to-[#003464] transition duration-300 shadow-lg"
             >
               Book Slot Now
             </button>

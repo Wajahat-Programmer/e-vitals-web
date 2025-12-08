@@ -31,7 +31,35 @@ const SampleMonthlyWorkflowAnimation = () => {
     
     return (
         <div 
-            className="bg-white rounded-xl p-8 shadow-xl border border-gray-200 h-[400] min-h-[400px] relative overflow-hidden flex flex-col justify-start" 
+            // className="bg-white rounded-xl p-8 shadow-xl border border-gray-200 h-[400] min-h-[400px] relative overflow-hidden flex flex-col justify-start" 
+            // className="bg-white rounded-xl p-8 shadow-xl border border-gray-200 h-[550px] min-h-[550px] relative overflow-hidden flex flex-col justify-start mt-36" 
+            // className="bg-white rounded-[4rem] p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.6)] border border-gray-100 h-[520px] min-h-[520px] relative overflow-hidden flex flex-col justify-start mt-43"
+            // className="bg-white rounded-[4rem] p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.6)] border border-gray-100 h-[520px] min-h-[520px] relative overflow-hidden flex flex-col justify-start mt-43 ml-14"
+            // className="bg-white rounded-[4rem] p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.6)] border border-gray-100 h-[500px] min-h-[500px] w-[700px] relative overflow-hidden flex flex-col justify-start mt-43 ml-14"
+            className="
+            bg-white 
+            rounded-[4rem] 
+            p-8 
+            shadow-[0_20px_60px_-15px_rgba(0,0,0,0.6)] 
+            border border-gray-100 
+            h-[500px] 
+            min-h-[500px] 
+
+            w-full        /* mobile: full width */
+            sm:w-[500px]  /* small tablets */
+            md:w-[600px]  /* tablets */
+            lg:w-[700px]  /* laptops/desktops = your original width */
+
+            relative overflow-hidden flex flex-col justify-start 
+
+            mt-10         /* mobile */
+            sm:mt-20      /* small tablets */
+            lg:mt-43      /* original spacing restored on large screens */
+
+            mx-auto       /* centers card on smaller screens */
+            lg:ml-14      /* original left offset only on large screens */
+            "
+
         >
             <h3 className="text-2xl font-bold text-gray-900 mb-6 z-10">
                 Sample Monthly Workflow
@@ -64,7 +92,34 @@ const SampleMonthlyWorkflowAnimation = () => {
 
             {/* ANIMATION/GIF - Positioned at bottom right */}
             {isMounted && (
-                <div className="absolute top-30  right-15 w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 z-20">
+                // <div className="absolute top-30  right-15 w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 z-20">
+               <div
+                    className="
+                        // MOBILE: center animation below text
+                        relative 
+                        mt-10 
+                        flex 
+                        justify-center 
+                        items-center 
+                        w-full
+
+                        // Larger screens: restore original position
+                        sm:absolute
+                        sm:mt-0
+                        sm:top-48
+                        sm:right-10
+                        sm:w-32 sm:h-32
+
+                        md:top-40
+                        md:right-12
+                        md:w-40 md:h-40
+
+                        lg:top-30
+                        lg:right-15
+                        lg:w-48 lg:h-48 h-24  /* mobile size */
+                        z-20
+                    "
+                    >
                     <Image
                         src="/assets/checklist-animation.gif" 
                         alt="Animated checklist completion"
@@ -87,7 +142,9 @@ const FeatureSection = () => {
     return (
         <section className="bg-white">
             {/* How It Works Section */}
-            <div className="bg-gray-100 py-12 px-4">
+            {/* <div className="bg-gray-200 py-12 px-4"> */}
+            <div style={{ backgroundColor: "#cdcdcd" }} className="py-12 px-4">
+
                 <div className="container mx-auto max-w-7xl">
                     <div className="mb-8">
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-1">
@@ -125,7 +182,7 @@ const FeatureSection = () => {
                         ].map((step, index) => (
                             <div
                                 key={index}
-                                className="bg-white/40 backdrop-blur-md rounded-4xl p-6 shadow-2xl border border-white/30 hover:shadow-4xl hover:scale-105 transition-all duration-300"
+                                className="bg-white/100 backdrop-blur-md rounded-4xl p-6 shadow-2xl border border-white/30 hover:shadow-4xl hover:scale-105 transition-all duration-300"
                             >
                                 <h3 className="text-base font-bold text-gray-900 mb-3">
                                     {step.number}. {step.title}
@@ -156,7 +213,7 @@ const FeatureSection = () => {
                             (program, index) => (
                                 <div
                                     key={index}
-                                    className="bg-white/70 backdrop-blur-lg rounded-4xl p-8 shadow-xl border border-white/50 min-h-[140px] flex items-center justify-center hover:shadow-4xl hover:scale-105 transition-all duration-300"
+                                    className="bg-white/70 backdrop-blur-lg rounded-4xl p-8 shadow-xl border border-white/30 min-h-[140px] flex items-center justify-center hover:shadow-4xl hover:scale-105 transition-all duration-300"
                                 >
                                     <h3 className="text-xl font-semibold text-gray-900 text-center">
                                         {program}
@@ -190,10 +247,10 @@ const FeatureSection = () => {
                     <ul className="space-y-3">
                         {[
                         "Accurate results in English/Spanish",
-                        "Interactive cuff testing algorithm",
-                        "Atrial Fibrillation Technology (Afib Detect)",
-                        "Automatic BP averaging per AHA/ACC",
-                        "Built-in 4G network, SIM card",
+                        "Alternative site testing approved",
+                        "Smart Averaging Technology (AVG Mode)",
+                        "Irregular Rapid Beat (IRB) technology",
+                        "Built-in 4G network SIM card",
                         ].map((feature, index) => (
                         <li key={index} className="flex items-start">
                             <span className="text-gray-700 mr-2">•</span>
@@ -224,7 +281,7 @@ const FeatureSection = () => {
                     <ul className="space-y-3">
                         {[
                         "Supports up to 550 lbs",
-                        "High-contrast LCD screen",
+                        "Low profile, wide platform",
                         "Large backlit LCD display",
                         "Available results in English, Spanish & French",
                         ].map((feature, index) => (
@@ -251,16 +308,20 @@ const FeatureSection = () => {
             </div>
 
             {/* Reimbursement CPT Codes Section - Responsive layout maintained */}
-            <div className="bg-[#e0e0e0] py-16 px-4">
-                <div className="container mx-auto max-w-7xl">
+            {/* <div className="bg-[#e0e0e0] py-16 px-4"> */}
+            <div className="bg-[#e0e0e0] py-12 sm:py-16 px-4">
+                {/* <div className="container mx-auto max-w-7xl"> */}
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
                     <div className="mb-10">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+                        {/* <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2"> */}
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2">
                             Reimbursement CPT codes
                         </h2>
                     </div>
 
                     {/* Responsive grid for CPT codes and workflow */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-12"> */}
+                    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
                         {/* CPT Codes List */}
                         <div className="space-y-8">
                             {[
@@ -281,7 +342,7 @@ const FeatureSection = () => {
                                 },
                                 {
                                     code: "CPT 99448",
-                                    description: "RPM each add&apos;l 20 minutes",
+                                    description: "RPM each add'I 20 minutes",
                                     amount: "$44",
                                 },
                                 {
@@ -292,20 +353,27 @@ const FeatureSection = () => {
                             ].map((item, index) => (
                                 <div
                                     key={index}
-                                    className="bg-white rounded-4xl p-6 border-white/30 shadow-xl hover:shadow-4xl hover:scale-105 transition-all duration-300 border"
+                                    // className="bg-white rounded-4xl p-6 border-white/30 shadow-xl hover:shadow-4xl hover:scale-105 transition-all duration-300 border"
+                                    className="bg-white rounded-4xl p-4 sm:p-6 border-white/30 shadow-xl hover:shadow-4xl hover:scale-105 transition-all duration-300 border"
+
                                 >
-                                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                                    {/* <h3 className="text-xl font-bold text-gray-900 mb-2"> */}
+                                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">
                                         {item.code}
                                     </h3>
-                                    <p className="text-base text-gray-700 mb-2">
+                                    {/* <p className="text-base text-gray-700 mb-2"> */}
+                                    <p className="text-sm sm:text-base text-gray-700 mb-2">
                                         {item.description}
                                     </p>
-                                    <p className="text-base font-bold text-red-600">
+                                    {/* <p className="text-base font-bold text-red-600"> */}
+                                    <p className="text-sm sm:text-base font-bold text-red-600">
+
                                         Reimbursement &asymp; <span className="text-2xl">{item.amount}</span>
                                     </p>
                                 </div>
                             ))}
-                            <p className="text-sm text-gray-800 pt-4">
+                            {/* <p className="text-sm text-gray-800 pt-4"> */}
+                            <p className="text-xs sm:text-sm text-gray-800 pt-2 sm:pt-4">
                                 Note: Coding and reimbursement vary by payer and plan. Verify
                                 current policies before billing.
                             </p>
@@ -331,16 +399,17 @@ const FeatureSection = () => {
                                 See e-Vitals in action
                             </h2>
                             <p className="text-gray-700 mb-8">
-                                Tell us about your practice(s) and we&apos;ll tailor a demo to your
+                                Tell us about your practice/facility and we'll tailor a demo to your
                                 patient population, workflows, and payers.
                             </p>
 
                             <div className="mb-8">
-                                <h3 className="text-xl font-bold text-gray-900 mb-4">
-                                Cardiology, Primary Care, Endocrinology, Pulmonology
+                                {/* <h3 className="text-xl font-bold text-gray-900 mb-4"> */}
+                                <h3 className="text-[#b00b1b] font-normal mb-4">
+                                    Cardiology, Primary Care, Endocrinology, Pulmonology
                                 </h3>
-                                <p className="text-gray-700 mb-2">
-                                Clinical practice for any device
+                                <p className="text-[#b00b1b] mb-2">
+                                Solo Practice to multi-site groups
                                 </p>
                             </div>
 
@@ -350,14 +419,16 @@ const FeatureSection = () => {
                                 </h3>
                                 <ul className="space-y-2">
                                 {[
-                                    "Improved vitals",
-                                    "Reduced hospitalizations",
-                                    "Fewer interventions",
-                                    "Better outcomes/year",
+                                    "Between visits", 
+                                    "Continuous insights", 
+                                    "Earlier interventions",
+                                    "Better reimbursement",
                                 ].map((item, index) => (
                                     <li key={index} className="flex items-center">
-                                    <span className="text-red-500 mr-2">•</span>
-                                    <span className="text-gray-700">{item}</span>
+                                    {/* <span className="text-red-500 mr-2">•</span> */}
+                                    <span className="text-black mr-2">•</span>
+                                    {/* <span className="text-gray-700">{item}</span> */}
+                                    <span className="text-[#b00b1b]">{item}</span>
                                     </li>
                                 ))}
                                 </ul>
@@ -367,8 +438,10 @@ const FeatureSection = () => {
                                 <h3 className="text-xl font-bold text-gray-900 mb-4">
                                 Reimbursement
                                 </h3>
-                                <p className="text-red-600 font-semibold text-lg">
-                                + $275/patient: 8-10% added per month
+                                {/* <p className="text-red-600 font-semibold text-lg"> */} 
+                                <p className="text-[#b00b1b] font-semibold text-lg">
+                                {/* + $275/patient: 8-10% added per month */}
+                                Earn upto $170 per patient per month
                                 </p>
                             </div>
 
@@ -545,6 +618,97 @@ const FeatureSection = () => {
                         </form>
                         </div>
                     </div>
+                    {/* What Clinicians say */}
+            {/* What Clinicians say */}
+                <div className="py-16 px-4 bg-white">
+                    <div className="container mx-auto max-w-7xl">
+                        {/* Title */}
+                        <div className="mb-10">
+                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+                                What Clinicians say
+                            </h2>
+                        </div>
+
+                        {/* Testimonial Cards Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            {[
+                                {
+                                    quote: "“eVitals handled RPM end-to-end. Our staff finally had breathing room.”",
+                                    details: "Practice Manager • Cardiology Group, TX",
+                                    color: "bg-[#cdcdcd]/70",
+                                    shadow: "shadow-2xl",
+                                },
+                                {
+                                    quote: "“eVitals handled RPM end-to-end. Our staff finally had breathing room.”",
+                                    details: "Practice Manager • Cardiology Group, TX",
+                                    color: "bg-[#b79cb8]/63",
+                                    shadow: "shadow-2xl shadow-purple-300/50",
+                                },
+                                {
+                                    quote: "“eVitals handled RPM end-to-end. Our staff finally had breathing room.”",
+                                    details: "Practice Manager • Cardiology Group, TX",
+                                    color: "bg-[#cdcdcd]/70",
+                                    shadow: "shadow-2xl",
+                                },
+                            ].map((item, index) => (
+                                <div
+                                    key={index}
+                                    // Styling for the rounded rectangle with shadow (rounded-4xl is a custom/large radius)
+                                    className={`${item.color} ${item.shadow} rounded-[2rem] p-8 transition-all duration-300 flex flex-col justify-between`}
+                                    style={{
+                                        // Custom shadow/border to mimic the soft, raised look in the image
+                                        boxShadow: `0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)`,
+                                        // Add a border for the subtle white edge
+                                        border: '1px solid rgba(255, 255, 255, 0.5)',
+                                        minHeight: '200px', // Ensure cards are tall enough
+                                    }}
+                                >
+                                    {/* Quote Text */}
+                                    <p className="text-lg text-gray-800 mb-6 font-medium">
+                                        {item.quote}
+                                    </p>
+                                    
+                                    {/* Clinician Details */}
+                                    <p className="text-sm text-gray-600 font-semibold mt-auto">
+                                        {item.details}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+
+            {/* Ready to launch RPM the easy way */}
+           <div className="w-full" style={{ backgroundColor: "#001f4c" }}>
+            <div className="py-12 px-4 sm:px-6 lg:px-8">
+                {/* Added w-full here to ensure the container uses 100% of the padded width */}
+                <div className="w-full flex flex-col md:flex-row justify-between items-center"> 
+                    <div className="mb-6 md:mb-0">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 leading-tight">
+                        Ready to launch RPM the easy way
+                        </h2>
+                        <p className="text-lg sm:text-xl text-white opacity-90">
+                        We'll show you how eVitals can launch RPM in your clinic in under 30 minutes.
+                        </p>
+                    </div>
+                    {/* <button
+                        style={{ backgroundColor: "#40e0d0", color: "#001f4c" }}
+                        className="py-3 px-8 rounded-lg text-xl font-semibold shadow-2xl hover:bg-teal-300 transition duration-300 ease-in-out"
+                    >
+                        Request a Demo
+                    </button> */}
+                    
+                    <Link
+                    href="/demo"
+                    className="bg-[#008191] hover:bg-[#00acc1] text-white text-sm font-bold text-[16px] px-4 py-2 rounded transition"
+                    >
+                    Request a Demo
+                    </Link>
+                </div>
+            </div>
+        </div>
+
+
                 </div>
             </div>
         </section>

@@ -58,7 +58,7 @@ const RPMSoftware = () => {
     }, [displayedText, isDeleting, index]);
 
     return (
-      <h2 className="text-2xl font-semibold text-[#9883d0] mt-4">
+      <h2 className="text-xl font-semibold text-[#000000] mt-4">
         {displayedText}
         <span className="animate-pulse">|</span>
       </h2>
@@ -196,7 +196,7 @@ const RPMSoftware = () => {
                   : "opacity-0 translate-x-10"
               }`}
             >
-              <h2 className="text-3xl font-bold text-[#2E1065] mb-4">
+              <h2 className="text-3xl font-bold text-[#000000] mb-4">
                 What is RPM Software?
               </h2>
               <p className="text-lg md:text-xl mb-8 text-gray-700 leading-relaxed text-justify">
@@ -209,7 +209,7 @@ const RPMSoftware = () => {
 
           {/* With eVitals Card */}
           <div className="mt-12 flex justify-center"> 
-            <div className="bg-gradient-to-br from-[#C5D9E8] to-[#A8C5DD] p-8 rounded-3xl shadow-lg max-w-3xl w-full"> 
+            <div className="bg-gradient-to-br from-[#c5d9e8d2] to-[#a8c5ddc0] p-8 rounded-3xl shadow-lg max-w-3xl w-full"> 
               <h3 className="text-2xl md:text-3xl font-bold text-[#0B2B5C] mb-6"> 
                 With e-Vitals, you can 
               </h3> 
@@ -251,90 +251,113 @@ const RPMSoftware = () => {
 
 
       {/* Key Features Section */}
-      <section className="py-16 bg-[#F9F5FF]">
+      {/* Before bg-[#F9F5FF] */}
+      {/* <section className="py-16 bg-[#dee4f1]">  */}
+      <section className="py-16 bg-[#b4b1b1a2]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#2E1065]">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#012c66]">
               Key Features of e-Vitals RPM Software include
             </h2>
             <TypewriterFeatures />
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                title: "Real-Time Data Access",
-                points: [
-                  "View patient vitals instantly—blood pressure, glucose, weight, SpO₂, and more.",
-                  "Color-coded alerts for abnormal readings.",
-                ],
-              },
-              {
-                title: "Multi-Device Integration",
-                points: [
-                  "Works with our FDA-cleared 2-in-1 BP + Glucose Monitor and High-Capacity Weight Scale.",
-                  "Supports Bluetooth, Wi-Fi, and 4G cellular-enabled devices.",
-                ],
-              },
-              {
-                title: "Automated Compliance Tracking",
-                points: [
-                  "Built-in RPM compliance rules (16-day minimum data requirement per 30 days).",
-                  "Patient adherence reports for billing audits.",
-                ],
-              },
-              {
-                title: "Integration",
-                points: [
-                  "Compatible with Epic, Cerner, Athenahealth, and more.",
-                  "Avoid duplicate data entry and save staff time.",
-                ],
-              },
-              {
-                title: "Secure & HIPAA-Compliant",
-                points: [
-                  "End-to-end encryption.",
-                  "Business Associate Agreement (BAA) provided.",
-                ],
-              },
-              {
-                title: "Multi-Language Patient Support",
-                points: [
-                  "English, Spanish, and more—ensuring accessibility for diverse patient populations.",
-                ],
-              },
-            ].map((feature, index) => (
-              <div
-                key={index}
-                className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-purple-100 text-justify "
-              >
-                <h3 className="text-xl font-bold text-[#2E1065] mb-3">
-                  {feature.title}
-                </h3>
-                <ul className="space-y-2 text-gray-700">
-                  {feature.points.map((p, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <span className="mt-1">
-                        <svg
-                          className="w-5 h-5 text-[#B187E8]"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M5 13l4 4L19 7"
-                          />
-                        </svg>
-                      </span>
-                      <span>{p}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">  
+          {[
+            {
+              title: "Real-Time Data Access",
+              points: [
+                "View patient vitals instantly—blood pressure, glucose, weight, SpO₂, and more.",
+                "Color-coded alerts for abnormal readings.",
+              ],
+              bgImage: "/assets/real-time.jpeg",
+            },
+            {
+              title: "Multi-Device Integration",
+              points: [
+                "Works with our FDA-cleared 2-in-1 BP + Glucose Monitor and High-Capacity Weight Scale.",
+                "Supports Bluetooth, Wi-Fi, and 4G cellular-enabled devices.",
+              ],
+              bgImage: "/assets/multi-device-integration.jpeg",
+            },
+            {
+              title: "Automated Compliance Tracking",
+              points: [
+                "Built-in RPM compliance rules (16-day minimum data requirement per 30 days).",
+                "Patient adherence reports for billing audits.",
+              ],
+              bgImage: "/assets/compliance-tracking.jpeg",
+            },
+            {
+              title: "Integration",
+              points: [
+                "Compatible with Epic, Cerner, Athenahealth, and more.",
+                "Avoid duplicate data entry and save staff time.",
+              ],
+              bgImage: "/assets/Integration.jpeg",
+            },
+            {
+              title: "Secure & HIPAA-Compliant",
+              points: [
+                "End-to-end encryption.",
+                "Business Associate Agreement (BAA) provided.",
+              ],
+              bgImage: "/assets/secure-HIPAA.jpeg",
+            },
+            {
+              title: "Multi-Language Patient Support",
+              points: [
+                "English, Spanish, and more—ensuring accessibility for diverse patient populations.",
+              ],
+              bgImage: "/assets/multi-Language.jpeg",
+            },
+          ].map((feature, index) => (
+            <div
+              key={index}
+              className="relative bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-purple-100 text-justify overflow-hidden"
+            >
+              {/* Background Image with Blur Effect */}
+              <div 
+                className="absolute inset-0 bg-cover bg-center opacity-95"
+                style={{
+                  backgroundImage: `url(${feature.bgImage})`,
+                  filter: 'blur(1px)',
+                }}
+              />
+      
+      {/* White overlay for better readability */}
+      <div className="absolute inset-0 bg-white/60" />
+      
+      {/* Content */}
+      <div className="relative z-10">
+        <h3 className="text-xl font-bold text-[#000000] mb-3">
+          {feature.title}
+        </h3>
+        <ul className="space-y-2 text-gray-700">
+          {feature.points.map((p, i) => (
+            <li key={i} className="flex items-start gap-3">
+              <span className="mt-1">
+                <svg
+                  className="w-5 h-5 text-[#B187E8]"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+              </span>
+              <span>{p}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  ))}
           </div>
         </div>
       </section>
@@ -343,7 +366,7 @@ const RPMSoftware = () => {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#2E1065]">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#012C66]">
               How It Works
             </h2>
           </div>
@@ -366,10 +389,11 @@ const RPMSoftware = () => {
       </section>
 
       {/* Benefits for Providers Section */}
-      <section className="py-20 bg-gradient-to-b from-[#F9F5FF] to-white">
+      {/* <section className="py-20 bg-gradient-to-b from-[#dadff3] to-white"> */}
+      <section className="py-16 bg-[#b4b1b1a2]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-[#2E1065]">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-[#012C66]">
               Benefits for Providers
             </h2>
             <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
@@ -414,7 +438,7 @@ const RPMSoftware = () => {
                 >
                   {b.icon}
                 </div>
-                <h3 className="text-xl font-bold text-[#2E1065] mb-3">
+                <h3 className="text-xl font-bold text-[#012c66] mb-3">
                   {b.title}
                 </h3>
                 <p className="text-gray-700 leading-relaxed">{b.desc}</p>
@@ -425,10 +449,11 @@ const RPMSoftware = () => {
       </section>
 
       {/* Compliance-Ready Section */}
-      <section className="py-16 bg-[#F9F5FF] overflow-hidden">
+      {/* Before bg-[#F9F5FF] */}
+      <section className="py-16 bg-[#f8f8f8] overflow-hidden">  
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#2E1065]">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#012C66]">
               Compliance-Ready by Design
             </h2>
           </div>
@@ -450,7 +475,7 @@ const RPMSoftware = () => {
                 >
                   <span>
                     <svg
-                      className="w-5 h-5 text-[#B187E8]"
+                      className="w-5 h-5 text-[#012C66]"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"

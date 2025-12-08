@@ -120,8 +120,11 @@ export default function ComplianceSecurity() {
               <li>Continuous monitoring & intrusion detection</li>
             </ul>
           </div>
-          <div className="bg-[#f9f5ff] rounded-xl p-8 shadow-inner">
-            <FileCheck className="w-14 h-14 text-[#c092e8] mb-4" />
+           {/* Before color */}
+          {/* <div className="bg-[#f9f5ff] rounded-xl p-8 shadow-inner"> */}
+          <div className="bg-[#a8c5dda2] rounded-xl p-8 shadow-inner">
+            {/* <FileCheck className="w-14 h-14 text-[#c092e8] mb-4" /> */}
+            <FileCheck className="w-14 h-14 text-[#012c66] mb-4" />
             <p className="text-gray-700">
               Security and compliance are critical to patient trust, clinical accuracy, and operational reliability. 
               With eVitals, every reading, record, and reimbursement process is backed by uncompromising protection.

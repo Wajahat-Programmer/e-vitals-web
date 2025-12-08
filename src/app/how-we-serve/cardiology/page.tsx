@@ -160,7 +160,7 @@ const CardiologyPage = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-[#003d7a] mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#012c66] mb-6">
                 Get a specialized Remote Patient Monitoring (RPM) solution
               </h2>
               <p className="text-gray-700 text-lg mb-4 leading-relaxed text-justify">
@@ -180,12 +180,12 @@ const CardiologyPage = () => {
       </section>
 
       {/* WHO WE SERVE Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-300">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-[#012c66] mb-12 text-center">
             WHO WE SERVE
           </h2>
-          <div className="grid md:grid-cols-2 gap-8 items-center">
+          <div className="grid md:grid-cols-2 gap-8 items-center ">
             {/* Left Side - Specialty List */}
             <div className="bg-gray-100 rounded-lg overflow-hidden shadow-lg">
               <div className="bg-[#012c66] p-4 border-b-2 border-gray-300">
@@ -225,7 +225,7 @@ const CardiologyPage = () => {
                 className="rounded-lg shadow-xl w-full"
               />
               </div>
-              <h3 className="text-2xl font-bold text-[#003d7a] mb-4">Cardiology</h3>
+              <h3 className="text-2xl font-bold text-[#012c66] mb-4">Cardiology</h3>
               <p className="text-gray-700 text-lg leading-relaxed text-justify">
                 Our RPM solutions empower cardiologists to monitor blood pressure, heart rate, 
                 weight, and cardiac rhythm in real time. Identify early signs of heart failure 

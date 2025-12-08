@@ -37,7 +37,7 @@ const NeurologyPage = () => {
                 <span className="text-black">Explore</span><br />
                 <span className="text-[#012c66]">Remote Healthcare</span><br />
                 <span className="text-[#012c66]">Solutions</span><br />
-                <span className="text-black">Tailored to Your Specialty</span>
+                <span className="text-black">Tailored to Your Speciality</span>
               </h1>
               <p className="text-gray-700 text-lg mb-6 max-w-xl text-justify">
                 Remote Patient Monitoring (RPM) programs can be seamlessly customized to enhance patient 
@@ -111,7 +111,7 @@ const NeurologyPage = () => {
       </section>
 
       {/* WHO WE SERVE Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-300">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-[#012c66] mb-12 text-center">
             WHO WE SERVE

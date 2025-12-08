@@ -91,7 +91,7 @@ const RPMDevices = () => {
                     src="/assets/device1-img.jpg" 
                     alt="Background Pattern"
                     fill
-                    className="object-cover rounded-4xl  opacity-30 ml-15"
+                    className="object-cover rounded-4xl  opacity-30 ml-25"
                     quality={100}
                   />
                 </div>
@@ -238,7 +238,7 @@ const RPMDevices = () => {
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0B2B5C] mb-4">
                 2-in-1 Remote Blood Pressure & Blood Glucose Monitor
               </h2>
-              <h3 className="text-xl font-bold text-[#6B46C1] mb-6">
+              <h3 className="text-xl font-bold text-[#9942a0] mb-6">
                 Two Critical Readings. One Smart Device.
               </h3>
               {/* <p className="text-lg text-gray-700 mb-8 leading-relaxed text-justify"> */}
@@ -269,71 +269,79 @@ const RPMDevices = () => {
           </div>
 
           {/* Key Features Grid */}
-          <div className="mt-16">
-            <div className="text-center mb-12">
-              <h4 className="text-3xl font-bold text-[#0B2B5C] inline-block bg-white px-8 py-4 rounded-2xl shadow-md">
-                Key Features
-              </h4>
-            </div>
+         <div className="relative mt-16">
+          {/* The 4-column grid container */}
+          <div className="relative mt-16 max-w-7xl mx-auto px-4">
+          {/* Grid container for the small cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-5xl mx-auto">
 
-            {/* <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"> */}
-            <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-              {[
-                {
-                  title: "2-in-1 Monitoring",
-                  desc: "BP + glucose readings with a single device",
-                },
-                {
-                  title: "Cellular Connectivity (4G)",
-                  desc: "Automatic data uploads, no Wi-Fi or smartphone required",
-                },
-                {
-                  title: "Smart Averaging Mode (AVG)",
-                  desc: "Combines multiple readings for more accurate results",
-                },
-                {
-                  title: "IRB Detection",
-                  desc: "Identifies irregular rapid heartbeats during BP measurement",
-                },
-                {
-                  title: "Voice Guidance",
-                  desc: "English & Spanish audio instructions for accessibility",
-                },
-                {
-                  title: "Data Storage",
-                  desc: "Holds up to 864 measurement records in memory",
-                },
-                {
-                  title: "Cloud Integration",
-                  desc: "Syncs with e-Vitals RPM dashboard for clinician review",
-                },
-                {
-                  title: "Backlit LCD Display",
-                  desc: "Large, easy-to-read screen",
-                },
-                {
-                  title: "Alternative Site Glucose Testing",
-                  desc: "Less finger discomfort for patients",
-                },
-                {
-                  title: "Dual Power Options",
-                  desc: "Rechargeable lithium-ion battery or standard AA batteries",
-                },
-              ].map((feature, index) => (
+            {[ 
+              // Row 1 - 4 Cards
+              { title: "2-in-1 Monitoring", desc: "BP + glucose readings with a single device", color: "bg-[#a8c5dda2]", border: "border-[#012c66]" },
+              { title: "Cellular Connectivity (4G)", desc: "Automatic data uploads, no Wi-Fi or smartphone required", color: "bg-[#a8c5dda2]", border: "border-[#012c66]" },
+              { title: "Smart Averaging Mode (AVG)", desc: "Combines multiple readings for more accurate results", color: "bg-[#a8c5dda2]", border: "border-[#012c66]" },
+              { title: "IRB Detection", desc: "Identifies irregular rapid heartbeats during BP measurement", color: "bg-[#a8c5dda2]", border: "border-[#012c66]" },
+
+              // Row 2 - Left and Right cards only (leave center gap)
+              { title: "Voice Guidance", desc: "English & Spanish audio instructions for accessibility", color: "bg-[#a8c5dda2]", border: "border-[#012c66]", colSpanClass: "lg:col-span-1" },
+              { title: "Data Storage", desc: "Holds up to 864 measurement records in memory", color: "bg-[#a8c5dda2]", border: "border-[#012c66]", colSpanClass: "lg:col-start-4" },
+
+              // Row 3 - 4 Cards
+              { title: "Cloud Integration", desc: "Syncs with eVitals RPM dashboard for clinician review", color: "bg-[#a8c5dda2]", border: "border-[#012c66]" },
+              { title: "Backlit LCD Display", desc: "Large, easy-to-read screen", color: "bg-[#a8c5dda2]", border: "border-[#a8c5dda2]" },
+              { title: "Alternative Site Glucose Testing", desc: "Less finger discomfort for patients", color: "bg-[#a8c5dda2]", border: "border-[#012c66]" },
+              { title: "Dual Power Options", desc: "Rechargeable lithium-ion battery or standard AA batteries", color: "bg-[#a8c5dda2]", border: "border-[#012c66]" },
+            ].map((feature, index) => {
+              const colSpanClass = feature.colSpanClass || "";
+              const bgColor = feature.color;
+              const hoverColor = "hover:bg-[#d0d8e8]";
+              const borderColor = feature.border;
+
+              return (
                 <div
                   key={index}
-                  className="bg-[#E8E4F3] p-6 rounded-xl hover:shadow-lg transition-all duration-300 group border-l-4 border-[#6B46C1]"
+                  className={`${bgColor} p-4 rounded-xl ${hoverColor} hover:shadow-lg transition-all duration-300 group border-l-4 ${borderColor} ${colSpanClass} max-w-xs mx-auto`}
+                  style={{ minWidth: '220px' }}
                 >
-                  <h5 className="font-bold text-[#0B2B5C] mb-2 text-lg">
+                  <h5 className="font-bold text-[#012c66] mb-2 text-base">
                     {feature.title}
                   </h5>
                   <p className="text-gray-700 text-sm leading-relaxed">
                     {feature.desc}
                   </p>
                 </div>
-              ))}
+              );
+            })}
+          </div>
+
+          {/* Centered Big "Key Features" Card */}
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+            {/* <div className="text-center bg-white rounded-3xl px-16 py-14 shadow-2xl border border-gray-300 max-w-md w-full"> */}
+              <h4 className="text-4xl font-bold text-[#012c66]">
+                Key Features
+              </h4>
+            {/* </div> */}
+          </div>
+        </div>
+
+
+          {/* Center Key Features Block - Absolutely positioned and wider */}
+          <div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+            style={{ minWidth: '300px', maxWidth: '400px' }} // Wider than before
+          >
+            <div className="text-center">
+              <h4
+                className="text-3xl font-bold text-[#012c66] inline-block bg-white px-12 py-12 rounded-3xl shadow-2xl border border-gray-200"
+                style={{ minWidth: '300px' }}
+              >
+                Key Features
+              </h4>
             </div>
           </div>
+
+        </div>
+
         </div>
       </section>
 
@@ -372,7 +380,7 @@ const RPMDevices = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-[#0B2B5C] mb-4">
                 High-Capacity Smart Weight Scale
               </h2>
-              <h3 className="text-xl font-bold text-[#6B46C1] mb-6">
+              <h3 className="text-xl font-bold text-[#9942a0] mb-6">
                 Track Weight Trends for Better Chronic Care
               </h3>
               {/* <p className="text-lg text-gray-700 mb-8 leading-relaxed text-justify"> */}
@@ -397,7 +405,7 @@ const RPMDevices = () => {
           {/* Key Features Grid */}
           <div className="mt-16">
             <div className="text-center mb-12">
-              <h4 className="text-3xl font-bold text-[#0B2B5C] inline-block bg-white px-8 py-4 rounded-2xl shadow-md">
+              <h4 className="text-3xl font-bold text-[#012c66] inline-block bg-white px-8 py-4 rounded-2xl shadow-md">
                 Key Features
               </h4>
             </div>
@@ -448,7 +456,8 @@ const RPMDevices = () => {
               ].map((feature, index) => (
                 <div
                   key={index}
-                  className="bg-[#E8E4F3] p-6 rounded-xl hover:shadow-lg transition-all duration-300 group border-l-4 border-[#6B46C1]"
+                  // className="bg-[#E8E4F3] p-6 rounded-xl hover:shadow-lg transition-all duration-300 group border-l-4 border-[#6B46C1]"
+                  className="bg-[#a8c5dda2] p-6 rounded-xl hover:bg-[#d0d8e8] hover:shadow-lg transition-all duration-300 group border-l-4 border-[#012c66]"
                 >
                   <h5 className="font-bold text-[#012c66] mb-2 text-lg">
                     {feature.title}
@@ -469,7 +478,7 @@ const RPMDevices = () => {
         {/* <div className="max-w-7xl mx-auto px-6"> */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0B2B5C] mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#012c66] mb-6">
               Why Our RPM Devices Stand Out
             </h2>
           </div>
@@ -513,7 +522,7 @@ const RPMDevices = () => {
                 className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200"
               >
                 <div className="text-5xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-bold text-[#0B2B5C] mb-3">
+                <h3 className="text-xl font-bold text-[#012c66] mb-3">
                   {feature.title}
                 </h3>
                 <p className="text-gray-700 leading-relaxed">{feature.desc}</p>
@@ -531,7 +540,7 @@ const RPMDevices = () => {
           {/* <div className="grid md:grid-cols-2 gap-12 items-center"> */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#0B2B5C] mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#012c66] mb-6">
                 Compliance-Ready for RPM Billing
               </h2>
               <p className="text-lg text-gray-700 mb-8 leading-relaxed">
@@ -541,7 +550,7 @@ const RPMDevices = () => {
             </div>
 
             <div className="bg-white p-8 rounded-2xl shadow-xl transition-all duration-300">
-              <h3 className="text-xl font-bold text-[#0B2B5C] mb-6">
+              <h3 className="text-xl font-bold text-[#012c66] mb-6">
                 Our devices:
               </h3>
               <div className="space-y-4">
@@ -551,7 +560,10 @@ const RPMDevices = () => {
                   "Support the 16-day minimum data collection requirement for CPT reimbursement",
                 ].map((requirement, index) => (
                   <div key={index} className="flex items-start gap-4 group">
-                    <div className="w-6 h-6 bg-[#6B46C1] rounded-full flex items-center justify-center flex-shrink-0 mt-1 group-hover:scale-125 transition-all duration-300">
+                    {/* Before Color */}
+                    {/* <div className="w-6 h-6 bg-[#6B46C1] rounded-full flex items-center justify-center flex-shrink-0 mt-1 group-hover:scale-125 transition-all duration-300"> */}
+                    <div className="w-6 h-6 bg-[#012c66] rounded-full flex items-center justify-center flex-shrink-0 mt-1 group-hover:scale-125 transition-all duration-300">
+                    
                       <svg
                         className="w-4 h-4 text-white"
                         fill="none"

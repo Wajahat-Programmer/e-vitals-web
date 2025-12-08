@@ -112,7 +112,7 @@ const PulmonologyPage = () => {
       </section>
 
       {/* WHO WE SERVE Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-300">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-[#012c66] mb-12 text-center">
             WHO WE SERVE

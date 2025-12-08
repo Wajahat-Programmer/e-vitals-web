@@ -37,11 +37,16 @@ const Hero: React.FC = () => {
   }, [text, isDeleting, index]);
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden py-8 lg:py-0">
+    // <section className="relative min-h-screen flex items-center overflow-hidden py-8 lg:py-0">
+    <section className="relative min-h-[80vh] sm:min-h-screen flex items-center overflow-hidden py-6 sm:py-8 lg:py-0">
       {/* Background image */}
-      <div className="absolute inset-0 z-0">
+      {/* <div className="absolute inset-0 z-0">
         <div className="bg-white" />
+      </div> */}
+      <div className="absolute inset-0 z-0 w-full h-full">
+        <div className="bg-white w-full h-full" />
       </div>
+
 
       {/* Content */}
       <div className="relative z-10 w-full">
