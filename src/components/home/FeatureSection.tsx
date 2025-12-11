@@ -5,6 +5,7 @@ import Link from "next/link";
 // Icons from Heroicons and Lucide
 import { CheckIcon } from '@heroicons/react/24/outline';
 import { ChevronsRight } from 'lucide-react';
+import { button } from 'framer-motion/client';
 
 // ====================================================================
 // 1. SampleMonthlyWorkflowAnimation Component (The Static Checklist with GIF Overlay)
@@ -468,7 +469,7 @@ const FeatureSection = () => {
                             </div>
                             </div>
 
-                            <Link
+                            {/* <Link
                             href="/rpm/Reimbursement-and-Billing"
                             className="group bg-[#012c66] text-white text-sm xs:text-base sm:text-lg px-4 xs:px-6 sm:px-7 md:px-8 py-3 xs:py-3.5 sm:py-4 rounded-lg font-semibold hover:bg-[#02224d] transition-colors w-full xs:w-auto inline-flex items-center justify-center gap-2 xs:gap-2.5 sm:gap-3 whitespace-nowrap mt-auto"
                             
@@ -479,148 +480,175 @@ const FeatureSection = () => {
                                 // className="transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0"
                                 className="transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0 w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6"
                             />
+                            </Link> */}
+                            <Link
+                            href="/rpm/Reimbursement-and-Billing"
+                            className="group bg-[#012c66] text-white text-lg px-8 py-4 rounded-lg font-semibold hover:bg-[#02224d] transition-colors w-full sm:w-auto inline-flex items-center justify-center gap-2 whitespace-nowrap mt-auto"
+                            aria-describedby="reimbursement-calc-desc"
+                            >
+                            Check out the Reimbursement calculator
+                            <ChevronsRight
+                                size={20}
+                                className="transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0"
+                            />
                             </Link>
+
+                            <span id="reimbursement-calc-desc" className="sr-only">
+                            Explore a tool that helps estimate reimbursement amounts for RPM services.
+                            </span>
                         </div>
 
                         {/* Right Side - Request a demo form */}
-                        <div className="bg-white border-2 border-grey-300 rounded-4xl p-8">
+                        {/* Right Side - Request a demo form */}
+                    <div className="bg-white border-2 border-gray-800 rounded-4xl p-8">
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
                             Request a demo
                         </h2>
 
                         <form className="space-y-6">
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div>
-                                <label htmlFor="firstName" className="block text-sm font-semibold text-gray-900 mb-2">
-                                First Name
-                                </label>
-                                <input
-                                id="firstName"
-                                type="text"
-                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="lastName" className="block text-sm font-semibold text-gray-900 mb-2">
-                                Last Name
-                                </label>
-                                <input
-                                id="lastName"
-                                type="text"
-                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                />
-                            </div>
-                            </div>
-
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div>
-                                <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
-                                Email
-                                </label>
-                                <input
-                                id="email"
-                                type="email"
-                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="phone" className="block text-sm font-semibold text-gray-900 mb-2">
-                                Phone
-                                </label>
-                                <input
-                                id="phone"
-                                type="tel"
-                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                />
-                            </div>
+                                <div>
+                                    <label htmlFor="firstName" className="block text-sm font-semibold text-gray-900 mb-2">
+                                        First Name
+                                    </label>
+                                    <input
+                                        id="firstName"
+                                        type="text"
+                                        className="w-full px-4 py-3 border-2 border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 text-gray-900 placeholder:text-gray-600"
+                                        placeholder="Enter your first name"
+                                        required
+                                    />
+                                </div>
+                                <div>
+                                    <label htmlFor="lastName" className="block text-sm font-semibold text-gray-900 mb-2">
+                                        Last Name
+                                    </label>
+                                    <input
+                                        id="lastName"
+                                        type="text"
+                                        className="w-full px-4 py-3 border-2 border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 text-gray-900 placeholder:text-gray-600"
+                                        placeholder="Enter your last name"
+                                        required
+                                    />
+                                </div>
                             </div>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div>
-                                <label htmlFor="practiceName" className="block text-sm font-semibold text-gray-900 mb-2">
-                                Practice name
-                                </label>
-                                <input
-                                id="practiceName"
-                                type="text"
-                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="website" className="block text-sm font-semibold text-gray-900 mb-2">
-                                Website
-                                </label>
-                                <input
-                                id="website"
-                                type="url"
-                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                />
-                            </div>
+                                <div>
+                                    <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
+                                        Email
+                                    </label>
+                                    <input
+                                        id="email"
+                                        type="email"
+                                        className="w-full px-4 py-3 border-2 border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 text-gray-900 placeholder:text-gray-600"
+                                        placeholder="Enter your email"
+                                        required
+                                    />
+                                </div>
+                                <div>
+                                    <label htmlFor="phone" className="block text-sm font-semibold text-gray-900 mb-2">
+                                        Phone
+                                    </label>
+                                    <input
+                                        id="phone"
+                                        type="tel"
+                                        className="w-full px-4 py-3 border-2 border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 text-gray-900 placeholder:text-gray-600"
+                                        placeholder="Enter your phone number"
+                                        required
+                                    />
+                                </div>
                             </div>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div>
-                                <label htmlFor="specialty" className="block text-sm font-semibold text-gray-900 mb-2">
-                                Specialty
-                                </label>
-                                <input
-                                id="specialty"
-                                type="text"
-                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                />
+                                <div>
+                                    <label htmlFor="practiceName" className="block text-sm font-semibold text-gray-900 mb-2">
+                                        Practice name
+                                    </label>
+                                    <input
+                                        id="practiceName"
+                                        type="text"
+                                        className="w-full px-4 py-3 border-2 border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 text-gray-900 placeholder:text-gray-600"
+                                        placeholder="Enter practice name"
+                                    />
+                                </div>
+                                <div>
+                                    <label htmlFor="website" className="block text-sm font-semibold text-gray-900 mb-2">
+                                        Website
+                                    </label>
+                                    <input
+                                        id="website"
+                                        type="url"
+                                        className="w-full px-4 py-3 border-2 border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 text-gray-900 placeholder:text-gray-600"
+                                        placeholder="https://example.com"
+                                    />
+                                </div>
                             </div>
-                            <div>
-                                <label htmlFor="providers" className="block text-sm font-semibold text-gray-900 mb-2">
-                                Number of providers
-                                </label>
-                                <input
-                                id="providers"
-                                type="text"
-                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                />
-                            </div>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label htmlFor="specialty" className="block text-sm font-semibold text-gray-900 mb-2">
+                                        Specialty
+                                    </label>
+                                    <input
+                                        id="specialty"
+                                        type="text"
+                                        className="w-full px-4 py-3 border-2 border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 text-gray-900 placeholder:text-gray-600"
+                                        placeholder="Enter your specialty"
+                                    />
+                                </div>
+                                <div>
+                                    <label htmlFor="providers" className="block text-sm font-semibold text-gray-900 mb-2">
+                                        Number of providers
+                                    </label>
+                                    <input
+                                        id="providers"
+                                        type="number"
+                                        className="w-full px-4 py-3 border-2 border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 text-gray-900 placeholder:text-gray-600"
+                                        placeholder="0"
+                                        min="0"
+                                    />
+                                </div>
                             </div>
 
                             <div>
-                            <label htmlFor="message" className="block text-sm font-semibold text-gray-900 mb-2">
-                                Message
-                            </label>
-                            <textarea
-                                id="message"
-                                rows={4}
-                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            ></textarea>
+                                <label htmlFor="message" className="block text-sm font-semibold text-gray-900 mb-2">
+                                    Message
+                                </label>
+                                <textarea
+                                    id="message"
+                                    rows={4}
+                                    className="w-full px-4 py-3 border-2 border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 text-gray-900 placeholder:text-gray-600"
+                                    placeholder="Enter your message"
+                                ></textarea>
                             </div>
 
                             <p className="text-xs text-gray-800">
-                            By submitting, you agree to be contacted about eVitals. You can opt out at any time.
+                                By submitting, you agree to be contacted about eVitals. You can opt out at any time.
                             </p>
 
-                            {/* <div className="flex gap-4 justify-center"> */}
                             <div className="flex gap-2 sm:gap-4 justify-center flex-wrap sm:flex-nowrap">
-                            <button
-                                type="submit"
-                                // className="bg-[#012c66] text-white px-16 py-4 rounded-lg font-semibold hover:bg-[#02224d] transition-colors text-lg"
-                                className="bg-[#012c66] text-white px-6 py-3 sm:px-8 md:px-12 lg:px-16 rounded-lg font-semibold hover:bg-[#02224d] transition-colors text-sm sm:text-base lg:text-lg w-full sm:w-auto min-w-[140px]"
-                            >
-                                Submit
-                            </button>
-                            <button
-                                type="button"
-                                // className="bg-[#012c66] text-white px-16 py-4 rounded-lg font-semibold hover:bg-[#02224d] transition-colors text-lg"
-                                className="bg-[#012c66] text-white px-6 py-3 sm:px-8 md:px-12 lg:px-16 rounded-lg font-semibold hover:bg-[#02224d] transition-colors text-sm sm:text-base lg:text-lg w-full sm:w-auto min-w-[140px]"
-
-                                
-                            >
-                                Clear
-                            </button>
+                                <button
+                                    type="submit"
+                                    className="bg-[#012c66] text-white px-6 py-3 sm:px-8 md:px-12 lg:px-16 rounded-lg font-semibold hover:bg-[#02224d] focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 transition-colors text-sm sm:text-base lg:text-lg w-full sm:w-auto min-w-[140px]"
+                                >
+                                    Submit
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        document.querySelector("form")?.reset();
+                                    }}
+                                    className="bg-[#012c66] text-white px-6 py-3 sm:px-8 md:px-12 lg:px-16 rounded-lg font-semibold hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 transition-colors text-sm sm:text-base lg:text-lg w-full sm:w-auto min-w-[140px]"
+                                >
+                                    Clear
+                                </button>
                             </div>
                         </form>
-                        </div>
+                    </div>
                     </div>
                     {/* What Clinicians say */}
-            {/* What Clinicians say */}
-                <div className="py-16 px-4 bg-white">
+                    <div className="py-16 px-4 bg-white">
                     <div className="container mx-auto max-w-7xl">
                         {/* Title */}
                         <div className="mb-10">
@@ -637,30 +665,30 @@ const FeatureSection = () => {
                                     details: "Practice Manager • Cardiology Group, TX",
                                     color: "bg-[#cdcdcd]/70",
                                     shadow: "shadow-2xl",
+                                    textColor: "text-gray-700", // Add text color property
                                 },
                                 {
                                     quote: "“eVitals handled RPM end-to-end. Our staff finally had breathing room.”",
                                     details: "Practice Manager • Cardiology Group, TX",
                                     color: "bg-[#b79cb8]/63",
                                     shadow: "shadow-2xl shadow-purple-300/50",
+                                    textColor: "text-gray-800", // Darker text for better contrast on purple
                                 },
                                 {
                                     quote: "“eVitals handled RPM end-to-end. Our staff finally had breathing room.”",
                                     details: "Practice Manager • Cardiology Group, TX",
                                     color: "bg-[#cdcdcd]/70",
                                     shadow: "shadow-2xl",
+                                    textColor: "text-gray-700", // Add text color property
                                 },
                             ].map((item, index) => (
                                 <div
                                     key={index}
-                                    // Styling for the rounded rectangle with shadow (rounded-4xl is a custom/large radius)
                                     className={`${item.color} ${item.shadow} rounded-[2rem] p-8 transition-all duration-300 flex flex-col justify-between`}
                                     style={{
-                                        // Custom shadow/border to mimic the soft, raised look in the image
                                         boxShadow: `0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)`,
-                                        // Add a border for the subtle white edge
                                         border: '1px solid rgba(255, 255, 255, 0.5)',
-                                        minHeight: '200px', // Ensure cards are tall enough
+                                        minHeight: '200px',
                                     }}
                                 >
                                     {/* Quote Text */}
@@ -668,8 +696,8 @@ const FeatureSection = () => {
                                         {item.quote}
                                     </p>
                                     
-                                    {/* Clinician Details */}
-                                    <p className="text-sm text-gray-600 font-semibold mt-auto">
+                                    {/* Clinician Details - Updated with dynamic text color */}
+                                    <p className={`text-sm font-semibold mt-auto ${item.textColor}`}>
                                         {item.details}
                                     </p>
                                 </div>
@@ -677,7 +705,7 @@ const FeatureSection = () => {
                         </div>
                     </div>
                 </div>
-
+            
             {/* Ready to launch RPM the easy way */}
            <div className="w-full" style={{ backgroundColor: "#001f4c" }}>
             <div className="py-12 px-4 sm:px-6 lg:px-8">
@@ -699,14 +727,19 @@ const FeatureSection = () => {
                     </button> */}
                     
                     <Link
-                    href="/demo"
-                    className="bg-[#008191] hover:bg-[#00acc1] text-white text-sm font-bold text-[16px] px-4 py-2 rounded transition"
-                    >
-                    Request a Demo
-                    </Link>
-                </div>
-            </div>
-        </div>
+                        href="/demo"
+                        className="bg-[#008191] hover:bg-[#00acc1] text-white text-sm font-bold text-[16px] px-4 py-2 rounded transition"
+                        aria-describedby="demo-link-desc"
+                        >
+                        Request a Demo
+                        </Link>
+
+                        <span id="demo-link-desc" className="sr-only">
+                        Submit a request to schedule a live product demonstration.
+                        </span>
+                            </div>
+                        </div>
+                    </div>
 
 
                 </div>

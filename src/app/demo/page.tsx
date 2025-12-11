@@ -27,7 +27,7 @@ const BookSlotPage = () => {
   return (
     <main className="min-h-screen bg-white px-6 py-16 text-black">
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-4xl font-bold text-center mb-10 text-[#2E003E]">
+        <h1 className="text-4xl font-bold text-center mb-10 text-[#012c66]">
           Book Your Slot
         </h1>
 
@@ -39,7 +39,7 @@ const BookSlotPage = () => {
           <div>
             <label
               htmlFor="date"
-              className="block font-medium mb-2 text-[#2E003E]"
+              className="block font-medium mb-2 text-[#012c66]"
             >
               Select Date
             </label>
@@ -57,7 +57,7 @@ const BookSlotPage = () => {
           <div>
             <label
               htmlFor="time"
-              className="block font-medium mb-2 text-[#2E003E]"
+              className="block font-medium mb-2 text-[#012c66]"
             >
               Select Time
             </label>

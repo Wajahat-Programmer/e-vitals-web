@@ -36,32 +36,41 @@ const FooterSection = () => {
                 {
                   icon: <FaFacebookF className="w-5 h-5" />,
                   color: "text-blue-600",
-                  label: "Visit our Facebook page"
+                  label: "Visit our Facebook page",
+                  desc: "Follow us on Facebook for updates and news"
                 },
                 {
                   icon: <FaTwitter className="w-5 h-5" />,
                   color: "text-sky-600",
-                  label: "Visit our Twitter profile"
+                  label: "Visit our Twitter profile",
+                  desc: "Follow us on Twitter for latest tweets and announcements"
                 },
                 {
                   icon: <FaLinkedinIn className="w-5 h-5" />,
                   color: "text-blue-700",
-                  label: "Visit our LinkedIn page"
+                  label: "Visit our LinkedIn page",
+                  desc: "Connect with us on LinkedIn for professional updates"
                 },
                 {
                   icon: <FaInstagram className="w-5 h-5" />,
                   color: "text-pink-600",
-                  label: "Visit our Instagram profile"
+                  label: "Visit our Instagram profile",
+                  desc: "Follow us on Instagram for photos and stories"
                 },
               ].map((social, index) => (
-                <a
-                  key={index}
-                  href="#"
-                  aria-label={social.label}
-                  className={`${social.color} hover:text-white p-2 rounded-full bg-slate-200 hover:bg-slate-300 transition-colors`}
-                >
-                  {social.icon}
-                </a>
+                <React.Fragment key={index}>
+                  <a
+                    href="#"
+                    aria-label={social.label}
+                    aria-describedby={`social-desc-${index}`}
+                    className={`${social.color} hover:text-white p-2 rounded-full bg-slate-200 hover:bg-slate-300 transition-colors`}
+                  >
+                    {social.icon}
+                  </a>
+                  <span id={`social-desc-${index}`} className="sr-only">
+                    {social.desc}
+                  </span>
+                </React.Fragment>
               ))}
             </div>
           </div>
@@ -73,27 +82,26 @@ const FooterSection = () => {
             </h3>
             <ul className="space-y-3">
               {[
-                "Solutions",
-                "How it works", 
-                "Programs"
-              ].map((link) => {
-                let href = "#";
-
-                if (link === "Solutions") href = "/solutions";
-                else if (link === "How it works") href = "/how-it-works";
-                else if (link === "Programs") href = "/programs";
-
-                return (
-                  <li key={link}>
-                    <Link
-                      href={href}
-                      className="text-slate-600 hover:text-slate-900 hover:underline transition-colors"
-                    >
-                      {link}
-                    </Link>
-                  </li>
-                );
-              })}
+                { label: "Solutions", href: "/solutions", desc: "Explore the solutions we offer for various needs" },
+                { label: "How it works", href: "/how-it-works", desc: "Learn how our platform operates and delivers results" },
+                { label: "Programs", href: "/programs", desc: "View the different programs and services we provide" },
+              ].map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-slate-600 underline hover:text-slate-900 transition-colors"
+                    aria-describedby={`desc-${link.label.replace(/\s+/g, "-").toLowerCase()}`}
+                  >
+                    {link.label}
+                  </Link>
+                  <span
+                    id={`desc-${link.label.replace(/\s+/g, "-").toLowerCase()}`}
+                    className="sr-only"
+                  >
+                    {link.desc}
+                  </span>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -104,23 +112,28 @@ const FooterSection = () => {
             </h3>
             <ul className="space-y-3">
               {[
-                "Reimbursement"
-              ].map((link) => {
-                let href = "#";
-
-                if (link === "Reimbursement") href = "/rpm/Reimbursement-and-Billing";
-
-                return (
-                  <li key={link}>
-                    <Link
-                      href={href}
-                      className="text-slate-600 hover:text-slate-900 transition-colors hover:underline"
-                    >
-                      {link}
-                    </Link>
-                  </li>
-                );
-              })}
+                {
+                  label: "Reimbursement",
+                  href: "/rpm/Reimbursement-and-Billing",
+                  desc: "Access the Reimbursement and Billing tool to calculate estimated reimbursement amounts"
+                },
+              ].map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-slate-600 underline hover:text-slate-900 transition-colors"
+                    aria-describedby={`desc-${link.label.replace(/\s+/g, "-").toLowerCase()}`}
+                  >
+                    {link.label}
+                  </Link>
+                  <span
+                    id={`desc-${link.label.replace(/\s+/g, "-").toLowerCase()}`}
+                    className="sr-only"
+                  >
+                    {link.desc}
+                  </span>
+                </li>
+              ))}
             </ul>
           </div>
           {/* Contact Section */}
@@ -131,10 +144,14 @@ const FooterSection = () => {
             <div className="space-y-3">
               <a 
                 href="mailto:info@evitalsrpm.com" 
-                className="text-slate-600 hover:text-slate-900 transition-colors hover:underline block"
+                className="text-slate-600 underline hover:text-slate-900 transition-colors"
+                aria-describedby="email-desc"
               >
                 info@evitalsrpm.com
               </a>
+              <span id="email-desc" className="sr-only">
+                Send an email to eVitals RPM support for inquiries or assistance.
+              </span>
             </div>
           </div>
         </div>
@@ -148,12 +165,27 @@ const FooterSection = () => {
             © {new Date().getFullYear()} eVitals. All rights reserved.
           </p>
           <div className="flex space-x-6">
-            <Link href="/privacy-policy" className="text-slate-500 hover:text-slate-700 text-sm transition-colors">
+            <Link
+              href="/privacy-policy"
+              className="text-slate-500 hover:text-slate-700 text-sm transition-colors"
+              aria-describedby="privacy-desc"
+            >
               Privacy Policy
             </Link>
-            <Link href="/terms-of-service" className="text-slate-500 hover:text-slate-700 text-sm transition-colors">
+            <span id="privacy-desc" className="sr-only">
+              Read our Privacy Policy to understand how we collect and handle your information.
+            </span>
+
+            <Link
+              href="/terms-of-service"
+              className="text-slate-500 hover:text-slate-700 text-sm transition-colors"
+              aria-describedby="tos-desc"
+            >
               Terms of Service
             </Link>
+            <span id="tos-desc" className="sr-only">
+              View our Terms of Service for rules and guidelines when using our platform.
+            </span>
           </div>
         </div>
       </div>

@@ -33,13 +33,23 @@ const Header: React.FC = () => {
           {/* Left Section - Stars + Text */}
           <div className="flex items-center">
             {/* Stars Image */}
-            <Image
+            {/* <Image
               src="/assets/stars.png"
               alt="Stars"
               width={55}
               height={55}
               className="object-contain mr-4"
+            /> */}
+            <img
+              src="/assets/stars.png"
+              alt="Stars"
+              role="img"
+              width={55}
+              height={55}
+              className="object-contain mr-4"
             />
+
+
 
             {/* Text */}
             <p className="text-white text-lg">
@@ -52,6 +62,7 @@ const Header: React.FC = () => {
             <Image
               src="/assets/hipa-logo.png"
               alt="HIPAA Logo"
+              role="img"
               width={160}
               height={60}
               className="object-contain ml-4"
@@ -66,7 +77,11 @@ const Header: React.FC = () => {
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           {/* Logo Section */}
           <div className="flex items-center">
-            <Link href="/">
+            <Link
+              href="/"
+              aria-label="Go to homepage"
+              aria-describedby="home-logo-desc"
+            >
               <Image
                 src="/assets/logo.png"
                 alt="eVitals Logo"
@@ -74,6 +89,10 @@ const Header: React.FC = () => {
                 height={40}
               />
             </Link>
+
+            <span id="home-logo-desc" className="sr-only">
+              Click to return to the main dashboard and homepage.
+            </span>
           </div>
 
           {/* Navigation */}
@@ -269,9 +288,14 @@ const Header: React.FC = () => {
             <Link
               href="/support/resources"
               className="text-sm font-medium text-gray-700 hover:text-[#003d82] py-2"
+              aria-describedby="resources-desc"
             >
               Resources
             </Link>
+
+            <span id="resources-desc" className="sr-only">
+              View user guides, manuals, and support documents.
+            </span>
 
             {/* FAQ */}
             {/* <Link
@@ -287,15 +311,25 @@ const Header: React.FC = () => {
             <Link
               href="/contact"
               className="text-sm font-medium text-gray-700 hover:text-[#003d82]"
+              aria-describedby="login-link-desc"
             >
               Login
             </Link>
+
+            <span id="login-link-desc" className="sr-only">
+              Access your account using your registered email and password.
+            </span>
             <Link
               href="/demo"
               className="bg-[#008191] hover:bg-[#00acc1] text-white text-sm font-bold text-[16px] px-4 py-2 rounded transition"
+              aria-describedby="demo-link-desc"
             >
               Request a Demo
             </Link>
+
+            <span id="demo-link-desc" className="sr-only">
+              Submit a request to schedule a live product demonstration.
+            </span>
           </div>
         </div>
       </header>

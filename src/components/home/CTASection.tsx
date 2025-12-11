@@ -86,7 +86,7 @@ const CTASection = () => {
             </div>
 
             {/* CTA Button */}
-            <Link
+            {/* <Link
               href="/demo"
               className="group bg-[#158185] hover:bg-[#5ce1e6] text-white text-base font-semibold px-6 py-3 rounded-md shadow-md transition-all duration-300 inline-flex items-center gap-2"
             >
@@ -95,7 +95,18 @@ const CTASection = () => {
                 size={18}
                 className="transition-transform duration-300 group-hover:translate-x-1"
               />
-            </Link>
+            </Link> */}
+            <Link
+                        href="/demo"
+                        className="bg-[#008191] hover:bg-[#00acc1] text-white text-sm font-bold text-[16px] px-4 py-2 rounded transition"
+                        aria-describedby="demo-link-desc"
+                        >
+                        Request a Demo
+                        </Link>
+
+                        <span id="demo-link-desc" className="sr-only">
+                        Submit a request to schedule a live product demonstration.
+                        </span>
           </div>
 
           {/* Right Image */}
